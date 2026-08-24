@@ -1,0 +1,26 @@
+{
+ "id": "H3",
+ "REGRA_ATUAL": "O alvo so entra na analise com espaco >= 3R. Sem `targets`, targetOf() devolve null, assessTradeRisk() sai RISK_UNKNOWN, e RISK_UNKNOWN nunca aprova — entao o gate de 3R decide se o trade EXISTE, nao so quanto ele vale.",
+ "PROBLEMA": "Medido em marco.mp4, trecho 568,4-645,2s, setup T4-2026-03-07-013: o preco cruzou o gatilho de 190.700 e chegou a 190.865 (165 pts alem). Sete leituras consecutivas ficaram em ARMED com headline 'TOQUE SEM CONFIRMACAO — AGUARDAR'. Zero confirmacoes. O reparo do motor diz o motivo: 'Alvo recusado: obstaculo a 0.7R — menos que os 3R de espaco tecnico. Setup segue em acompanhamento, sem alvo nao confirma.'",
+ "NOVA_REGRA": "Quando o espaco medido fica abaixo de 3R MAS existe obstaculo medido a favor, o OBSTACULO vira o alvo e o trade nasce marcado SUB_3R. O piso de 3R deixa de vetar a existencia do trade e passa a dimensionar. Sem obstaculo conhecido, H3 se comporta como o baseline — alvo sem obstaculo seria autoprofecia, e a regra original esta certa nesse ponto. Percepcao, obstaculo, stop, gestao, gatilho e a medicao de espaco ficam identicos ao baseline.",
+ "MOTIVO": "Empurrar o alvo de 3R adiante com espaco real de 0,7R produziria um R:R que a estrutura nao sustenta. Usar o obstaculo mantem o R:R real (0,7R) e e a familia 'proximo obstaculo' que o protocolo ja lista em familiasDeAlvo.",
+ "TRADES_AFETADOS": "Todos os candidatos com obstaculo MEDIDO e espacoReal < 3. No trecho medido: 16 registros de recusa, correspondentes a 3 setups distintos.",
+ "RISCO": "Abrir trades de R:R baixo em volume. Mitigacao: a flag subTresR sai no ledger e no reparo, e o dimensionamento a jusante decide — nunca se apresenta um sub-3R como se fosse 3R.",
+ "RESULTADO_ESPERADO": "Sete toques que morreram em ARMED passam a poder confirmar. Win rate provavelmente cai; a pergunta que o A/B responde e se o R liquido sobe.",
+ "status": "IMPLEMENTADA_COMO_EXPERIMENTO_DESLIGADO — aguardando motor de visao para o A/B",
+ "DESCOBERTA_EM": "2026-08-23",
+ "IMPLEMENTACAO": {
+  "onde": "src/server/video/pregao.ts — opcao experimento.confirmacaoSemAlvo (NUNCA padrao)",
+  "funcaoPura": "alvosParaAnalise (exportada em src/server/video/confirmacaoH3.ts)",
+  "testes": "src/server/video/__tests__/confirmacaoH3.test.ts — 11 casos, incl. o caso medido e a equivalencia com o baseline quando o espaco e suficiente",
+  "invariantes": "com espacoSuficiente=true a saida e identica ao baseline; sem obstaculo a saida e identica ao baseline; a flag desligada e identica ao baseline",
+  "TESTES_EXECUTADOS": false,
+  "aviso": "Os testes foram escritos mas NAO foram executados — o ambiente onde H3 foi implementada nao tinha shell. Rodar `npm test -- confirmacaoH3` e `npm run typecheck` antes de qualquer A/B."
+ },
+ "BLOQUEIO_IRMAO_NAO_RESOLVIDO_POR_H3": {
+  "id": "H5-candidata",
+  "achado": "context.exigirCandleFechado tem default `true` e pregao.ts o forca a `true` em todo frame TRACK. O doc de AdvanceContext em setupTracker.ts ja registra a medicao: 'no video o OHLC do candle nao e legivel na resolucao da gravacao — a tecnica ficava sem confirmar por falta de PROVA, nao de setup (medido: 8 toques a 6-53 pontos do gatilho, nenhuma confirmacao, 40 descartes de máxima nao legivel)'.",
+  "consequencia": "Existem DOIS bloqueios independentes da confirmacao. H3 resolve o do alvo. O do candle fechado ja tem escape hatch construido (exigirCandleFechado: false, documentado como 'entra na leitura de VIDEO por decisao explicita do operador') e a corrida de marco NAO o ativou.",
+  "acao": "Rodar o A/B de H3 com exigirCandleFechado: false, senao o resultado mede os dois bloqueios juntos e nao separa qual deles importa."
+ }
+}

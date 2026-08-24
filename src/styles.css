@@ -1,0 +1,315 @@
+@import "tailwindcss" source(none);
+@source "../src";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+/*
+ * Design system definition.
+ *
+ * The @theme inline block maps CSS custom properties to Tailwind utility
+ * classes (e.g. --color-primary -> bg-primary, text-primary).
+ *
+ * The :root and .dark blocks define the actual color values using oklch.
+ * All colors MUST use oklch format.
+ *
+ * To add a new semantic color:
+ * 1. Add the variable to :root (light value) and .dark (dark value)
+ * 2. Register it in @theme inline as --color-<name>: var(--<name>)
+ */
+
+@theme inline {
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --radius-2xl: calc(var(--radius) + 8px);
+  --radius-3xl: calc(var(--radius) + 12px);
+  --radius-4xl: calc(var(--radius) + 16px);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-ring-offset-background: var(--background);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+  --color-bull: var(--bull);
+  --color-bear: var(--bear);
+  --color-warn: var(--warn);
+  --color-institutional: var(--institutional);
+  --color-neutral: var(--neutral);
+  --color-panel: var(--panel);
+  --color-preparo: var(--preparo);
+  --font-display: "Chakra Petch", ui-sans-serif, system-ui, sans-serif;
+  --font-sans: "Inter Tight", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, monospace;
+}
+
+:root {
+  /* NEXUS TRADING INTELLIGENCE — dark profundo azulado, acentos neon.
+     Fundo #0A0E14 · superfície #12161F · elevado #1A1F2B · cyan #00D9FF
+     bull #00FF88 · bear #FF3B69 · warn #FFB800 · institucional #A78BFA */
+  --radius: 0.625rem;
+  --background: oklch(0.155 0.016 255);
+  --foreground: oklch(0.93 0.005 250);
+  --card: oklch(0.195 0.017 255);
+  --card-foreground: oklch(0.93 0.005 250);
+  --popover: oklch(0.225 0.018 255);
+  --popover-foreground: oklch(0.93 0.005 250);
+  --primary: oklch(0.82 0.138 210);
+  --primary-foreground: oklch(0.14 0.016 255);
+  --secondary: oklch(0.245 0.018 255);
+  --secondary-foreground: oklch(0.93 0.005 250);
+  --muted: oklch(0.235 0.017 255);
+  --muted-foreground: oklch(0.665 0.014 252);
+  --accent: oklch(0.26 0.022 252);
+  --accent-foreground: oklch(0.95 0.005 250);
+  --destructive: oklch(0.645 0.215 15);
+  --destructive-foreground: oklch(0.97 0.005 250);
+  --border: oklch(1 0 0 / 7%);
+  --input: oklch(1 0 0 / 9%);
+  --ring: oklch(0.82 0.138 210);
+  --bull: oklch(0.875 0.21 155);
+  --bear: oklch(0.645 0.215 15);
+  --warn: oklch(0.83 0.155 85);
+  --institutional: oklch(0.745 0.115 295);
+  --neutral: oklch(0.665 0.014 252);
+  --panel: oklch(0.178 0.016 255);
+  --preparo: oklch(0.77 0.15 60);
+  --chart-1: oklch(0.875 0.21 155);
+  --chart-2: oklch(0.645 0.215 15);
+  --chart-3: oklch(0.82 0.138 210);
+  --chart-4: oklch(0.745 0.115 295);
+  --chart-5: oklch(0.83 0.155 85);
+  --sidebar: oklch(0.168 0.016 255);
+  --sidebar-foreground: oklch(0.88 0.008 250);
+  --sidebar-primary: oklch(0.82 0.138 210);
+  --sidebar-primary-foreground: oklch(0.14 0.016 255);
+  --sidebar-accent: oklch(0.235 0.02 253);
+  --sidebar-accent-foreground: oklch(0.96 0.005 250);
+  --sidebar-border: oklch(1 0 0 / 7%);
+  --sidebar-ring: oklch(0.82 0.138 210);
+}
+
+.dark {
+  color-scheme: dark;
+}
+
+@layer base {
+  * {
+    border-color: var(--color-border);
+  }
+
+  body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+  }
+}
+
+@utility panel-grid {
+  background-image:
+    linear-gradient(to right, oklch(1 0 0 / 4%) 1px, transparent 1px),
+    linear-gradient(to bottom, oklch(1 0 0 / 4%) 1px, transparent 1px);
+  background-size: 28px 28px;
+}
+
+@utility glow-alert {
+  box-shadow:
+    0 0 0 1px var(--color-bull),
+    0 0 34px -6px var(--color-bull);
+}
+
+@keyframes pulse-alert {
+  0%,
+  100% {
+    box-shadow:
+      0 0 0 1px var(--color-bull),
+      0 0 30px -10px var(--color-bull);
+  }
+  50% {
+    box-shadow:
+      0 0 0 1px var(--color-bull),
+      0 0 46px 0px var(--color-bull);
+  }
+}
+
+@utility alert-pulse {
+  animation: pulse-alert 1.8s ease-in-out infinite;
+}
+
+/* ============================ NEXUS LAYER ============================ */
+
+@utility nexus-card {
+  border: 1px solid var(--color-border);
+  background: linear-gradient(180deg, oklch(1 0 0 / 2.5%) 0%, transparent 42%), var(--color-panel);
+  border-radius: var(--radius-lg);
+  transition:
+    border-color 180ms ease,
+    box-shadow 220ms ease,
+    transform 180ms ease;
+}
+
+@utility nexus-card-hover {
+  &:hover {
+    border-color: oklch(0.82 0.138 210 / 35%);
+    box-shadow:
+      0 0 0 1px oklch(0.82 0.138 210 / 18%),
+      0 10px 30px -18px oklch(0.82 0.138 210 / 35%);
+  }
+}
+
+@utility nexus-glow-cyan {
+  box-shadow:
+    0 0 0 1px oklch(0.82 0.138 210 / 45%),
+    0 0 28px -6px oklch(0.82 0.138 210 / 55%);
+}
+@utility nexus-glow-bull {
+  box-shadow:
+    0 0 0 1px oklch(0.875 0.21 155 / 45%),
+    0 0 30px -6px oklch(0.875 0.21 155 / 55%);
+}
+@utility nexus-glow-bear {
+  box-shadow:
+    0 0 0 1px oklch(0.645 0.215 15 / 50%),
+    0 0 30px -6px oklch(0.645 0.215 15 / 55%);
+}
+@utility nexus-glow-warn {
+  box-shadow:
+    0 0 0 1px oklch(0.83 0.155 85 / 45%),
+    0 0 26px -8px oklch(0.83 0.155 85 / 50%);
+}
+
+/* Eyebrow padrão de seção: rótulo pequeno, espaçado, técnico. */
+@utility nexus-eyebrow {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--color-muted-foreground);
+}
+
+/* Números operacionais: monoespaçado, dígitos tabulares — nada dança. */
+@utility nexus-value {
+  font-family: var(--font-mono);
+  font-variant-numeric: tabular-nums;
+  letter-spacing: 0.01em;
+}
+
+@keyframes nexus-pulse {
+  0%,
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.55;
+    transform: scale(0.82);
+  }
+}
+@utility nexus-live-dot {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  border-radius: 9999px;
+  animation: nexus-pulse 1.6s ease-in-out infinite;
+}
+
+@keyframes nexus-slide-up {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@utility nexus-enter {
+  animation: nexus-slide-up 260ms ease-out both;
+}
+
+@keyframes nexus-shimmer {
+  from {
+    background-position: -200% 0;
+  }
+  to {
+    background-position: 200% 0;
+  }
+}
+@utility nexus-skeleton {
+  background: linear-gradient(
+    90deg,
+    oklch(1 0 0 / 3%) 25%,
+    oklch(1 0 0 / 7%) 50%,
+    oklch(1 0 0 / 3%) 75%
+  );
+  background-size: 200% 100%;
+  animation: nexus-shimmer 1.4s linear infinite;
+  border-radius: var(--radius-sm);
+}
+
+/* Scrollbar fina e discreta. */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: oklch(1 0 0 / 14%) transparent;
+}
+*::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+*::-webkit-scrollbar-thumb {
+  background: oklch(1 0 0 / 14%);
+  border-radius: 8px;
+}
+*::-webkit-scrollbar-thumb:hover {
+  background: oklch(0.82 0.138 210 / 40%);
+}
+*::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::selection {
+  background: oklch(0.82 0.138 210 / 30%);
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-ring);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

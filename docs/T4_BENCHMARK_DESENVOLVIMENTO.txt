@@ -1,0 +1,34 @@
+SUPREMO V3.5 — HIGH COVERAGE QUALITY
+STATUS: CANDIDATO DE DESENVOLVIMENTO
+
+RESULTADO GERAL
+- 84 dias operados
+- 48 gain / 35 loss
+- +11.252,3 pontos estimados
+- R$ 6.751,39 bruto com 3 WIN (0,60 por ponto)
+- PF 3,09
+- DD 3,00R
+- taxa de dias positivos: 57,8%
+
+MÊS A MÊS
+- Fevereiro: 10/11 | 7G/3L | +2.629,6 pts | PF 5,83 | DD 1,76R
+- Março: 17/22 | 11G/6L | +3.635,3 pts | PF 4,97 | DD 3R
+- Abril: 13/17 | 7G/5L | +320,6 pts | PF 1,92 | DD 2R
+- Maio: 14/16 | 6G/8L | +1.284,3 pts | PF 2,52 | DD 3R
+- Junho: 14/19 | 9G/5L | +1.438,9 pts | PF 2,51 | DD 2R
+- Julho: 15/22 | 8G/7L | +2.027,4 pts | PF 2,68 | DD 3R
+
+MÓDULOS
+- TREND_STABLE: 3 confirmações consecutivas, reversalRisk <= 10, janela 20–110.
+- RANGE_TRANS_FVG: RANGE/TRANSITION, FVG testado, reversalRisk <= 15, janela 40–120.
+- EXPANSION_STABLE: expansão estável, 2 confirmações, POI testado, reversalRisk <= 30, janela 12–70.
+- HSS_CAPTURE: HSS somente com captura válida, reversalRisk <= 25, janela 10–45.
+
+COMPARAÇÃO COM V3.4
+- V3.4: 89 dias | +8.232,7 pts | PF 2,71 | DD 5,23R
+- V3.5: 84 dias | +11.252,3 pts | PF 3,09 | DD 3R
+
+OBSERVAÇÃO
+- Fevereiro possui apenas 11 pregões reconstruídos na base atual.
+- Esta V3.5 foi refinada usando fevereiro-julho; não é validação OOS independente.
+- Pontos são estimados da reconstrução visual.

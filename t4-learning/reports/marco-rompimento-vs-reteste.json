@@ -1,0 +1,89 @@
+{
+ "video": "marco",
+ "geradoEm": "2026-08-23T21:34:12.510Z",
+ "natureza": "SIMULACAO EXPLORATORIA — serie amostrada sem OHLC, braço reteste = resultado gravado pelo motor. NENHUMA regra muda por este arquivo.",
+ "metodo": {
+  "rompimento": "entrada a mercado no primeiro preço lido a partir do sinal; stop estrutural gravado mantido; alvo único 3R sobre o risco NOVO; caminhada até stop/alvo/fim do pregão; stop tem precedência no mesmo frame",
+  "limites": [
+   "preço a ~10fps de vídeo, sem máximas/mínimas intrabar",
+   "24% dos frames sem preço — lacunas puladas",
+   "TTL de 40 candles do motor não se aplica ao braço a mercado (preenchimento é imediato)"
+  ]
+ },
+ "coorteA_confirmacoesOficiais": {
+  "casos": [
+   {
+    "dia": 1,
+    "data": "27/fev",
+    "reteste": {
+     "resultado": "NAO_EXECUTADA",
+     "r": null,
+     "mfePontos": 491
+    },
+    "rompimento": {
+     "resultado": "STOP",
+     "mfePontos": 708,
+     "precoEntrada": 199866,
+     "risco": 424,
+     "r": -1
+    }
+   },
+   {
+    "dia": 5,
+    "data": "05/mar",
+    "reteste": {
+     "resultado": "NAO_EXECUTADA",
+     "r": null,
+     "mfePontos": 234
+    },
+    "rompimento": {
+     "resultado": "STOP",
+     "mfePontos": 300,
+     "precoEntrada": 189970,
+     "risco": 305,
+     "r": -1
+    }
+   }
+  ],
+  "resumo": {
+   "sinais": 2,
+   "reteste": {
+    "executadas": 0,
+    "ganhos": 0,
+    "perdas": 0,
+    "naoExecutadas": 2
+   },
+   "rompimento": {
+    "preenchidas": 2,
+    "alvo3R": 0,
+    "stop": 2,
+    "fimDoDia": 0,
+    "semDado": 0,
+    "somaR": -2,
+    "expectanciaR": -1,
+    "taxaAlvo": "0%"
+   }
+  }
+ },
+ "coorteB_recusasComContrafactual": {
+  "resumo": {
+   "sinais": 159,
+   "reteste": {
+    "executadas": 3,
+    "ganhos": 3,
+    "perdas": 0,
+    "naoExecutadas": 156
+   },
+   "rompimento": {
+    "preenchidas": 159,
+    "alvo3R": 22,
+    "stop": 107,
+    "fimDoDia": 30,
+    "semDado": 0,
+    "somaR": -1.77,
+    "expectanciaR": -0.011,
+    "taxaAlvo": "17.1%"
+   }
+  }
+ }
+}

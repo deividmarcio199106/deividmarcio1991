@@ -1,0 +1,68 @@
+COMANDO COMPLETO — ANALISADOR VISUAL WYCKOFF V4 + OLLAMA + APRENDIZADO
+
+Trabalhe neste projeto como engenheiro de software sênior. Preserve tudo que já
+está funcional e entregue uma aplicação testada, auditável e pronta para Docker
+em produção. Não simule dados e não prometa percentual de acerto.
+
+1. FONTE DE MERCADO E INÍCIO AUTOMÁTICO
+- A única fonte ao vivo é uma janela real do Profit escolhida pelo usuário pelo
+  seletor nativo do navegador em HTTPS.
+- O usuário apenas confirma que o gráfico está em 1 minuto, clica em selecionar
+  e escolhe a janela. Não exigir que clique ou digite preços manualmente.
+- Após a escolha, capturar um frame, recortar a escala de preços e usar o modelo
+  visual qwen3-vl:8b-instruct no Ollama para OCR dos rótulos.
+- Exigir pelo menos dois preços reais, separados verticalmente, com preços
+  decrescendo do topo para a base. Validar linearidade, distância e confiança.
+- Se a escala estiver ilegível, bloquear a análise com mensagem clara. É
+  proibido inventar cotação ou usar preço normalizado/sintético.
+- Quando a calibração for validada, extrair os candles visíveis, excluir o candle
+  em formação e iniciar automaticamente a análise Wyckoff V4.
+
+2. MOTOR E QWEN
+- Manter o motor determinístico responsável por preço, candles, score, direção,
+  entrada, stop, alvos, risco e contratos.
+- Pesos do score: estrutura 25, captura de liquidez 25, POI/reteste 19, contexto
+  Wyckoff 19 e risco/retorno 12.
+- O qwen3:8b recebe somente a leitura estruturada depois do fechamento do candle,
+  explica evidências e bloqueios e nunca altera o score nem inventa preço.
+- Configuração esperada:
+  AI_PROVIDER=ollama
+  AI_BASE_URL=http://127.0.0.1:11434
+  AI_MODEL=qwen3:8b
+  AI_VISION_MODEL=qwen3-vl:8b-instruct
+  AI_API_KEY=not-required
+
+3. BACKTEST E MEMÓRIA DA IA
+- Aplicar a mesma calibração automática por Qwen-VL aos prints do backtest.
+- Congelar a análise do print inicial. O print posterior registra somente o
+  desfecho e nunca recalcula retroativamente o sinal.
+- Incluir chat com Qwen dentro da tela de Backtest.
+- Persistir os últimos diálogos e fornecer automaticamente ao Qwen todas as
+  estatísticas consolidadas: amostra, win rate, expectância em R, profit factor,
+  faixas de score, setups e contextos.
+- Mostrar ao usuário: backtests absorvidos, operações absorvidas, mensagens
+  lembradas, faixas confiáveis e índice transparente de cobertura da memória.
+- O índice de memória não é probabilidade de acerto nem retreinamento do modelo.
+- A IA deve distinguir observação, hipótese candidata e regra validada.
+- Nenhum peso ou regra pode ser alterado automaticamente. Toda proposta exige
+  amostra mínima, teste fora da amostra e aprovação humana.
+- Incluir botão “O que a IA absorveu até agora?” para a IA listar conhecimento,
+  lacunas de amostra e hipóteses ainda pendentes.
+
+4. PRODUÇÃO E SEGURANÇA
+- Aplicação somente de análise; nunca enviar, alterar ou cancelar ordens.
+- Servir por nginx HTTPS no domínio existente e manter o backend no loopback.
+- Docker deve usar network_mode: host, NITRO_HOST=127.0.0.1 e PORT=8081 para
+  alcançar com segurança o Ollama local em 127.0.0.1:11434.
+- Healthcheck deve validar a página e /api/health. /api/health/ai deve confirmar
+  os modelos textual e visual.
+- Nunca expor chave, URL interna, stack ou dados sensíveis ao navegador.
+
+5. CRITÉRIOS DE ACEITE
+- Rodar format:check, lint, typecheck, todos os testes e build de produção.
+- Testar página principal HTTP 200, health da aplicação e health dos dois modelos.
+- A análise ao vivo deve iniciar sem digitação manual de preços.
+- Se OCR, captura, Ollama ou escala falharem, mostrar erro e bloquear preço/sinal,
+  sem usar fallback sintético.
+- Entregar o projeto completo em ZIP, sem node_modules, .output, segredos ou
+  arquivos de outros aplicativos.

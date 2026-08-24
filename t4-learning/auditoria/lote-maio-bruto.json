@@ -1,0 +1,322 @@
+[
+  {
+    "eventoId": "VIDEO_MAIO_00:05_COMPRA",
+    "timestampVideo": "00:05",
+    "horaGrafico": null,
+    "contextoVisual": "Preço acima da nuvem de médias com inclinação positiva, realiza movimento descendente de 4 candles tocando a banda superior.",
+    "candidatoSetup": "Movimento descendente com contato nas médias em estrutura ascendente.",
+    "confirmacao": null,
+    "entrada": null,
+    "resultadoOperacao": "NAO_AVALIAVEL",
+    "movimentoPosterior": "FAVORAVEL_COMPRA",
+    "quantidadeCandlesPosterioresObservados": 10,
+    "evidencia": {
+      "timestampFrame": "00:05",
+      "precoComprovado": {
+        "valor": null,
+        "status": "ILEGIVEL",
+        "fonteVisual": "eixoPreco"
+      },
+      "horaComprovada": null,
+      "direcaoInferida": "COMPRA",
+      "confirmacaoComprovada": null,
+      "entradaComprovada": null,
+      "stopComprovado": null,
+      "alvoComprovado": null
+    },
+    "atributosPreEvento": {
+      "direcaoEstrutura": "ALTA",
+      "posicaoRelativaMedias": "ACIMA",
+      "inclinacaoMedias": "POSITIVA",
+      "numeroCandlesPullback": 4,
+      "tamanhoRelativoCorpos": "MEDIOS",
+      "pavioRejeicao": "PRESENTE_INFERIOR",
+      "rompeuTopoFundoAnterior": false,
+      "retesteVisual": true,
+      "gapVisivel": false,
+      "distanciaVisualMedias": "TOCANDO",
+      "sequenciaToposFundos": "ASCENDENTE",
+      "qualidadeEvidencia": "ALTA"
+    }
+  },
+  {
+    "eventoId": "VIDEO_MAIO_00:15_VENDA",
+    "timestampVideo": "00:15",
+    "horaGrafico": null,
+    "contextoVisual": "Abertura com distanciamento negativo em relação ao fechamento anterior, seguido de sequência de 5 candles altistas até a nuvem de médias.",
+    "candidatoSetup": "Movimento ascendente até as médias após gap de baixa.",
+    "confirmacao": null,
+    "entrada": null,
+    "resultadoOperacao": "NAO_AVALIAVEL",
+    "movimentoPosterior": "CONTRARIO_VENDA",
+    "quantidadeCandlesPosterioresObservados": 10,
+    "evidencia": {
+      "timestampFrame": "00:15",
+      "precoComprovado": {
+        "valor": null,
+        "status": "ILEGIVEL",
+        "fonteVisual": "eixoPreco"
+      },
+      "horaComprovada": null,
+      "direcaoInferida": "VENDA",
+      "confirmacaoComprovada": null,
+      "entradaComprovada": null,
+      "stopComprovado": null,
+      "alvoComprovado": null
+    },
+    "atributosPreEvento": {
+      "direcaoEstrutura": "BAIXA",
+      "posicaoRelativaMedias": "ABAIXO",
+      "inclinacaoMedias": "NEGATIVA",
+      "numeroCandlesPullback": 5,
+      "tamanhoRelativoCorpos": "GRANDES",
+      "pavioRejeicao": "NULO",
+      "rompeuTopoFundoAnterior": false,
+      "retesteVisual": false,
+      "gapVisivel": true,
+      "distanciaVisualMedias": "TOCANDO",
+      "sequenciaToposFundos": "DESCENDENTE",
+      "qualidadeEvidencia": "ALTA"
+    }
+  },
+  {
+    "eventoId": "VIDEO_MAIO_00:25_COMPRA",
+    "timestampVideo": "00:25",
+    "horaGrafico": null,
+    "contextoVisual": "Preço desloca-se de baixo para cima cruzando a nuvem, realiza 3 candles de recuo tocando a banda superior.",
+    "candidatoSetup": "Primeiro recuo até as médias após cruzamento ascendente.",
+    "confirmacao": null,
+    "entrada": null,
+    "resultadoOperacao": "NAO_AVALIAVEL",
+    "movimentoPosterior": "FAVORAVEL_COMPRA",
+    "quantidadeCandlesPosterioresObservados": 10,
+    "evidencia": {
+      "timestampFrame": "00:25",
+      "precoComprovado": {
+        "valor": null,
+        "status": "ILEGIVEL",
+        "fonteVisual": "eixoPreco"
+      },
+      "horaComprovada": null,
+      "direcaoInferida": "COMPRA",
+      "confirmacaoComprovada": null,
+      "entradaComprovada": null,
+      "stopComprovado": null,
+      "alvoComprovado": null
+    },
+    "atributosPreEvento": {
+      "direcaoEstrutura": "ALTA",
+      "posicaoRelativaMedias": "ACIMA",
+      "inclinacaoMedias": "POSITIVA",
+      "numeroCandlesPullback": 3,
+      "tamanhoRelativoCorpos": "PEQUENOS",
+      "pavioRejeicao": "NULO",
+      "rompeuTopoFundoAnterior": true,
+      "retesteVisual": true,
+      "gapVisivel": false,
+      "distanciaVisualMedias": "TOCANDO",
+      "sequenciaToposFundos": "ASCENDENTE",
+      "qualidadeEvidencia": "ALTA"
+    }
+  },
+  {
+    "eventoId": "VIDEO_MAIO_00:45_VENDA",
+    "timestampVideo": "00:45",
+    "horaGrafico": null,
+    "contextoVisual": "Abertura com distanciamento negativo, seguido de 4 candles com pavios superiores alcançando a nuvem de médias negativa.",
+    "candidatoSetup": "Movimento ascendente até as médias com pavios superiores.",
+    "confirmacao": null,
+    "entrada": null,
+    "resultadoOperacao": "NAO_AVALIAVEL",
+    "movimentoPosterior": "FAVORAVEL_VENDA",
+    "quantidadeCandlesPosterioresObservados": 10,
+    "evidencia": {
+      "timestampFrame": "00:45",
+      "precoComprovado": {
+        "valor": null,
+        "status": "ILEGIVEL",
+        "fonteVisual": "eixoPreco"
+      },
+      "horaComprovada": null,
+      "direcaoInferida": "VENDA",
+      "confirmacaoComprovada": null,
+      "entradaComprovada": null,
+      "stopComprovado": null,
+      "alvoComprovado": null
+    },
+    "atributosPreEvento": {
+      "direcaoEstrutura": "BAIXA",
+      "posicaoRelativaMedias": "ABAIXO",
+      "inclinacaoMedias": "NEGATIVA",
+      "numeroCandlesPullback": 4,
+      "tamanhoRelativoCorpos": "MEDIOS",
+      "pavioRejeicao": "PRESENTE_SUPERIOR",
+      "rompeuTopoFundoAnterior": false,
+      "retesteVisual": false,
+      "gapVisivel": true,
+      "distanciaVisualMedias": "TOCANDO",
+      "sequenciaToposFundos": "DESCENDENTE",
+      "qualidadeEvidencia": "ALTA"
+    }
+  },
+  {
+    "eventoId": "VIDEO_MAIO_01:10_COMPRA",
+    "timestampVideo": "01:10",
+    "horaGrafico": null,
+    "contextoVisual": "Abertura com distanciamento positivo (gap), seguido de 3 candles vermelhos direcionais tocando a nuvem de médias.",
+    "candidatoSetup": "Movimento descendente até as médias após gap de alta.",
+    "confirmacao": null,
+    "entrada": null,
+    "resultadoOperacao": "NAO_AVALIAVEL",
+    "movimentoPosterior": "FAVORAVEL_COMPRA",
+    "quantidadeCandlesPosterioresObservados": 10,
+    "evidencia": {
+      "timestampFrame": "01:10",
+      "precoComprovado": {
+        "valor": null,
+        "status": "ILEGIVEL",
+        "fonteVisual": "eixoPreco"
+      },
+      "horaComprovada": null,
+      "direcaoInferida": "COMPRA",
+      "confirmacaoComprovada": null,
+      "entradaComprovada": null,
+      "stopComprovado": null,
+      "alvoComprovado": null
+    },
+    "atributosPreEvento": {
+      "direcaoEstrutura": "ALTA",
+      "posicaoRelativaMedias": "ACIMA",
+      "inclinacaoMedias": "POSITIVA",
+      "numeroCandlesPullback": 3,
+      "tamanhoRelativoCorpos": "MEDIOS",
+      "pavioRejeicao": "PRESENTE_INFERIOR",
+      "rompeuTopoFundoAnterior": false,
+      "retesteVisual": false,
+      "gapVisivel": true,
+      "distanciaVisualMedias": "TOCANDO",
+      "sequenciaToposFundos": "ASCENDENTE",
+      "qualidadeEvidencia": "ALTA"
+    }
+  },
+  {
+    "eventoId": "VIDEO_MAIO_01:25_VENDA",
+    "timestampVideo": "01:25",
+    "horaGrafico": null,
+    "contextoVisual": "Candle com pavio superior excepcionalmente longo após sequência de deslocamento direcional ascendente longe das médias.",
+    "candidatoSetup": "Pavio superior isolado com distanciamento das médias.",
+    "confirmacao": null,
+    "entrada": null,
+    "resultadoOperacao": "NAO_AVALIAVEL",
+    "movimentoPosterior": "FAVORAVEL_VENDA",
+    "quantidadeCandlesPosterioresObservados": 10,
+    "evidencia": {
+      "timestampFrame": "01:25",
+      "precoComprovado": {
+        "valor": null,
+        "status": "ILEGIVEL",
+        "fonteVisual": "eixoPreco"
+      },
+      "horaComprovada": null,
+      "direcaoInferida": "VENDA",
+      "confirmacaoComprovada": null,
+      "entradaComprovada": null,
+      "stopComprovado": null,
+      "alvoComprovado": null
+    },
+    "atributosPreEvento": {
+      "direcaoEstrutura": "ALTA",
+      "posicaoRelativaMedias": "ACIMA",
+      "inclinacaoMedias": "POSITIVA",
+      "numeroCandlesPullback": null,
+      "tamanhoRelativoCorpos": "PEQUENOS",
+      "pavioRejeicao": "PRESENTE_SUPERIOR_EXTREMO",
+      "rompeuTopoFundoAnterior": true,
+      "retesteVisual": false,
+      "gapVisivel": false,
+      "distanciaVisualMedias": "AFASTADA",
+      "sequenciaToposFundos": "ASCENDENTE",
+      "qualidadeEvidencia": "MEDIA"
+    }
+  },
+  {
+    "eventoId": "VIDEO_MAIO_01:40_VENDA",
+    "timestampVideo": "01:40",
+    "horaGrafico": null,
+    "contextoVisual": "Abertura com gap de baixa, sequência de candles de corpo pequeno retornando em direção à nuvem de médias negativa.",
+    "candidatoSetup": "Movimento ascendente lento até as médias.",
+    "confirmacao": null,
+    "entrada": null,
+    "resultadoOperacao": "NAO_AVALIAVEL",
+    "movimentoPosterior": "LATERAL",
+    "quantidadeCandlesPosterioresObservados": 10,
+    "evidencia": {
+      "timestampFrame": "01:40",
+      "precoComprovado": {
+        "valor": null,
+        "status": "ILEGIVEL",
+        "fonteVisual": "eixoPreco"
+      },
+      "horaComprovada": null,
+      "direcaoInferida": "VENDA",
+      "confirmacaoComprovada": null,
+      "entradaComprovada": null,
+      "stopComprovado": null,
+      "alvoComprovado": null
+    },
+    "atributosPreEvento": {
+      "direcaoEstrutura": "BAIXA",
+      "posicaoRelativaMedias": "ABAIXO",
+      "inclinacaoMedias": "NEGATIVA",
+      "numeroCandlesPullback": 5,
+      "tamanhoRelativoCorpos": "PEQUENOS",
+      "pavioRejeicao": "NULO",
+      "rompeuTopoFundoAnterior": false,
+      "retesteVisual": false,
+      "gapVisivel": true,
+      "distanciaVisualMedias": "TOCANDO",
+      "sequenciaToposFundos": "DESCENDENTE",
+      "qualidadeEvidencia": "ALTA"
+    }
+  },
+  {
+    "eventoId": "VIDEO_MAIO_02:00_VENDA",
+    "timestampVideo": "02:00",
+    "horaGrafico": null,
+    "contextoVisual": "Preço em estrutura descendente abaixo das médias, realiza 3 candles ascendentes tocando a banda inferior.",
+    "candidatoSetup": "Movimento ascendente tocando as médias em estrutura de baixa.",
+    "confirmacao": null,
+    "entrada": null,
+    "resultadoOperacao": "NAO_AVALIAVEL",
+    "movimentoPosterior": "FAVORAVEL_VENDA",
+    "quantidadeCandlesPosterioresObservados": 10,
+    "evidencia": {
+      "timestampFrame": "02:00",
+      "precoComprovado": {
+        "valor": null,
+        "status": "ILEGIVEL",
+        "fonteVisual": "eixoPreco"
+      },
+      "horaComprovada": null,
+      "direcaoInferida": "VENDA",
+      "confirmacaoComprovada": null,
+      "entradaComprovada": null,
+      "stopComprovado": null,
+      "alvoComprovado": null
+    },
+    "atributosPreEvento": {
+      "direcaoEstrutura": "BAIXA",
+      "posicaoRelativaMedias": "ABAIXO",
+      "inclinacaoMedias": "NEGATIVA",
+      "numeroCandlesPullback": 3,
+      "tamanhoRelativoCorpos": "PEQUENOS",
+      "pavioRejeicao": "PRESENTE_SUPERIOR",
+      "rompeuTopoFundoAnterior": false,
+      "retesteVisual": true,
+      "gapVisivel": false,
+      "distanciaVisualMedias": "TOCANDO",
+      "sequenciaToposFundos": "DESCENDENTE",
+      "qualidadeEvidencia": "ALTA"
+    }
+  }
+]

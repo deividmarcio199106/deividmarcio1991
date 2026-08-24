@@ -1,0 +1,98 @@
+{
+ "geradoEm": "2026-08-23T21:34:44.843Z",
+ "congelamento": {
+  "commit": "0670b861abf127fc0c29c1c9b4defc0f5e71bde8",
+  "hashRegras": "c7a7912873ae73888fee5111f82d7592a069cd826d97784b9576adcc883cc5f8",
+  "arquivosDoHash": [
+   "src/lib/engines/strategy.ts",
+   "src/lib/t4/riskGate.ts",
+   "src/lib/t4/management.ts",
+   "src/lib/t4/regimeClassifier.ts",
+   "src/lib/t4/marketClockGuard.ts",
+   "src/lib/engines/orderedPullback.ts"
+  ]
+ },
+ "funil": {
+  "pregoes": 11,
+  "candidatosFrames": 1511,
+  "setupsNascidos": 22,
+  "aproximacoes": 75,
+  "preEntradas": 11,
+  "confirmacoes": 2,
+  "operacoesPass": 2,
+  "executadas": 0,
+  "gains": 0,
+  "losses": 0,
+  "breakEven": 0,
+  "expiradas": 25,
+  "naoExecutadas": 2,
+  "compra": 0,
+  "venda": 2,
+  "bloqueadas": 263
+ },
+ "bloqueadasPorCodigo": {
+  "E2_OPEN_OR_UNKNOWN": 23,
+  "E2_NOT_CONFIRMED": 24,
+  "RR_LT_3": 30,
+  "CONFIDENCE": 14,
+  "EXPIRED_TTL": 11,
+  "OUTRO": 2,
+  "TARGET_5R_NO_ROOM_ESPACO_3R": 159
+ },
+ "operacoesPorMes": {
+  "fev": {
+   "pregoes": 1,
+   "operacoes": 1
+  },
+  "mar": {
+   "pregoes": 10,
+   "operacoes": 1
+  }
+ },
+ "metricas": {
+  "amostraExecutada": 0,
+  "winRate": null,
+  "expectancyR": null,
+  "profitFactor": null,
+  "saldoR": null,
+  "maxDrawdownR": null,
+  "maxLossStreak": null,
+  "mfeMedioPontos": 363,
+  "maeMedioPontos": 252,
+  "mediaGainR": null,
+  "mediaLossR": null,
+  "atingiu3R": 0,
+  "atingiu5R": 0,
+  "runnerUtilizado": 0,
+  "liquidoAposCustos": null,
+  "notaLiquido": "0 operações executadas — não há custo realizado a descontar; custos só existem em operação preenchida."
+ },
+ "split": {
+  "DESCOBERTA_TREINO": "marco.mp4 (11 pregões processados de 22)",
+  "VALIDACAO": "abril.mp4 + junho.mp4 — NUNCA PROCESSADOS (sem leitura de percepção)",
+  "OOS": "NUNCA PROCESSADO — declarado NÃO REALIZADO, não invalidado por ajuste (nunca foi visto)",
+  "WALK_FORWARD": "NUNCA PROCESSADO",
+  "contaminacao": "Nenhum ajuste foi feito após ver OOS porque OOS nunca rodou. As correções de travas (23/08) foram feitas OLHANDO os dados de TREINO (marco) — qualquer validação futura precisa rodar em dados nunca vistos."
+ },
+ "veredito": {
+  "T4_DESTRAVADA": false,
+  "T4_FUNCIONAL": true,
+  "VERSAO_CONGELADA": "T4.0.0 · engine-1.1.0 · mgmt-3C-3R5R-runner-1.0.0",
+  "HASH_REGRAS": "c7a7912873ae73888fee5111f82d7592a069cd826d97784b9576adcc883cc5f8",
+  "COMMIT": "0670b861abf127fc0c29c1c9b4defc0f5e71bde8",
+  "PREGOES_ANALISADOS": 11,
+  "OPERACOES_VALIDAS": 0,
+  "GAINS": 0,
+  "LOSSES": 0,
+  "WIN_RATE": null,
+  "EXPECTANCY_R": null,
+  "PF": null,
+  "MAX_DD_R": null,
+  "OOS_OK": false,
+  "WALK_FORWARD_OK": false,
+  "OPENAI_AUDIT_OK": false,
+  "REPLAY_LIVE_PARITY_OK": true,
+  "DADOS_SUFICIENTES": false,
+  "PRONTA_PARA_OPERACAO_ASSISTIDA": false
+ }
+}

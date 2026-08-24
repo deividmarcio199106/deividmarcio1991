@@ -1,0 +1,108 @@
+{
+  "descricao": "Ledger de divergencias entre a auditoria secundaria (Gemini) e a fonte primaria (video original / o proprio JSON entregue). Regra do dono: nunca aceitar conclusao do Gemini automaticamente; o video prevalece; maioria nao decide nada.",
+  "criadoEm": "2026-08-22",
+  "niveisDeVerificacao": {
+    "MECANICA_FFPROBE": "medido no arquivo de video com ffprobe — so metadado, nenhum frame decodificado, nenhum lacre tocado",
+    "INTERNA_JSON": "contradicao dentro do proprio material entregue; nao precisa de video para ser provada",
+    "PENDENTE_VIDEO": "so se resolve abrindo frame; custa visao, hoje ocupada com o baseline de marco"
+  },
+  "entradas": [
+    {
+      "id": "DIV-001",
+      "lote": "MAIO",
+      "verificacao": "MECANICA_FFPROBE",
+      "veredito": "DIVERGE",
+      "afirmacaoSecundaria": "maio.mp4 possui mais de 2 minutos de rolagem continua cobrindo o final de abril e o mes de maio",
+      "medicaoPrimaria": "maio.mp4 = 1206.77 s. Eventos entre 00:05 e 02:00 = primeiros 120 s = 9,9% do arquivo",
+      "consequencia": "Na escala de 54,85 s por pregao, 120 s equivalem a ~2 pregoes. A amostra nao representa o mes.",
+      "prevalece": "VIDEO"
+    },
+    {
+      "id": "DIV-002",
+      "lote": "IMAGENS",
+      "verificacao": "MECANICA_FFPROBE",
+      "veredito": "DIVERGE",
+      "afirmacaoSecundaria": "lote cobre 27/fev a 30/mar com timestampVideo de 00:01 a 00:08",
+      "medicaoPrimaria": "8 segundos de video, a 54,85 s por pregao, sao menos de um sexto de um pregao",
+      "consequencia": "Os timestamps nao sao localizaveis em video; o lote nao e conferivel enquanto nao vier o mapeamento captura -> (arquivo, segundo).",
+      "prevalece": "VIDEO"
+    },
+    {
+      "id": "DIV-003",
+      "lote": "JUNHO",
+      "verificacao": "MECANICA_FFPROBE",
+      "veredito": "DIVERGE",
+      "afirmacaoSecundaria": "Ultimo Timestamp Acessivel: 21:35; processamento exaustivo ate 21:35",
+      "medicaoPrimaria": "junho.mp4 = 1240.73 s = 20 min 40,7 s. O instante 21:35 (1295 s) NAO EXISTE no arquivo.",
+      "consequencia": "A cobertura declarada inclui 54 s que o arquivo nao tem. Tudo que dependa de 'exaustivo ate 21:35' fica sem lastro. Alem disso duracaoTotalVideo foi declarada null quando bastava medir.",
+      "prevalece": "VIDEO"
+    },
+    {
+      "id": "DIV-004",
+      "lote": "JUNHO",
+      "verificacao": "INTERNA_JSON",
+      "veredito": "DIVERGE",
+      "afirmacaoSecundaria": "PARES ADVERSARIAIS: eventoA JUNHO_001 (01:12) x eventoB JUNHO_002 (04:30); atributos iguais = regime BAIXA, toque nas medias, 3 candles de pullback; diferenca = corpos PEQUENOS x GRANDES",
+      "medicaoPrimaria": "No JSON entregue: JUNHO_001 tem timestamp 00:10 (nao 01:12) e JUNHO_002 tem 01:25 (nao 04:30); JUNHO_002 tem regime ALTA (nao BAIXA), distancia PENETRANDO (nao toque) e 2 candles de pullback (nao 3)",
+      "consequencia": "O par adversarial descreve dois eventos que nao sao os do JSON. Nenhuma das quatro igualdades declaradas se sustenta. O par nao pode sustentar conclusao sobre corpos.",
+      "prevalece": "JSON_ENTREGUE_CONTRA_SI_MESMO"
+    },
+    {
+      "id": "DIV-005",
+      "lote": "JUNHO",
+      "verificacao": "INTERNA_JSON",
+      "veredito": "DIVERGE",
+      "afirmacaoSecundaria": "totalEventos 18, totalCom10CandlesCompletos 18, totalIndeterminados 0, e contagens por hipotese (H-EX-01: 6, H-EX-02: 4, H-EX-03: 3, H-EX-04: 3, H-EX-05: 2 = 18)",
+      "medicaoPrimaria": "O JSON entregue contem 2 eventos. Os outros 16 nao existem em lugar nenhum.",
+      "consequencia": "Os denominadores nao sao auditaveis. Status como SOBREVIVE_JUNHO e ENFRAQUECIDA foram derivados de dados nao entregues — nao podem mover o status de nenhuma hipotese.",
+      "prevalece": "EVIDENCIA_ENTREGUE"
+    },
+    {
+      "id": "DIV-006",
+      "lote": "TODOS",
+      "verificacao": "INTERNA_JSON",
+      "veredito": "DIVERGE",
+      "afirmacaoSecundaria": "SCHEMA_VALIDO=true e HIPOTESES_MANTIDAS_CONGELADAS=true",
+      "medicaoPrimaria": "Terceiro schema diferente em tres lotes: IMAGENS usa direcaoEstrutura e direcaoInferida dentro de evidencia; MAIO acrescenta o valor PRESENTE_SUPERIOR_EXTREMO; JUNHO renomeia para regime, move direcaoInferida para a raiz e cria timestampVideoOriginal, timestampFrameCandidato, dataGrafico e hipotesesRelacionadas",
+      "consequencia": "O schema e uniforme DENTRO de cada lote e incompativel ENTRE lotes. Somar os tres em uma amostra so exige mapeamento explicito antes de qualquer contagem.",
+      "prevalece": "EVIDENCIA_ENTREGUE"
+    },
+    {
+      "id": "DIV-007",
+      "lote": "JUNHO",
+      "verificacao": "INTERNA_JSON",
+      "veredito": "DIVERGE",
+      "afirmacaoSecundaria": "JUNHO_002 e citado como ocorrencia de H-EX-02",
+      "medicaoPrimaria": "H-EX-02 exige corpos GRANDES (satisfeito), mas o evento tem numeroCandlesPullback=2, fora da faixa 3-4 de H-EX-01, e distancia PENETRANDO — ou seja, ele nao e um caso da familia de contato de H-EX-01, e sim de penetracao",
+      "consequencia": "Contar esse evento contra H-EX-01 seria erro de categoria. Ele so fala sobre penetracao com corpo grande.",
+      "prevalece": "EVIDENCIA_ENTREGUE"
+    },
+    {
+      "id": "DIV-008",
+      "lote": "PROTOCOLO",
+      "verificacao": "INTERNA_JSON",
+      "veredito": "ALERTA",
+      "afirmacaoSecundaria": "junho.mp4 usado para testar hipoteses exploratorias",
+      "medicaoPrimaria": "junho estava declarado como conjunto de VALIDACAO junto com abril na campanha (estado.json, fase VALIDATION)",
+      "consequencia": "Junho deixa de ser validacao limpa, do mesmo jeito que maio deixou de ser TEST_FINAL. Restam abril (validacao), julho e 8 (teste final) e 7/teste ainda nao classificados.",
+      "prevalece": "PROTOCOLO_DO_DONO"
+    }
+  ],
+  "pendentesDeVideo": [
+    {
+      "id": "PEND-001",
+      "oQueConferir": "os 7 eventos de H-EX-01 (2 do lote IMAGENS, 5 do lote MAIO) — atributos pre-evento, contagem de candles do recuo, contato com a nuvem, corpos e pavios",
+      "bloqueio": "visao ocupada com o baseline de marco (decisao do dono: OPCAO C)"
+    },
+    {
+      "id": "PEND-002",
+      "oQueConferir": "os 10 candles posteriores de cada evento, CONTADOS NO GRAFICO — proibido converter para 0,83 s fixos, a velocidade do video pode variar; sem os 10 candles comprovados o resultado e INDETERMINADO",
+      "bloqueio": "mesma fila de visao"
+    },
+    {
+      "id": "PEND-003",
+      "oQueConferir": "os 16 eventos de junho que nao foram entregues — se nao existirem frames, o lote junho vale 2 eventos, nao 18",
+      "bloqueio": "material nao entregue pelo produtor do lote"
+    }
+  ]
+}

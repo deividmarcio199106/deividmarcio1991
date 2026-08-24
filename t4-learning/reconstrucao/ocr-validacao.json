@@ -1,0 +1,30 @@
+{
+ "video": "marco",
+ "treino": {
+  "usadas": 3907,
+  "contagemErrada": 677
+ },
+ "teste": {
+  "ok": 0,
+  "errado": 327,
+  "semLeitura": 3673,
+  "acuracia": 0,
+  "emissao": 0.08175
+ },
+ "contador": {
+  "lidos": 0,
+  "nulos": 604,
+  "quedas": 0,
+  "regressoesPequenas": 0
+ },
+ "errosExemplo": [
+  "2.5s lido=199005 verdade=199013",
+  "3.1s lido=198630 verdade=198628",
+  "4.3s lido=198338 verdade=198384",
+  "4.9s lido=198099 verdade=198052",
+  "7.1s lido=198083 verdade=198105",
+  "10.7s lido=198838 verdade=198862",
+  "13.7s lido=198338 verdade=198554",
+  "14.3s lido=198000 verdade=198138"
+ ]
+}

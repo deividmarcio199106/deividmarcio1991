@@ -1,0 +1,292 @@
+{
+  "criadoEm": "2026-08-22",
+  "amostra": {
+    "eventos": 16,
+    "lotes": [
+      {
+        "nome": "IMAGENS",
+        "arquivo": "lote-imagens-CORRIGIDO.json",
+        "eventos": 8,
+        "origem": "capturas estaticas 27/fev-30/mar, extraidas fora deste ambiente"
+      },
+      {
+        "nome": "MAIO",
+        "arquivo": "lote-maio-CORRIGIDO.json",
+        "eventos": 8,
+        "origem": "maio.mp4, extraido fora deste ambiente"
+      }
+    ],
+    "natureza": "EXPLORATORIA — descoberta/calibracao, nunca prova de tecnica",
+    "avisoDeLacre": "maio.mp4 pertencia ao conjunto TEST_FINAL (maio/julho/8). Eventos de maio usados em descoberta queimam o lacre de maio; sobram julho.mp4 e 8.mp4 como teste final intacto.",
+    "prioridadeDeFonte": "video > evidencia extraida > hipotese do Gemini > interpretacao do Claude"
+  },
+  "achadosDeModelagem": [
+    {
+      "id": "M-01",
+      "achado": "direcaoEstrutura, posicaoRelativaMedias, inclinacaoMedias e sequenciaToposFundos sao PERFEITAMENTE colineares nos 16 eventos: carregam um unico fator (regime), nao quatro.",
+      "consequencia": "Contar os quatro como evidencia independente infla a confianca por um fator de 4. Colapsar em um campo unico `regime` (ALTA | BAIXA | CONSOLIDACAO) e manter os outros como derivados.",
+      "ocorrencias": 16,
+      "status": "HIPOTESE"
+    },
+    {
+      "id": "M-02",
+      "achado": "rompeuTopoFundoAnterior tem variancia quase nula (14 false, 2 true) e retesteVisual nao separa resultado (true: 5F/2C; false: 5F/1C/2L/1I).",
+      "consequencia": "Nenhum dos dois pode ser usado como condicao obrigatoria enquanto nao houver amostra com variacao real.",
+      "ocorrencias": 16,
+      "status": "HIPOTESE"
+    },
+    {
+      "id": "M-03",
+      "achado": "qualidadeEvidencia=ALTA convive com precoComprovado=ILEGIVEL em 14 dos 16 eventos.",
+      "consequencia": "qualidadeEvidencia e campo DERIVADO, nao observado; deve ser recalculado por regra a partir do que foi legivel, nunca declarado pelo leitor.",
+      "ocorrencias": 16,
+      "status": "HIPOTESE"
+    }
+  ],
+  "hipoteses": [
+    {
+      "id": "H-EX-01",
+      "prioridade": 1,
+      "nome": "Recuo curto que TOCA a nuvem, com corpos nao-grandes",
+      "direcao": "A FAVOR DO REGIME (compra em regime de ALTA, venda em regime de BAIXA)",
+      "contextoObrigatorio": "regime definido (ALTA ou BAIXA); nunca CONSOLIDACAO",
+      "condicoesObrigatorias": [
+        "distanciaVisualMedias = TOCANDO",
+        "numeroCandlesPullback entre 3 e 4",
+        "tamanhoRelativoCorpos em {MEDIOS, PEQUENOS}"
+      ],
+      "condicoesProibidas": [
+        "tamanhoRelativoCorpos = GRANDES",
+        "distanciaVisualMedias em {PENETRANDO, SOBREPOSTA, AFASTADA}",
+        "numeroCandlesPullback >= 5 ou null"
+      ],
+      "gatilhoAindaADescobrir": "qual candle fechado autoriza a execucao dentro do toque — nao ha nenhum evento com confirmacao registrada, o campo `confirmacao` e null nos 16",
+      "evidenciaFavoravel": [
+        "IMAGENS 00:01",
+        "IMAGENS 00:03",
+        "MAIO 00:05",
+        "MAIO 00:25",
+        "MAIO 00:45",
+        "MAIO 01:10",
+        "MAIO 02:00"
+      ],
+      "contraexemplos": [],
+      "quantidadeDeOcorrencias": 7,
+      "fragilidades": [
+        "amostra montada por selecao humana/IA, nao por varredura exaustiva — vies de selecao desconhecido",
+        "preco ILEGIVEL nos 16 eventos: nada foi ancorado ao eixo",
+        "TOCANDO, corpos e numero de candles foram julgados a olho, sem regra numerica",
+        "MOVIMENTO_POSTERIOR_FAVORAVEL nao e trade: nao ha entrada, stop nem alvo, entao nao ha R",
+        "7 ocorrencias sem contraexemplo pode ser artefato de a amostra so conter os toques que 'pareciam bons'"
+      ],
+      "dadosAdicionaisNecessarios": [
+        "definicao numerica de TOCANDO (distancia em pontos ou em ATR entre o extremo do candle e a borda da nuvem)",
+        "varredura exaustiva de TODOS os toques de um mes, nao amostra",
+        "amplitude do movimento posterior em pontos, nao rotulo",
+        "conferencia frame a frame no video de cada um dos 7 timestamps"
+      ],
+      "verificacaoNoVideo": "PENDENTE",
+      "status": "HIPOTESE"
+    },
+    {
+      "id": "H-EX-02",
+      "prioridade": 2,
+      "nome": "Corpos GRANDES no candidato — filtro de nao-operacao",
+      "direcao": "FILTRO (nao operar), independente do regime",
+      "contextoObrigatorio": "qualquer regime",
+      "condicoesObrigatorias": [
+        "tamanhoRelativoCorpos = GRANDES no candidato"
+      ],
+      "condicoesProibidas": [],
+      "gatilhoAindaADescobrir": "nao se aplica — e filtro, nao entrada",
+      "evidenciaFavoravel": [
+        "IMAGENS 00:04 (CONTRARIO)",
+        "IMAGENS 00:06 (INDETERMINADO)",
+        "MAIO 00:15 (CONTRARIO)"
+      ],
+      "contraexemplos": [],
+      "quantidadeDeOcorrencias": 3,
+      "fragilidades": [
+        "3 ocorrencias, no limite minimo — nao promover",
+        "GRANDES e julgamento visual sem escala; precisa virar razao corpo/mediana dos N candles anteriores",
+        "confundido com distanciaVisualMedias em 2 dos 3 casos (PENETRANDO e AFASTADA)"
+      ],
+      "dadosAdicionaisNecessarios": [
+        "razao numerica corpo/mediana",
+        "casos de corpo GRANDE com resultado FAVORAVEL para tentar refutar"
+      ],
+      "verificacaoNoVideo": "PENDENTE",
+      "status": "HIPOTESE"
+    },
+    {
+      "id": "H-EX-03",
+      "prioridade": 3,
+      "nome": "Sem recuo mensuravel e preco AFASTADO da nuvem — zona de nao-operacao",
+      "direcao": "FILTRO (nao operar)",
+      "contextoObrigatorio": "qualquer regime",
+      "condicoesObrigatorias": [
+        "numeroCandlesPullback = null (nao ha recuo contavel)",
+        "distanciaVisualMedias = AFASTADA"
+      ],
+      "condicoesProibidas": [],
+      "gatilhoAindaADescobrir": "nao se aplica — e filtro",
+      "evidenciaFavoravel": [
+        "IMAGENS 00:06 (INDETERMINADO)",
+        "IMAGENS 00:08 (CONTRARIO)"
+      ],
+      "contraexemplos": [
+        "MAIO 01:25 (FAVORAVEL, com pavioRejeicao=PRESENTE_SUPERIOR_EXTREMO e rompeuTopoFundoAnterior=true)"
+      ],
+      "quantidadeDeOcorrencias": 3,
+      "fragilidades": [
+        "ja nasce com 1 contraexemplo em 3 casos",
+        "o contraexemplo traz um valor de enum que so existe no lote MAIO (PRESENTE_SUPERIOR_EXTREMO) — pode ser rotulo novo, nao fenomeno novo"
+      ],
+      "dadosAdicionaisNecessarios": [
+        "definicao numerica de AFASTADA",
+        "unificacao do enum de pavio entre lotes",
+        "mais casos de pavio extremo longe da nuvem"
+      ],
+      "verificacaoNoVideo": "PENDENTE",
+      "status": "HIPOTESE"
+    },
+    {
+      "id": "H-EX-04",
+      "prioridade": 4,
+      "nome": "Recuo longo (>= 5 candles) degrada o toque",
+      "direcao": "MODIFICADOR de H-EX-01",
+      "contextoObrigatorio": "distanciaVisualMedias = TOCANDO",
+      "condicoesObrigatorias": [
+        "numeroCandlesPullback >= 5"
+      ],
+      "condicoesProibidas": [],
+      "gatilhoAindaADescobrir": "nao se aplica — e modificador",
+      "evidenciaFavoravel": [
+        "MAIO 00:15 (5 candles, CONTRARIO)",
+        "MAIO 01:40 (5 candles, LATERAL)",
+        "IMAGENS 00:05 (6 candles, LATERAL)"
+      ],
+      "contraexemplos": [
+        "IMAGENS 00:02 (8 candles, FAVORAVEL)"
+      ],
+      "quantidadeDeOcorrencias": 4,
+      "fragilidades": [
+        "o unico caso de 8 candles e favoravel — a relacao pode nao ser monotonica",
+        "contagem de candles do recuo feita a olho",
+        "IMAGENS 00:05 tem regime CONSOLIDACAO, ou seja, ja seria filtrado por H-EX-01"
+      ],
+      "dadosAdicionaisNecessarios": [
+        "contagem automatica de candles do recuo",
+        "casos com 5, 6, 7 e 8 candles em quantidade suficiente para ver a forma da curva"
+      ],
+      "verificacaoNoVideo": "PENDENTE",
+      "status": "HIPOTESE"
+    },
+    {
+      "id": "H-EX-05",
+      "prioridade": 5,
+      "nome": "Contato com a nuvem e o eixo de separacao — nao o lado do mercado",
+      "direcao": "ESTRUTURAL (orienta o desenho da T4, nao a entrada)",
+      "contextoObrigatorio": "qualquer",
+      "condicoesObrigatorias": [
+        "comparar distanciaVisualMedias (TOCANDO: 8F/1C/1L) contra direcaoEstrutura (BAIXA: 5F/1C/1L; ALTA: 5F/2C/1I)"
+      ],
+      "condicoesProibidas": [],
+      "gatilhoAindaADescobrir": "nao se aplica",
+      "evidenciaFavoravel": [
+        "o regime nao separa resultado nos 16 eventos; a qualidade do contato separa"
+      ],
+      "contraexemplos": [
+        "MAIO 00:15 e MAIO 01:40 sao TOCANDO e nao deram favoravel — o contato sozinho nao basta"
+      ],
+      "quantidadeDeOcorrencias": 16,
+      "fragilidades": [
+        "amostra pequena e selecionada",
+        "TOCANDO domina a amostra (10 de 16), o que enviesa qualquer comparacao contra as outras categorias"
+      ],
+      "dadosAdicionaisNecessarios": [
+        "amostra com distribuicao equilibrada entre TOCANDO, PROXIMA, PENETRANDO e AFASTADA"
+      ],
+      "verificacaoNoVideo": "PENDENTE",
+      "status": "HIPOTESE"
+    }
+  ],
+  "estacionadas": [
+    {
+      "id": "H-PARK-01",
+      "nome": "Preco SOBREPOSTO a nuvem em CONSOLIDACAO tende ao lateral",
+      "ocorrencias": 1,
+      "motivoDoEstacionamento": "1 ocorrencia — abaixo do minimo de 3 para virar hipotese ativa",
+      "status": "HIPOTESE"
+    },
+    {
+      "id": "H-PARK-02",
+      "nome": "Pavio de rejeicao presente (superior ou inferior) e melhor que pavio NULO",
+      "ocorrencias": 8,
+      "observacao": "PRESENTE_INFERIOR 3F/0C, PRESENTE_SUPERIOR 3F/1C, NULO 3F/2C/2L/1I — mas totalmente confundido com TOCANDO; nao separavel nesta amostra",
+      "motivoDoEstacionamento": "confusao com H-EX-01; precisa de casos com pavio presente FORA do toque",
+      "status": "HIPOTESE"
+    }
+  ],
+  "naoFeito": [
+    "taxa de acerto — proibida nesta fase e sem sentido sem entrada/stop/alvo",
+    "entrada, stop e alvo — nenhuma regra objetiva foi criada",
+    "alteracao da T4 em producao — nada foi tocado",
+    "promocao de qualquer regra — todas ficam em status HIPOTESE"
+  ],
+  "medicoesDeVideo": {
+    "ferramenta": "ffprobe (somente metadado de duracao; nenhum frame decodificado)",
+    "marco.mp4": {
+      "duracaoSeg": 1206.6333,
+      "pregoes": 22,
+      "segundosPorPregao": 54.85
+    },
+    "maio.mp4": {
+      "duracaoSeg": 1206.7666,
+      "pregoes": null,
+      "segundosPorPregao": 54.85
+    },
+    "fevereiro.mp4": {
+      "duracaoSeg": 561.1333,
+      "pregoes": null,
+      "segundosPorPregao": 54.85
+    }
+  },
+  "divergenciasVideoXJson": [
+    {
+      "id": "D-01",
+      "fonteQuePrevalece": "VIDEO",
+      "afirmacaoDoJson": "maio.mp4 possui mais de 2 minutos de rolagem continua cobrindo o final de abril e o mes de maio; amostragem cronologica de 8 eventos representativos.",
+      "medidoNoVideo": "maio.mp4 dura 1206.77 s (20 min 07 s). Os 8 eventos estao entre 00:05 e 02:00 — os primeiros 120 s, 9,9% do arquivo.",
+      "consequencia": "Na escala destes arquivos (marco.mp4: 1206.63 s para 22 pregoes = 54,85 s por pregao), 120 s equivalem a cerca de 2 pregoes. A amostra de maio cobre dois dias, nao o mes. Cai qualquer conclusao apoiada em representatividade mensal.",
+      "acao": "Rotular o lote MAIO como amostra de ~2 pregoes do inicio do arquivo; refazer amostragem ao longo dos 1206 s se quiser cobertura mensal."
+    },
+    {
+      "id": "D-02",
+      "fonteQuePrevalece": "VIDEO",
+      "afirmacaoDoJson": "lote IMAGENS cobre de 27/fev a 30/mar, com timestampVideo indo de 00:01 a 00:08.",
+      "medidoNoVideo": "8 segundos de video, na escala de 54,85 s por pregao, sao menos de um sexto de um unico pregao.",
+      "consequencia": "Ou timestampVideo nao e segundo de video (e indice de captura), ou a cobertura declarada esta errada. Enquanto isso nao for resolvido, os eventos do lote IMAGENS nao sao localizaveis em video e nao podem ser conferidos frame a frame.",
+      "acao": "Pedir ao produtor do lote o mapeamento captura -> (arquivo, segundo) ou reextrair com timestamp real."
+    },
+    {
+      "id": "D-03",
+      "fonteQuePrevalece": "VIDEO",
+      "afirmacaoDoJson": "avaliacao rigorosa dos 10 candles fechados apos a formacao do candidato.",
+      "medidoNoVideo": "54,85 s por pregao de ~660 min => ~12 min de mercado por segundo de video. 10 candles de 1 min ocupam ~0,83 s de video.",
+      "consequencia": "A janela de 10 candles cabe em menos de um segundo de rolagem. Ela e verificavel — basta comparar o frame t com o frame t+0,83 s — mas exige leitura de frame, nao existe no JSON, e nenhum dos 16 eventos traz o preco do fim da janela.",
+      "acao": "Ao conferir no video, extrair o par (t, t+0,83 s) e medir a amplitude em pontos, substituindo o rotulo por numero."
+    }
+  ],
+  "capacidadeDeVerificacao": {
+    "estado": "BLOQUEADO_POR_CAPACIDADE_E_POR_LACRE",
+    "motorDeVisaoAtivo": "ponte-claude (o proprio agente), ocupada servindo o baseline de marco",
+    "custoDaVerificacao": "16 eventos x 2 frames (candidato + fim da janela) = 32 leituras de visao, equivalente a cerca de um pregao inteiro do baseline",
+    "lacre": "maio.mp4 pertence ao conjunto TEST_FINAL (maio, julho, 8). Abrir frames de maio para pesquisa queima o lacre de maio de forma irreversivel; sobrariam julho.mp4 e 8.mp4.",
+    "decisaoPendenteDoDono": [
+      "A) queimar o lacre de maio e conferir os 8 eventos de maio no video",
+      "B) refazer a amostragem em fevereiro.mp4 (declarado dataset de DESCOBERTA) e conferir la",
+      "C) esperar o baseline de marco fechar antes de gastar visao com verificacao"
+    ]
+  }
+}

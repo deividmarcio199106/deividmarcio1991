@@ -1,0 +1,109 @@
+{
+  "descricao": "Papel de cada periodo e historico de contaminacao. Uma vez contaminado, nunca volta a ser TEST_FINAL.",
+  "atualizadoEm": "2026-08-22",
+  "regras": [
+    "DESCOBERTA pode criar hipotese",
+    "VALIDACAO nao pode modificar regra",
+    "TEST_FINAL_LACRADO so abre com a T4 congelada, e uma unica vez",
+    "EXPLORATORIO_CONTAMINADO entra no relatorio historico total, nunca em fora-da-amostra"
+  ],
+  "datasets": [
+    {
+      "video": "fevereiro.mp4",
+      "duracaoSeg": 561.13,
+      "papel": "DESCOBERTA",
+      "papelAnterior": null,
+      "contaminadoEm": null,
+      "motivo": "Declarado dataset oficial de descoberta pelo dono em 22/08/2026. Varredura exaustiva pendente (bloqueada pela OPCAO C ate marco fechar).",
+      "varreduraExaustivaFeita": false
+    },
+    {
+      "video": "marco.mp4",
+      "duracaoSeg": 1206.63,
+      "pregoes": 22,
+      "papel": "VALIDACAO",
+      "papelAnterior": "BASELINE_DE_MOTOR",
+      "contaminadoEm": null,
+      "motivo": "Baseline do motor atual roda aqui. Vira VALIDACAO das hipoteses depois do congelamento. O baseline em si nao ajusta regra — mede o motor como esta.",
+      "varreduraExaustivaFeita": false,
+      "progressoBaseline": "3 de 22 pregoes"
+    },
+    {
+      "video": "abril.mp4",
+      "duracaoSeg": null,
+      "papel": "VALIDACAO",
+      "papelAnterior": "VALIDATION",
+      "contaminadoEm": null,
+      "motivo": "Nunca aberto. Continua limpo.",
+      "varreduraExaustivaFeita": false
+    },
+    {
+      "video": "maio.mp4",
+      "duracaoSeg": 1206.77,
+      "papel": "EXPLORATORIO_CONTAMINADO",
+      "papelAnterior": "TEST_FINAL_LACRADO",
+      "contaminadoEm": "2026-08-22",
+      "motivo": "8 eventos dos primeiros 120 s foram usados para gerar as hipoteses H-EX-01..H-EX-05. Lacre queimado por decisao registrada do dono.",
+      "varreduraExaustivaFeita": false,
+      "divergenciasNoLedger": ["DIV-001"]
+    },
+    {
+      "video": "junho.mp4",
+      "duracaoSeg": 1240.73,
+      "papel": "EXPLORATORIO_CONTAMINADO",
+      "papelAnterior": "VALIDACAO",
+      "contaminadoEm": "2026-08-22",
+      "motivo": "Auditoria secundaria testou H-EX-01..H-EX-05 contra junho. Deixa de ser validacao limpa. A auditoria entregue nao e auditavel (2 eventos entregues contra 18 afirmados).",
+      "varreduraExaustivaFeita": false,
+      "divergenciasNoLedger": ["DIV-003", "DIV-004", "DIV-005", "DIV-007", "DIV-008"]
+    },
+    {
+      "video": "julho.mp4",
+      "duracaoSeg": null,
+      "papel": "TEST_FINAL_LACRADO",
+      "papelAnterior": "TEST_FINAL_LACRADO",
+      "contaminadoEm": null,
+      "motivo": "Nunca aberto por nenhum modelo. Lacre intacto.",
+      "varreduraExaustivaFeita": false
+    },
+    {
+      "video": "8.mp4",
+      "duracaoSeg": null,
+      "papel": "TEST_FINAL_LACRADO",
+      "papelAnterior": "TEST_FINAL_LACRADO",
+      "contaminadoEm": null,
+      "motivo": "Nunca aberto por nenhum modelo. Lacre intacto.",
+      "varreduraExaustivaFeita": false
+    },
+    {
+      "video": "7.mp4",
+      "duracaoSeg": null,
+      "papel": "NAO_CLASSIFICADO",
+      "papelAnterior": null,
+      "contaminadoEm": null,
+      "motivo": "Candidato a terceiro periodo virgem para substituir maio no TEST_FINAL. Nao abrir ate a classificacao ser decidida.",
+      "varreduraExaustivaFeita": false
+    },
+    {
+      "video": "teste.mp4",
+      "duracaoSeg": null,
+      "papel": "NAO_CLASSIFICADO",
+      "papelAnterior": null,
+      "contaminadoEm": null,
+      "motivo": "Conteudo nao identificado. Nao abrir ate a classificacao ser decidida.",
+      "varreduraExaustivaFeita": false
+    }
+  ],
+  "saldoDeLacres": {
+    "testFinalIntacto": ["julho.mp4", "8.mp4"],
+    "candidatosATerceiroLacre": ["7.mp4", "teste.mp4"],
+    "queimados": ["maio.mp4", "junho.mp4"],
+    "aviso": "Cada lote novo mandado para auditoria externa queima mais um periodo. Se 7 e teste tambem forem abertos, nao sobra fora-da-amostra nenhum."
+  },
+  "dadosDePreco": {
+    "ohlcHistorico": "AUSENTE",
+    "consequencia": "Enquanto nao houver OHLC de 1 minuto, todo resultado financeiro sai como grossBRL com confidenceData=CALIBRACAO_VISUAL e netBRL=null. Proibido apresentar R$ como numero comprovado.",
+    "erroDaCalibracaoMedido": false,
+    "comoDesbloquear": "Exportar OHLC 1 min do Profit Pro por periodo (CSV com data, hora, abertura, maxima, minima, fechamento) e sincronizar por data/hora com o video."
+  }
+}

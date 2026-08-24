@@ -1,0 +1,18 @@
+{
+ "id": "H2",
+ "REGRA_ATUAL": "O stop vem livre da leitura do modelo (visto: risco de 120 a 965 pontos no mesmo dia).",
+ "PROBLEMA": "Stop largo infla o R e mata o gate de espaco por construcao: com risco 965, 3R=2895 pontos — mais que a amplitude inteira de 02/mar (2630). O gate reprova o TAMANHO do stop, nao a oportunidade.",
+ "NOVA_REGRA": "STOP_REAL = invalidacao estrutural da zona + buffer tecnico (100 pts = erro medido da regua), com PISO de risco executavel de 200 pts. O piso vale no STOP USADO no backtest, nunca so no denominador: borda+buffer < piso => stop executavel = piso. Sem zona legivel nao ha estrutura: stop do modelo fica, piso so alarga. Nunca apertar stop para inflar R:R. Direcao continua julgada pelo stop DO MODELO (percepcao intacta).",
+ "MOTIVO": "E a definicao da tecnica (stop fora da regiao, do lado da invalidacao) e remove o grau de liberdade que o modelo usa mal.",
+ "TRADES_AFETADOS": "Ex. medido 12.4s de 02/mar: E=197360 S=197100 (risco 260) -> obstaculo a 2.4R REPROVA; com stop na borda 197240 (risco ~120+buffer) o mesmo obstaculo fica a ~5R e APROVA.",
+ "RISCO": "Stop curto demais aumenta stopadas por ruido (erro da regua ~100 pts). Piso: risco minimo = 2x erro de medicao (200 pts).",
+ "RESULTADO_ESPERADO": "Mais confirmacoes com risco por trade MENOR; win rate pode cair, R liquido deve subir.",
+ "status": "IMPLEMENTADA_COMO_EXPERIMENTO_DESLIGADO — aguardando baseline TRAIN completo para o A/B",
+ "EXEMPLO_CANONICO": "entrada 100.000, obstaculo 620 pts, stop modelo 260 => 2,38R reprova; borda 120+buffer, piso 200 => stop REAL 200, 620/200 = 3,1R aprova — o risco verdadeiro caiu para 200, nao maquiado para 120.",
+ "IMPLEMENTACAO": {
+  "onde": "src/server/video/pregao.ts — opcao experimento.stopEstrutural (NUNCA padrao)",
+  "funcaoPura": "stopEstruturalH2 (exportada)",
+  "testes": "src/server/video/__tests__/stopEstruturalH2.test.ts — 6 casos, incl. o canonico e os dois abusos proibidos",
+  "invariantes": "obstaculo identico ao baseline; gestao identica; percepcao congelada (ledger REPRODUZIR); 3R intacto"
+ }
+}

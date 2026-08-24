@@ -1,0 +1,162 @@
+{
+ "resumo": {
+  "braco": "BASE",
+  "dia": 11,
+  "data": "13/mar",
+  "inicioSeg": 545.5,
+  "fimSeg": 568.4,
+  "amplitudeDoDia": 4029,
+  "funil": {
+   "framesTotais": 229,
+   "framesComPreco": 0,
+   "candidatosFrames": 0,
+   "episodios": 0,
+   "chamadasDeModelo": 0,
+   "trackFrames": 0,
+   "leiturasFalharamMantidas": 0,
+   "setupsNascidos": 0,
+   "expirados": [],
+   "recusas": {}
+  },
+  "ledger": {
+   "total": 626,
+   "hits": 0,
+   "misses": 0
+  },
+  "aproximacoes": 0,
+  "confirmacoes": 0,
+  "operacoes": 0,
+  "ganhos": 0,
+  "perdas": 0,
+  "pontos": 0,
+  "somaR": 0,
+  "recusadasPorEspaco": 0,
+  "recusasComForense": 0,
+  "balancos": 3,
+  "balancosGrandes750": 1,
+  "balancos3RRef": 1,
+  "erro": null
+ },
+ "pregao": {
+  "video": "C:/Users/user/Desktop/BACKTEST/marco.mp4",
+  "ativo": "WINFUT",
+  "inicioSeg": 545.5,
+  "fimSeg": 568.4,
+  "intervaloSeg": 0.1,
+  "printsLidos": 0,
+  "printsValidos": 0,
+  "printsComErro": 0,
+  "printsComEscala": 0,
+  "printsSemEscala": 0,
+  "recusadasPorEspaco": 0,
+  "framesSoDeRegua": 229,
+  "instantesAnalisados": 0,
+  "comNiveis": 0,
+  "funil": {
+   "framesTotais": 229,
+   "framesComPreco": 0,
+   "candidatosFrames": 0,
+   "episodios": 0,
+   "chamadasDeModelo": 0,
+   "trackFrames": 0,
+   "leiturasFalharamMantidas": 0,
+   "setupsNascidos": 0,
+   "expirados": [],
+   "recusas": {}
+  },
+  "recusasDeEspaco": [],
+  "ledgerResumo": {
+   "total": 626,
+   "hits": 0,
+   "misses": 0
+  },
+  "comObstaculo": 0,
+  "faixaDoEixoLida": null,
+  "porStatus": {},
+  "porEstagio": {},
+  "aproximacoes": 0,
+  "confirmacoes": 0,
+  "leituras": [],
+  "operacoes": [],
+  "ganhos": 0,
+  "perdas": 0,
+  "semDesfecho": 0,
+  "pontosLiquidos": 0,
+  "somaR": 0,
+  "erro": null,
+  "duracaoMs": 2918245
+ },
+ "pivosDoDia": [
+  {
+   "indice": 148,
+   "segundoNoVideo": 560.3,
+   "preco": 189869,
+   "tipo": "FUNDO"
+  },
+  {
+   "indice": 159,
+   "segundoNoVideo": 561.4,
+   "preco": 190921,
+   "tipo": "TOPO"
+  },
+  {
+   "indice": 160,
+   "segundoNoVideo": 561.5,
+   "preco": 190921,
+   "tipo": "TOPO"
+  },
+  {
+   "indice": 173,
+   "segundoNoVideo": 562.8,
+   "preco": 190921,
+   "tipo": "TOPO"
+  },
+  {
+   "indice": 180,
+   "segundoNoVideo": 563.5,
+   "preco": 190462,
+   "tipo": "FUNDO"
+  },
+  {
+   "indice": 183,
+   "segundoNoVideo": 563.8,
+   "preco": 190902,
+   "tipo": "TOPO"
+  }
+ ],
+ "balancos": [
+  {
+   "deSeg": 560.3,
+   "ateSeg": 561.4,
+   "de": 189869,
+   "ate": 190921,
+   "direcao": "ALTA",
+   "pontos": 1052,
+   "fracaoDaAmplitude": 0.261,
+   "rPotencialRef": 4.21,
+   "duracaoMinutos": 13
+  },
+  {
+   "deSeg": 562.8,
+   "ateSeg": 563.5,
+   "de": 190921,
+   "ate": 190462,
+   "direcao": "BAIXA",
+   "pontos": 459,
+   "fracaoDaAmplitude": 0.114,
+   "rPotencialRef": 1.84,
+   "duracaoMinutos": 8
+  },
+  {
+   "deSeg": 563.5,
+   "ateSeg": 563.8,
+   "de": 190462,
+   "ate": 190902,
+   "direcao": "ALTA",
+   "pontos": 440,
+   "fracaoDaAmplitude": 0.109,
+   "rPotencialRef": 1.76,
+   "duracaoMinutos": 4
+  }
+ ]
+}

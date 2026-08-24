@@ -1,0 +1,19 @@
+{
+ "itens": {
+  "sweep:marco": {
+   "estado": "COMPLETE",
+   "motivo": "artefato ja existia e validou",
+   "atualizadoEm": "2026-08-22T21:48:00.608Z"
+  },
+  "sweep:fevereiro": {
+   "estado": "RUNNING",
+   "tentativas": 1,
+   "atualizadoEm": "2026-08-22T21:48:00.629Z"
+  },
+  "gpu": {
+   "estado": "BLOCKED",
+   "motivo": "instancia vast.ai 89.221.67.148:30394 caiu ~19:47 (timeout); tunel VPS em crashloop; aguardando nova instancia/religada do operador",
+   "atualizadoEm": "2026-08-22T22:54:16.510Z"
+  }
+ }
+}

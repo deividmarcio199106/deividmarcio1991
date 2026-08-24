@@ -1,0 +1,4959 @@
+{
+ "varredura": {
+  "framesLidos": 430,
+  "comPreco": 272,
+  "ocrs": 12,
+  "epocas": 12,
+  "ocrRecusadasPorSalto": 0,
+  "propagacaoCorrigida": 0,
+  "ocrChamadas": 13,
+  "ocrFalhas": 1,
+  "duracaoMs": 136206,
+  "erro": null
+ },
+ "serie": [
+  {
+   "indice": 0,
+   "segundoNoVideo": 0,
+   "preco": 199746,
+   "origemDaEscala": "OCR",
+   "yDaCaixa": 465.5,
+   "epocaDaRegua": 0
+  },
+  {
+   "indice": 1,
+   "segundoNoVideo": 0.1,
+   "preco": 199744,
+   "origemDaEscala": "PROPAGADA",
+   "yDaCaixa": 465.5,
+   "epocaDaRegua": 0
+  },
+  {
+   "indice": 2,
+   "segundoNoVideo": 0.2,
+   "preco": 199701,
+   "origemDaEscala": "PROPAGADA",
+   "yDaCaixa": 472.5,
+   "epocaDaRegua": 0
+  },
+  {
+   "indice": 3,
+   "segundoNoVideo": 0.3,
+   "preco": 199701,
+   "origemDaEscala": "PROPAGADA",
+   "yDaCaixa": 472.5,
+   "epocaDaRegua": 0
+  },
+  {
+   "indice": 4,
+   "segundoNoVideo": 0.4,
+   "preco": 199701,
+   "origemDaEscala": "PROPAGADA",
+   "yDaCaixa": 472.5,
+   "epocaDaRegua": 0
+  },
+  {
+   "indice": 5,
+   "segundoNoVideo": 0.5,
+   "preco": 199701,
+   "origemDaEscala": "PROPAGADA",
+   "yDaCaixa": 472.5,
+   "epocaDaRegua": 0
+  },
+  {
+   "indice": 6,
+   "segundoNoVideo": 0.6,
+   "preco": 199707,
+   "origemDaEscala": "PROPAGADA",
+   "yDaCaixa": 471.5,
+   "epocaDaRegua": 0
+  },
+  {
+   "indice": 7,
+   "segundoNoVideo": 0.7,
+   "preco": null,
+   "origemDaEscala": "RETA_RUIM",
+   "yDaCaixa": null,
+   "epocaDaRegua": 0
+  },
+  {
+   "indice": 8,
+   "segundoNoVideo": 0.8,
+   "preco": null,
+   "origemDaEscala": "RETA_RUIM",
+   "yDaCaixa": null,
+   "epocaDaRegua": 0
+  },
+  {
+   "indice": 9,
+   "segundoNoVideo": 0.9,
+   "preco": null,
+   "origemDaEscala": "RETA_RUIM",
+   "yDaCaixa": null,
+   "epocaDaRegua": 0
+  },
+  {
+   "indice": 10,
+   "segundoNoVideo": 1,
+   "preco": null,
+   "origemDaEscala": "RETA_RUIM",
+   "yDaCaixa": null,
+   "epocaDaRegua": 0
+  },
+  {
+   "indice": 11,
+   "segundoNoVideo": 1.1,
+   "preco": null,
+   "origemDaEscala": "RETA_RUIM",
+   "yDaCaixa": null,
+   "epocaDaRegua": 0
+  },
+  {
+   "indice": 12,
+   "segundoNoVideo": 1.2,
+   "preco": null,
+   "origemDaEscala": "RETA_RUIM",
+   "yDaCaixa": null,
+   "epocaDaRegua": 0
+  },
+  {
+   "indice": 13,
+   "segundoNoVideo": 1.3,
+   "preco": null,
+   "origemDaEscala": "RETA_RUIM",
+   "yDaCaixa": null,
+   "epocaDaRegua": 0
+  },
+  {
+   "indice": 14,
+   "segundoNoVideo": 1.4,
+   "preco": null,
+   "origemDaEscala": "RETA_RUIM",
+   "yDaCaixa": null,
+   "epocaDaRegua": 0
+  },
+  {
+   "indice": 15,
+   "segundoNoVideo": 1.5,
+   "preco": null,
+   "origemDaEscala": "RETA_RUIM",
+   "yDaCaixa": null,
+   "epocaDaRegua": 0
+  },
+  {
+   "indice": 16,
+   "segundoNoVideo": 1.6,
+   "preco": null,
+   "origemDaEscala": "RETA_RUIM",
+   "yDaCaixa": null,
+   "epocaDaRegua": 0
+  },
+  {
+   "indice": 17,
+   "segundoNoVideo": 1.7,
+   "preco": null,
+   "origemDaEscala": "RETA_RUIM",
+   "yDaCaixa": null,
+   "epocaDaRegua": 0
+  },
+  {
+   "indice": 18,
+   "segundoNoVideo": 1.8,
+   "preco": null,
+   "origemDaEscala": "RETA_RUIM",
+   "yDaCaixa": null,
+   "epocaDaRegua": 0
+  },
+  {
+   "indice": 19,
+   "segundoNoVideo": 1.9,
+   "preco": null,
+   "origemDaEscala": "RETA_RUIM",
+   "yDaCaixa": null,
+   "epocaDaRegua": 0
+  },
+  {
+   "indice": 20,
+   "segundoNoVideo": 2,
+   "preco": 198734,
+   "origemDaEscala": "OCR",
+   "yDaCaixa": 417.5,
+   "epocaDaRegua": 1
+  },
+  {
+   "indice": 21,
+   "segundoNoVideo": 2.1,
+   "preco": 198815,
+   "origemDaEscala": "PROPAGADA",
+   "yDaCaixa": 411.5,
+   "epocaDaRegua": 1
+  },
+  {
+   "indice": 22,
+   "segundoNoVideo": 2.2,
+   "preco": 198970,
+   "origemDaEscala": "PROPAGADA",
+   "yDaCaixa": 400.5,
+   "epocaDaRegua": 1
+  },
+  {
+   "indice": 23,
+   "segundoNoVideo": 2.3,
+   "preco": 198985,
+   "origemDaEscala": "PROPAGADA",
+   "yDaCaixa": 399.5,
+   "epocaDaRegua": 1
+  },
+  {
+   "indice": 24,
+   "segundoNoVideo": 2.4,
+   "preco": 199013,
+   "origemDaEscala": "PROPAGADA",
+   "yDaCaixa": 397.5,
+   "epocaDaRegua": 1
+  },
+  {
+   "indice": 25,
+   "segundoNoVideo": 2.5,
+   "preco": 199013,
+   "origemDaEscala": "PROPAGADA",
+   "yDaCaixa": 397.5,
+   "epocaDaRegua": 1
+  },
+  {
+   "indice": 26,
+   "segundoNoVideo": 2.6,
+   "preco": null,
+   "origemDaEscala": "PROPAGADA",
+   "yDaCaixa": null,
+   "epocaDaRegua": 1
+  },
+  {
+   "indice": 27,
+   "segundoNoVideo": 2.7,
+   "preco": 199158,
+   "origemDaEscala": "PROPAGADA",
+   "yDaCaixa": 387.5,
+   "epocaDaRegua": 1
+  },
+  {
+   "indice": 28,
+   "segundoNoVideo": 2.8,
+   "preco": 198871,
+   "origemDaEscala": "PROPAGADA",
+   "yDaCaixa": 407.5,
+   "epocaDaRegua": 1
+  },
+  {
+   "indice": 29,
+   "segundoNoVideo": 2.9,
+   "preco": null,
+   "origemDaEscala": "PROPAGADA",
+   "yDaCaixa": null,
+   "epocaDaRegua": 1
+  },
+  {
+   "indice": 30,
+   "segundoNoVideo": 3,
+   "preco": 198743,
+   "origemDaEscala": "PROPAGADA",
+   "yDaCaixa": 416.5,
+   "epocaDaRegua": 1
+  },
+  {
+   "indice": 31,
+   "segundoNoVideo": 3.1,
+   "preco": 198628,
+   "origemDaEscala": "PROPAGADA",
+   "yDaCaixa": 424.5,
+   "epocaDaRegua": 1
+  },
+  {
+   "indice": 32,
+   "segundoNoVideo": 3.2,
+   "preco": 198857,
+   "origemDaEscala": "PROPAGADA",
+   "yDaCaixa": 408.5,
+   "epocaDaRegua": 1
+  },
+  {
+   "indice": 33,
+   "segundoNoVideo": 3.3,
+   "preco": 198857,
+   "origemDaEscala": "PROPAGADA",
+   "yDaCaixa": 408.5,
+   "epocaDaRegua": 1
+  },
+  {
+   "indice": 34,
+   "segundoNoVideo": 3.4,
+   "preco": null,
+   "origemDaEscala": "PROPAGADA",
+   "yDaCaixa": null,
+   "epocaDaRegua": 1
+  },
+  {
+   "indice": 35,
+   "segundoNoVideo": 3.5,
+   "preco": null,
+   "origemDaEscala": "PROPAGADA",
+   "yDaCaixa": null,
+   "epocaDaRegua": 1
+  },
+  {
+   "indice": 36,
+   "segundoNoVideo": 3.6,
+   "preco": 198786,
+   "origemDaEscala": "PROPAGADA",
+   "yDaCaixa": 413.5,
+   "epocaDaRegua": 1
+  },
+  {
+   "indice": 37,
+   "segundoNoVideo": 3.7,
+   "preco": 198842,
+   "origemDaEscala": "PROPAGADA",
+   "yDaCaixa": 409.5,
+   "epocaDaRegua": 1
+  },
+  {
+   "indice": 38,
+   "segundoNoVideo": 3.8,
+   "preco": 198714,
+   "origemDaEscala": "PROPAGADA",
+   "yDaCaixa": 418.5,
+   "epocaDaRegua": 1
+  },
+  {
+   "indice": 39,
+   "segundoNoVideo": 3.9,
+   "preco": 198714,
+   "origemDaEscala": "PROPAGADA",
+   "yDaCaixa": 418.5,
+   "epocaDaRegua": 1
+  },
+  {
+   "indice": 40,
+   "segundoNoVideo": 4,
+   "preco": 198685,
+   "origemDaEscala": "PROPAGADA",
+   "yDaCaixa": 420.5,
+   "epocaDaRegua": 1
+  },
+  {
+   "indice": 41,
+   "segundoNoVideo": 4.1,
+   "preco": null,
+   "origemDaEscala": "PROPAGADA",
+   "yDaCaixa": null,
+   "epocaDaRegua": 1
+  },
+  {
+   "indice": 42,
+   "segundoNoVideo": 4.2,
+   "preco": 198601,
+   "origemDaEscala": "PROPAGADA",
+   "yDaCaixa": 426.5,
+   "epocaDaRegua": 1
+  },
+  {
+   "indice": 43,
+   "segundoNoVideo": 4.3,
+   "preco": 198384,
+   "origemDaEscala": "PROPAGADA",
+   "yDaCaixa": 441.5,
+   "epocaDaRegua": 1
+  },
+  {
+   "indice": 44,
+   "segundoNoVideo": 4.4,
+   "preco": 198440,
+   "origemDaEscala": "PROPAGADA",
+   "yDaCaixa": 437.5,
+   "epocaDaRegua": 1
+  },
+  {
+   "indice": 45,
+   "segundoNoVideo": 4.5,
+   "preco": 198425,
+   "origemDaEscala": "PROPAGADA",
+   "yDaCaixa": 439.5,
+   "epocaDaRegua": 1
+  },
+  {
+   "indice": 46,
+   "segundoNoVideo": 4.6,
+   "preco": 198286,
+   "origemDaEscala": "PROPAGADA",
+   "yDaCaixa": 448.5,
+   "epocaDaRegua": 1
+  },
+  {
+   "indice": 47,
+   "segundoNoVideo": 4.7,
+   "preco": 198239,
+   "origemDaEscala": "PROPAGADA",
+   "yDaCaixa": 451.5,
+   "epocaDaRegua": 1
+  },
+  {
+   "indice": 48,
+   "segundoNoVideo": 4.8,
+   "preco": 198290,
+   "origemDaEscala": "OCR",
+   "yDaCaixa": 445.5,
+   "epocaDaRegua": 2
+  },
+  {
+   "indice": 49,
+   "segundoNoVideo": 4.9,
+   "preco": 198052,
+   "origemDaEscala": "PROPAGADA",
+   "yDaCaixa": 463.5,
+   "epocaDaRegua": 2
+  },
+  {
+   "indice": 50,
+   "segundoNoVideo": 5,
+   "preco": 198160,
+   "origemDaEscala": "PROPAGADA",
+   "yDaCaixa": 455.5,
+   "epocaDaRegua": 2
+  },
+  {
+   "indice": 51,
+   "segundoNoVideo": 5.1,
+   "preco": 198052,
+   "origemDaEscala": "PROPAGADA",
+   "yDaCaixa": 463.5,
+   "epocaDaRegua": 2
+  },
+  {
+   "indice": 52,
+   "segundoNoVideo": 5.2,
+   "preco": 197998,
+   "origemDaEscala": "PROPAGADA",
+   "yDaCaixa": 467.5,
+   "epocaDaRegua": 2
+  },
+  {
+   "indice": 53,
+   "segundoNoVideo": 5.3,
+   "preco": 197916,
+   "origemDaEscala": "PROPAGADA",
+   "yDaCaixa": 473.5,
+   "epocaDaRegua": 2
+  },
+  {
+   "indice": 54,
+   "segundoNoVideo": 5.4,
+   "preco": 197813,
+   "origemDaEscala": "PROPAGADA",
+   "yDaCaixa": 481.5,
+   "epocaDaRegua": 2
+  },
+  {
+   "indice": 55,
+   "segundoNoVideo": 5.5,
+   "preco": 197907,
+   "origemDaEscala": "PROPAGADA",
+   "yDaCaixa": 474.5,
+   "epocaDaRegua": 2
+  },
+  {
+   "indice": 56,
+   "segundoNoVideo": 5.6,
+   "preco": 198095,
+   "origemDaEscala": "PROPAGADA",
+   "yDaCaixa": 460.5,
+   "epocaDaRegua": 2
+  },
+  {
+   "indice": 57,
+   "segundoNoVideo": 5.7,
+   "preco": null,
+   "origemDaEscala": "RETA_RUIM",
+   "yDaCaixa": null,
+   "epocaDaRegua": 2
+  },
+  {
+   "indice": 58,
+   "segundoNoVideo": 5.8,
+   "preco": null,
+   "origemDaEscala": "RETA_RUIM",
+   "yDaCaixa": null,
+   "epocaDaRegua": 2
+  },
+  {
+   "indice": 59,
+   "segundoNoVideo": 5.9,
+   "preco": null,
+   "origemDaEscala": "RETA_RUIM",
+   "yDaCaixa": null,
+   "epocaDaRegua": 2
+  },
+  {
+   "indice": 60,
+   "segundoNoVideo": 6,
+   "preco": null,
+   "origemDaEscala": "RETA_RUIM",
+   "yDaCaixa": null,
+   "epocaDaRegua": 2
+  },
+  {
+   "indice": 61,
+   "segundoNoVideo": 6.1,
+   "preco": null,
+   "origemDaEscala": "RETA_RUIM",
+   "yDaCaixa": null,
+   "epocaDaRegua": 2
+  },
+  {
+   "indice": 62,
+   "segundoNoVideo": 6.2,
+   "preco": null,
+   "origemDaEscala": "RETA_RUIM",
+   "yDaCaixa": null,
+   "epocaDaRegua": 2
+  },
+  {
+   "indice": 63,
+   "segundoNoVideo": 6.3,
+   "preco": null,
+   "origemDaEscala": "RETA_RUIM",
+   "yDaCaixa": null,
+   "epocaDaRegua": 2
+  },
+  {
+   "indice": 64,
+   "segundoNoVideo": 6.4,
+   "preco": null,
+   "origemDaEscala": "RETA_RUIM",
+   "yDaCaixa": null,
+   "epocaDaRegua": 2
+  },
+  {
+   "indice": 65,
+   "segundoNoVideo": 6.5,
+   "preco": null,
+   "origemDaEscala": "RETA_RUIM",
+   "yDaCaixa": null,
+   "epocaDaRegua": 2
+  },
+  {
+   "indice": 66,
+   "segundoNoVideo": 6.6,
+   "preco": null,
+   "origemDaEscala": "RETA_RUIM",
+   "yDaCaixa": null,
+   "epocaDaRegua": 2
+  },
+  {
+   "indice": 67,
+   "segundoNoVideo": 6.7,
+   "preco": null,
+   "origemDaEscala": "RETA_RUIM",
+   "yDaCaixa": null,
+   "epocaDaRegua": 2
+  },
+  {
+   "indice": 68,
+   "segundoNoVideo": 6.8,
+   "preco": 198188,
+   "origemDaEscala": "OCR",
+   "yDaCaixa": 439.5,
+   "epocaDaRegua": 3
+  },
+  {
+   "indice": 69,
+   "segundoNoVideo": 6.9,
+   "preco": 198358,
+   "origemDaEscala": "PROPAGADA",
+   "yDaCaixa": 425.5,
+   "epocaDaRegua": 3
+  },
+  {
+   "indice": 70,
+   "segundoNoVideo": 7,
+   "preco": 198169,
+   "origemDaEscala": "PROPAGADA",
+   "yDaCaixa": 440.5,
+   "epocaDaRegua": 3
+  },
+  {
+   "indice": 71,
+   "segundoNoVideo": 7.1,
+   "preco": 198105,
+   "origemDaEscala": "PROPAGADA",
+   "yDaCaixa": 445.5,
+   "epocaDaRegua": 3
+  },
+  {
+   "indice": 72,
+   "segundoNoVideo": 7.2,
+   "preco": 198043,
+   "origemDaEscala": "PROPAGADA",
+   "yDaCaixa": 450.5,
+   "epocaDaRegua": 3
+  },
+  {
+   "indice": 73,
+   "segundoNoVideo": 7.3,
+   "preco": 198319,
+   "origemDaEscala": "PROPAGADA",
+   "yDaCaixa": 428.5,
+   "epocaDaRegua": 3
+  },
+  {
+   "indice": 74,
+   "segundoNoVideo": 7.4,
+   "preco": 198319,
+   "origemDaEscala": "PROPAGADA",
+   "yDaCaixa": 428.5,
+   "epocaDaRegua": 3
+  },
+  {
+   "indice": 75,
+   "segundoNoVideo": 7.5,
+   "preco": 198295,
+   "origemDaEscala": "PROPAGADA",
+   "yDaCaixa": 430.5,
+   "epocaDaRegua": 3
+  },
+  {
+   "indice": 76,
+   "segundoNoVideo": 7.6,
+   "preco": 198106,
+   "origemDaEscala": "PROPAGADA",
+   "yDaCaixa": 445.5,
+   "epocaDaRegua": 3
+  },
+  {
+   "indice": 77,
+   "segundoNoVideo": 7.7,
+   "preco": 198343,
+   "origemDaEscala": "PROPAGADA",
+   "yDaCaixa": 426.5,
+   "epocaDaRegua": 3
+  },
+  {
+   "indice": 78,
+   "segundoNoVideo": 7.8,
+   "preco": 198408,
+   "origemDaEscala": "PROPAGADA",
+   "yDaCaixa": 421.5,
+   "epocaDaRegua": 3
+  },
+  {
+   "indice": 79,
+   "segundoNoVideo": 7.9,
+   "preco": 198283,
+   "origemDaEscala": "PROPAGADA",
+   "yDaCaixa": 431.5,
+   "epocaDaRegua": 3
+  },
+  {
+   "indice": 80,
+   "segundoNoVideo": 8,
+   "preco": 197991,
+   "origemDaEscala": "PROPAGADA",
+   "yDaCaixa": 454.5,
+   "epocaDaRegua": 3
+  },
+  {
+   "indice": 81,
+   "segundoNoVideo": 8.1,
+   "preco": 198157,
+   "origemDaEscala": "PROPAGADA",
+   "yDaCaixa": 441.5,
+   "epocaDaRegua": 3
+  },
+  {
+   "indice": 82,
+   "segundoNoVideo": 8.2,
+   "preco": 198319,
+   "origemDaEscala": "PROPAGADA",
+   "yDaCaixa": 428.5,
+   "epocaDaRegua": 3
+  },
+  {
+   "indice": 83,
+   "segundoNoVideo": 8.3,
+   "preco": 198484,
+   "origemDaEscala": "PROPAGADA",
+   "yDaCaixa": 415.5,
+   "epocaDaRegua": 3
+  },
+  {
+   "indice": 84,
+   "segundoNoVideo": 8.4,
+   "preco": 198408,
+   "origemDaEscala": "PROPAGADA",
+   "yDaCaixa": 421.5,
+   "epocaDaRegua": 3
+  },
+  {
+   "indice": 85,
+   "segundoNoVideo": 8.5,
+   "preco": 198408,
+   "origemDaEscala": "PROPAGADA",
+   "yDaCaixa": 421.5,
+   "epocaDaRegua": 3
+  },
+  {
+   "indice": 86,
+   "segundoNoVideo": 8.6,
+   "preco": null,
+   "origemDaEscala": "PROPAGADA",
+   "yDaCaixa": null,
+   "epocaDaRegua": 3
+  },
+  {
+   "indice": 87,
+   "segundoNoVideo": 8.7,
+   "preco": 198685,
+   "origemDaEscala": "PROPAGADA",
+   "yDaCaixa": 399.5,
+   "epocaDaRegua": 3
+  },
+  {
+   "indice": 88,
+   "segundoNoVideo": 8.8,
+   "preco": 198660,
+   "origemDaEscala": "PROPAGADA",
+   "yDaCaixa": 401.5,
+   "epocaDaRegua": 3
+  },
+  {
+   "indice": 89,
+   "segundoNoVideo": 8.9,
+   "preco": 198774,
+   "origemDaEscala": "PROPAGADA",
+   "yDaCaixa": 392.5,
+   "epocaDaRegua": 3
+  },
+  {
+   "indice": 90,
+   "segundoNoVideo": 9,
+   "preco": 198964,
+   "origemDaEscala": "PROPAGADA",
+   "yDaCaixa": 377.5,
+   "epocaDaRegua": 3
+  },
+  {
+   "indice": 91,
+   "segundoNoVideo": 9.1,
+   "preco": null,
+   "origemDaEscala": "PROPAGADA",
+   "yDaCaixa": null,
+   "epocaDaRegua": 3
+  },
+  {
+   "indice": 92,
+   "segundoNoVideo": 9.2,
+   "preco": 198989,
+   "origemDaEscala": "PROPAGADA",
+   "yDaCaixa": 375.5,
+   "epocaDaRegua": 3
+  },
+  {
+   "indice": 93,
+   "segundoNoVideo": 9.3,
+   "preco": 198850,
+   "origemDaEscala": "PROPAGADA",
+   "yDaCaixa": 386.5,
+   "epocaDaRegua": 3
+  },
+  {
+   "indice": 94,
+   "segundoNoVideo": 9.4,
+   "preco": null,
+   "origemDaEscala": "PROPAGADA",
+   "yDaCaixa": null,
+   "epocaDaRegua": 3
+  },
+  {
+   "indice": 95,
+   "segundoNoVideo": 9.5,
+   "preco": null,
+   "origemDaEscala": "PROPAGADA",
+   "yDaCaixa": null,
+   "epocaDaRegua": 3
+  },
+  {
+   "indice": 96,
+   "segundoNoVideo": 9.6,
+   "preco": 198685,
+   "origemDaEscala": "PROPAGADA",
+   "yDaCaixa": 399.5,
+   "epocaDaRegua": 3
+  },
+  {
+   "indice": 97,
+   "segundoNoVideo": 9.7,
+   "preco": 198685,
+   "origemDaEscala": "PROPAGADA",
+   "yDaCaixa": 399.5,
+   "epocaDaRegua": 3
+  },
+  {
+   "indice": 98,
+   "segundoNoVideo": 9.8,
+   "preco": 198711,
+   "origemDaEscala": "PROPAGADA",
+   "yDaCaixa": 397.5,
+   "epocaDaRegua": 3
+  },
+  {
+   "indice": 99,
+   "segundoNoVideo": 9.9,
+   "preco": 198951,
+   "origemDaEscala": "PROPAGADA",
+   "yDaCaixa": 378.5,
+   "epocaDaRegua": 3
+  },
+  {
+   "indice": 100,
+   "segundoNoVideo": 10,
+   "preco": 198989,
+   "origemDaEscala": "PROPAGADA",
+   "yDaCaixa": 375.5,
+   "epocaDaRegua": 3
+  },
+  {
+   "indice": 101,
+   "segundoNoVideo": 10.1,
+   "preco": 198989,
+   "origemDaEscala": "PROPAGADA",
+   "yDaCaixa": 375.5,
+   "epocaDaRegua": 3
+  },
+  {
+   "indice": 102,
+   "segundoNoVideo": 10.2,
+   "preco": 198951,
+   "origemDaEscala": "PROPAGADA",
+   "yDaCaixa": 378.5,
+   "epocaDaRegua": 3
+  },
+  {
+   "indice": 103,
+   "segundoNoVideo": 10.3,
+   "preco": 199014,
+   "origemDaEscala": "PROPAGADA",
+   "yDaCaixa": 373.5,
+   "epocaDaRegua": 3
+  },
+  {
+   "indice": 104,
+   "segundoNoVideo": 10.4,
+   "preco": null,
+   "origemDaEscala": "PROPAGADA",
+   "yDaCaixa": null,
+   "epocaDaRegua": 3
+  },
+  {
+   "indice": 105,
+   "segundoNoVideo": 10.5,
+   "preco": null,
+   "origemDaEscala": "PROPAGADA",
+   "yDaCaixa": null,
+   "epocaDaRegua": 3
+  },
+  {
+   "indice": 106,
+   "segundoNoVideo": 10.6,
+   "preco": 198850,
+   "origemDaEscala": "PROPAGADA",
+   "yDaCaixa": 386.5,
+   "epocaDaRegua": 3
+  },
+  {
+   "indice": 107,
+   "segundoNoVideo": 10.7,
+   "preco": 198862,
+   "origemDaEscala": "PROPAGADA",
+   "yDaCaixa": 385.5,
+   "epocaDaRegua": 3
+  },
+  {
+   "indice": 108,
+   "segundoNoVideo": 10.8,
+   "preco": 198824,
+   "origemDaEscala": "PROPAGADA",
+   "yDaCaixa": 388.5,
+   "epocaDaRegua": 3
+  },
+  {
+   "indice": 109,
+   "segundoNoVideo": 10.9,
+   "preco": 198698,
+   "origemDaEscala": "PROPAGADA",
+   "yDaCaixa": 398.5,
+   "epocaDaRegua": 3
+  },
+  {
+   "indice": 110,
+   "segundoNoVideo": 11,
+   "preco": null,
+   "origemDaEscala": "PROPAGADA",
+   "yDaCaixa": null,
+   "epocaDaRegua": 3
+  },
+  {
+   "indice": 111,
+   "segundoNoVideo": 11.1,
+   "preco": null,
+   "origemDaEscala": "PROPAGADA",
+   "yDaCaixa": null,
+   "epocaDaRegua": 3
+  },
+  {
+   "indice": 112,
+   "segundoNoVideo": 11.2,
+   "preco": 198421,
+   "origemDaEscala": "PROPAGADA",
+   "yDaCaixa": 420.5,
+   "epocaDaRegua": 3
+  },
+  {
+   "indice": 113,
+   "segundoNoVideo": 11.3,
+   "preco": 198207,
+   "origemDaEscala": "PROPAGADA",
+   "yDaCaixa": 437.5,
+   "epocaDaRegua": 3
+  },
+  {
+   "indice": 114,
+   "segundoNoVideo": 11.4,
+   "preco": 198207,
+   "origemDaEscala": "PROPAGADA",
+   "yDaCaixa": 437.5,
+   "epocaDaRegua": 3
+  },
+  {
+   "indice": 115,
+   "segundoNoVideo": 11.5,
+   "preco": null,
+   "origemDaEscala": "PROPAGADA",
+   "yDaCaixa": null,
+   "epocaDaRegua": 3
+  },
+  {
+   "indice": 116,
+   "segundoNoVideo": 11.6,
+   "preco": null,
+   "origemDaEscala": "PROPAGADA",
+   "yDaCaixa": null,
+   "epocaDaRegua": 3
+  },
+  {
+   "indice": 117,
+   "segundoNoVideo": 11.7,
+   "preco": 198080,
+   "origemDaEscala": "PROPAGADA",
+   "yDaCaixa": 447.5,
+   "epocaDaRegua": 3
+  },
+  {
+   "indice": 118,
+   "segundoNoVideo": 11.8,
+   "preco": 198080,
+   "origemDaEscala": "PROPAGADA",
+   "yDaCaixa": 447.5,
+   "epocaDaRegua": 3
+  },
+  {
+   "indice": 119,
+   "segundoNoVideo": 11.9,
+   "preco": 197996,
+   "origemDaEscala": "PROPAGADA",
+   "yDaCaixa": 454.5,
+   "epocaDaRegua": 3
+  },
+  {
+   "indice": 120,
+   "segundoNoVideo": 12,
+   "preco": 197993,
+   "origemDaEscala": "PROPAGADA",
+   "yDaCaixa": 454.5,
+   "epocaDaRegua": 3
+  },
+  {
+   "indice": 121,
+   "segundoNoVideo": 12.1,
+   "preco": 197969,
+   "origemDaEscala": "PROPAGADA",
+   "yDaCaixa": 456.5,
+   "epocaDaRegua": 3
+  },
+  {
+   "indice": 122,
+   "segundoNoVideo": 12.2,
+   "preco": 197968,
+   "origemDaEscala": "PROPAGADA",
+   "yDaCaixa": 456.5,
+   "epocaDaRegua": 3
+  },
+  {
+   "indice": 123,
+   "segundoNoVideo": 12.3,
+   "preco": 197621,
+   "origemDaEscala": "PROPAGADA",
+   "yDaCaixa": 483.5,
+   "epocaDaRegua": 3
+  },
+  {
+   "indice": 124,
+   "segundoNoVideo": 12.4,
+   "preco": 197699,
+   "origemDaEscala": "PROPAGADA",
+   "yDaCaixa": 477.5,
+   "epocaDaRegua": 3
+  },
+  {
+   "indice": 125,
+   "segundoNoVideo": 12.5,
+   "preco": 197691,
+   "origemDaEscala": "PROPAGADA",
+   "yDaCaixa": 478.5,
+   "epocaDaRegua": 3
+  },
+  {
+   "indice": 126,
+   "segundoNoVideo": 12.6,
+   "preco": 197639,
+   "origemDaEscala": "PROPAGADA",
+   "yDaCaixa": 482.5,
+   "epocaDaRegua": 3
+  },
+  {
+   "indice": 127,
+   "segundoNoVideo": 12.7,
+   "preco": 197753,
+   "origemDaEscala": "PROPAGADA",
+   "yDaCaixa": 473.5,
+   "epocaDaRegua": 3
+  },
+  {
+   "indice": 128,
+   "segundoNoVideo": 12.8,
+   "preco": 197787,
+   "origemDaEscala": "PROPAGADA",
+   "yDaCaixa": 470.5,
+   "epocaDaRegua": 3
+  },
+  {
+   "indice": 129,
+   "segundoNoVideo": 12.9,
+   "preco": 197814,
+   "origemDaEscala": "PROPAGADA",
+   "yDaCaixa": 468.5,
+   "epocaDaRegua": 3
+  },
+  {
+   "indice": 130,
+   "segundoNoVideo": 13,
+   "preco": 198145,
+   "origemDaEscala": "PROPAGADA",
+   "yDaCaixa": 442.5,
+   "epocaDaRegua": 3
+  },
+  {
+   "indice": 131,
+   "segundoNoVideo": 13.1,
+   "preco": 198167,
+   "origemDaEscala": "PROPAGADA",
+   "yDaCaixa": 440.5,
+   "epocaDaRegua": 3
+  },
+  {
+   "indice": 132,
+   "segundoNoVideo": 13.2,
+   "preco": 198167,
+   "origemDaEscala": "PROPAGADA",
+   "yDaCaixa": 440.5,
+   "epocaDaRegua": 3
+  },
+  {
+   "indice": 133,
+   "segundoNoVideo": 13.3,
+   "preco": 198540,
+   "origemDaEscala": "PROPAGADA",
+   "yDaCaixa": 411.5,
+   "epocaDaRegua": 3
+  },
+  {
+   "indice": 134,
+   "segundoNoVideo": 13.4,
+   "preco": 198540,
+   "origemDaEscala": "PROPAGADA",
+   "yDaCaixa": 411.5,
+   "epocaDaRegua": 3
+  },
+  {
+   "indice": 135,
+   "segundoNoVideo": 13.5,
+   "preco": 198615,
+   "origemDaEscala": "PROPAGADA",
+   "yDaCaixa": 405.5,
+   "epocaDaRegua": 3
+  },
+  {
+   "indice": 136,
+   "segundoNoVideo": 13.6,
+   "preco": 198615,
+   "origemDaEscala": "PROPAGADA",
+   "yDaCaixa": 405.5,
+   "epocaDaRegua": 3
+  },
+  {
+   "indice": 137,
+   "segundoNoVideo": 13.7,
+   "preco": 198554,
+   "origemDaEscala": "PROPAGADA",
+   "yDaCaixa": 410.5,
+   "epocaDaRegua": 3
+  },
+  {
+   "indice": 138,
+   "segundoNoVideo": 13.8,
+   "preco": 198554,
+   "origemDaEscala": "PROPAGADA",
+   "yDaCaixa": 410.5,
+   "epocaDaRegua": 3
+  },
+  {
+   "indice": 139,
+   "segundoNoVideo": 13.9,
+   "preco": 198504,
+   "origemDaEscala": "PROPAGADA",
+   "yDaCaixa": 414.5,
+   "epocaDaRegua": 3
+  },
+  {
+   "indice": 140,
+   "segundoNoVideo": 14,
+   "preco": 198504,
+   "origemDaEscala": "PROPAGADA",
+   "yDaCaixa": 414.5,
+   "epocaDaRegua": 3
+  },
+  {
+   "indice": 141,
+   "segundoNoVideo": 14.1,
+   "preco": 198451,
+   "origemDaEscala": "PROPAGADA",
+   "yDaCaixa": 418.5,
+   "epocaDaRegua": 3
+  },
+  {
+   "indice": 142,
+   "segundoNoVideo": 14.2,
+   "preco": 198352,
+   "origemDaEscala": "PROPAGADA",
+   "yDaCaixa": 426.5,
+   "epocaDaRegua": 3
+  },
+  {
+   "indice": 143,
+   "segundoNoVideo": 14.3,
+   "preco": 198138,
+   "origemDaEscala": "PROPAGADA",
+   "yDaCaixa": 443.5,
+   "epocaDaRegua": 3
+  },
+  {
+   "indice": 144,
+   "segundoNoVideo": 14.4,
+   "preco": 198251,
+   "origemDaEscala": "PROPAGADA",
+   "yDaCaixa": 434.5,
+   "epocaDaRegua": 3
+  },
+  {
+   "indice": 145,
+   "segundoNoVideo": 14.5,
+   "preco": 198149,
+   "origemDaEscala": "PROPAGADA",
+   "yDaCaixa": 442.5,
+   "epocaDaRegua": 3
+  },
+  {
+   "indice": 146,
+   "segundoNoVideo": 14.6,
+   "preco": 198261,
+   "origemDaEscala": "PROPAGADA",
+   "yDaCaixa": 433.5,
+   "epocaDaRegua": 3
+  },
+  {
+   "indice": 147,
+   "segundoNoVideo": 14.7,
+   "preco": 198487,
+   "origemDaEscala": "PROPAGADA",
+   "yDaCaixa": 415.5,
+   "epocaDaRegua": 3
+  },
+  {
+   "indice": 148,
+   "segundoNoVideo": 14.8,
+   "preco": 198487,
+   "origemDaEscala": "PROPAGADA",
+   "yDaCaixa": 415.5,
+   "epocaDaRegua": 3
+  },
+  {
+   "indice": 149,
+   "segundoNoVideo": 14.9,
+   "preco": 198700,
+   "origemDaEscala": "PROPAGADA",
+   "yDaCaixa": 398.5,
+   "epocaDaRegua": 3
+  },
+  {
+   "indice": 150,
+   "segundoNoVideo": 15,
+   "preco": 198700,
+   "origemDaEscala": "PROPAGADA",
+   "yDaCaixa": 398.5,
+   "epocaDaRegua": 3
+  },
+  {
+   "indice": 151,
+   "segundoNoVideo": 15.1,
+   "preco": 198688,
+   "origemDaEscala": "PROPAGADA",
+   "yDaCaixa": 399.5,
+   "epocaDaRegua": 3
+  },
+  {
+   "indice": 152,
+   "segundoNoVideo": 15.2,
+   "preco": 198688,
+   "origemDaEscala": "PROPAGADA",
+   "yDaCaixa": 399.5,
+   "epocaDaRegua": 3
+  },
+  {
+   "indice": 153,
+   "segundoNoVideo": 15.3,
+   "preco": 198751,
+   "origemDaEscala": "PROPAGADA",
+   "yDaCaixa": 394.5,
+   "epocaDaRegua": 3
+  },
+  {
+   "indice": 154,
+   "segundoNoVideo": 15.4,
+   "preco": 198662,
+   "origemDaEscala": "PROPAGADA",
+   "yDaCaixa": 401.5,
+   "epocaDaRegua": 3
+  },
+  {
+   "indice": 155,
+   "segundoNoVideo": 15.5,
+   "preco": 198538,
+   "origemDaEscala": "PROPAGADA",
+   "yDaCaixa": 411.5,
+   "epocaDaRegua": 3
+  },
+  {
+   "indice": 156,
+   "segundoNoVideo": 15.6,
+   "preco": 198814,
+   "origemDaEscala": "PROPAGADA",
+   "yDaCaixa": 389.5,
+   "epocaDaRegua": 3
+  },
+  {
+   "indice": 157,
+   "segundoNoVideo": 15.7,
+   "preco": 198802,
+   "origemDaEscala": "PROPAGADA",
+   "yDaCaixa": 390.5,
+   "epocaDaRegua": 3
+  },
+  {
+   "indice": 158,
+   "segundoNoVideo": 15.8,
+   "preco": 198539,
+   "origemDaEscala": "PROPAGADA",
+   "yDaCaixa": 411.5,
+   "epocaDaRegua": 3
+  },
+  {
+   "indice": 159,
+   "segundoNoVideo": 15.9,
+   "preco": 198637,
+   "origemDaEscala": "PROPAGADA",
+   "yDaCaixa": 403.5,
+   "epocaDaRegua": 3
+  },
+  {
+   "indice": 160,
+   "segundoNoVideo": 16,
+   "preco": 198713,
+   "origemDaEscala": "PROPAGADA",
+   "yDaCaixa": 397.5,
+   "epocaDaRegua": 3
+  },
+  {
+   "indice": 161,
+   "segundoNoVideo": 16.1,
+   "preco": 198763,
+   "origemDaEscala": "PROPAGADA",
+   "yDaCaixa": 393.5,
+   "epocaDaRegua": 3
+  },
+  {
+   "indice": 162,
+   "segundoNoVideo": 16.2,
+   "preco": 199062,
+   "origemDaEscala": "PROPAGADA",
+   "yDaCaixa": 369.5,
+   "epocaDaRegua": 3
+  },
+  {
+   "indice": 163,
+   "segundoNoVideo": 16.3,
+   "preco": 198898,
+   "origemDaEscala": "PROPAGADA",
+   "yDaCaixa": 382.5,
+   "epocaDaRegua": 3
+  },
+  {
+   "indice": 164,
+   "segundoNoVideo": 16.4,
+   "preco": 198903,
+   "origemDaEscala": "PROPAGADA",
+   "yDaCaixa": 382.5,
+   "epocaDaRegua": 3
+  },
+  {
+   "indice": 165,
+   "segundoNoVideo": 16.5,
+   "preco": 198903,
+   "origemDaEscala": "PROPAGADA",
+   "yDaCaixa": 382.5,
+   "epocaDaRegua": 3
+  },
+  {
+   "indice": 166,
+   "segundoNoVideo": 16.6,
+   "preco": 199167,
+   "origemDaEscala": "PROPAGADA",
+   "yDaCaixa": 360.5,
+   "epocaDaRegua": 3
+  },
+  {
+   "indice": 167,
+   "segundoNoVideo": 16.7,
+   "preco": 199142,
+   "origemDaEscala": "PROPAGADA",
+   "yDaCaixa": 362.5,
+   "epocaDaRegua": 3
+  },
+  {
+   "indice": 168,
+   "segundoNoVideo": 16.8,
+   "preco": 198571,
+   "origemDaEscala": "OCR",
+   "yDaCaixa": 375.5,
+   "epocaDaRegua": 4
+  },
+  {
+   "indice": 169,
+   "segundoNoVideo": 16.9,
+   "preco": 198572,
+   "origemDaEscala": "PROPAGADA",
+   "yDaCaixa": 379.5,
+   "epocaDaRegua": 4
+  },
+  {
+   "indice": 170,
+   "segundoNoVideo": 17,
+   "preco": null,
+   "origemDaEscala": "RETA_RUIM",
+   "yDaCaixa": null,
+   "epocaDaRegua": 4
+  },
+  {
+   "indice": 171,
+   "segundoNoVideo": 17.1,
+   "preco": null,
+   "origemDaEscala": "RETA_RUIM",
+   "yDaCaixa": null,
+   "epocaDaRegua": 4
+  },
+  {
+   "indice": 172,
+   "segundoNoVideo": 17.2,
+   "preco": null,
+   "origemDaEscala": "RETA_RUIM",
+   "yDaCaixa": null,
+   "epocaDaRegua": 4
+  },
+  {
+   "indice": 173,
+   "segundoNoVideo": 17.3,
+   "preco": null,
+   "origemDaEscala": "RETA_RUIM",
+   "yDaCaixa": null,
+   "epocaDaRegua": 4
+  },
+  {
+   "indice": 174,
+   "segundoNoVideo": 17.4,
+   "preco": null,
+   "origemDaEscala": "RETA_RUIM",
+   "yDaCaixa": null,
+   "epocaDaRegua": 4
+  },
+  {
+   "indice": 175,
+   "segundoNoVideo": 17.5,
+   "preco": null,
+   "origemDaEscala": "RETA_RUIM",
+   "yDaCaixa": null,
+   "epocaDaRegua": 4
+  },
+  {
+   "indice": 176,
+   "segundoNoVideo": 17.6,
+   "preco": null,
+   "origemDaEscala": "RETA_RUIM",
+   "yDaCaixa": null,
+   "epocaDaRegua": 4
+  },
+  {
+   "indice": 177,
+   "segundoNoVideo": 17.7,
+   "preco": null,
+   "origemDaEscala": "RETA_RUIM",
+   "yDaCaixa": null,
+   "epocaDaRegua": 4
+  },
+  {
+   "indice": 178,
+   "segundoNoVideo": 17.8,
+   "preco": null,
+   "origemDaEscala": "RETA_RUIM",
+   "yDaCaixa": null,
+   "epocaDaRegua": 4
+  },
+  {
+   "indice": 179,
+   "segundoNoVideo": 17.9,
+   "preco": null,
+   "origemDaEscala": "RETA_RUIM",
+   "yDaCaixa": null,
+   "epocaDaRegua": 4
+  },
+  {
+   "indice": 180,
+   "segundoNoVideo": 18,
+   "preco": null,
+   "origemDaEscala": "RETA_RUIM",
+   "yDaCaixa": null,
+   "epocaDaRegua": 4
+  },
+  {
+   "indice": 181,
+   "segundoNoVideo": 18.1,
+   "preco": null,
+   "origemDaEscala": "RETA_RUIM",
+   "yDaCaixa": null,
+   "epocaDaRegua": 4
+  },
+  {
+   "indice": 182,
+   "segundoNoVideo": 18.2,
+   "preco": null,
+   "origemDaEscala": "RETA_RUIM",
+   "yDaCaixa": null,
+   "epocaDaRegua": 4
+  },
+  {
+   "indice": 183,
+   "segundoNoVideo": 18.3,
+   "preco": null,
+   "origemDaEscala": "RETA_RUIM",
+   "yDaCaixa": null,
+   "epocaDaRegua": 4
+  },
+  {
+   "indice": 184,
+   "segundoNoVideo": 18.4,
+   "preco": null,
+   "origemDaEscala": "RETA_RUIM",
+   "yDaCaixa": null,
+   "epocaDaRegua": 4
+  },
+  {
+   "indice": 185,
+   "segundoNoVideo": 18.5,
+   "preco": null,
+   "origemDaEscala": "RETA_RUIM",
+   "yDaCaixa": null,
+   "epocaDaRegua": 4
+  },
+  {
+   "indice": 186,
+   "segundoNoVideo": 18.6,
+   "preco": null,
+   "origemDaEscala": "RETA_RUIM",
+   "yDaCaixa": null,
+   "epocaDaRegua": 4
+  },
+  {
+   "indice": 187,
+   "segundoNoVideo": 18.7,
+   "preco": null,
+   "origemDaEscala": "RETA_RUIM",
+   "yDaCaixa": null,
+   "epocaDaRegua": 4
+  },
+  {
+   "indice": 188,
+   "segundoNoVideo": 18.8,
+   "preco": 199496,
+   "origemDaEscala": "OCR",
+   "yDaCaixa": 284.5,
+   "epocaDaRegua": 5
+  },
+  {
+   "indice": 189,
+   "segundoNoVideo": 18.9,
+   "preco": 199546,
+   "origemDaEscala": "PROPAGADA",
+   "yDaCaixa": 280.5,
+   "epocaDaRegua": 5
+  },
+  {
+   "indice": 190,
+   "segundoNoVideo": 19,
+   "preco": 199585,
+   "origemDaEscala": "PROPAGADA",
+   "yDaCaixa": 276.5,
+   "epocaDaRegua": 5
+  },
+  {
+   "indice": 191,
+   "segundoNoVideo": 19.1,
+   "preco": 199696,
+   "origemDaEscala": "PROPAGADA",
+   "yDaCaixa": 265.5,
+   "epocaDaRegua": 5
+  },
+  {
+   "indice": 192,
+   "segundoNoVideo": 19.2,
+   "preco": 199430,
+   "origemDaEscala": "PROPAGADA",
+   "yDaCaixa": 293.5,
+   "epocaDaRegua": 5
+  },
+  {
+   "indice": 193,
+   "segundoNoVideo": 19.3,
+   "preco": 199687,
+   "origemDaEscala": "PROPAGADA",
+   "yDaCaixa": 270.5,
+   "epocaDaRegua": 5
+  },
+  {
+   "indice": 194,
+   "segundoNoVideo": 19.4,
+   "preco": 199655,
+   "origemDaEscala": "PROPAGADA",
+   "yDaCaixa": 271.5,
+   "epocaDaRegua": 5
+  },
+  {
+   "indice": 195,
+   "segundoNoVideo": 19.5,
+   "preco": 199618,
+   "origemDaEscala": "PROPAGADA",
+   "yDaCaixa": 274.5,
+   "epocaDaRegua": 5
+  },
+  {
+   "indice": 196,
+   "segundoNoVideo": 19.6,
+   "preco": 199637,
+   "origemDaEscala": "PROPAGADA",
+   "yDaCaixa": 272.5,
+   "epocaDaRegua": 5
+  },
+  {
+   "indice": 197,
+   "segundoNoVideo": 19.7,
+   "preco": 199617,
+   "origemDaEscala": "PROPAGADA",
+   "yDaCaixa": 274.5,
+   "epocaDaRegua": 5
+  },
+  {
+   "indice": 198,
+   "segundoNoVideo": 19.8,
+   "preco": 199482,
+   "origemDaEscala": "PROPAGADA",
+   "yDaCaixa": 287.5,
+   "epocaDaRegua": 5
+  },
+  {
+   "indice": 199,
+   "segundoNoVideo": 19.9,
+   "preco": 199503,
+   "origemDaEscala": "PROPAGADA",
+   "yDaCaixa": 285.5,
+   "epocaDaRegua": 5
+  },
+  {
+   "indice": 200,
+   "segundoNoVideo": 20,
+   "preco": 199482,
+   "origemDaEscala": "PROPAGADA",
+   "yDaCaixa": 287.5,
+   "epocaDaRegua": 5
+  },
+  {
+   "indice": 201,
+   "segundoNoVideo": 20.1,
+   "preco": null,
+   "origemDaEscala": "RETA_RUIM",
+   "yDaCaixa": null,
+   "epocaDaRegua": 5
+  },
+  {
+   "indice": 202,
+   "segundoNoVideo": 20.2,
+   "preco": null,
+   "origemDaEscala": "RETA_RUIM",
+   "yDaCaixa": null,
+   "epocaDaRegua": 5
+  },
+  {
+   "indice": 203,
+   "segundoNoVideo": 20.3,
+   "preco": null,
+   "origemDaEscala": "RETA_RUIM",
+   "yDaCaixa": null,
+   "epocaDaRegua": 5
+  },
+  {
+   "indice": 204,
+   "segundoNoVideo": 20.4,
+   "preco": null,
+   "origemDaEscala": "RETA_RUIM",
+   "yDaCaixa": null,
+   "epocaDaRegua": 5
+  },
+  {
+   "indice": 205,
+   "segundoNoVideo": 20.5,
+   "preco": null,
+   "origemDaEscala": "RETA_RUIM",
+   "yDaCaixa": null,
+   "epocaDaRegua": 5
+  },
+  {
+   "indice": 206,
+   "segundoNoVideo": 20.6,
+   "preco": null,
+   "origemDaEscala": "RETA_RUIM",
+   "yDaCaixa": null,
+   "epocaDaRegua": 5
+  },
+  {
+   "indice": 207,
+   "segundoNoVideo": 20.7,
+   "preco": null,
+   "origemDaEscala": "RETA_RUIM",
+   "yDaCaixa": null,
+   "epocaDaRegua": 5
+  },
+  {
+   "indice": 208,
+   "segundoNoVideo": 20.8,
+   "preco": 199338,
+   "origemDaEscala": "OCR",
+   "yDaCaixa": 329.5,
+   "epocaDaRegua": 6
+  },
+  {
+   "indice": 209,
+   "segundoNoVideo": 20.9,
+   "preco": 199381,
+   "origemDaEscala": "PROPAGADA",
+   "yDaCaixa": 325.5,
+   "epocaDaRegua": 6
+  },
+  {
+   "indice": 210,
+   "segundoNoVideo": 21,
+   "preco": 199369,
+   "origemDaEscala": "PROPAGADA",
+   "yDaCaixa": 326.5,
+   "epocaDaRegua": 6
+  },
+  {
+   "indice": 211,
+   "segundoNoVideo": 21.1,
+   "preco": 199393,
+   "origemDaEscala": "PROPAGADA",
+   "yDaCaixa": 324.5,
+   "epocaDaRegua": 6
+  },
+  {
+   "indice": 212,
+   "segundoNoVideo": 21.2,
+   "preco": 199417,
+   "origemDaEscala": "PROPAGADA",
+   "yDaCaixa": 322.5,
+   "epocaDaRegua": 6
+  },
+  {
+   "indice": 213,
+   "segundoNoVideo": 21.3,
+   "preco": 199369,
+   "origemDaEscala": "PROPAGADA",
+   "yDaCaixa": 326.5,
+   "epocaDaRegua": 6
+  },
+  {
+   "indice": 214,
+   "segundoNoVideo": 21.4,
+   "preco": null,
+   "origemDaEscala": "RETA_RUIM",
+   "yDaCaixa": null,
+   "epocaDaRegua": 6
+  },
+  {
+   "indice": 215,
+   "segundoNoVideo": 21.5,
+   "preco": null,
+   "origemDaEscala": "RETA_RUIM",
+   "yDaCaixa": null,
+   "epocaDaRegua": 6
+  },
+  {
+   "indice": 216,
+   "segundoNoVideo": 21.6,
+   "preco": null,
+   "origemDaEscala": "RETA_RUIM",
+   "yDaCaixa": null,
+   "epocaDaRegua": 6
+  },
+  {
+   "indice": 217,
+   "segundoNoVideo": 21.7,
+   "preco": null,
+   "origemDaEscala": "RETA_RUIM",
+   "yDaCaixa": null,
+   "epocaDaRegua": 6
+  },
+  {
+   "indice": 218,
+   "segundoNoVideo": 21.8,
+   "preco": null,
+   "origemDaEscala": "RETA_RUIM",
+   "yDaCaixa": null,
+   "epocaDaRegua": 6
+  },
+  {
+   "indice": 219,
+   "segundoNoVideo": 21.9,
+   "preco": null,
+   "origemDaEscala": "RETA_RUIM",
+   "yDaCaixa": null,
+   "epocaDaRegua": 6
+  },
+  {
+   "indice": 220,
+   "segundoNoVideo": 22,
+   "preco": null,
+   "origemDaEscala": "RETA_RUIM",
+   "yDaCaixa": null,
+   "epocaDaRegua": 6
+  },
+  {
+   "indice": 221,
+   "segundoNoVideo": 22.1,
+   "preco": null,
+   "origemDaEscala": "RETA_RUIM",
+   "yDaCaixa": null,
+   "epocaDaRegua": 6
+  },
+  {
+   "indice": 222,
+   "segundoNoVideo": 22.2,
+   "preco": null,
+   "origemDaEscala": "RETA_RUIM",
+   "yDaCaixa": null,
+   "epocaDaRegua": 6
+  },
+  {
+   "indice": 223,
+   "segundoNoVideo": 22.3,
+   "preco": null,
+   "origemDaEscala": "RETA_RUIM",
+   "yDaCaixa": null,
+   "epocaDaRegua": 6
+  },
+  {
+   "indice": 224,
+   "segundoNoVideo": 22.4,
+   "preco": null,
+   "origemDaEscala": "RETA_RUIM",
+   "yDaCaixa": null,
+   "epocaDaRegua": 6
+  },
+  {
+   "indice": 225,
+   "segundoNoVideo": 22.5,
+   "preco": null,
+   "origemDaEscala": "RETA_RUIM",
+   "yDaCaixa": null,
+   "epocaDaRegua": 6
+  },
+  {
+   "indice": 226,
+   "segundoNoVideo": 22.6,
+   "preco": null,
+   "origemDaEscala": "RETA_RUIM",
+   "yDaCaixa": null,
+   "epocaDaRegua": 6
+  },
+  {
+   "indice": 227,
+   "segundoNoVideo": 22.7,
+   "preco": null,
+   "origemDaEscala": "RETA_RUIM",
+   "yDaCaixa": null,
+   "epocaDaRegua": 6
+  },
+  {
+   "indice": 228,
+   "segundoNoVideo": 22.8,
+   "preco": 199178,
+   "origemDaEscala": "OCR",
+   "yDaCaixa": 342.5,
+   "epocaDaRegua": 7
+  },
+  {
+   "indice": 229,
+   "segundoNoVideo": 22.9,
+   "preco": 199239,
+   "origemDaEscala": "PROPAGADA",
+   "yDaCaixa": 336.5,
+   "epocaDaRegua": 7
+  },
+  {
+   "indice": 230,
+   "segundoNoVideo": 23,
+   "preco": 199239,
+   "origemDaEscala": "PROPAGADA",
+   "yDaCaixa": 336.5,
+   "epocaDaRegua": 7
+  },
+  {
+   "indice": 231,
+   "segundoNoVideo": 23.1,
+   "preco": null,
+   "origemDaEscala": "RETA_RUIM",
+   "yDaCaixa": null,
+   "epocaDaRegua": 7
+  },
+  {
+   "indice": 232,
+   "segundoNoVideo": 23.2,
+   "preco": null,
+   "origemDaEscala": "RETA_RUIM",
+   "yDaCaixa": null,
+   "epocaDaRegua": 7
+  },
+  {
+   "indice": 233,
+   "segundoNoVideo": 23.3,
+   "preco": null,
+   "origemDaEscala": "RETA_RUIM",
+   "yDaCaixa": null,
+   "epocaDaRegua": 7
+  },
+  {
+   "indice": 234,
+   "segundoNoVideo": 23.4,
+   "preco": null,
+   "origemDaEscala": "RETA_RUIM",
+   "yDaCaixa": null,
+   "epocaDaRegua": 7
+  },
+  {
+   "indice": 235,
+   "segundoNoVideo": 23.5,
+   "preco": null,
+   "origemDaEscala": "RETA_RUIM",
+   "yDaCaixa": null,
+   "epocaDaRegua": 7
+  },
+  {
+   "indice": 236,
+   "segundoNoVideo": 23.6,
+   "preco": null,
+   "origemDaEscala": "RETA_RUIM",
+   "yDaCaixa": null,
+   "epocaDaRegua": 7
+  },
+  {
+   "indice": 237,
+   "segundoNoVideo": 23.7,
+   "preco": null,
+   "origemDaEscala": "RETA_RUIM",
+   "yDaCaixa": null,
+   "epocaDaRegua": 7
+  },
+  {
+   "indice": 238,
+   "segundoNoVideo": 23.8,
+   "preco": null,
+   "origemDaEscala": "RETA_RUIM",
+   "yDaCaixa": null,
+   "epocaDaRegua": 7
+  },
+  {
+   "indice": 239,
+   "segundoNoVideo": 23.9,
+   "preco": null,
+   "origemDaEscala": "RETA_RUIM",
+   "yDaCaixa": null,
+   "epocaDaRegua": 7
+  },
+  {
+   "indice": 240,
+   "segundoNoVideo": 24,
+   "preco": null,
+   "origemDaEscala": "RETA_RUIM",
+   "yDaCaixa": null,
+   "epocaDaRegua": 7
+  },
+  {
+   "indice": 241,
+   "segundoNoVideo": 24.1,
+   "preco": null,
+   "origemDaEscala": "RETA_RUIM",
+   "yDaCaixa": null,
+   "epocaDaRegua": 7
+  },
+  {
+   "indice": 242,
+   "segundoNoVideo": 24.2,
+   "preco": null,
+   "origemDaEscala": "RETA_RUIM",
+   "yDaCaixa": null,
+   "epocaDaRegua": 7
+  },
+  {
+   "indice": 243,
+   "segundoNoVideo": 24.3,
+   "preco": null,
+   "origemDaEscala": "RETA_RUIM",
+   "yDaCaixa": null,
+   "epocaDaRegua": 7
+  },
+  {
+   "indice": 244,
+   "segundoNoVideo": 24.4,
+   "preco": null,
+   "origemDaEscala": "RETA_RUIM",
+   "yDaCaixa": null,
+   "epocaDaRegua": 7
+  },
+  {
+   "indice": 245,
+   "segundoNoVideo": 24.5,
+   "preco": null,
+   "origemDaEscala": "RETA_RUIM",
+   "yDaCaixa": null,
+   "epocaDaRegua": 7
+  },
+  {
+   "indice": 246,
+   "segundoNoVideo": 24.6,
+   "preco": null,
+   "origemDaEscala": "RETA_RUIM",
+   "yDaCaixa": null,
+   "epocaDaRegua": 7
+  },
+  {
+   "indice": 247,
+   "segundoNoVideo": 24.7,
+   "preco": null,
+   "origemDaEscala": "RETA_RUIM",
+   "yDaCaixa": null,
+   "epocaDaRegua": 7
+  },
+  {
+   "indice": 248,
+   "segundoNoVideo": 24.8,
+   "preco": null,
+   "origemDaEscala": "RETA_RUIM",
+   "yDaCaixa": null,
+   "epocaDaRegua": 7
+  },
+  {
+   "indice": 249,
+   "segundoNoVideo": 24.9,
+   "preco": null,
+   "origemDaEscala": "RETA_RUIM",
+   "yDaCaixa": null,
+   "epocaDaRegua": 7
+  },
+  {
+   "indice": 250,
+   "segundoNoVideo": 25,
+   "preco": null,
+   "origemDaEscala": "RETA_RUIM",
+   "yDaCaixa": null,
+   "epocaDaRegua": 7
+  },
+  {
+   "indice": 251,
+   "segundoNoVideo": 25.1,
+   "preco": null,
+   "origemDaEscala": "RETA_RUIM",
+   "yDaCaixa": null,
+   "epocaDaRegua": 7
+  },
+  {
+   "indice": 252,
+   "segundoNoVideo": 25.2,
+   "preco": null,
+   "origemDaEscala": "RETA_RUIM",
+   "yDaCaixa": null,
+   "epocaDaRegua": 7
+  },
+  {
+   "indice": 253,
+   "segundoNoVideo": 25.3,
+   "preco": null,
+   "origemDaEscala": "RETA_RUIM",
+   "yDaCaixa": null,
+   "epocaDaRegua": 7
+  },
+  {
+   "indice": 254,
+   "segundoNoVideo": 25.4,
+   "preco": null,
+   "origemDaEscala": "RETA_RUIM",
+   "yDaCaixa": null,
+   "epocaDaRegua": 7
+  },
+  {
+   "indice": 255,
+   "segundoNoVideo": 25.5,
+   "preco": null,
+   "origemDaEscala": "RETA_RUIM",
+   "yDaCaixa": null,
+   "epocaDaRegua": 7
+  },
+  {
+   "indice": 256,
+   "segundoNoVideo": 25.6,
+   "preco": null,
+   "origemDaEscala": "RETA_RUIM",
+   "yDaCaixa": null,
+   "epocaDaRegua": 7
+  },
+  {
+   "indice": 257,
+   "segundoNoVideo": 25.7,
+   "preco": null,
+   "origemDaEscala": "RETA_RUIM",
+   "yDaCaixa": null,
+   "epocaDaRegua": 7
+  },
+  {
+   "indice": 258,
+   "segundoNoVideo": 25.8,
+   "preco": null,
+   "origemDaEscala": "RETA_RUIM",
+   "yDaCaixa": null,
+   "epocaDaRegua": 7
+  },
+  {
+   "indice": 259,
+   "segundoNoVideo": 25.9,
+   "preco": null,
+   "origemDaEscala": "RETA_RUIM",
+   "yDaCaixa": null,
+   "epocaDaRegua": 7
+  },
+  {
+   "indice": 260,
+   "segundoNoVideo": 26,
+   "preco": null,
+   "origemDaEscala": "RETA_RUIM",
+   "yDaCaixa": null,
+   "epocaDaRegua": 7
+  },
+  {
+   "indice": 261,
+   "segundoNoVideo": 26.1,
+   "preco": null,
+   "origemDaEscala": "RETA_RUIM",
+   "yDaCaixa": null,
+   "epocaDaRegua": 7
+  },
+  {
+   "indice": 262,
+   "segundoNoVideo": 26.2,
+   "preco": null,
+   "origemDaEscala": "RETA_RUIM",
+   "yDaCaixa": null,
+   "epocaDaRegua": 7
+  },
+  {
+   "indice": 263,
+   "segundoNoVideo": 26.3,
+   "preco": null,
+   "origemDaEscala": "RETA_RUIM",
+   "yDaCaixa": null,
+   "epocaDaRegua": 7
+  },
+  {
+   "indice": 264,
+   "segundoNoVideo": 26.4,
+   "preco": null,
+   "origemDaEscala": "RETA_RUIM",
+   "yDaCaixa": null,
+   "epocaDaRegua": 7
+  },
+  {
+   "indice": 265,
+   "segundoNoVideo": 26.5,
+   "preco": null,
+   "origemDaEscala": "RETA_RUIM",
+   "yDaCaixa": null,
+   "epocaDaRegua": 7
+  },
+  {
+   "indice": 266,
+   "segundoNoVideo": 26.6,
+   "preco": null,
+   "origemDaEscala": "RETA_RUIM",
+   "yDaCaixa": null,
+   "epocaDaRegua": 7
+  },
+  {
+   "indice": 267,
+   "segundoNoVideo": 26.7,
+   "preco": null,
+   "origemDaEscala": "RETA_RUIM",
+   "yDaCaixa": null,
+   "epocaDaRegua": 7
+  },
+  {
+   "indice": 268,
+   "segundoNoVideo": 26.8,
+   "preco": 199161,
+   "origemDaEscala": "OCR",
+   "yDaCaixa": 343.5,
+   "epocaDaRegua": 8
+  },
+  {
+   "indice": 269,
+   "segundoNoVideo": 26.9,
+   "preco": 199168,
+   "origemDaEscala": "PROPAGADA",
+   "yDaCaixa": 342.5,
+   "epocaDaRegua": 8
+  },
+  {
+   "indice": 270,
+   "segundoNoVideo": 27,
+   "preco": 199226,
+   "origemDaEscala": "PROPAGADA",
+   "yDaCaixa": 337.5,
+   "epocaDaRegua": 8
+  },
+  {
+   "indice": 271,
+   "segundoNoVideo": 27.1,
+   "preco": null,
+   "origemDaEscala": "RETA_RUIM",
+   "yDaCaixa": null,
+   "epocaDaRegua": 8
+  },
+  {
+   "indice": 272,
+   "segundoNoVideo": 27.2,
+   "preco": null,
+   "origemDaEscala": "RETA_RUIM",
+   "yDaCaixa": null,
+   "epocaDaRegua": 8
+  },
+  {
+   "indice": 273,
+   "segundoNoVideo": 27.3,
+   "preco": null,
+   "origemDaEscala": "RETA_RUIM",
+   "yDaCaixa": null,
+   "epocaDaRegua": 8
+  },
+  {
+   "indice": 274,
+   "segundoNoVideo": 27.4,
+   "preco": null,
+   "origemDaEscala": "RETA_RUIM",
+   "yDaCaixa": null,
+   "epocaDaRegua": 8
+  },
+  {
+   "indice": 275,
+   "segundoNoVideo": 27.5,
+   "preco": null,
+   "origemDaEscala": "RETA_RUIM",
+   "yDaCaixa": null,
+   "epocaDaRegua": 8
+  },
+  {
+   "indice": 276,
+   "segundoNoVideo": 27.6,
+   "preco": null,
+   "origemDaEscala": "RETA_RUIM",
+   "yDaCaixa": null,
+   "epocaDaRegua": 8
+  },
+  {
+   "indice": 277,
+   "segundoNoVideo": 27.7,
+   "preco": null,
+   "origemDaEscala": "RETA_RUIM",
+   "yDaCaixa": null,
+   "epocaDaRegua": 8
+  },
+  {
+   "indice": 278,
+   "segundoNoVideo": 27.8,
+   "preco": null,
+   "origemDaEscala": "RETA_RUIM",
+   "yDaCaixa": null,
+   "epocaDaRegua": 8
+  },
+  {
+   "indice": 279,
+   "segundoNoVideo": 27.9,
+   "preco": null,
+   "origemDaEscala": "RETA_RUIM",
+   "yDaCaixa": null,
+   "epocaDaRegua": 8
+  },
+  {
+   "indice": 280,
+   "segundoNoVideo": 28,
+   "preco": null,
+   "origemDaEscala": "RETA_RUIM",
+   "yDaCaixa": null,
+   "epocaDaRegua": 8
+  },
+  {
+   "indice": 281,
+   "segundoNoVideo": 28.1,
+   "preco": null,
+   "origemDaEscala": "RETA_RUIM",
+   "yDaCaixa": null,
+   "epocaDaRegua": 8
+  },
+  {
+   "indice": 282,
+   "segundoNoVideo": 28.2,
+   "preco": null,
+   "origemDaEscala": "RETA_RUIM",
+   "yDaCaixa": null,
+   "epocaDaRegua": 8
+  },
+  {
+   "indice": 283,
+   "segundoNoVideo": 28.3,
+   "preco": null,
+   "origemDaEscala": "RETA_RUIM",
+   "yDaCaixa": null,
+   "epocaDaRegua": 8
+  },
+  {
+   "indice": 284,
+   "segundoNoVideo": 28.4,
+   "preco": null,
+   "origemDaEscala": "RETA_RUIM",
+   "yDaCaixa": null,
+   "epocaDaRegua": 8
+  },
+  {
+   "indice": 285,
+   "segundoNoVideo": 28.5,
+   "preco": null,
+   "origemDaEscala": "RETA_RUIM",
+   "yDaCaixa": null,
+   "epocaDaRegua": 8
+  },
+  {
+   "indice": 286,
+   "segundoNoVideo": 28.6,
+   "preco": null,
+   "origemDaEscala": "RETA_RUIM",
+   "yDaCaixa": null,
+   "epocaDaRegua": 8
+  },
+  {
+   "indice": 287,
+   "segundoNoVideo": 28.7,
+   "preco": null,
+   "origemDaEscala": "RETA_RUIM",
+   "yDaCaixa": null,
+   "epocaDaRegua": 8
+  },
+  {
+   "indice": 288,
+   "segundoNoVideo": 28.8,
+   "preco": null,
+   "origemDaEscala": "OCR",
+   "yDaCaixa": null,
+   "epocaDaRegua": 9
+  },
+  {
+   "indice": 289,
+   "segundoNoVideo": 28.9,
+   "preco": null,
+   "origemDaEscala": "PROPAGADA",
+   "yDaCaixa": null,
+   "epocaDaRegua": 9
+  },
+  {
+   "indice": 290,
+   "segundoNoVideo": 29,
+   "preco": 199585,
+   "origemDaEscala": "PROPAGADA",
+   "yDaCaixa": 306.5,
+   "epocaDaRegua": 9
+  },
+  {
+   "indice": 291,
+   "segundoNoVideo": 29.1,
+   "preco": null,
+   "origemDaEscala": "RETA_RUIM",
+   "yDaCaixa": null,
+   "epocaDaRegua": 9
+  },
+  {
+   "indice": 292,
+   "segundoNoVideo": 29.2,
+   "preco": null,
+   "origemDaEscala": "RETA_RUIM",
+   "yDaCaixa": null,
+   "epocaDaRegua": 9
+  },
+  {
+   "indice": 293,
+   "segundoNoVideo": 29.3,
+   "preco": null,
+   "origemDaEscala": "RETA_RUIM",
+   "yDaCaixa": null,
+   "epocaDaRegua": 9
+  },
+  {
+   "indice": 294,
+   "segundoNoVideo": 29.4,
+   "preco": null,
+   "origemDaEscala": "RETA_RUIM",
+   "yDaCaixa": null,
+   "epocaDaRegua": 9
+  },
+  {
+   "indice": 295,
+   "segundoNoVideo": 29.5,
+   "preco": null,
+   "origemDaEscala": "RETA_RUIM",
+   "yDaCaixa": null,
+   "epocaDaRegua": 9
+  },
+  {
+   "indice": 296,
+   "segundoNoVideo": 29.6,
+   "preco": null,
+   "origemDaEscala": "RETA_RUIM",
+   "yDaCaixa": null,
+   "epocaDaRegua": 9
+  },
+  {
+   "indice": 297,
+   "segundoNoVideo": 29.7,
+   "preco": null,
+   "origemDaEscala": "RETA_RUIM",
+   "yDaCaixa": null,
+   "epocaDaRegua": 9
+  },
+  {
+   "indice": 298,
+   "segundoNoVideo": 29.8,
+   "preco": null,
+   "origemDaEscala": "RETA_RUIM",
+   "yDaCaixa": null,
+   "epocaDaRegua": 9
+  },
+  {
+   "indice": 299,
+   "segundoNoVideo": 29.9,
+   "preco": null,
+   "origemDaEscala": "RETA_RUIM",
+   "yDaCaixa": null,
+   "epocaDaRegua": 9
+  },
+  {
+   "indice": 300,
+   "segundoNoVideo": 30,
+   "preco": null,
+   "origemDaEscala": "RETA_RUIM",
+   "yDaCaixa": null,
+   "epocaDaRegua": 9
+  },
+  {
+   "indice": 301,
+   "segundoNoVideo": 30.1,
+   "preco": null,
+   "origemDaEscala": "RETA_RUIM",
+   "yDaCaixa": null,
+   "epocaDaRegua": 9
+  },
+  {
+   "indice": 302,
+   "segundoNoVideo": 30.2,
+   "preco": null,
+   "origemDaEscala": "RETA_RUIM",
+   "yDaCaixa": null,
+   "epocaDaRegua": 9
+  },
+  {
+   "indice": 303,
+   "segundoNoVideo": 30.3,
+   "preco": null,
+   "origemDaEscala": "RETA_RUIM",
+   "yDaCaixa": null,
+   "epocaDaRegua": 9
+  },
+  {
+   "indice": 304,
+   "segundoNoVideo": 30.4,
+   "preco": null,
+   "origemDaEscala": "RETA_RUIM",
+   "yDaCaixa": null,
+   "epocaDaRegua": 9
+  },
+  {
+   "indice": 305,
+   "segundoNoVideo": 30.5,
+   "preco": null,
+   "origemDaEscala": "RETA_RUIM",
+   "yDaCaixa": null,
+   "epocaDaRegua": 9
+  },
+  {
+   "indice": 306,
+   "segundoNoVideo": 30.6,
+   "preco": null,
+   "origemDaEscala": "RETA_RUIM",
+   "yDaCaixa": null,
+   "epocaDaRegua": 9
+  },
+  {
+   "indice": 307,
+   "segundoNoVideo": 30.7,
+   "preco": null,
+   "origemDaEscala": "RETA_RUIM",
+   "yDaCaixa": null,
+   "epocaDaRegua": 9
+  },
+  {
+   "indice": 308,
+   "segundoNoVideo": 30.8,
+   "preco": 199574,
+   "origemDaEscala": "OCR",
+   "yDaCaixa": 317.5,
+   "epocaDaRegua": 10
+  },
+  {
+   "indice": 309,
+   "segundoNoVideo": 30.9,
+   "preco": 199464,
+   "origemDaEscala": "PROPAGADA",
+   "yDaCaixa": 328.5,
+   "epocaDaRegua": 10
+  },
+  {
+   "indice": 310,
+   "segundoNoVideo": 31,
+   "preco": 199484,
+   "origemDaEscala": "PROPAGADA",
+   "yDaCaixa": 326.5,
+   "epocaDaRegua": 10
+  },
+  {
+   "indice": 311,
+   "segundoNoVideo": 31.1,
+   "preco": 199535,
+   "origemDaEscala": "PROPAGADA",
+   "yDaCaixa": 321.5,
+   "epocaDaRegua": 10
+  },
+  {
+   "indice": 312,
+   "segundoNoVideo": 31.2,
+   "preco": 199666,
+   "origemDaEscala": "PROPAGADA",
+   "yDaCaixa": 308.5,
+   "epocaDaRegua": 10
+  },
+  {
+   "indice": 313,
+   "segundoNoVideo": 31.3,
+   "preco": 199752,
+   "origemDaEscala": "PROPAGADA",
+   "yDaCaixa": 299.5,
+   "epocaDaRegua": 10
+  },
+  {
+   "indice": 314,
+   "segundoNoVideo": 31.4,
+   "preco": 199752,
+   "origemDaEscala": "PROPAGADA",
+   "yDaCaixa": 299.5,
+   "epocaDaRegua": 10
+  },
+  {
+   "indice": 315,
+   "segundoNoVideo": 31.5,
+   "preco": 199821,
+   "origemDaEscala": "PROPAGADA",
+   "yDaCaixa": 292.5,
+   "epocaDaRegua": 10
+  },
+  {
+   "indice": 316,
+   "segundoNoVideo": 31.6,
+   "preco": 199676,
+   "origemDaEscala": "PROPAGADA",
+   "yDaCaixa": 305.5,
+   "epocaDaRegua": 10
+  },
+  {
+   "indice": 317,
+   "segundoNoVideo": 31.7,
+   "preco": 199606,
+   "origemDaEscala": "PROPAGADA",
+   "yDaCaixa": 314.5,
+   "epocaDaRegua": 10
+  },
+  {
+   "indice": 318,
+   "segundoNoVideo": 31.8,
+   "preco": 199647,
+   "origemDaEscala": "PROPAGADA",
+   "yDaCaixa": 307.5,
+   "epocaDaRegua": 10
+  },
+  {
+   "indice": 319,
+   "segundoNoVideo": 31.9,
+   "preco": 199647,
+   "origemDaEscala": "PROPAGADA",
+   "yDaCaixa": 307.5,
+   "epocaDaRegua": 10
+  },
+  {
+   "indice": 320,
+   "segundoNoVideo": 32,
+   "preco": 199608,
+   "origemDaEscala": "PROPAGADA",
+   "yDaCaixa": 311.5,
+   "epocaDaRegua": 10
+  },
+  {
+   "indice": 321,
+   "segundoNoVideo": 32.1,
+   "preco": 199608,
+   "origemDaEscala": "PROPAGADA",
+   "yDaCaixa": 311.5,
+   "epocaDaRegua": 10
+  },
+  {
+   "indice": 322,
+   "segundoNoVideo": 32.2,
+   "preco": null,
+   "origemDaEscala": "PROPAGADA",
+   "yDaCaixa": null,
+   "epocaDaRegua": 10
+  },
+  {
+   "indice": 323,
+   "segundoNoVideo": 32.3,
+   "preco": 199498,
+   "origemDaEscala": "PROPAGADA",
+   "yDaCaixa": 322.5,
+   "epocaDaRegua": 10
+  },
+  {
+   "indice": 324,
+   "segundoNoVideo": 32.4,
+   "preco": 199528,
+   "origemDaEscala": "PROPAGADA",
+   "yDaCaixa": 319.5,
+   "epocaDaRegua": 10
+  },
+  {
+   "indice": 325,
+   "segundoNoVideo": 32.5,
+   "preco": 199587,
+   "origemDaEscala": "PROPAGADA",
+   "yDaCaixa": 313.5,
+   "epocaDaRegua": 10
+  },
+  {
+   "indice": 326,
+   "segundoNoVideo": 32.6,
+   "preco": 199641,
+   "origemDaEscala": "PROPAGADA",
+   "yDaCaixa": 309.5,
+   "epocaDaRegua": 10
+  },
+  {
+   "indice": 327,
+   "segundoNoVideo": 32.7,
+   "preco": 199641,
+   "origemDaEscala": "PROPAGADA",
+   "yDaCaixa": 309.5,
+   "epocaDaRegua": 10
+  },
+  {
+   "indice": 328,
+   "segundoNoVideo": 32.8,
+   "preco": 199721,
+   "origemDaEscala": "PROPAGADA",
+   "yDaCaixa": 301.5,
+   "epocaDaRegua": 10
+  },
+  {
+   "indice": 329,
+   "segundoNoVideo": 32.9,
+   "preco": 199762,
+   "origemDaEscala": "PROPAGADA",
+   "yDaCaixa": 296.5,
+   "epocaDaRegua": 10
+  },
+  {
+   "indice": 330,
+   "segundoNoVideo": 33,
+   "preco": 199753,
+   "origemDaEscala": "PROPAGADA",
+   "yDaCaixa": 297.5,
+   "epocaDaRegua": 10
+  },
+  {
+   "indice": 331,
+   "segundoNoVideo": 33.1,
+   "preco": null,
+   "origemDaEscala": "PROPAGADA",
+   "yDaCaixa": null,
+   "epocaDaRegua": 10
+  },
+  {
+   "indice": 332,
+   "segundoNoVideo": 33.2,
+   "preco": 199831,
+   "origemDaEscala": "PROPAGADA",
+   "yDaCaixa": 291.5,
+   "epocaDaRegua": 10
+  },
+  {
+   "indice": 333,
+   "segundoNoVideo": 33.3,
+   "preco": 199570,
+   "origemDaEscala": "PROPAGADA",
+   "yDaCaixa": 317.5,
+   "epocaDaRegua": 10
+  },
+  {
+   "indice": 334,
+   "segundoNoVideo": 33.4,
+   "preco": 199502,
+   "origemDaEscala": "PROPAGADA",
+   "yDaCaixa": 324.5,
+   "epocaDaRegua": 10
+  },
+  {
+   "indice": 335,
+   "segundoNoVideo": 33.5,
+   "preco": 199503,
+   "origemDaEscala": "PROPAGADA",
+   "yDaCaixa": 324.5,
+   "epocaDaRegua": 10
+  },
+  {
+   "indice": 336,
+   "segundoNoVideo": 33.6,
+   "preco": 199334,
+   "origemDaEscala": "PROPAGADA",
+   "yDaCaixa": 342.5,
+   "epocaDaRegua": 10
+  },
+  {
+   "indice": 337,
+   "segundoNoVideo": 33.7,
+   "preco": 199333,
+   "origemDaEscala": "PROPAGADA",
+   "yDaCaixa": 342.5,
+   "epocaDaRegua": 10
+  },
+  {
+   "indice": 338,
+   "segundoNoVideo": 33.8,
+   "preco": 199529,
+   "origemDaEscala": "PROPAGADA",
+   "yDaCaixa": 323.5,
+   "epocaDaRegua": 10
+  },
+  {
+   "indice": 339,
+   "segundoNoVideo": 33.9,
+   "preco": 199528,
+   "origemDaEscala": "PROPAGADA",
+   "yDaCaixa": 323.5,
+   "epocaDaRegua": 10
+  },
+  {
+   "indice": 340,
+   "segundoNoVideo": 34,
+   "preco": null,
+   "origemDaEscala": "PROPAGADA",
+   "yDaCaixa": null,
+   "epocaDaRegua": 10
+  },
+  {
+   "indice": 341,
+   "segundoNoVideo": 34.1,
+   "preco": null,
+   "origemDaEscala": "PROPAGADA",
+   "yDaCaixa": null,
+   "epocaDaRegua": 10
+  },
+  {
+   "indice": 342,
+   "segundoNoVideo": 34.2,
+   "preco": 199457,
+   "origemDaEscala": "PROPAGADA",
+   "yDaCaixa": 325.5,
+   "epocaDaRegua": 10
+  },
+  {
+   "indice": 343,
+   "segundoNoVideo": 34.3,
+   "preco": 199390,
+   "origemDaEscala": "PROPAGADA",
+   "yDaCaixa": 332.5,
+   "epocaDaRegua": 10
+  },
+  {
+   "indice": 344,
+   "segundoNoVideo": 34.4,
+   "preco": 199569,
+   "origemDaEscala": "PROPAGADA",
+   "yDaCaixa": 314.5,
+   "epocaDaRegua": 10
+  },
+  {
+   "indice": 345,
+   "segundoNoVideo": 34.5,
+   "preco": 199569,
+   "origemDaEscala": "PROPAGADA",
+   "yDaCaixa": 314.5,
+   "epocaDaRegua": 10
+  },
+  {
+   "indice": 346,
+   "segundoNoVideo": 34.6,
+   "preco": 199608,
+   "origemDaEscala": "PROPAGADA",
+   "yDaCaixa": 310.5,
+   "epocaDaRegua": 10
+  },
+  {
+   "indice": 347,
+   "segundoNoVideo": 34.7,
+   "preco": 199607,
+   "origemDaEscala": "PROPAGADA",
+   "yDaCaixa": 310.5,
+   "epocaDaRegua": 10
+  },
+  {
+   "indice": 348,
+   "segundoNoVideo": 34.8,
+   "preco": 199768,
+   "origemDaEscala": "PROPAGADA",
+   "yDaCaixa": 294.5,
+   "epocaDaRegua": 10
+  },
+  {
+   "indice": 349,
+   "segundoNoVideo": 34.9,
+   "preco": 199768,
+   "origemDaEscala": "PROPAGADA",
+   "yDaCaixa": 294.5,
+   "epocaDaRegua": 10
+  },
+  {
+   "indice": 350,
+   "segundoNoVideo": 35,
+   "preco": 199768,
+   "origemDaEscala": "PROPAGADA",
+   "yDaCaixa": 294.5,
+   "epocaDaRegua": 10
+  },
+  {
+   "indice": 351,
+   "segundoNoVideo": 35.1,
+   "preco": 199866,
+   "origemDaEscala": "PROPAGADA",
+   "yDaCaixa": 284.5,
+   "epocaDaRegua": 10
+  },
+  {
+   "indice": 352,
+   "segundoNoVideo": 35.2,
+   "preco": 199776,
+   "origemDaEscala": "PROPAGADA",
+   "yDaCaixa": 293.5,
+   "epocaDaRegua": 10
+  },
+  {
+   "indice": 353,
+   "segundoNoVideo": 35.3,
+   "preco": null,
+   "origemDaEscala": "PROPAGADA",
+   "yDaCaixa": null,
+   "epocaDaRegua": 10
+  },
+  {
+   "indice": 354,
+   "segundoNoVideo": 35.4,
+   "preco": 199926,
+   "origemDaEscala": "PROPAGADA",
+   "yDaCaixa": 278.5,
+   "epocaDaRegua": 10
+  },
+  {
+   "indice": 355,
+   "segundoNoVideo": 35.5,
+   "preco": 199925,
+   "origemDaEscala": "PROPAGADA",
+   "yDaCaixa": 278.5,
+   "epocaDaRegua": 10
+  },
+  {
+   "indice": 356,
+   "segundoNoVideo": 35.6,
+   "preco": 199960,
+   "origemDaEscala": "PROPAGADA",
+   "yDaCaixa": 275,
+   "epocaDaRegua": 10
+  },
+  {
+   "indice": 357,
+   "segundoNoVideo": 35.7,
+   "preco": 199925,
+   "origemDaEscala": "PROPAGADA",
+   "yDaCaixa": 278.5,
+   "epocaDaRegua": 10
+  },
+  {
+   "indice": 358,
+   "segundoNoVideo": 35.8,
+   "preco": 199946,
+   "origemDaEscala": "PROPAGADA",
+   "yDaCaixa": 276.5,
+   "epocaDaRegua": 10
+  },
+  {
+   "indice": 359,
+   "segundoNoVideo": 35.9,
+   "preco": 199956,
+   "origemDaEscala": "PROPAGADA",
+   "yDaCaixa": 275.5,
+   "epocaDaRegua": 10
+  },
+  {
+   "indice": 360,
+   "segundoNoVideo": 36,
+   "preco": 199866,
+   "origemDaEscala": "PROPAGADA",
+   "yDaCaixa": 284.5,
+   "epocaDaRegua": 10
+  },
+  {
+   "indice": 361,
+   "segundoNoVideo": 36.1,
+   "preco": 199866,
+   "origemDaEscala": "PROPAGADA",
+   "yDaCaixa": 284.5,
+   "epocaDaRegua": 10
+  },
+  {
+   "indice": 362,
+   "segundoNoVideo": 36.2,
+   "preco": 199787,
+   "origemDaEscala": "PROPAGADA",
+   "yDaCaixa": 292.5,
+   "epocaDaRegua": 10
+  },
+  {
+   "indice": 363,
+   "segundoNoVideo": 36.3,
+   "preco": 199786,
+   "origemDaEscala": "PROPAGADA",
+   "yDaCaixa": 292.5,
+   "epocaDaRegua": 10
+  },
+  {
+   "indice": 364,
+   "segundoNoVideo": 36.4,
+   "preco": 199757,
+   "origemDaEscala": "PROPAGADA",
+   "yDaCaixa": 295.5,
+   "epocaDaRegua": 10
+  },
+  {
+   "indice": 365,
+   "segundoNoVideo": 36.5,
+   "preco": 199638,
+   "origemDaEscala": "PROPAGADA",
+   "yDaCaixa": 307.5,
+   "epocaDaRegua": 10
+  },
+  {
+   "indice": 366,
+   "segundoNoVideo": 36.6,
+   "preco": 199628,
+   "origemDaEscala": "PROPAGADA",
+   "yDaCaixa": 308.5,
+   "epocaDaRegua": 10
+  },
+  {
+   "indice": 367,
+   "segundoNoVideo": 36.7,
+   "preco": null,
+   "origemDaEscala": "PROPAGADA",
+   "yDaCaixa": null,
+   "epocaDaRegua": 10
+  },
+  {
+   "indice": 368,
+   "segundoNoVideo": 36.8,
+   "preco": 199944,
+   "origemDaEscala": "PROPAGADA",
+   "yDaCaixa": 280.5,
+   "epocaDaRegua": 10
+  },
+  {
+   "indice": 369,
+   "segundoNoVideo": 36.9,
+   "preco": null,
+   "origemDaEscala": "PROPAGADA",
+   "yDaCaixa": null,
+   "epocaDaRegua": 10
+  },
+  {
+   "indice": 370,
+   "segundoNoVideo": 37,
+   "preco": 199943,
+   "origemDaEscala": "PROPAGADA",
+   "yDaCaixa": 281.5,
+   "epocaDaRegua": 10
+  },
+  {
+   "indice": 371,
+   "segundoNoVideo": 37.1,
+   "preco": 200040,
+   "origemDaEscala": "PROPAGADA",
+   "yDaCaixa": 270.5,
+   "epocaDaRegua": 10
+  },
+  {
+   "indice": 372,
+   "segundoNoVideo": 37.2,
+   "preco": 200104,
+   "origemDaEscala": "PROPAGADA",
+   "yDaCaixa": 264.5,
+   "epocaDaRegua": 10
+  },
+  {
+   "indice": 373,
+   "segundoNoVideo": 37.3,
+   "preco": 199973,
+   "origemDaEscala": "PROPAGADA",
+   "yDaCaixa": 277.5,
+   "epocaDaRegua": 10
+  },
+  {
+   "indice": 374,
+   "segundoNoVideo": 37.4,
+   "preco": 200041,
+   "origemDaEscala": "PROPAGADA",
+   "yDaCaixa": 270.5,
+   "epocaDaRegua": 10
+  },
+  {
+   "indice": 375,
+   "segundoNoVideo": 37.5,
+   "preco": 199922,
+   "origemDaEscala": "PROPAGADA",
+   "yDaCaixa": 282.5,
+   "epocaDaRegua": 10
+  },
+  {
+   "indice": 376,
+   "segundoNoVideo": 37.6,
+   "preco": 199922,
+   "origemDaEscala": "PROPAGADA",
+   "yDaCaixa": 282.5,
+   "epocaDaRegua": 10
+  },
+  {
+   "indice": 377,
+   "segundoNoVideo": 37.7,
+   "preco": 199752,
+   "origemDaEscala": "PROPAGADA",
+   "yDaCaixa": 299.5,
+   "epocaDaRegua": 10
+  },
+  {
+   "indice": 378,
+   "segundoNoVideo": 37.8,
+   "preco": 199579,
+   "origemDaEscala": "PROPAGADA",
+   "yDaCaixa": 316.5,
+   "epocaDaRegua": 10
+  },
+  {
+   "indice": 379,
+   "segundoNoVideo": 37.9,
+   "preco": 199549,
+   "origemDaEscala": "PROPAGADA",
+   "yDaCaixa": 319.5,
+   "epocaDaRegua": 10
+  },
+  {
+   "indice": 380,
+   "segundoNoVideo": 38,
+   "preco": 199509,
+   "origemDaEscala": "PROPAGADA",
+   "yDaCaixa": 323.5,
+   "epocaDaRegua": 10
+  },
+  {
+   "indice": 381,
+   "segundoNoVideo": 38.1,
+   "preco": 199559,
+   "origemDaEscala": "PROPAGADA",
+   "yDaCaixa": 318.5,
+   "epocaDaRegua": 10
+  },
+  {
+   "indice": 382,
+   "segundoNoVideo": 38.2,
+   "preco": 199559,
+   "origemDaEscala": "PROPAGADA",
+   "yDaCaixa": 318.5,
+   "epocaDaRegua": 10
+  },
+  {
+   "indice": 383,
+   "segundoNoVideo": 38.3,
+   "preco": 199720,
+   "origemDaEscala": "PROPAGADA",
+   "yDaCaixa": 302.5,
+   "epocaDaRegua": 10
+  },
+  {
+   "indice": 384,
+   "segundoNoVideo": 38.4,
+   "preco": 199848,
+   "origemDaEscala": "PROPAGADA",
+   "yDaCaixa": 289.5,
+   "epocaDaRegua": 10
+  },
+  {
+   "indice": 385,
+   "segundoNoVideo": 38.5,
+   "preco": 199902,
+   "origemDaEscala": "PROPAGADA",
+   "yDaCaixa": 284.5,
+   "epocaDaRegua": 10
+  },
+  {
+   "indice": 386,
+   "segundoNoVideo": 38.6,
+   "preco": 199902,
+   "origemDaEscala": "PROPAGADA",
+   "yDaCaixa": 284.5,
+   "epocaDaRegua": 10
+  },
+  {
+   "indice": 387,
+   "segundoNoVideo": 38.7,
+   "preco": 200018,
+   "origemDaEscala": "PROPAGADA",
+   "yDaCaixa": 271.5,
+   "epocaDaRegua": 10
+  },
+  {
+   "indice": 388,
+   "segundoNoVideo": 38.8,
+   "preco": 200018,
+   "origemDaEscala": "PROPAGADA",
+   "yDaCaixa": 271.5,
+   "epocaDaRegua": 10
+  },
+  {
+   "indice": 389,
+   "segundoNoVideo": 38.9,
+   "preco": 200162,
+   "origemDaEscala": "OCR",
+   "yDaCaixa": 276.5,
+   "epocaDaRegua": 11
+  },
+  {
+   "indice": 390,
+   "segundoNoVideo": 39,
+   "preco": 200128,
+   "origemDaEscala": "PROPAGADA",
+   "yDaCaixa": 280.5,
+   "epocaDaRegua": 11
+  },
+  {
+   "indice": 391,
+   "segundoNoVideo": 39.1,
+   "preco": 200061,
+   "origemDaEscala": "PROPAGADA",
+   "yDaCaixa": 291,
+   "epocaDaRegua": 11
+  },
+  {
+   "indice": 392,
+   "segundoNoVideo": 39.2,
+   "preco": 199987,
+   "origemDaEscala": "PROPAGADA",
+   "yDaCaixa": 302.5,
+   "epocaDaRegua": 11
+  },
+  {
+   "indice": 393,
+   "segundoNoVideo": 39.3,
+   "preco": 200063,
+   "origemDaEscala": "PROPAGADA",
+   "yDaCaixa": 290.5,
+   "epocaDaRegua": 11
+  },
+  {
+   "indice": 394,
+   "segundoNoVideo": 39.4,
+   "preco": 200126,
+   "origemDaEscala": "PROPAGADA",
+   "yDaCaixa": 284.5,
+   "epocaDaRegua": 11
+  },
+  {
+   "indice": 395,
+   "segundoNoVideo": 39.5,
+   "preco": 200205,
+   "origemDaEscala": "PROPAGADA",
+   "yDaCaixa": 270.5,
+   "epocaDaRegua": 11
+  },
+  {
+   "indice": 396,
+   "segundoNoVideo": 39.6,
+   "preco": 200251,
+   "origemDaEscala": "PROPAGADA",
+   "yDaCaixa": 263.5,
+   "epocaDaRegua": 11
+  },
+  {
+   "indice": 397,
+   "segundoNoVideo": 39.7,
+   "preco": 200161,
+   "origemDaEscala": "PROPAGADA",
+   "yDaCaixa": 277.5,
+   "epocaDaRegua": 11
+  },
+  {
+   "indice": 398,
+   "segundoNoVideo": 39.8,
+   "preco": 200030,
+   "origemDaEscala": "PROPAGADA",
+   "yDaCaixa": 297.5,
+   "epocaDaRegua": 11
+  },
+  {
+   "indice": 399,
+   "segundoNoVideo": 39.9,
+   "preco": 200030,
+   "origemDaEscala": "PROPAGADA",
+   "yDaCaixa": 297.5,
+   "epocaDaRegua": 11
+  },
+  {
+   "indice": 400,
+   "segundoNoVideo": 40,
+   "preco": 200043,
+   "origemDaEscala": "PROPAGADA",
+   "yDaCaixa": 295.5,
+   "epocaDaRegua": 11
+  },
+  {
+   "indice": 401,
+   "segundoNoVideo": 40.1,
+   "preco": 200043,
+   "origemDaEscala": "PROPAGADA",
+   "yDaCaixa": 295.5,
+   "epocaDaRegua": 11
+  },
+  {
+   "indice": 402,
+   "segundoNoVideo": 40.2,
+   "preco": 200101,
+   "origemDaEscala": "PROPAGADA",
+   "yDaCaixa": 286.5,
+   "epocaDaRegua": 11
+  },
+  {
+   "indice": 403,
+   "segundoNoVideo": 40.3,
+   "preco": 200101,
+   "origemDaEscala": "PROPAGADA",
+   "yDaCaixa": 286.5,
+   "epocaDaRegua": 11
+  },
+  {
+   "indice": 404,
+   "segundoNoVideo": 40.4,
+   "preco": 200037,
+   "origemDaEscala": "PROPAGADA",
+   "yDaCaixa": 296.5,
+   "epocaDaRegua": 11
+  },
+  {
+   "indice": 405,
+   "segundoNoVideo": 40.5,
+   "preco": 200037,
+   "origemDaEscala": "PROPAGADA",
+   "yDaCaixa": 296.5,
+   "epocaDaRegua": 11
+  },
+  {
+   "indice": 406,
+   "segundoNoVideo": 40.6,
+   "preco": 200010,
+   "origemDaEscala": "PROPAGADA",
+   "yDaCaixa": 300.5,
+   "epocaDaRegua": 11
+  },
+  {
+   "indice": 407,
+   "segundoNoVideo": 40.7,
+   "preco": 200010,
+   "origemDaEscala": "PROPAGADA",
+   "yDaCaixa": 300.5,
+   "epocaDaRegua": 11
+  },
+  {
+   "indice": 408,
+   "segundoNoVideo": 40.8,
+   "preco": 200024,
+   "origemDaEscala": "PROPAGADA",
+   "yDaCaixa": 298.5,
+   "epocaDaRegua": 11
+  },
+  {
+   "indice": 409,
+   "segundoNoVideo": 40.9,
+   "preco": 200161,
+   "origemDaEscala": "PROPAGADA",
+   "yDaCaixa": 277.5,
+   "epocaDaRegua": 11
+  },
+  {
+   "indice": 410,
+   "segundoNoVideo": 41,
+   "preco": 200154,
+   "origemDaEscala": "PROPAGADA",
+   "yDaCaixa": 278.5,
+   "epocaDaRegua": 11
+  },
+  {
+   "indice": 411,
+   "segundoNoVideo": 41.1,
+   "preco": 200108,
+   "origemDaEscala": "PROPAGADA",
+   "yDaCaixa": 285.5,
+   "epocaDaRegua": 11
+  },
+  {
+   "indice": 412,
+   "segundoNoVideo": 41.2,
+   "preco": 200193,
+   "origemDaEscala": "PROPAGADA",
+   "yDaCaixa": 272.5,
+   "epocaDaRegua": 11
+  },
+  {
+   "indice": 413,
+   "segundoNoVideo": 41.3,
+   "preco": 200108,
+   "origemDaEscala": "PROPAGADA",
+   "yDaCaixa": 285.5,
+   "epocaDaRegua": 11
+  },
+  {
+   "indice": 414,
+   "segundoNoVideo": 41.4,
+   "preco": 200141,
+   "origemDaEscala": "PROPAGADA",
+   "yDaCaixa": 280.5,
+   "epocaDaRegua": 11
+  },
+  {
+   "indice": 415,
+   "segundoNoVideo": 41.5,
+   "preco": 200094,
+   "origemDaEscala": "PROPAGADA",
+   "yDaCaixa": 285.5,
+   "epocaDaRegua": 11
+  },
+  {
+   "indice": 416,
+   "segundoNoVideo": 41.6,
+   "preco": 200141,
+   "origemDaEscala": "PROPAGADA",
+   "yDaCaixa": 277.5,
+   "epocaDaRegua": 11
+  },
+  {
+   "indice": 417,
+   "segundoNoVideo": 41.7,
+   "preco": 200198,
+   "origemDaEscala": "PROPAGADA",
+   "yDaCaixa": 272.5,
+   "epocaDaRegua": 11
+  },
+  {
+   "indice": 418,
+   "segundoNoVideo": 41.8,
+   "preco": 200192,
+   "origemDaEscala": "PROPAGADA",
+   "yDaCaixa": 273.5,
+   "epocaDaRegua": 11
+  },
+  {
+   "indice": 419,
+   "segundoNoVideo": 41.9,
+   "preco": 200128,
+   "origemDaEscala": "PROPAGADA",
+   "yDaCaixa": 278.5,
+   "epocaDaRegua": 11
+  },
+  {
+   "indice": 420,
+   "segundoNoVideo": 42,
+   "preco": 200211,
+   "origemDaEscala": "PROPAGADA",
+   "yDaCaixa": 265.5,
+   "epocaDaRegua": 11
+  },
+  {
+   "indice": 421,
+   "segundoNoVideo": 42.1,
+   "preco": 200172,
+   "origemDaEscala": "PROPAGADA",
+   "yDaCaixa": 276.5,
+   "epocaDaRegua": 11
+  },
+  {
+   "indice": 422,
+   "segundoNoVideo": 42.2,
+   "preco": 200002,
+   "origemDaEscala": "PROPAGADA",
+   "yDaCaixa": 298.5,
+   "epocaDaRegua": 11
+  },
+  {
+   "indice": 423,
+   "segundoNoVideo": 42.3,
+   "preco": 200079,
+   "origemDaEscala": "PROPAGADA",
+   "yDaCaixa": 288.5,
+   "epocaDaRegua": 11
+  },
+  {
+   "indice": 424,
+   "segundoNoVideo": 42.4,
+   "preco": 200198,
+   "origemDaEscala": "PROPAGADA",
+   "yDaCaixa": 271.5,
+   "epocaDaRegua": 11
+  },
+  {
+   "indice": 425,
+   "segundoNoVideo": 42.5,
+   "preco": 200187,
+   "origemDaEscala": "PROPAGADA",
+   "yDaCaixa": 270.5,
+   "epocaDaRegua": 11
+  },
+  {
+   "indice": 426,
+   "segundoNoVideo": 42.6,
+   "preco": 200187,
+   "origemDaEscala": "PROPAGADA",
+   "yDaCaixa": 270.5,
+   "epocaDaRegua": 11
+  },
+  {
+   "indice": 427,
+   "segundoNoVideo": 42.7,
+   "preco": 200201,
+   "origemDaEscala": "PROPAGADA",
+   "yDaCaixa": 267.5,
+   "epocaDaRegua": 11
+  },
+  {
+   "indice": 428,
+   "segundoNoVideo": 42.8,
+   "preco": 200201,
+   "origemDaEscala": "PROPAGADA",
+   "yDaCaixa": 267.5,
+   "epocaDaRegua": 11
+  },
+  {
+   "indice": 429,
+   "segundoNoVideo": 42.9,
+   "preco": 200192,
+   "origemDaEscala": "PROPAGADA",
+   "yDaCaixa": 272.5,
+   "epocaDaRegua": 11
+  }
+ ],
+ "pivos": [
+  {
+   "indice": 80,
+   "segundoNoVideo": 8,
+   "preco": 197991,
+   "tipo": "FUNDO"
+  },
+  {
+   "indice": 92,
+   "segundoNoVideo": 9.2,
+   "preco": 198989,
+   "tipo": "TOPO"
+  },
+  {
+   "indice": 103,
+   "segundoNoVideo": 10.3,
+   "preco": 199014,
+   "tipo": "TOPO"
+  },
+  {
+   "indice": 123,
+   "segundoNoVideo": 12.3,
+   "preco": 197621,
+   "tipo": "FUNDO"
+  },
+  {
+   "indice": 135,
+   "segundoNoVideo": 13.5,
+   "preco": 198615,
+   "tipo": "TOPO"
+  },
+  {
+   "indice": 136,
+   "segundoNoVideo": 13.6,
+   "preco": 198615,
+   "tipo": "TOPO"
+  },
+  {
+   "indice": 143,
+   "segundoNoVideo": 14.3,
+   "preco": 198138,
+   "tipo": "FUNDO"
+  },
+  {
+   "indice": 323,
+   "segundoNoVideo": 32.3,
+   "preco": 199498,
+   "tipo": "FUNDO"
+  },
+  {
+   "indice": 332,
+   "segundoNoVideo": 33.2,
+   "preco": 199831,
+   "tipo": "TOPO"
+  },
+  {
+   "indice": 366,
+   "segundoNoVideo": 36.6,
+   "preco": 199628,
+   "tipo": "FUNDO"
+  },
+  {
+   "indice": 372,
+   "segundoNoVideo": 37.2,
+   "preco": 200104,
+   "tipo": "TOPO"
+  },
+  {
+   "indice": 380,
+   "segundoNoVideo": 38,
+   "preco": 199509,
+   "tipo": "FUNDO"
+  }
+ ],
+ "pregao": {
+  "video": "C:/Users/user/Desktop/BACKTEST/marco.mp4",
+  "ativo": "WINFUT",
+  "inicioSeg": 0,
+  "fimSeg": 43,
+  "intervaloSeg": 0.1,
+  "printsLidos": 31,
+  "printsValidos": 31,
+  "printsComErro": 0,
+  "printsComEscala": 25,
+  "printsSemEscala": 6,
+  "recusadasPorEspaco": 14,
+  "framesSoDeRegua": 305,
+  "instantesAnalisados": 31,
+  "comNiveis": 15,
+  "funil": {
+   "framesTotais": 430,
+   "framesComPreco": 269,
+   "candidatosFrames": 141,
+   "episodios": 5,
+   "chamadasDeModelo": 31,
+   "trackFrames": 94,
+   "leiturasFalharamMantidas": 0,
+   "setupsNascidos": 9,
+   "expirados": [
+    {
+     "setupId": "T4-2026-03-02-001",
+     "idadeMinutos": 41,
+     "observacoes": 28
+    },
+    {
+     "setupId": "T4-2026-03-02-049",
+     "idadeMinutos": 47,
+     "observacoes": 6
+    },
+    {
+     "setupId": "T4-2026-03-02-073",
+     "idadeMinutos": 41,
+     "observacoes": 32
+    }
+   ],
+   "recusas": {}
+  },
+  "comObstaculo": 15,
+  "faixaDoEixoLida": {
+   "min": 198505,
+   "max": 201409.10310039308
+  },
+  "porStatus": {
+   "T4_EM_FORMACAO": 31
+  },
+  "porEstagio": {
+   "FORMING": 117,
+   "EXPIRED": 3,
+   "INVALIDATED": 5
+  },
+  "aproximacoes": 10,
+  "confirmacoes": 0,
+  "leituras": [
+   {
+    "indice": 100,
+    "segundoNoVideo": 10,
+    "dataDoGrafico": null,
+    "horaDoGrafico": null,
+    "status": "T4_EM_FORMACAO",
+    "direcao": "COMPRA",
+    "confianca": 85,
+    "precoAtual": 198989,
+    "estagio": "FORMING",
+    "headline": "T4 PRÓXIMA — PREPARAR (276 pts do gatilho)",
+    "preAlerta": true,
+    "entradaConfirmada": false,
+    "entrada": 199265,
+    "stop": 198535,
+    "alvo": null,
+    "distanciaPontos": 276,
+    "evento": "NOVO SETUP T4-2026-03-02-001",
+    "reparos": [
+     "Status rebaixado: entrada/stop não legíveis no print não sustentam confirmação.",
+     "Candle fechado (máxima): valor descartado porque não estava legível no print.",
+     "Candle fechado (mínima): valor descartado porque não estava legível no print.",
+     "Candle fechado (fechamento): valor descartado porque não estava legível no print.",
+     "Candle fechado descartado: sem fechamento legível não há o que provar com ele.",
+     "Plano \"Fechamento de candle acima do topo anterior (198500)\": alvo 1: valor descartado porque não estava legível no print.",
+     "Plano \"Fechamento de candle acima do topo anterior (198500)\" descartado: sem stop legível não se publica entrada.",
+     "Nível \"Zona de suporte atual\": teto: valor descartado porque não estava legível no print.",
+     "Preço atual 198989 lido da RÉGUA calibrada (caixa do eixo em y=376), não do modelo.",
+     "Alvo recusado: obstáculo a 1.1R (200035) — menos que os 3R de espaço técnico. Setup segue em acompanhamento, sem alvo não confirma.",
+     "Região 198705–199435 · E=199265 S=198535 · alvos 3R/5R da técnica (201455/202915) · obstáculo 200035 (LIDO) a 1.1R."
+    ],
+    "erro": null,
+    "latenciaMs": 15297
+   },
+   {
+    "indice": 102,
+    "segundoNoVideo": 10.2,
+    "dataDoGrafico": null,
+    "horaDoGrafico": null,
+    "status": "T4_EM_FORMACAO",
+    "direcao": "COMPRA",
+    "confianca": 85,
+    "precoAtual": 198951,
+    "estagio": "FORMING",
+    "headline": "T4 PRÓXIMA — PREPARAR (741 pts do gatilho)",
+    "preAlerta": true,
+    "entradaConfirmada": false,
+    "entrada": 198210,
+    "stop": 197580,
+    "alvo": null,
+    "distanciaPontos": 741,
+    "evento": "GATILHO_ATUALIZADO",
+    "reparos": [
+     "Status rebaixado: entrada/stop não legíveis no print não sustentam confirmação.",
+     "Candle fechado (máxima): valor descartado porque não estava legível no print.",
+     "Candle fechado (mínima): valor descartado porque não estava legível no print.",
+     "Candle fechado (fechamento): valor descartado porque não estava legível no print.",
+     "Candle fechado descartado: sem fechamento legível não há o que provar com ele.",
+     "Plano \"Rompimento e fechamento acima de 198.830\": entrada: valor descartado porque não estava legível no print.",
+     "Plano \"Rompimento e fechamento acima de 198.830\": stop: valor descartado porque não estava legível no print.",
+     "Plano \"Rompimento e fechamento acima de 198.830\": alvo 1: valor descartado porque não estava legível no print.",
+     "Plano \"Rompimento e fechamento acima de 198.830\" descartado: sem stop legível não se publica entrada.",
+     "Nível \"Suporte Estrutural (Stop)\": preço: valor descartado porque não estava legível no print.",
+     "Nível \"Suporte Estrutural (Stop)\" descartado: preço não legível no print.",
+     "1 marcação(ões) de candle de confirmação descartada(s): o status não é ENTRADA_CONFIRMADA — seta de entrada só existe com entrada confirmada.",
+     "Preço atual 198951 lido da RÉGUA calibrada (caixa do eixo em y=379), não do modelo.",
+     "Alvo recusado: obstáculo a 1.2R (198989) — menos que os 3R de espaço técnico. Setup segue em acompanhamento, sem alvo não confirma.",
+     "Região 197630–198450 · E=198210 S=197580 · alvos 3R/5R da técnica (200100/201360) · obstáculo 198989 (MEDIDO) a 1.2R."
+    ],
+    "erro": null,
+    "latenciaMs": 13802
+   },
+   {
+    "indice": 112,
+    "segundoNoVideo": 11.2,
+    "dataDoGrafico": null,
+    "horaDoGrafico": null,
+    "status": "T4_EM_FORMACAO",
+    "direcao": "COMPRA",
+    "confianca": 65,
+    "precoAtual": 198421,
+    "estagio": "FORMING",
+    "headline": "FORMING — T4-2026-03-02-001",
+    "preAlerta": false,
+    "entradaConfirmada": false,
+    "entrada": 197410,
+    "stop": 197160,
+    "alvo": null,
+    "distanciaPontos": 1011,
+    "evento": "GATILHO_ATUALIZADO",
+    "reparos": [
+     "Candle fechado (máxima): valor descartado porque não estava legível no print.",
+     "Candle fechado (mínima): valor descartado porque não estava legível no print.",
+     "Candle fechado (fechamento): valor descartado porque não estava legível no print.",
+     "Candle fechado descartado: sem fechamento legível não há o que provar com ele.",
+     "Plano \"Fechamento de candle acima da resistência local (198.500)\": entrada: valor descartado porque não estava legível no print.",
+     "Plano \"Fechamento de candle acima da resistência local (198.500)\": stop: valor descartado porque não estava legível no print.",
+     "Plano \"Fechamento de candle acima da resistência local (198.500)\": alvo 1: valor descartado porque não estava legível no print.",
+     "Plano \"Fechamento de candle acima da resistência local (198.500)\" descartado: sem stop legível não se publica entrada.",
+     "Nível \"Resistência Anterior\": preço: valor descartado porque não estava legível no print.",
+     "Nível \"Resistência Anterior\" descartado: preço não legível no print.",
+     "Preço atual 198421 lido da RÉGUA calibrada (caixa do eixo em y=421), não do modelo.",
+     "Alvo recusado: obstáculo a 2.3R (197991) — menos que os 3R de espaço técnico. Setup segue em acompanhamento, sem alvo não confirma.",
+     "Região 197260–198350 · E=197410 S=197160 · alvos 3R/5R da técnica (198160/198660) · obstáculo 197991 (MEDIDO) a 2.3R."
+    ],
+    "erro": null,
+    "latenciaMs": 13561
+   },
+   {
+    "indice": 123,
+    "segundoNoVideo": 12.3,
+    "dataDoGrafico": null,
+    "horaDoGrafico": null,
+    "status": "T4_EM_FORMACAO",
+    "direcao": "COMPRA",
+    "confianca": 65,
+    "precoAtual": 197621,
+    "estagio": "FORMING",
+    "headline": "T4 PRÓXIMA — PREPARAR (211 pts do gatilho)",
+    "preAlerta": true,
+    "entradaConfirmada": false,
+    "entrada": 197410,
+    "stop": 197160,
+    "alvo": null,
+    "distanciaPontos": 211,
+    "evento": null,
+    "reparos": [
+     "TRACK: estrutura reaproveitada da leitura de 11.2s; preço 197621 da régua calibrada."
+    ],
+    "erro": null,
+    "latenciaMs": 2
+   },
+   {
+    "indice": 124,
+    "segundoNoVideo": 12.4,
+    "dataDoGrafico": "2023-03-02",
+    "horaDoGrafico": "10:48",
+    "status": "T4_EM_FORMACAO",
+    "direcao": "COMPRA",
+    "confianca": 65,
+    "precoAtual": 197699,
+    "estagio": "FORMING",
+    "headline": "T4 PRÓXIMA — PREPARAR (339 pts do gatilho)",
+    "preAlerta": true,
+    "entradaConfirmada": false,
+    "entrada": 197360,
+    "stop": 197100,
+    "alvo": null,
+    "distanciaPontos": 339,
+    "evento": "GATILHO_ATUALIZADO",
+    "reparos": [
+     "Candle fechado descartado: sem fechamento legível não há o que provar com ele.",
+     "Plano \"Fechamento de candle acima da resistência imediata\" descartado: o nível do gatilho não é legível no print.",
+     "Plano \"Rompimento falso no suporte\" descartado: o nível do gatilho não é legível no print.",
+     "Nível \"Zona de Compra (POI)\" descartado: preço não legível no print.",
+     "1 marcação(ões) de candle de confirmação descartada(s): o status não é ENTRADA_CONFIRMADA — seta de entrada só existe com entrada confirmada.",
+     "Preço atual 197699 lido da RÉGUA calibrada (caixa do eixo em y=478), não do modelo.",
+     "Alvo recusado: obstáculo a 2.4R (197991) — menos que os 3R de espaço técnico. Setup segue em acompanhamento, sem alvo não confirma.",
+     "Região 197240–197580 · E=197360 S=197100 · alvos 3R/5R da técnica (198140/198660) · obstáculo 197991 (MEDIDO) a 2.4R."
+    ],
+    "erro": null,
+    "latenciaMs": 13619
+   },
+   {
+    "indice": 127,
+    "segundoNoVideo": 12.7,
+    "dataDoGrafico": "2023-03-02",
+    "horaDoGrafico": "10:48",
+    "status": "T4_EM_FORMACAO",
+    "direcao": "COMPRA",
+    "confianca": 65,
+    "precoAtual": 197753,
+    "estagio": "FORMING",
+    "headline": "FORMING — T4-2026-03-02-001",
+    "preAlerta": false,
+    "entradaConfirmada": false,
+    "entrada": 197360,
+    "stop": 197100,
+    "alvo": null,
+    "distanciaPontos": 393,
+    "evento": null,
+    "reparos": [
+     "TRACK: estrutura reaproveitada da leitura de 12.4s; preço 197753 da régua calibrada."
+    ],
+    "erro": null,
+    "latenciaMs": 2
+   },
+   {
+    "indice": 134,
+    "segundoNoVideo": 13.4,
+    "dataDoGrafico": "2023-03-02",
+    "horaDoGrafico": "10:48",
+    "status": "T4_EM_FORMACAO",
+    "direcao": "COMPRA",
+    "confianca": 65,
+    "precoAtual": 198540,
+    "estagio": "EXPIRED",
+    "headline": "SETUP T4-2026-03-02-001 EXPIRADO — sem ativação no prazo",
+    "preAlerta": false,
+    "entradaConfirmada": false,
+    "entrada": 197360,
+    "stop": 197100,
+    "alvo": null,
+    "distanciaPontos": null,
+    "evento": "EXPIRED",
+    "reparos": [
+     "TRACK: estrutura reaproveitada da leitura de 12.4s; preço 198540 da régua calibrada."
+    ],
+    "erro": null,
+    "latenciaMs": 3
+   },
+   {
+    "indice": 143,
+    "segundoNoVideo": 14.3,
+    "dataDoGrafico": null,
+    "horaDoGrafico": null,
+    "status": "T4_EM_FORMACAO",
+    "direcao": "VENDA",
+    "confianca": 85,
+    "precoAtual": 198138,
+    "estagio": "FORMING",
+    "headline": "FORMING — T4-2026-03-02-030",
+    "preAlerta": false,
+    "entradaConfirmada": false,
+    "entrada": 198600,
+    "stop": 198833,
+    "alvo": null,
+    "distanciaPontos": 462,
+    "evento": "NOVO SETUP T4-2026-03-02-030",
+    "reparos": [
+     "Status rebaixado: entrada/stop não legíveis no print não sustentam confirmação.",
+     "Candle fechado (máxima): valor descartado porque não estava legível no print.",
+     "Candle fechado (mínima): valor descartado porque não estava legível no print.",
+     "Candle fechado (fechamento): valor descartado porque não estava legível no print.",
+     "Candle fechado descartado: sem fechamento legível não há o que provar com ele.",
+     "Plano \"fechamento de candle acima do topo\" descartado: o nível do gatilho não é legível no print.",
+     "1 marcação(ões) de candle de confirmação descartada(s): o status não é ENTRADA_CONFIRMADA — seta de entrada só existe com entrada confirmada.",
+     "Preço atual 198138 lido da RÉGUA calibrada (caixa do eixo em y=444), não do modelo.",
+     "Alvo recusado: obstáculo a 2.6R (197991) — menos que os 3R de espaço técnico. Setup segue em acompanhamento, sem alvo não confirma.",
+     "Região 198427–198633 · E=198600 S=198833 · alvos 3R/5R da técnica (197901/197435) · obstáculo 197991 (MEDIDO) a 2.6R."
+    ],
+    "erro": null,
+    "latenciaMs": 12674
+   },
+   {
+    "indice": 144,
+    "segundoNoVideo": 14.4,
+    "dataDoGrafico": null,
+    "horaDoGrafico": null,
+    "status": "T4_EM_FORMACAO",
+    "direcao": "VENDA",
+    "confianca": 85,
+    "precoAtual": 198251,
+    "estagio": "FORMING",
+    "headline": "T4 PRÓXIMA — PREPARAR (349 pts do gatilho)",
+    "preAlerta": true,
+    "entradaConfirmada": false,
+    "entrada": 198600,
+    "stop": 198833,
+    "alvo": null,
+    "distanciaPontos": 349,
+    "evento": null,
+    "reparos": [
+     "TRACK: estrutura reaproveitada da leitura de 14.3s; preço 198251 da régua calibrada."
+    ],
+    "erro": null,
+    "latenciaMs": 8
+   },
+   {
+    "indice": 145,
+    "segundoNoVideo": 14.5,
+    "dataDoGrafico": null,
+    "horaDoGrafico": null,
+    "status": "T4_EM_FORMACAO",
+    "direcao": "VENDA",
+    "confianca": 85,
+    "precoAtual": 198149,
+    "estagio": "FORMING",
+    "headline": "FORMING — T4-2026-03-02-030",
+    "preAlerta": false,
+    "entradaConfirmada": false,
+    "entrada": 198600,
+    "stop": 198833,
+    "alvo": null,
+    "distanciaPontos": 451,
+    "evento": null,
+    "reparos": [
+     "TRACK: estrutura reaproveitada da leitura de 14.3s; preço 198149 da régua calibrada."
+    ],
+    "erro": null,
+    "latenciaMs": 3
+   },
+   {
+    "indice": 146,
+    "segundoNoVideo": 14.6,
+    "dataDoGrafico": null,
+    "horaDoGrafico": null,
+    "status": "T4_EM_FORMACAO",
+    "direcao": "VENDA",
+    "confianca": 85,
+    "precoAtual": 198261,
+    "estagio": "FORMING",
+    "headline": "T4 PRÓXIMA — PREPARAR (339 pts do gatilho)",
+    "preAlerta": true,
+    "entradaConfirmada": false,
+    "entrada": 198600,
+    "stop": 198833,
+    "alvo": null,
+    "distanciaPontos": 339,
+    "evento": null,
+    "reparos": [
+     "TRACK: estrutura reaproveitada da leitura de 14.3s; preço 198261 da régua calibrada."
+    ],
+    "erro": null,
+    "latenciaMs": 2
+   },
+   {
+    "indice": 147,
+    "segundoNoVideo": 14.7,
+    "dataDoGrafico": null,
+    "horaDoGrafico": null,
+    "status": "T4_EM_FORMACAO",
+    "direcao": "VENDA",
+    "confianca": 85,
+    "precoAtual": 198487,
+    "estagio": "FORMING",
+    "headline": "T4 PRÓXIMA — PREPARAR (548 pts do gatilho)",
+    "preAlerta": true,
+    "entradaConfirmada": false,
+    "entrada": 199035,
+    "stop": 200000,
+    "alvo": null,
+    "distanciaPontos": 548,
+    "evento": "GATILHO_ATUALIZADO",
+    "reparos": [
+     "Status rebaixado: entrada/stop não legíveis no print não sustentam confirmação.",
+     "Candle fechado (mínima): valor descartado porque não estava legível no print.",
+     "Candle fechado (fechamento): valor descartado porque não estava legível no print.",
+     "Candle fechado descartado: sem fechamento legível não há o que provar com ele.",
+     "nextScreenshot: requiredNow alinhado ao status.",
+     "Preço atual 198487 lido da RÉGUA calibrada (caixa do eixo em y=416), não do modelo.",
+     "Alvo recusado: obstáculo a 0.0R (199014) — menos que os 3R de espaço técnico. Setup segue em acompanhamento, sem alvo não confirma.",
+     "Região 198500–199475 · E=199035 S=200000 · alvos 3R/5R da técnica (196140/194210) · obstáculo 199014 (MEDIDO) a 0.0R."
+    ],
+    "erro": null,
+    "latenciaMs": 10761
+   },
+   {
+    "indice": 149,
+    "segundoNoVideo": 14.9,
+    "dataDoGrafico": null,
+    "horaDoGrafico": null,
+    "status": "T4_EM_FORMACAO",
+    "direcao": "COMPRA",
+    "confianca": 85,
+    "precoAtual": 198700,
+    "estagio": "INVALIDATED",
+    "headline": "SETUP T4-2026-03-02-030 INVALIDADO",
+    "preAlerta": false,
+    "entradaConfirmada": false,
+    "entrada": 199035,
+    "stop": 200000,
+    "alvo": null,
+    "distanciaPontos": null,
+    "evento": "INVALIDATED",
+    "reparos": [
+     "Status rebaixado: entrada/stop não legíveis no print não sustentam confirmação.",
+     "Candle fechado (máxima): valor descartado porque não estava legível no print.",
+     "Candle fechado (mínima): valor descartado porque não estava legível no print.",
+     "Candle fechado (fechamento): valor descartado porque não estava legível no print.",
+     "Candle fechado descartado: sem fechamento legível não há o que provar com ele.",
+     "Plano \"Fechamento de candle acima do topo em 198475\" descartado: sem stop legível não se publica entrada.",
+     "Plano \"Rompimento da resistência em 198400\": nível do gatilho: valor descartado porque não estava legível no print.",
+     "Plano \"Rompimento da resistência em 198400\" descartado: o nível do gatilho não é legível no print.",
+     "Preço atual 198700 lido da RÉGUA calibrada (caixa do eixo em y=399), não do modelo.",
+     "Alvo recusado: obstáculo a 0.4R (198615) — menos que os 3R de espaço técnico. Setup segue em acompanhamento, sem alvo não confirma.",
+     "Região 198035–198635 · E=198437 S=197935 · alvos 3R/5R da técnica (199943/200947) · obstáculo 198615 (MEDIDO) a 0.4R."
+    ],
+    "erro": null,
+    "latenciaMs": 13592
+   },
+   {
+    "indice": 161,
+    "segundoNoVideo": 16.1,
+    "dataDoGrafico": null,
+    "horaDoGrafico": null,
+    "status": "T4_EM_FORMACAO",
+    "direcao": "VENDA",
+    "confianca": 85,
+    "precoAtual": 198763,
+    "estagio": "FORMING",
+    "headline": "FORMING — T4-2026-03-02-037",
+    "preAlerta": false,
+    "entradaConfirmada": false,
+    "entrada": 198350,
+    "stop": 198600,
+    "alvo": null,
+    "distanciaPontos": 413,
+    "evento": "NOVO SETUP T4-2026-03-02-037",
+    "reparos": [
+     "Status rebaixado: entrada/stop não legíveis no print não sustentam confirmação.",
+     "Candle fechado (máxima): valor descartado porque não estava legível no print.",
+     "Candle fechado (mínima): valor descartado porque não estava legível no print.",
+     "Candle fechado (fechamento): valor descartado porque não estava legível no print.",
+     "Candle fechado descartado: sem fechamento legível não há o que provar com ele.",
+     "Plano \"Fechamento de candle acima de 198725\": entrada: valor descartado porque não estava legível no print.",
+     "Plano \"Fechamento de candle acima de 198725\": stop: valor descartado porque não estava legível no print.",
+     "Plano \"Fechamento de candle acima de 198725\": alvo 1: valor descartado porque não estava legível no print.",
+     "Plano \"Fechamento de candle acima de 198725\" descartado: sem stop legível não se publica entrada.",
+     "Nível \"Resistência em 198725\": preço: valor descartado porque não estava legível no print.",
+     "Nível \"Resistência em 198725\" descartado: preço não legível no print.",
+     "1 marcação(ões) de candle de confirmação descartada(s): o status não é ENTRADA_CONFIRMADA — seta de entrada só existe com entrada confirmada.",
+     "Preço atual 198763 lido da RÉGUA calibrada (caixa do eixo em y=394), não do modelo.",
+     "Alvo recusado: obstáculo a 0.8R (198138) — menos que os 3R de espaço técnico. Setup segue em acompanhamento, sem alvo não confirma.",
+     "Região 198200–198500 · E=198350 S=198600 · alvos 3R/5R da técnica (197600/197100) · obstáculo 198138 (MEDIDO) a 0.8R."
+    ],
+    "erro": null,
+    "latenciaMs": 13808
+   },
+   {
+    "indice": 168,
+    "segundoNoVideo": 16.8,
+    "dataDoGrafico": null,
+    "horaDoGrafico": null,
+    "status": "T4_EM_FORMACAO",
+    "direcao": "VENDA",
+    "confianca": 85,
+    "precoAtual": 198571,
+    "estagio": "FORMING",
+    "headline": "T4 PRÓXIMA — PREPARAR (221 pts do gatilho)",
+    "preAlerta": true,
+    "entradaConfirmada": false,
+    "entrada": 198350,
+    "stop": 198600,
+    "alvo": null,
+    "distanciaPontos": 221,
+    "evento": null,
+    "reparos": [
+     "TRACK: estrutura reaproveitada da leitura de 16.1s; preço 198571 da régua calibrada."
+    ],
+    "erro": null,
+    "latenciaMs": 8538
+   },
+   {
+    "indice": 173,
+    "segundoNoVideo": 17.3,
+    "dataDoGrafico": null,
+    "horaDoGrafico": null,
+    "status": "T4_EM_FORMACAO",
+    "direcao": "COMPRA",
+    "confianca": 85,
+    "precoAtual": null,
+    "estagio": "INVALIDATED",
+    "headline": "SETUP T4-2026-03-02-037 INVALIDADO",
+    "preAlerta": false,
+    "entradaConfirmada": false,
+    "entrada": 198350,
+    "stop": 198600,
+    "alvo": null,
+    "distanciaPontos": null,
+    "evento": "INVALIDATED",
+    "reparos": [
+     "Status rebaixado: entrada/stop não legíveis no print não sustentam confirmação.",
+     "Candle fechado (máxima): valor descartado porque não estava legível no print.",
+     "Candle fechado (mínima): valor descartado porque não estava legível no print.",
+     "Plano \"Fechamento de candle acima do topo anterior\": alvo 1: valor descartado porque não estava legível no print.",
+     "Plano \"Fechamento de candle acima do topo anterior\" descartado: o nível do gatilho não é legível no print.",
+     "Nível \"Resistência Anterior (Agora Suporte)\": preço: valor descartado porque não estava legível no print.",
+     "Nível \"Resistência Anterior (Agora Suporte)\" descartado: preço não legível no print.",
+     "1 marcação(ões) de candle de confirmação descartada(s): o status não é ENTRADA_CONFIRMADA — seta de entrada só existe com entrada confirmada."
+    ],
+    "erro": null,
+    "latenciaMs": 9889
+   },
+   {
+    "indice": 228,
+    "segundoNoVideo": 22.8,
+    "dataDoGrafico": null,
+    "horaDoGrafico": null,
+    "status": "T4_EM_FORMACAO",
+    "direcao": "VENDA",
+    "confianca": 85,
+    "precoAtual": 199166,
+    "estagio": "FORMING",
+    "headline": "T4 PRÓXIMA — PREPARAR (318 pts do gatilho)",
+    "preAlerta": true,
+    "entradaConfirmada": false,
+    "entrada": 198848,
+    "stop": 199200,
+    "alvo": null,
+    "distanciaPontos": 318,
+    "evento": "NOVO SETUP T4-2026-03-02-047",
+    "reparos": [
+     "Status rebaixado: entrada/stop não legíveis no print não sustentam confirmação.",
+     "Candle fechado (máxima): valor descartado porque não estava legível no print.",
+     "Candle fechado (mínima): valor descartado porque não estava legível no print.",
+     "Candle fechado (fechamento): valor descartado porque não estava legível no print.",
+     "Candle fechado descartado: sem fechamento legível não há o que provar com ele.",
+     "Plano \"Rompimento e fechamento acima de 199325\": alvo 1: valor descartado porque não estava legível no print.",
+     "Plano \"Rompimento e fechamento acima de 199325\" descartado: sem stop legível não se publica entrada.",
+     "Nível \"Suporte rompido (antiga resistência)\": teto: valor descartado porque não estava legível no print.",
+     "Nível \"Resistência local (topo anterior)\": preço: marcado como legível sem número — tratado como não legível.",
+     "Nível \"Resistência local (topo anterior)\": teto: valor descartado porque não estava legível no print.",
+     "Nível \"Resistência local (topo anterior)\" descartado: preço não legível no print.",
+     "1 marcação(ões) de candle de confirmação descartada(s): o status não é ENTRADA_CONFIRMADA — seta de entrada só existe com entrada confirmada.",
+     "Preço atual 199166 lido da RÉGUA calibrada (caixa do eixo em y=343), não do modelo.",
+     "Alvo recusado: obstáculo a 0.7R (198615) — menos que os 3R de espaço técnico. Setup segue em acompanhamento, sem alvo não confirma.",
+     "Região 198325–199075 · E=198848 S=199200 · alvos 3R/5R da técnica (197792/197088) · obstáculo 198615 (MEDIDO) a 0.7R."
+    ],
+    "erro": null,
+    "latenciaMs": 21468
+   },
+   {
+    "indice": 240,
+    "segundoNoVideo": 24,
+    "dataDoGrafico": null,
+    "horaDoGrafico": null,
+    "status": "T4_EM_FORMACAO",
+    "direcao": "COMPRA",
+    "confianca": 72,
+    "precoAtual": null,
+    "estagio": "INVALIDATED",
+    "headline": "SETUP T4-2026-03-02-047 INVALIDADO",
+    "preAlerta": false,
+    "entradaConfirmada": false,
+    "entrada": 198848,
+    "stop": 199200,
+    "alvo": null,
+    "distanciaPontos": null,
+    "evento": "INVALIDATED",
+    "reparos": [
+     "Gatilho do plano 1: 97.625 lido como 97625 — o eixo do WINFUT usa ponto de milhar, e 97.625 não fecha com o tick de 5.",
+     "Candle fechado (abertura): 97.625 lido como 97625 — o eixo do WINFUT usa ponto de milhar, e 97.625 não fecha com o tick de 5.",
+     "Candle fechado (máxima): 97.75 lido como 97750 — o eixo do WINFUT usa ponto de milhar, e 97.75 não fecha com o tick de 5.",
+     "Candle fechado (mínima): 97.375 lido como 97375 — o eixo do WINFUT usa ponto de milhar, e 97.375 não fecha com o tick de 5.",
+     "Candle fechado (fechamento): 97.45 lido como 97450 — o eixo do WINFUT usa ponto de milhar, e 97.45 não fecha com o tick de 5.",
+     "Candle fechado (máxima): valor descartado porque não estava legível no print.",
+     "Candle fechado (mínima): valor descartado porque não estava legível no print.",
+     "Candle fechado (fechamento): valor descartado porque não estava legível no print.",
+     "Candle fechado descartado: sem fechamento legível não há o que provar com ele.",
+     "Plano \"Fechamento de candle acima da resistência local\": stop: valor descartado porque não estava legível no print.",
+     "Plano \"Fechamento de candle acima da resistência local\": alvo 1: valor descartado porque não estava legível no print.",
+     "Plano \"Fechamento de candle acima da resistência local\" descartado: sem stop legível não se publica entrada."
+    ],
+    "erro": null,
+    "latenciaMs": 10290
+   },
+   {
+    "indice": 268,
+    "segundoNoVideo": 26.8,
+    "dataDoGrafico": null,
+    "horaDoGrafico": null,
+    "status": "T4_EM_FORMACAO",
+    "direcao": "COMPRA",
+    "confianca": 65,
+    "precoAtual": 199161,
+    "estagio": "FORMING",
+    "headline": "FORMING — T4-2026-03-02-049",
+    "preAlerta": false,
+    "entradaConfirmada": false,
+    "entrada": null,
+    "stop": null,
+    "alvo": null,
+    "distanciaPontos": null,
+    "evento": "NOVO SETUP T4-2026-03-02-049",
+    "reparos": [
+     "Candle fechado (máxima): valor descartado porque não estava legível no print.",
+     "Candle fechado (mínima): valor descartado porque não estava legível no print.",
+     "Candle fechado (fechamento): valor descartado porque não estava legível no print.",
+     "Candle fechado descartado: sem fechamento legível não há o que provar com ele.",
+     "Plano \"Fechamento de candle acima do topo da zona de compra (198750)\" descartado: sem stop legível não se publica entrada.",
+     "Nível \"Zona de Compra (Reteste)\": teto: valor descartado porque não estava legível no print.",
+     "Nível \"Topo Anterior (Liquidez)\": preço: marcado como legível sem número — tratado como não legível.",
+     "Nível \"Topo Anterior (Liquidez)\": teto: valor descartado porque não estava legível no print.",
+     "Nível \"Topo Anterior (Liquidez)\" descartado: preço não legível no print.",
+     "1 marcação(ões) de candle de confirmação descartada(s): o status não é ENTRADA_CONFIRMADA — seta de entrada só existe com entrada confirmada.",
+     "Preço atual 199161 lido da RÉGUA calibrada (caixa do eixo em y=344), não do modelo."
+    ],
+    "erro": null,
+    "latenciaMs": 28758
+   },
+   {
+    "indice": 271,
+    "segundoNoVideo": 27.1,
+    "dataDoGrafico": null,
+    "horaDoGrafico": null,
+    "status": "T4_EM_FORMACAO",
+    "direcao": "COMPRA",
+    "confianca": 65,
+    "precoAtual": null,
+    "estagio": "FORMING",
+    "headline": "FORMING — T4-2026-03-02-049",
+    "preAlerta": false,
+    "entradaConfirmada": false,
+    "entrada": 200400,
+    "stop": 198625,
+    "alvo": 201375,
+    "distanciaPontos": null,
+    "evento": null,
+    "reparos": [
+     "Candle fechado (máxima): valor descartado porque não estava legível no print.",
+     "Candle fechado (mínima): valor descartado porque não estava legível no print.",
+     "Candle fechado (fechamento): valor descartado porque não estava legível no print.",
+     "Candle fechado descartado: sem fechamento legível não há o que provar com ele.",
+     "Plano \"Fechamento de candle acima do topo recente (200.400)\": entrada: valor descartado porque não estava legível no print.",
+     "Nível \"Zona de Compra (Reteste)\": teto: valor descartado porque não estava legível no print.",
+     "1 marcação(ões) de candle de confirmação descartada(s): o status não é ENTRADA_CONFIRMADA — seta de entrada só existe com entrada confirmada."
+    ],
+    "erro": null,
+    "latenciaMs": 10698
+   },
+   {
+    "indice": 283,
+    "segundoNoVideo": 28.3,
+    "dataDoGrafico": null,
+    "horaDoGrafico": null,
+    "status": "T4_EM_FORMACAO",
+    "direcao": "COMPRA",
+    "confianca": 85,
+    "precoAtual": null,
+    "estagio": "FORMING",
+    "headline": "FORMING — T4-2026-03-02-049",
+    "preAlerta": false,
+    "entradaConfirmada": false,
+    "entrada": 200400,
+    "stop": 198625,
+    "alvo": 201375,
+    "distanciaPontos": null,
+    "evento": null,
+    "reparos": [
+     "Status rebaixado: entrada/stop não legíveis no print não sustentam confirmação.",
+     "Candle fechado (máxima): valor descartado porque não estava legível no print.",
+     "Candle fechado (mínima): valor descartado porque não estava legível no print.",
+     "Candle fechado (fechamento): valor descartado porque não estava legível no print.",
+     "Candle fechado descartado: sem fechamento legível não há o que provar com ele.",
+     "Plano \"Fechamento de candle acima do nível de reteste (19875)\" descartado: sem stop legível não se publica entrada.",
+     "Nível \"Resistência Rompida (Antigo Suporte)\": preço: valor descartado porque não estava legível no print.",
+     "Nível \"Resistência Rompida (Antigo Suporte)\" descartado: preço não legível no print.",
+     "1 marcação(ões) de candle de confirmação descartada(s): o status não é ENTRADA_CONFIRMADA — seta de entrada só existe com entrada confirmada."
+    ],
+    "erro": null,
+    "latenciaMs": 10675
+   },
+   {
+    "indice": 295,
+    "segundoNoVideo": 29.5,
+    "dataDoGrafico": null,
+    "horaDoGrafico": null,
+    "status": "T4_EM_FORMACAO",
+    "direcao": "COMPRA",
+    "confianca": 65,
+    "precoAtual": null,
+    "estagio": "FORMING",
+    "headline": "FORMING — T4-2026-03-02-049",
+    "preAlerta": false,
+    "entradaConfirmada": false,
+    "entrada": 200400,
+    "stop": 198625,
+    "alvo": 201375,
+    "distanciaPontos": null,
+    "evento": null,
+    "reparos": [
+     "Candle fechado (máxima): valor descartado porque não estava legível no print.",
+     "Candle fechado (mínima): valor descartado porque não estava legível no print.",
+     "Plano \"Fechamento de candle acima da resistência em 199.500\": entrada: valor descartado porque não estava legível no print.",
+     "Plano \"Fechamento de candle acima da resistência em 199.500\": alvo 1: valor descartado porque não estava legível no print.",
+     "Plano \"Fechamento de candle acima da resistência em 199.500\" descartado: sem stop legível não se publica entrada."
+    ],
+    "erro": null,
+    "latenciaMs": 18289
+   },
+   {
+    "indice": 307,
+    "segundoNoVideo": 30.7,
+    "dataDoGrafico": null,
+    "horaDoGrafico": null,
+    "status": "T4_EM_FORMACAO",
+    "direcao": "COMPRA",
+    "confianca": 65,
+    "precoAtual": null,
+    "estagio": "EXPIRED",
+    "headline": "SETUP T4-2026-03-02-049 EXPIRADO — sem ativação no prazo",
+    "preAlerta": false,
+    "entradaConfirmada": false,
+    "entrada": 200400,
+    "stop": 198625,
+    "alvo": 201375,
+    "distanciaPontos": null,
+    "evento": "EXPIRED",
+    "reparos": [
+     "Candle fechado (máxima): valor descartado porque não estava legível no print.",
+     "Candle fechado (mínima): valor descartado porque não estava legível no print.",
+     "Candle fechado (fechamento): valor descartado porque não estava legível no print.",
+     "Candle fechado descartado: sem fechamento legível não há o que provar com ele.",
+     "Plano \"Fechamento de candle acima do topo da consolidação (199.250)\": nível do gatilho: valor descartado porque não estava legível no print.",
+     "Plano \"Fechamento de candle acima do topo da consolidação (199.250)\": alvo 1: valor descartado porque não estava legível no print.",
+     "Plano \"Fechamento de candle acima do topo da consolidação (199.250)\" descartado: o nível do gatilho não é legível no print.",
+     "Nível \"Topo da Consolidação\": preço: valor descartado porque não estava legível no print.",
+     "Nível \"Topo da Consolidação\" descartado: preço não legível no print.",
+     "1 marcação(ões) de candle de confirmação descartada(s): o status não é ENTRADA_CONFIRMADA — seta de entrada só existe com entrada confirmada."
+    ],
+    "erro": null,
+    "latenciaMs": 18276
+   },
+   {
+    "indice": 333,
+    "segundoNoVideo": 33.3,
+    "dataDoGrafico": null,
+    "horaDoGrafico": null,
+    "status": "T4_EM_FORMACAO",
+    "direcao": "COMPRA",
+    "confianca": 85,
+    "precoAtual": 199570,
+    "estagio": "FORMING",
+    "headline": "FORMING — T4-2026-03-02-056",
+    "preAlerta": false,
+    "entradaConfirmada": false,
+    "entrada": null,
+    "stop": null,
+    "alvo": null,
+    "distanciaPontos": null,
+    "evento": "NOVO SETUP T4-2026-03-02-056",
+    "reparos": [
+     "Status rebaixado: entrada/stop não legíveis no print não sustentam confirmação.",
+     "Candle fechado (máxima): valor descartado porque não estava legível no print.",
+     "Candle fechado (mínima): valor descartado porque não estava legível no print.",
+     "Candle fechado (fechamento): valor descartado porque não estava legível no print.",
+     "Candle fechado descartado: sem fechamento legível não há o que provar com ele.",
+     "Plano \"Rompimento de resistência\": entrada: valor descartado porque não estava legível no print.",
+     "Plano \"Rompimento de resistência\": stop: valor descartado porque não estava legível no print.",
+     "Plano \"Rompimento de resistência\": alvo 1: valor descartado porque não estava legível no print.",
+     "Plano \"Rompimento de resistência\" descartado: sem stop legível não se publica entrada.",
+     "1 marcação(ões) de candle de confirmação descartada(s): o status não é ENTRADA_CONFIRMADA — seta de entrada só existe com entrada confirmada.",
+     "Preço atual 199570 lido da RÉGUA calibrada (caixa do eixo em y=318), não do modelo."
+    ],
+    "erro": null,
+    "latenciaMs": 35270
+   },
+   {
+    "indice": 336,
+    "segundoNoVideo": 33.6,
+    "dataDoGrafico": null,
+    "horaDoGrafico": null,
+    "status": "T4_EM_FORMACAO",
+    "direcao": "COMPRA",
+    "confianca": 85,
+    "precoAtual": 199334,
+    "estagio": "FORMING",
+    "headline": "FORMING — T4-2026-03-02-056",
+    "preAlerta": false,
+    "entradaConfirmada": false,
+    "entrada": null,
+    "stop": null,
+    "alvo": null,
+    "distanciaPontos": null,
+    "evento": null,
+    "reparos": [
+     "Status rebaixado: entrada/stop não legíveis no print não sustentam confirmação.",
+     "Candle fechado (máxima): valor descartado porque não estava legível no print.",
+     "Candle fechado (fechamento): valor descartado porque não estava legível no print.",
+     "Candle fechado descartado: sem fechamento legível não há o que provar com ele.",
+     "Plano \"Rompimento do topo local\": nível do gatilho: valor descartado porque não estava legível no print.",
+     "Plano \"Rompimento do topo local\" descartado: o nível do gatilho não é legível no print.",
+     "1 marcação(ões) de candle de confirmação descartada(s): o status não é ENTRADA_CONFIRMADA — seta de entrada só existe com entrada confirmada.",
+     "Preço atual 199334 lido da RÉGUA calibrada (caixa do eixo em y=343), não do modelo."
+    ],
+    "erro": null,
+    "latenciaMs": 45099
+   },
+   {
+    "indice": 339,
+    "segundoNoVideo": 33.9,
+    "dataDoGrafico": null,
+    "horaDoGrafico": null,
+    "status": "T4_EM_FORMACAO",
+    "direcao": "COMPRA",
+    "confianca": 85,
+    "precoAtual": 199528,
+    "estagio": "FORMING",
+    "headline": "FORMING — T4-2026-03-02-056",
+    "preAlerta": false,
+    "entradaConfirmada": false,
+    "entrada": 198500,
+    "stop": 197900,
+    "alvo": null,
+    "distanciaPontos": 1028,
+    "evento": null,
+    "reparos": [
+     "Status rebaixado: entrada/stop não legíveis no print não sustentam confirmação.",
+     "Candle fechado (máxima): valor descartado porque não estava legível no print.",
+     "Candle fechado (mínima): valor descartado porque não estava legível no print.",
+     "Candle fechado (fechamento): valor descartado porque não estava legível no print.",
+     "Candle fechado descartado: sem fechamento legível não há o que provar com ele.",
+     "Plano \"Rompimento do topo anterior\": alvo 1: valor descartado porque não estava legível no print.",
+     "Plano \"Rompimento do topo anterior\" descartado: o nível do gatilho não é legível no print.",
+     "Nível \"Zona de Compra (Suporte)\": teto: valor descartado porque não estava legível no print.",
+     "Nível \"Resistência (Topo Anterior)\": preço: marcado como legível sem número — tratado como não legível.",
+     "Nível \"Resistência (Topo Anterior)\": teto: valor descartado porque não estava legível no print.",
+     "Nível \"Resistência (Topo Anterior)\" descartado: preço não legível no print.",
+     "1 marcação(ões) de candle de confirmação descartada(s): o status não é ENTRADA_CONFIRMADA — seta de entrada só existe com entrada confirmada.",
+     "Preço atual 199528 lido da RÉGUA calibrada (caixa do eixo em y=324), não do modelo.",
+     "Alvo recusado: obstáculo a 0.2R (198615) — menos que os 3R de espaço técnico. Setup segue em acompanhamento, sem alvo não confirma.",
+     "Região 198037–199264 · E=198500 S=197900 · alvos 3R/5R da técnica (200300/201500) · obstáculo 198615 (MEDIDO) a 0.2R."
+    ],
+    "erro": null,
+    "latenciaMs": 28296
+   },
+   {
+    "indice": 343,
+    "segundoNoVideo": 34.3,
+    "dataDoGrafico": null,
+    "horaDoGrafico": null,
+    "status": "T4_EM_FORMACAO",
+    "direcao": "COMPRA",
+    "confianca": 85,
+    "precoAtual": 199390,
+    "estagio": "FORMING",
+    "headline": "T4 PRÓXIMA — PREPARAR (890 pts do gatilho)",
+    "preAlerta": true,
+    "entradaConfirmada": false,
+    "entrada": 198500,
+    "stop": 197900,
+    "alvo": null,
+    "distanciaPontos": 890,
+    "evento": null,
+    "reparos": [
+     "TRACK: estrutura reaproveitada da leitura de 33.9s; preço 199390 da régua calibrada."
+    ],
+    "erro": null,
+    "latenciaMs": 10
+   },
+   {
+    "indice": 344,
+    "segundoNoVideo": 34.4,
+    "dataDoGrafico": null,
+    "horaDoGrafico": null,
+    "status": "T4_EM_FORMACAO",
+    "direcao": "COMPRA",
+    "confianca": 85,
+    "precoAtual": 199569,
+    "estagio": "FORMING",
+    "headline": "FORMING — T4-2026-03-02-056",
+    "preAlerta": false,
+    "entradaConfirmada": false,
+    "entrada": 198500,
+    "stop": 197900,
+    "alvo": null,
+    "distanciaPontos": 1069,
+    "evento": null,
+    "reparos": [
+     "TRACK: estrutura reaproveitada da leitura de 33.9s; preço 199569 da régua calibrada."
+    ],
+    "erro": null,
+    "latenciaMs": 5
+   },
+   {
+    "indice": 351,
+    "segundoNoVideo": 35.1,
+    "dataDoGrafico": null,
+    "horaDoGrafico": null,
+    "status": "T4_EM_FORMACAO",
+    "direcao": "VENDA",
+    "confianca": 85,
+    "precoAtual": 199866,
+    "estagio": "INVALIDATED",
+    "headline": "SETUP T4-2026-03-02-056 INVALIDADO",
+    "preAlerta": false,
+    "entradaConfirmada": false,
+    "entrada": 198500,
+    "stop": 197900,
+    "alvo": null,
+    "distanciaPontos": null,
+    "evento": "INVALIDATED",
+    "reparos": [
+     "Status rebaixado: entrada/stop não legíveis no print não sustentam confirmação.",
+     "Candle fechado (máxima): valor descartado porque não estava legível no print.",
+     "Candle fechado (mínima): valor descartado porque não estava legível no print.",
+     "Candle fechado (fechamento): valor descartado porque não estava legível no print.",
+     "Candle fechado descartado: sem fechamento legível não há o que provar com ele.",
+     "nextScreenshot: requiredNow alinhado ao status.",
+     "Preço atual 199866 lido da RÉGUA calibrada (caixa do eixo em y=285), não do modelo.",
+     "Alvo recusado: obstáculo a 1.8R (199831) — menos que os 3R de espaço técnico. Setup segue em acompanhamento, sem alvo não confirma.",
+     "Região 199470–200550 · E=200382 S=200685 · alvos 3R/5R da técnica (199473/198867) · obstáculo 199831 (MEDIDO) a 1.8R."
+    ],
+    "erro": null,
+    "latenciaMs": 18899
+   },
+   {
+    "indice": 363,
+    "segundoNoVideo": 36.3,
+    "dataDoGrafico": null,
+    "horaDoGrafico": null,
+    "status": "T4_EM_FORMACAO",
+    "direcao": "VENDA",
+    "confianca": 85,
+    "precoAtual": 199786,
+    "estagio": "FORMING",
+    "headline": "T4 PRÓXIMA — PREPARAR (886 pts do gatilho)",
+    "preAlerta": true,
+    "entradaConfirmada": false,
+    "entrada": 198900,
+    "stop": 200004,
+    "alvo": null,
+    "distanciaPontos": 886,
+    "evento": "NOVO SETUP T4-2026-03-02-073",
+    "reparos": [
+     "Status rebaixado: entrada/stop não legíveis no print não sustentam confirmação.",
+     "Candle fechado (máxima): valor descartado porque não estava legível no print.",
+     "Candle fechado (mínima): valor descartado porque não estava legível no print.",
+     "Stop: valor descartado porque não estava legível no print.",
+     "Entrada descartada: sem stop legível não se publica entrada.",
+     "Plano \"Fechamento de candle acima do nível atual\": entrada: valor descartado porque não estava legível no print.",
+     "Plano \"Fechamento de candle acima do nível atual\": stop: valor descartado porque não estava legível no print.",
+     "Plano \"Fechamento de candle acima do nível atual\" descartado: sem stop legível não se publica entrada.",
+     "Plano \"Rejeição do nível atual e fechamento abaixo dele\": nível do gatilho: valor descartado porque não estava legível no print.",
+     "Plano \"Rejeição do nível atual e fechamento abaixo dele\": stop: valor descartado porque não estava legível no print.",
+     "Plano \"Rejeição do nível atual e fechamento abaixo dele\" descartado: o nível do gatilho não é legível no print.",
+     "Preço atual 199786 lido da RÉGUA calibrada (caixa do eixo em y=293), não do modelo.",
+     "Alvo recusado: obstáculo a 0.3R (198615) — menos que os 3R de espaço técnico. Setup segue em acompanhamento, sem alvo não confirma.",
+     "Região 198507–199333 · E=198900 S=200004 · alvos 3R/5R da técnica (195588/193380) · obstáculo 198615 (MEDIDO) a 0.3R."
+    ],
+    "erro": null,
+    "latenciaMs": 17264
+   },
+   {
+    "indice": 375,
+    "segundoNoVideo": 37.5,
+    "dataDoGrafico": null,
+    "horaDoGrafico": null,
+    "status": "T4_EM_FORMACAO",
+    "direcao": "VENDA",
+    "confianca": 85,
+    "precoAtual": 199922,
+    "estagio": "FORMING",
+    "headline": "FORMING — T4-2026-03-02-073",
+    "preAlerta": false,
+    "entradaConfirmada": false,
+    "entrada": 200943,
+    "stop": 201127,
+    "alvo": 200391,
+    "distanciaPontos": 1021,
+    "evento": "GATILHO_ATUALIZADO",
+    "reparos": [
+     "Status rebaixado: entrada/stop não legíveis no print não sustentam confirmação.",
+     "Candle fechado (máxima): valor descartado porque não estava legível no print.",
+     "Candle fechado (fechamento): valor descartado porque não estava legível no print.",
+     "Candle fechado descartado: sem fechamento legível não há o que provar com ele.",
+     "Plano \"Reteste do nível de suporte rompido (200375)\" descartado: sem stop legível não se publica entrada.",
+     "1 marcação(ões) de candle de confirmação descartada(s): o status não é ENTRADA_CONFIRMADA — seta de entrada só existe com entrada confirmada.",
+     "Preço atual 199922 lido da RÉGUA calibrada (caixa do eixo em y=283), não do modelo.",
+     "Região 200615–200978 · E=200943 S=201127 · alvos 3R/5R da técnica (200391/200023) · obstáculo 199831 (MEDIDO) a 6.0R."
+    ],
+    "erro": null,
+    "latenciaMs": 12558
+   },
+   {
+    "indice": 387,
+    "segundoNoVideo": 38.7,
+    "dataDoGrafico": null,
+    "horaDoGrafico": null,
+    "status": "T4_EM_FORMACAO",
+    "direcao": "VENDA",
+    "confianca": 85,
+    "precoAtual": 200018,
+    "estagio": "FORMING",
+    "headline": "FORMING — T4-2026-03-02-073",
+    "preAlerta": false,
+    "entradaConfirmada": false,
+    "entrada": 200855,
+    "stop": 201339,
+    "alvo": 200391,
+    "distanciaPontos": 837,
+    "evento": "GATILHO_ATUALIZADO",
+    "reparos": [
+     "Status rebaixado: entrada/stop não legíveis no print não sustentam confirmação.",
+     "Candle fechado (máxima): valor descartado porque não estava legível no print.",
+     "Candle fechado (mínima): valor descartado porque não estava legível no print.",
+     "Candle fechado (fechamento): valor descartado porque não estava legível no print.",
+     "Candle fechado descartado: sem fechamento legível não há o que provar com ele.",
+     "Plano \"Fechamento de candle acima da zona de reteste (201.687)\": nível do gatilho: valor descartado porque não estava legível no print.",
+     "Plano \"Fechamento de candle acima da zona de reteste (201.687)\" descartado: o nível do gatilho não é legível no print.",
+     "Nível \"Topo da zona de reteste\": preço: valor descartado porque não estava legível no print.",
+     "Nível \"Topo da zona de reteste\" descartado: preço não legível no print.",
+     "Preço atual 200018 lido da RÉGUA calibrada (caixa do eixo em y=272), não do modelo.",
+     "Alvo recusado: obstáculo a 1.6R (200104) — menos que os 3R de espaço técnico. Setup segue em acompanhamento, sem alvo não confirma.",
+     "Região 200855–201241 · E=200855 S=201339 · alvos 3R/5R da técnica (199403/198435) · obstáculo 200104 (MEDIDO) a 1.6R."
+    ],
+    "erro": null,
+    "latenciaMs": 14594
+   },
+   {
+    "indice": 389,
+    "segundoNoVideo": 38.9,
+    "dataDoGrafico": null,
+    "horaDoGrafico": null,
+    "status": "T4_EM_FORMACAO",
+    "direcao": "VENDA",
+    "confianca": 85,
+    "precoAtual": 200162,
+    "estagio": "FORMING",
+    "headline": "T4 PRÓXIMA — PREPARAR (693 pts do gatilho)",
+    "preAlerta": true,
+    "entradaConfirmada": false,
+    "entrada": 200855,
+    "stop": 201339,
+    "alvo": 200391,
+    "distanciaPontos": 693,
+    "evento": null,
+    "reparos": [
+     "TRACK: estrutura reaproveitada da leitura de 38.7s; preço 200162 da régua calibrada."
+    ],
+    "erro": null,
+    "latenciaMs": 8954
+   },
+   {
+    "indice": 390,
+    "segundoNoVideo": 39,
+    "dataDoGrafico": null,
+    "horaDoGrafico": null,
+    "status": "T4_EM_FORMACAO",
+    "direcao": "VENDA",
+    "confianca": 85,
+    "precoAtual": 200128,
+    "estagio": "FORMING",
+    "headline": "FORMING — T4-2026-03-02-073",
+    "preAlerta": false,
+    "entradaConfirmada": false,
+    "entrada": 200855,
+    "stop": 201339,
+    "alvo": 200391,
+    "distanciaPontos": 727,
+    "evento": null,
+    "reparos": [
+     "TRACK: estrutura reaproveitada da leitura de 38.7s; preço 200128 da régua calibrada."
+    ],
+    "erro": null,
+    "latenciaMs": 4
+   },
+   {
+    "indice": 395,
+    "segundoNoVideo": 39.5,
+    "dataDoGrafico": null,
+    "horaDoGrafico": null,
+    "status": "T4_EM_FORMACAO",
+    "direcao": "VENDA",
+    "confianca": 85,
+    "precoAtual": 200205,
+    "estagio": "FORMING",
+    "headline": "T4 PRÓXIMA — PREPARAR (650 pts do gatilho)",
+    "preAlerta": true,
+    "entradaConfirmada": false,
+    "entrada": 200855,
+    "stop": 201339,
+    "alvo": 200391,
+    "distanciaPontos": 650,
+    "evento": null,
+    "reparos": [
+     "TRACK: estrutura reaproveitada da leitura de 38.7s; preço 200205 da régua calibrada."
+    ],
+    "erro": null,
+    "latenciaMs": 4
+   },
+   {
+    "indice": 397,
+    "segundoNoVideo": 39.7,
+    "dataDoGrafico": null,
+    "horaDoGrafico": null,
+    "status": "T4_EM_FORMACAO",
+    "direcao": "VENDA",
+    "confianca": 85,
+    "precoAtual": 200161,
+    "estagio": "EXPIRED",
+    "headline": "SETUP T4-2026-03-02-073 EXPIRADO — sem ativação no prazo",
+    "preAlerta": false,
+    "entradaConfirmada": false,
+    "entrada": 200855,
+    "stop": 201339,
+    "alvo": 200391,
+    "distanciaPontos": null,
+    "evento": "EXPIRED",
+    "reparos": [
+     "TRACK: estrutura reaproveitada da leitura de 38.7s; preço 200161 da régua calibrada."
+    ],
+    "erro": null,
+    "latenciaMs": 5
+   },
+   {
+    "indice": 399,
+    "segundoNoVideo": 39.9,
+    "dataDoGrafico": null,
+    "horaDoGrafico": null,
+    "status": "T4_EM_FORMACAO",
+    "direcao": "COMPRA",
+    "confianca": 85,
+    "precoAtual": 200030,
+    "estagio": "FORMING",
+    "headline": "FORMING — T4-2026-03-02-106",
+    "preAlerta": false,
+    "entradaConfirmada": false,
+    "entrada": null,
+    "stop": null,
+    "alvo": null,
+    "distanciaPontos": null,
+    "evento": "NOVO SETUP T4-2026-03-02-106",
+    "reparos": [
+     "Status rebaixado: entrada/stop não legíveis no print não sustentam confirmação.",
+     "Candle fechado (máxima): valor descartado porque não estava legível no print.",
+     "Candle fechado (mínima): valor descartado porque não estava legível no print.",
+     "Candle fechado (fechamento): valor descartado porque não estava legível no print.",
+     "Candle fechado descartado: sem fechamento legível não há o que provar com ele.",
+     "Plano \"Rompimento falso de suporte em ~200380\": alvo 1: valor descartado porque não estava legível no print.",
+     "Plano \"Rompimento falso de suporte em ~200380\" descartado: sem stop legível não se publica entrada.",
+     "Nível \"Resistência imediata\": preço: valor descartado porque não estava legível no print.",
+     "Nível \"Resistência imediata\" descartado: preço não legível no print.",
+     "1 marcação(ões) de candle de confirmação descartada(s): o status não é ENTRADA_CONFIRMADA — seta de entrada só existe com entrada confirmada.",
+     "Preço atual 200030 lido da RÉGUA calibrada (caixa do eixo em y=298), não do modelo."
+    ],
+    "erro": null,
+    "latenciaMs": 13590
+   },
+   {
+    "indice": 402,
+    "segundoNoVideo": 40.2,
+    "dataDoGrafico": null,
+    "horaDoGrafico": null,
+    "status": "T4_EM_FORMACAO",
+    "direcao": "VENDA",
+    "confianca": 85,
+    "precoAtual": 200101,
+    "estagio": "INVALIDATED",
+    "headline": "SETUP T4-2026-03-02-106 INVALIDADO",
+    "preAlerta": false,
+    "entradaConfirmada": false,
+    "entrada": null,
+    "stop": null,
+    "alvo": null,
+    "distanciaPontos": null,
+    "evento": "INVALIDATED",
+    "reparos": [
+     "Status rebaixado: entrada/stop não legíveis no print não sustentam confirmação.",
+     "Candle fechado (máxima): valor descartado porque não estava legível no print.",
+     "Candle fechado (mínima): valor descartado porque não estava legível no print.",
+     "Candle fechado (fechamento): valor descartado porque não estava legível no print.",
+     "Candle fechado descartado: sem fechamento legível não há o que provar com ele.",
+     "Plano \"Fechamento de candle acima do nível atual\" descartado: o nível do gatilho não é legível no print.",
+     "1 marcação(ões) de candle de confirmação descartada(s): o status não é ENTRADA_CONFIRMADA — seta de entrada só existe com entrada confirmada.",
+     "Preço atual 200101 lido da RÉGUA calibrada (caixa do eixo em y=287), não do modelo.",
+     "Alvo recusado: obstáculo a 1.0R (200104) — menos que os 3R de espaço técnico. Setup segue em acompanhamento, sem alvo não confirma.",
+     "Níveis lidos por leitura dedicada ancorada na régua (E=200500 S=200900 A1=199300 A2=198500) — sem região legível, entrada por linha."
+    ],
+    "erro": null,
+    "latenciaMs": 13441
+   },
+   {
+    "indice": 414,
+    "segundoNoVideo": 41.4,
+    "dataDoGrafico": null,
+    "horaDoGrafico": null,
+    "status": "T4_EM_FORMACAO",
+    "direcao": "COMPRA",
+    "confianca": 65,
+    "precoAtual": 200141,
+    "estagio": "FORMING",
+    "headline": "FORMING — T4-2026-03-02-110",
+    "preAlerta": false,
+    "entradaConfirmada": false,
+    "entrada": null,
+    "stop": null,
+    "alvo": null,
+    "distanciaPontos": null,
+    "evento": "NOVO SETUP T4-2026-03-02-110",
+    "reparos": [
+     "Candle fechado (máxima): valor descartado porque não estava legível no print.",
+     "Candle fechado (mínima): valor descartado porque não estava legível no print.",
+     "Plano \"Fechamento de candle acima da zona de resistência (201.500)\": nível do gatilho: valor descartado porque não estava legível no print.",
+     "Plano \"Fechamento de candle acima da zona de resistência (201.500)\" descartado: o nível do gatilho não é legível no print.",
+     "Plano \"Rejeição e fechamento dentro do suporte (200.737)\" descartado: sem stop legível não se publica entrada.",
+     "Nível \"Topo Estrutural Recente\": preço: valor descartado porque não estava legível no print.",
+     "Nível \"Topo Estrutural Recente\" descartado: preço não legível no print.",
+     "Preço atual 200141 lido da RÉGUA calibrada (caixa do eixo em y=281), não do modelo."
+    ],
+    "erro": null,
+    "latenciaMs": 14006
+   },
+   {
+    "indice": 417,
+    "segundoNoVideo": 41.7,
+    "dataDoGrafico": null,
+    "horaDoGrafico": null,
+    "status": "T4_EM_FORMACAO",
+    "direcao": "COMPRA",
+    "confianca": 85,
+    "precoAtual": 200198,
+    "estagio": "FORMING",
+    "headline": "FORMING — T4-2026-03-02-110",
+    "preAlerta": false,
+    "entradaConfirmada": false,
+    "entrada": null,
+    "stop": null,
+    "alvo": null,
+    "distanciaPontos": null,
+    "evento": null,
+    "reparos": [
+     "Status rebaixado: entrada/stop não legíveis no print não sustentam confirmação.",
+     "Candle fechado (máxima): valor descartado porque não estava legível no print.",
+     "Candle fechado (mínima): valor descartado porque não estava legível no print.",
+     "Candle fechado (fechamento): valor descartado porque não estava legível no print.",
+     "Candle fechado descartado: sem fechamento legível não há o que provar com ele.",
+     "Plano \"Rompimento falso de suporte\" descartado: o nível do gatilho não é legível no print.",
+     "Plano \"Candle verde fechando forte\": nível do gatilho: valor descartado porque não estava legível no print.",
+     "Plano \"Candle verde fechando forte\" descartado: o nível do gatilho não é legível no print.",
+     "Nível \"Zona de Compra (Suporte)\": teto: valor descartado porque não estava legível no print.",
+     "Nível \"Resistência (Topo Anterior)\": preço: marcado como legível sem número — tratado como não legível.",
+     "Nível \"Resistência (Topo Anterior)\": teto: valor descartado porque não estava legível no print.",
+     "Nível \"Resistência (Topo Anterior)\" descartado: preço não legível no print.",
+     "1 marcação(ões) de candle de confirmação descartada(s): o status não é ENTRADA_CONFIRMADA — seta de entrada só existe com entrada confirmada.",
+     "Preço atual 200198 lido da RÉGUA calibrada (caixa do eixo em y=273), não do modelo."
+    ],
+    "erro": null,
+    "latenciaMs": 14956
+   },
+   {
+    "indice": 420,
+    "segundoNoVideo": 42,
+    "dataDoGrafico": null,
+    "horaDoGrafico": null,
+    "status": "T4_EM_FORMACAO",
+    "direcao": "COMPRA",
+    "confianca": 85,
+    "precoAtual": 200211,
+    "estagio": "FORMING",
+    "headline": "FORMING — T4-2026-03-02-110",
+    "preAlerta": false,
+    "entradaConfirmada": false,
+    "entrada": null,
+    "stop": null,
+    "alvo": null,
+    "distanciaPontos": null,
+    "evento": null,
+    "reparos": [
+     "Status rebaixado: entrada/stop não legíveis no print não sustentam confirmação.",
+     "Candle fechado (máxima): valor descartado porque não estava legível no print.",
+     "Candle fechado (mínima): valor descartado porque não estava legível no print.",
+     "Stop: valor descartado porque não estava legível no print.",
+     "Entrada descartada: sem stop legível não se publica entrada.",
+     "Plano \"Fechamento de candle acima da máxima do último candle (200.937)\": entrada: valor descartado porque não estava legível no print.",
+     "Plano \"Fechamento de candle acima da máxima do último candle (200.937)\": stop: valor descartado porque não estava legível no print.",
+     "Plano \"Fechamento de candle acima da máxima do último candle (200.937)\" descartado: sem stop legível não se publica entrada.",
+     "Plano \"Rejeição no nível de suporte (200.875) e formação de candle vermelho forte\": entrada: valor descartado porque não estava legível no print.",
+     "Plano \"Rejeição no nível de suporte (200.875) e formação de candle vermelho forte\": stop: valor descartado porque não estava legível no print.",
+     "Plano \"Rejeição no nível de suporte (200.875) e formação de candle vermelho forte\" descartado: sem stop legível não se publica entrada.",
+     "Preço atual 200211 lido da RÉGUA calibrada (caixa do eixo em y=266), não do modelo."
+    ],
+    "erro": null,
+    "latenciaMs": 14598
+   },
+   {
+    "indice": 423,
+    "segundoNoVideo": 42.3,
+    "dataDoGrafico": null,
+    "horaDoGrafico": null,
+    "status": "T4_EM_FORMACAO",
+    "direcao": "COMPRA",
+    "confianca": 85,
+    "precoAtual": 200079,
+    "estagio": "FORMING",
+    "headline": "FORMING — T4-2026-03-02-110",
+    "preAlerta": false,
+    "entradaConfirmada": false,
+    "entrada": null,
+    "stop": null,
+    "alvo": null,
+    "distanciaPontos": null,
+    "evento": null,
+    "reparos": [
+     "Status rebaixado: entrada/stop não legíveis no print não sustentam confirmação.",
+     "Candle fechado (máxima): valor descartado porque não estava legível no print.",
+     "Candle fechado (mínima): valor descartado porque não estava legível no print.",
+     "Nível \"Resistência rompida\" descartado: preço não legível no print.",
+     "Nível \"Suporte anterior\" descartado: preço não legível no print.",
+     "Preço atual 200079 lido da RÉGUA calibrada (caixa do eixo em y=289), não do modelo."
+    ],
+    "erro": null,
+    "latenciaMs": 12902
+   },
+   {
+    "indice": 426,
+    "segundoNoVideo": 42.6,
+    "dataDoGrafico": null,
+    "horaDoGrafico": null,
+    "status": "T4_EM_FORMACAO",
+    "direcao": "COMPRA",
+    "confianca": 85,
+    "precoAtual": 200187,
+    "estagio": "FORMING",
+    "headline": "FORMING — T4-2026-03-02-110",
+    "preAlerta": false,
+    "entradaConfirmada": false,
+    "entrada": null,
+    "stop": null,
+    "alvo": null,
+    "distanciaPontos": null,
+    "evento": null,
+    "reparos": [
+     "Status rebaixado: entrada/stop não legíveis no print não sustentam confirmação.",
+     "Candle fechado (máxima): valor descartado porque não estava legível no print.",
+     "Candle fechado (mínima): valor descartado porque não estava legível no print.",
+     "Stop: valor descartado porque não estava legível no print.",
+     "Entrada descartada: sem stop legível não se publica entrada.",
+     "Plano \"fechamento de candle acima do topo da estrutura lateral\": entrada: valor descartado porque não estava legível no print.",
+     "Plano \"fechamento de candle acima do topo da estrutura lateral\": stop: valor descartado porque não estava legível no print.",
+     "Plano \"fechamento de candle acima do topo da estrutura lateral\": alvo 1: valor descartado porque não estava legível no print.",
+     "Plano \"fechamento de candle acima do topo da estrutura lateral\" descartado: sem stop legível não se publica entrada.",
+     "Plano \"rejeição no topo da zona de oferta\": alvo 1: valor descartado porque não estava legível no print.",
+     "Plano \"rejeição no topo da zona de oferta\" descartado: o nível do gatilho não é legível no print.",
+     "Nível \"Mínima do candle de confirmação\": preço: valor descartado porque não estava legível no print.",
+     "Nível \"Mínima do candle de confirmação\" descartado: preço não legível no print.",
+     "1 marcação(ões) de candle de confirmação descartada(s): o status não é ENTRADA_CONFIRMADA — seta de entrada só existe com entrada confirmada.",
+     "Preço atual 200187 lido da RÉGUA calibrada (caixa do eixo em y=271), não do modelo."
+    ],
+    "erro": null,
+    "latenciaMs": 12836
+   },
+   {
+    "indice": 429,
+    "segundoNoVideo": 42.9,
+    "dataDoGrafico": null,
+    "horaDoGrafico": null,
+    "status": "T4_EM_FORMACAO",
+    "direcao": "COMPRA",
+    "confianca": 85,
+    "precoAtual": 200192,
+    "estagio": "FORMING",
+    "headline": "FORMING — T4-2026-03-02-110",
+    "preAlerta": false,
+    "entradaConfirmada": false,
+    "entrada": null,
+    "stop": null,
+    "alvo": null,
+    "distanciaPontos": null,
+    "evento": null,
+    "reparos": [
+     "Status rebaixado: entrada/stop não legíveis no print não sustentam confirmação.",
+     "Candle fechado (máxima): valor descartado porque não estava legível no print.",
+     "Candle fechado (mínima): valor descartado porque não estava legível no print.",
+     "Stop: valor descartado porque não estava legível no print.",
+     "Entrada descartada: sem stop legível não se publica entrada.",
+     "Plano \"Fechamento de candle acima do nível de resistência (201.030)\": entrada: valor descartado porque não estava legível no print.",
+     "Plano \"Fechamento de candle acima do nível de resistência (201.030)\": stop: valor descartado porque não estava legível no print.",
+     "Plano \"Fechamento de candle acima do nível de resistência (201.030)\": alvo 1: valor descartado porque não estava legível no print.",
+     "Plano \"Fechamento de candle acima do nível de resistência (201.030)\": alvo 2: valor descartado porque não estava legível no print.",
+     "Plano \"Fechamento de candle acima do nível de resistência (201.030)\" descartado: sem stop legível não se publica entrada.",
+     "Nível \"Suporte Estrutural (200.740)\": preço: valor descartado porque não estava legível no print.",
+     "Nível \"Suporte Estrutural (200.740)\" descartado: preço não legível no print.",
+     "Preço atual 200192 lido da RÉGUA calibrada (caixa do eixo em y=273), não do modelo."
+    ],
+    "erro": null,
+    "latenciaMs": 13749
+   }
+  ],
+  "operacoes": [],
+  "ganhos": 0,
+  "perdas": 0,
+  "semDesfecho": 0,
+  "pontosLiquidos": 0,
+  "somaR": 0,
+  "erro": null,
+  "duracaoMs": 679348
+ },
+ "drawdownR": 0
+}

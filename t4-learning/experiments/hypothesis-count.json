@@ -1,0 +1,72 @@
+{
+ "titulo": "CONTAGEM DE HIPOTESES — o termometro de garimpo do passado",
+ "regra": "travasFinais.contagemDeHipoteses do protocolo-pd.json: CADA valor de parametro testado conta como hipotese (7 alvos = 7 hipoteses; 3 aceitacoes H1 = 3). O relatorio final declara o total.",
+ "criadoEm": "2026-08-23",
+ "avisoDeRetroatividade": "Este arquivo foi criado DEPOIS do inicio da pesquisa, em 23/08/2026. A contagem anterior a 22/08 e reconstruida a partir dos artefatos existentes e e um PISO, nao um total: hipoteses descartadas sem registro nao aparecem aqui. Tratar como limite inferior.",
+ "familias": [
+  {
+   "familia": "H-EX exploratorias",
+   "origem": "auditoria/hipoteses-exploratorias.json",
+   "hipotesesAtivas": 5,
+   "hipotesesEstacionadas": 2,
+   "valoresDeParametroTestados": 5,
+   "observacao": "H-EX-01 a H-EX-05 nasceram de 16 eventos (IMAGENS 8 + MAIO 8). Nenhuma foi testada fora da amostra que a gerou.",
+   "subtotal": 7
+  },
+  {
+   "familia": "M — achados de modelagem",
+   "origem": "auditoria/hipoteses-exploratorias.json",
+   "hipotesesAtivas": 3,
+   "valoresDeParametroTestados": 0,
+   "observacao": "M-01 (colinearidade), M-02 (variancia nula), M-03 (qualidadeEvidencia derivada). Sao observacoes sobre o schema, nao regras de operacao.",
+   "subtotal": 3
+  },
+  {
+   "familia": "H1 — obstaculo vivo",
+   "origem": "hypotheses/H1-obstaculo-vivo.json",
+   "hipotesesAtivas": 1,
+   "valoresDeParametroTestados": 1,
+   "parametros": { "aceitacaoPontos": [150] },
+   "observacao": "Um unico valor de aceitacao declarado. Cada valor adicional testado soma 1.",
+   "subtotal": 1
+  },
+  {
+   "familia": "H2 — stop estrutural",
+   "origem": "hypotheses/H2-stop-na-borda-da-zona.json",
+   "hipotesesAtivas": 1,
+   "valoresDeParametroTestados": 1,
+   "parametros": { "bufferPontos": [100], "pisoPontos": [200] },
+   "observacao": "Uma combinacao declarada. Varrer buffer x piso multiplica: 3 buffers x 3 pisos = 9 hipoteses, nao 2.",
+   "subtotal": 1
+  },
+  {
+   "familia": "H3 — confirmacao sem alvo",
+   "origem": "hypotheses/H3-confirmacao-sem-alvo.json",
+   "hipotesesAtivas": 1,
+   "valoresDeParametroTestados": 1,
+   "parametros": { "alvoNoObstaculo": [true] },
+   "observacao": "Booleana, um valor. Descoberta em 23/08 a partir da forense de ARMED.",
+   "subtotal": 1
+  },
+  {
+   "familia": "Ranking do dia",
+   "origem": "src/server/video/rankingDoDia.ts",
+   "hipotesesAtivas": 1,
+   "valoresDeParametroTestados": 1,
+   "observacao": "A cascata de 6 criterios foi declarada ANTES de rodar contra qualquer pregao. Reordenar a cascata depois de ver resultado soma 1 hipotese por reordenacao.",
+   "subtotal": 1
+  }
+ ],
+ "hypothesisCount": 14,
+ "leituraEstatistica": {
+  "tetoDeGarimpoToleradoPorHEX01": 109,
+  "comoFoiCalculado": "Bonferroni invertido: 0,05 / 0,000457, onde 0,000457 = (1/3)^7 e o p-valor dentro da amostra de H-EX-01 (7 ocorrencias, 7 favoraveis) sob H0 de tres desfechos equiprovaveis.",
+  "consequencia": "Com hypothesisCount em 14, o teto de 109 ainda nao foi estourado pela contagem FORMAL. Mas o espaco de busca implicito e maior: M-01 mostra ~9 atributos independentes, e uma conjuncao de 3 condicoes como H-EX-01 varre C(9,3) = 84 trios antes de escolher qualquer limiar. A contagem formal subestima o garimpo real.",
+  "acao": "Toda hipotese nova entra aqui ANTES de rodar, nao depois. E o unico jeito de o numero significar alguma coisa."
+ },
+ "naoContabilizado": [
+  "hipoteses testadas e descartadas antes de 22/08/2026 sem registro em arquivo",
+  "variacoes de prompt do leitor visual (cada prompt e um classificador diferente)",
+  "os 84 trios de atributos que H-EX-01 varre implicitamente — ver leituraEstatistica"
+ ]
+}

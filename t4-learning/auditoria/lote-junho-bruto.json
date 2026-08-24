@@ -1,0 +1,92 @@
+[
+  {
+    "eventoId": "JUNHO_001",
+    "timestampVideoOriginal": "00:10",
+    "timestampFrameCandidato": "00:10",
+    "dataGrafico": null,
+    "horaGrafico": null,
+    "contextoVisual": "Tendencia de baixa testando medias",
+    "candidatoSetup": "Pullback de 3 candles ate as medias",
+    "hipotesesRelacionadas": [
+      "H-EX-01"
+    ],
+    "direcaoInferida": "VENDA",
+    "confirmacao": null,
+    "entrada": null,
+    "resultadoOperacao": "NAO_AVALIAVEL",
+    "quantidadeCandlesPosterioresObservados": 10,
+    "movimentoPosterior": "MOVIMENTO_POSTERIOR_FAVORAVEL",
+    "evidencia": {
+      "timestampFrame": "00:10",
+      "precoComprovado": {
+        "valor": null,
+        "status": "ILEGIVEL",
+        "fonteVisual": null
+      },
+      "horaComprovada": null,
+      "confirmacaoComprovada": null,
+      "entradaComprovada": null,
+      "stopComprovado": null,
+      "alvoComprovado": null
+    },
+    "atributosPreEvento": {
+      "regime": "BAIXA",
+      "posicaoRelativaMedias": "ABAIXO",
+      "inclinacaoMedias": "NEGATIVA",
+      "numeroCandlesPullback": 3,
+      "tamanhoRelativoCorpos": "PEQUENOS",
+      "pavioRejeicao": "PRESENTE_SUPERIOR",
+      "rompeuTopoFundoAnterior": true,
+      "retesteVisual": false,
+      "gapVisivel": false,
+      "distanciaVisualMedias": "TOCANDO",
+      "sequenciaToposFundos": "DESCENDENTE",
+      "qualidadeEvidencia": "ALTA"
+    }
+  },
+  {
+    "eventoId": "JUNHO_002",
+    "timestampVideoOriginal": "01:25",
+    "timestampFrameCandidato": "01:25",
+    "dataGrafico": null,
+    "horaGrafico": null,
+    "contextoVisual": "Recuo agudo em tendencia",
+    "candidatoSetup": "Pullback com candles amplos",
+    "hipotesesRelacionadas": [
+      "H-EX-02"
+    ],
+    "direcaoInferida": "COMPRA",
+    "confirmacao": null,
+    "entrada": null,
+    "resultadoOperacao": "NAO_AVALIAVEL",
+    "quantidadeCandlesPosterioresObservados": 10,
+    "movimentoPosterior": "MOVIMENTO_POSTERIOR_CONTRARIO",
+    "evidencia": {
+      "timestampFrame": "01:25",
+      "precoComprovado": {
+        "valor": null,
+        "status": "ILEGIVEL",
+        "fonteVisual": null
+      },
+      "horaComprovada": null,
+      "confirmacaoComprovada": null,
+      "entradaComprovada": null,
+      "stopComprovado": null,
+      "alvoComprovado": null
+    },
+    "atributosPreEvento": {
+      "regime": "ALTA",
+      "posicaoRelativaMedias": "ACIMA",
+      "inclinacaoMedias": "POSITIVA",
+      "numeroCandlesPullback": 2,
+      "tamanhoRelativoCorpos": "GRANDES",
+      "pavioRejeicao": "NULO",
+      "rompeuTopoFundoAnterior": true,
+      "retesteVisual": false,
+      "gapVisivel": false,
+      "distanciaVisualMedias": "PENETRANDO",
+      "sequenciaToposFundos": "ASCENDENTE",
+      "qualidadeEvidencia": "ALTA"
+    }
+  }
+]

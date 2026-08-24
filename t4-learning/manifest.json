@@ -1,0 +1,98 @@
+{
+ "criadoEm": "2026-08-22",
+ "regra": "nunca reprocessar video/trecho ja estudado: cada entrada em dataset/ guarda a serie varrida; o funil consome a serie, nunca o video de novo",
+ "divisao": {
+  "metodo": "por VIDEO (mes completo), declarada ANTES de qualquer resultado; divisao por dia dentro do video vira refinamento quando a segmentacao de dias estiver validada",
+  "TRAIN": [
+   "marco.mp4",
+   "fevereiro.mp4",
+   "7.mp4",
+   "teste.mp4"
+  ],
+  "VALIDATION": [
+   "abril.mp4",
+   "junho.mp4"
+  ],
+  "TEST_FINAL_INTOCADO": [
+   "maio.mp4",
+   "julho.mp4",
+   "8.mp4"
+  ],
+  "proibicao": "TEST_FINAL so entra DEPOIS de regras congeladas; nenhuma regra nasce ou se ajusta olhando para ele"
+ },
+ "videos": {
+  "7.mp4": {
+   "duracaoSeg": 114.1,
+   "resolucao": "1366x766",
+   "frames": 3423,
+   "estado": "NAO_PROCESSADO"
+  },
+  "8.mp4": {
+   "duracaoSeg": 131.7,
+   "resolucao": "1366x768",
+   "frames": 3952,
+   "estado": "RESERVADO_TEST_FINAL"
+  },
+  "abril.mp4": {
+   "duracaoSeg": 1182.3,
+   "resolucao": "1362x766",
+   "frames": 35468,
+   "estado": "RESERVADO_VALIDATION"
+  },
+  "fevereiro.mp4": {
+   "duracaoSeg": 561.1,
+   "resolucao": "1366x768",
+   "frames": 16834,
+   "estado": "NAO_PROCESSADO"
+  },
+  "julho.mp4": {
+   "duracaoSeg": 1296.1,
+   "resolucao": "1366x768",
+   "frames": 38882,
+   "estado": "RESERVADO_TEST_FINAL"
+  },
+  "junho.mp4": {
+   "duracaoSeg": 1240.7,
+   "resolucao": "1344x768",
+   "frames": 37222,
+   "estado": "RESERVADO_VALIDATION"
+  },
+  "maio.mp4": {
+   "duracaoSeg": 1206.8,
+   "resolucao": "1366x766",
+   "frames": 36203,
+   "estado": "RESERVADO_TEST_FINAL"
+  },
+  "marco.mp4": {
+   "duracaoSeg": 1206.6,
+   "resolucao": "1366x768",
+   "frames": 36199,
+   "estado": "EM_ESTUDO",
+   "diasConhecidos": [
+    "02",
+    "04",
+    "06",
+    "10",
+    "11",
+    "12",
+    "13",
+    "17",
+    "19",
+    "23",
+    "25",
+    "26",
+    "27",
+    "30",
+    "31"
+   ]
+  },
+  "teste.mp4": {
+   "duracaoSeg": 148.9,
+   "resolucao": "1366x766",
+   "estado": "NAO_PROCESSADO",
+   "papel": "TRAIN_EXTRA — datas descobertas pelas fronteiras; se cair em mes de VALIDATION/TEST, o dia e excluido do TRAIN"
+  }
+ },
+ "escalaDeTempo": "~12 candles (minutos de mercado) por segundo de video, medido no contador do Profit",
+ "ativo": "WINFUT 1min, replay Profit Pro conta Sim 70233594"
+}

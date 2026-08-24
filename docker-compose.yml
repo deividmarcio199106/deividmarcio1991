@@ -1,0 +1,41 @@
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: analisador-continuo:latest
+    container_name: analisador-continuo
+    restart: unless-stopped
+    network_mode: host
+    environment:
+      NODE_ENV: production
+      NITRO_HOST: 127.0.0.1
+      PORT: ${PORT:-8081}
+      DATA_DIR: /app/data
+      OLLAMA_BASE_URL: ${OLLAMA_BASE_URL:-http://127.0.0.1:11435}
+      OLLAMA_TEXT_MODEL: ${OLLAMA_TEXT_MODEL:-qwen3.5:35b}
+      OLLAMA_VISION_MODEL: ${OLLAMA_VISION_MODEL:-}
+      OLLAMA_TIMEOUT_MS: ${OLLAMA_TIMEOUT_MS:-120000}
+      OLLAMA_HEALTH_TIMEOUT_MS: ${OLLAMA_HEALTH_TIMEOUT_MS:-5000}
+    volumes:
+      - analisador_data:/app/data
+    healthcheck:
+      test:
+        [
+          "CMD",
+          "node",
+          "-e",
+          "Promise.all(['/','/api/health'].map(p=>fetch('http://127.0.0.1:'+(process.env.PORT||8081)+p).then(r=>{if(!r.ok)throw new Error(p+' '+r.status)}))).then(()=>process.exit(0)).catch(()=>process.exit(1))",
+        ]
+      interval: 30s
+      timeout: 5s
+      start_period: 20s
+      retries: 3
+    logging:
+      driver: json-file
+      options:
+        max-size: "10m"
+        max-file: "5"
+
+volumes:
+  analisador_data:

@@ -1,0 +1,325 @@
+{
+ "resumo": {
+  "braco": "BASE",
+  "dia": 2,
+  "data": "02/mar",
+  "inicioSeg": 55.4,
+  "fimSeg": 80.1,
+  "amplitudeDoDia": 9979,
+  "funil": {
+   "framesTotais": 247,
+   "framesComPreco": 116,
+   "candidatosFrames": 5,
+   "episodios": 1,
+   "chamadasDeModelo": 3,
+   "trackFrames": 4,
+   "leiturasFalharamMantidas": 0,
+   "setupsNascidos": 1,
+   "expirados": [
+    {
+     "setupId": "T4-2026-03-02-001",
+     "idadeMinutos": 55,
+     "observacoes": 6
+    }
+   ],
+   "recusas": {}
+  },
+  "ledger": {
+   "total": 132,
+   "hits": 0,
+   "misses": 41
+  },
+  "aproximacoes": 1,
+  "confirmacoes": 0,
+  "operacoes": 0,
+  "ganhos": 0,
+  "perdas": 0,
+  "pontos": 0,
+  "somaR": 0,
+  "recusadasPorEspaco": 3,
+  "recusasComForense": 3,
+  "balancos": 1,
+  "balancosGrandes750": 0,
+  "balancos3RRef": 0,
+  "erro": null
+ },
+ "pregao": {
+  "video": "C:/Users/user/Desktop/BACKTEST/marco.mp4",
+  "ativo": "WINFUT",
+  "inicioSeg": 55.4,
+  "fimSeg": 80.1,
+  "intervaloSeg": 0.1,
+  "printsLidos": 3,
+  "printsValidos": 3,
+  "printsComErro": 0,
+  "printsComEscala": 3,
+  "printsSemEscala": 0,
+  "recusadasPorEspaco": 3,
+  "framesSoDeRegua": 240,
+  "instantesAnalisados": 3,
+  "comNiveis": 3,
+  "funil": {
+   "framesTotais": 247,
+   "framesComPreco": 116,
+   "candidatosFrames": 5,
+   "episodios": 1,
+   "chamadasDeModelo": 3,
+   "trackFrames": 4,
+   "leiturasFalharamMantidas": 0,
+   "setupsNascidos": 1,
+   "expirados": [
+    {
+     "setupId": "T4-2026-03-02-001",
+     "idadeMinutos": 55,
+     "observacoes": 6
+    }
+   ],
+   "recusas": {}
+  },
+  "recusasDeEspaco": [
+   {
+    "indice": 78,
+    "segundoNoVideo": 63.199999999999996,
+    "direcao": "VENDA",
+    "entrada": 194500,
+    "stop": 195565,
+    "riscoPontos": 1065,
+    "obstaculo": 194381,
+    "distanciaPontos": 119,
+    "distanciaR": 0.11173708920187793,
+    "origemDoObstaculo": "MEDIDO",
+    "motivoSemEspaco": "LIDO",
+    "zonaMin": null,
+    "zonaMax": null,
+    "stopDoModelo": 195565,
+    "origemDoStop": "MODELO",
+    "tipoDoPivo": "FUNDO",
+    "idadeDoPivoMinutos": 10,
+    "excessoAlemDoObstaculo": 0,
+    "semTrava": {
+     "resultado": "NAO_EXECUTADA",
+     "r": null,
+     "pontos": null,
+     "mfePontos": 3414,
+     "maePontos": 242,
+     "motivo": "Entrada não executada em 40 candles — sinal expirou sem operação."
+    }
+   },
+   {
+    "indice": 80,
+    "segundoNoVideo": 63.4,
+    "direcao": "VENDA",
+    "entrada": 194500,
+    "stop": 195565,
+    "riscoPontos": 1065,
+    "obstaculo": 194381,
+    "distanciaPontos": 119,
+    "distanciaR": 0.11173708920187793,
+    "origemDoObstaculo": "MEDIDO",
+    "motivoSemEspaco": "LIDO",
+    "zonaMin": null,
+    "zonaMax": null,
+    "stopDoModelo": 195565,
+    "origemDoStop": "MODELO",
+    "tipoDoPivo": "FUNDO",
+    "idadeDoPivoMinutos": 12,
+    "excessoAlemDoObstaculo": 0,
+    "semTrava": {
+     "resultado": "NAO_EXECUTADA",
+     "r": null,
+     "pontos": null,
+     "mfePontos": 3414,
+     "maePontos": 242,
+     "motivo": "Entrada não executada em 40 candles — sinal expirou sem operação."
+    }
+   },
+   {
+    "indice": 82,
+    "segundoNoVideo": 63.599999999999994,
+    "direcao": "VENDA",
+    "entrada": 194500,
+    "stop": 195565,
+    "riscoPontos": 1065,
+    "obstaculo": 194381,
+    "distanciaPontos": 119,
+    "distanciaR": 0.11173708920187793,
+    "origemDoObstaculo": "MEDIDO",
+    "motivoSemEspaco": "LIDO",
+    "zonaMin": null,
+    "zonaMax": null,
+    "stopDoModelo": 195565,
+    "origemDoStop": "MODELO",
+    "tipoDoPivo": "FUNDO",
+    "idadeDoPivoMinutos": 14,
+    "excessoAlemDoObstaculo": 0,
+    "semTrava": {
+     "resultado": "NAO_EXECUTADA",
+     "r": null,
+     "pontos": null,
+     "mfePontos": 3414,
+     "maePontos": 242,
+     "motivo": "Entrada não executada em 40 candles — sinal expirou sem operação."
+    }
+   }
+  ],
+  "ledgerResumo": {
+   "total": 132,
+   "hits": 0,
+   "misses": 41
+  },
+  "comObstaculo": 3,
+  "faixaDoEixoLida": {
+   "min": 193085,
+   "max": 206785
+  },
+  "porStatus": {
+   "T4_EM_FORMACAO": 3
+  },
+  "porEstagio": {
+   "FORMING": 6,
+   "EXPIRED": 1
+  },
+  "aproximacoes": 1,
+  "confirmacoes": 0,
+  "leituras": [
+   {
+    "indice": 78,
+    "segundoNoVideo": 63.199999999999996,
+    "dataDoGrafico": "2026-03-03",
+    "horaDoGrafico": "10:17",
+    "status": "T4_EM_FORMACAO",
+    "direcao": "VENDA",
+    "confianca": 80,
+    "precoAtual": 193969,
+    "estagio": "FORMING",
+    "headline": "T4 PRÓXIMA — PREPARAR (531 pts do gatilho)",
+    "preAlerta": true,
+    "entradaConfirmada": false,
+    "entrada": 194500,
+    "stop": 195565,
+    "alvo": 193135,
+    "distanciaPontos": 531,
+    "evento": "NOVO SETUP T4-2026-03-02-001",
+    "frameHash": "747c845c548b8cc8081ff8a8fd5957c0bf957ace976d7cab09ed3ef7dbf7f629",
+    "reparos": [
+     "Alvo recusado: obstáculo a 0.1R (194381) — menos que os 3R de espaço técnico. Setup segue em acompanhamento, sem alvo não confirma.",
+     "Níveis lidos por leitura dedicada ancorada na régua (E=194500 S=195565 A1=191305 A2=189175) — sem região legível, entrada por linha."
+    ],
+    "erro": null,
+    "latenciaMs": 64346
+   },
+   {
+    "indice": 80,
+    "segundoNoVideo": 63.4,
+    "dataDoGrafico": "2026-03-03",
+    "horaDoGrafico": "10:19",
+    "status": "T4_EM_FORMACAO",
+    "direcao": "VENDA",
+    "confianca": 80,
+    "precoAtual": 193984,
+    "estagio": "FORMING",
+    "headline": "T4 PRÓXIMA — PREPARAR (516 pts do gatilho)",
+    "preAlerta": true,
+    "entradaConfirmada": false,
+    "entrada": 194500,
+    "stop": 195565,
+    "alvo": 193135,
+    "distanciaPontos": 516,
+    "evento": null,
+    "frameHash": "69a155e3314c5aa86ada823372c149e297eff5f027b5ebba04f25f87c5391dd1",
+    "reparos": [
+     "Alvo recusado: obstáculo a 0.1R (194381) — menos que os 3R de espaço técnico. Setup segue em acompanhamento, sem alvo não confirma.",
+     "Níveis lidos por leitura dedicada ancorada na régua (E=194500 S=195565 A1=191305 A2=189175) — sem região legível, entrada por linha."
+    ],
+    "erro": null,
+    "latenciaMs": 42706
+   },
+   {
+    "indice": 82,
+    "segundoNoVideo": 63.599999999999994,
+    "dataDoGrafico": "2026-03-03",
+    "horaDoGrafico": "10:21",
+    "status": "T4_EM_FORMACAO",
+    "direcao": "VENDA",
+    "confianca": 80,
+    "precoAtual": 193745,
+    "estagio": "FORMING",
+    "headline": "T4 PRÓXIMA — PREPARAR (755 pts do gatilho)",
+    "preAlerta": true,
+    "entradaConfirmada": false,
+    "entrada": 194500,
+    "stop": 195565,
+    "alvo": 193135,
+    "distanciaPontos": 755,
+    "evento": null,
+    "frameHash": "c1a23762955496d663422b6aafbb3f965bd3184a753bf65160dea53758badf7e",
+    "reparos": [
+     "Alvo recusado: obstáculo a 0.1R (194381) — menos que os 3R de espaço técnico. Setup segue em acompanhamento, sem alvo não confirma.",
+     "Níveis lidos por leitura dedicada ancorada na régua (E=194500 S=195565 A1=191305 A2=189175) — sem região legível, entrada por linha."
+    ],
+    "erro": null,
+    "latenciaMs": 73504
+   },
+   {
+    "indice": 124,
+    "segundoNoVideo": 67.8,
+    "dataDoGrafico": "2026-03-03",
+    "horaDoGrafico": "10:21",
+    "status": "T4_EM_FORMACAO",
+    "direcao": "VENDA",
+    "confianca": 80,
+    "precoAtual": 193254,
+    "estagio": "EXPIRED",
+    "headline": "SETUP T4-2026-03-02-001 EXPIRADO — sem ativação no prazo",
+    "preAlerta": false,
+    "entradaConfirmada": false,
+    "entrada": 194500,
+    "stop": 195565,
+    "alvo": 193135,
+    "distanciaPontos": null,
+    "evento": "EXPIRED",
+    "frameHash": null,
+    "reparos": [
+     "TRACK: estrutura reaproveitada da leitura de 63.6s; preço 193254 da régua calibrada."
+    ],
+    "erro": null,
+    "latenciaMs": 127394
+   }
+  ],
+  "operacoes": [],
+  "ganhos": 0,
+  "perdas": 0,
+  "semDesfecho": 0,
+  "pontosLiquidos": 0,
+  "somaR": 0,
+  "erro": null,
+  "duracaoMs": 1722221
+ },
+ "pivosDoDia": [
+  {
+   "indice": 70,
+   "segundoNoVideo": 62.4,
+   "preco": 194381,
+   "tipo": "FUNDO"
+  },
+  {
+   "indice": 73,
+   "segundoNoVideo": 62.7,
+   "preco": 194982,
+   "tipo": "TOPO"
+  }
+ ],
+ "balancos": [
+  {
+   "deSeg": 62.4,
+   "ateSeg": 62.7,
+   "de": 194381,
+   "ate": 194982,
+   "direcao": "ALTA",
+   "pontos": 601,
+   "fracaoDaAmplitude": 0.06,
+   "rPotencialRef": 2.4,
+   "duracaoMinutos": 4
+  }
+ ]
+}

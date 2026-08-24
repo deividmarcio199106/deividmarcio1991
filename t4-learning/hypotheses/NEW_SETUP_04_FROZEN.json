@@ -1,0 +1,66 @@
+{
+  "_leia_primeiro": "ESPELHO DE AUDITORIA. A FONTE DA VERDADE E src/lib/engines/newSetup04.frozen.ts — este JSON nao e importado pelo runtime (o tsconfig nao resolve JSON de proposito). Ele existe para que a auditoria leia os parametros congelados sem compilar TypeScript. Um teste (src/lib/engines/orderedPullback.test.ts) falha se este arquivo divergir do TS, entao editar so aqui nao muda o motor: quebra o teste.",
+  "arquivoFonte": "src/lib/engines/newSetup04.frozen.ts",
+  "hash": "34ec645b381d575a041007693338b87da31efdb4a59526116bb5efe6f1228126",
+  "hashAlgoritmo": "sha256 sobre JSON canonico (chaves ordenadas por codigo de caractere, sem espacos) do bloco congelamento",
+  "congelamento": {
+    "id": "NEW_SETUP_04",
+    "familia": "ORDERED_PULLBACK_TREND",
+    "versao": "0.1.0-LAB",
+    "congeladoEm": "2026-08-23",
+    "parametros": {
+      "minPullbackCandles": {
+        "valor": 3,
+        "proveniencia": "TECNICA_DECLARADA",
+        "origem": "Texto da técnica: a correção ordenada arma com 3 a 5 candles."
+      },
+      "maxPullbackCandles": {
+        "valor": 5,
+        "proveniencia": "TECNICA_DECLARADA",
+        "origem": "Texto da técnica: a correção ordenada arma com 3 a 5 candles."
+      },
+      "invalidationCandles": {
+        "valor": 7,
+        "proveniencia": "TECNICA_DECLARADA",
+        "origem": "Texto da técnica: acima de 7 candles a correção deixou de ser pullback e o setup está invalidado. 6 e 7 ficam no limbo declarado: não armam e não invalidam."
+      },
+      "stopBufferTicks": {
+        "valor": 1,
+        "proveniencia": "TECNICA_DECLARADA",
+        "origem": "Texto da técnica: stop 1 tick além do extremo do pullback."
+      },
+      "pivotLookback": {
+        "valor": 10,
+        "proveniencia": "SEM_ORIGEM_DECLARADA",
+        "origem": "Quantos candles antes do impulso definem o pivô estrutural. Ninguém mediu isto sobre dado real nesta sessão — número de laboratório."
+      },
+      "minTrendStrength": {
+        "valor": 0.4,
+        "proveniencia": "SEM_ORIGEM_DECLARADA",
+        "origem": "Ecoa o 0.4 que TREND_FIRST_PULLBACK já usa no roteador, mas aquele 0.4 também nunca foi derivado de descoberta. Copiar um número sem origem não cria origem."
+      },
+      "maxCorrectionBodyRatio": {
+        "valor": 0.6,
+        "proveniencia": "SEM_ORIGEM_DECLARADA",
+        "origem": "Teto para corpo médio da correção sobre corpo médio do impulso ('correção mais agressiva que o impulso'). Não foi derivado de fevereiro nem de nenhum OOS."
+      },
+      "neutralBodyRatio": {
+        "valor": 0.3,
+        "proveniencia": "SEM_ORIGEM_DECLARADA",
+        "origem": "Abaixo desta fração corpo/range o candle é tratado como neutro (indecisão conta como corretivo). Não foi derivado de dado real."
+      }
+    }
+  },
+  "promocao": {
+    "promotable": false,
+    "motivo": "Familia de LABORATORIO. canPromoteNewSetup04() devolve false hoje: faltam OOS, walk-forward, integridade de ledger conferida, amostra minima declarada, e quatro parametros ainda estao SEM_ORIGEM_DECLARADA.",
+    "exigencias": [
+      "hash do congelamento conferido contra este artefato",
+      "zero parametros SEM_ORIGEM_DECLARADA",
+      "relatorio fora da amostra (OOS) presente",
+      "walk-forward com mais de uma janela",
+      "ledger de leituras com integridade verificada",
+      "amostra minima declarada (com origem) e atingida"
+    ]
+  }
+}

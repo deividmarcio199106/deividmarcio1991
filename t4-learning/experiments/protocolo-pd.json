@@ -1,0 +1,94 @@
+{
+ "titulo": "PROTOCOLO DE P&D AUTONOMO — T4",
+ "autorizadoEm": "2026-08-22",
+ "autorizacao": "pesquisa e alteracao livres (entrada, confirmacao, stop, alvo, parcial, break-even, trailing, runner, regimes TREND/RANGE/TRANSITION, obstaculo, classificadores, datasets, testes, candidatas) SEM pedir confirmacao entre etapas",
+ "regrasAbsolutas": [
+  "cobertura de dias e METRICA, nunca obrigacao — proibido fabricar trade para transformar NO_TRADE em SIM",
+  "todo NO_TRADE tem gate responsavel registrado numericamente",
+  "cada alteracao vira experimento: hypothesisId, regraAnterior, regraNova, motivo, amostra, resultadoAntes, resultadoDepois — nada muda silenciosamente",
+  "stop correto que inviabiliza o trade REJEITA o trade, nunca se encurta stop para caber",
+  "TEST_FINAL (maio, julho, 8) intocado ate candidata final congelada; VALIDATION so valida, nunca ajusta",
+  "walk-forward na selecao; regra simples e estavel vence parametro hiperespecifico",
+  "backtest e SIMULACAO, nunca garantia"
+ ],
+ "ranking": [
+  "expectancy",
+  "profit factor",
+  "R liquido",
+  "drawdown",
+  "estabilidade entre meses",
+  "dias operados",
+  "amostra",
+  "resultado liquido em R$"
+ ],
+ "financeiro": {
+  "ativo": "WINFUT",
+  "valorPorPonto": 0.2,
+  "contratos": 3,
+  "valorPorPontoPosicao": 0.6,
+  "custos": "DESCONHECIDOS no projeto — resultados saem como SIMULACAO SEM CUSTOS + sensibilidade (0 / baixo R$1,50 / normal R$3,00 / adverso R$6,00 por contrato por lado + 1 tick de slippage)",
+  "formula": "R$ = pontos x 0,2 x contratosReais; liquido = bruto - custos configurados"
+ },
+ "familiasDeAlvo": [
+  "1R",
+  "1.5R",
+  "2R",
+  "2.5R",
+  "3R",
+  "4R",
+  "5R",
+  "estrutural",
+  "proximo obstaculo",
+  "borda oposta do range",
+  "parcial+runner",
+  "somente runner"
+ ],
+ "gestoesATestar": [
+  "stop fixo estrutural",
+  "break-even",
+  "parcial",
+  "trailing",
+  "runner",
+  "saida por perda de estrutura",
+  "alvo adaptativo",
+  "combinacoes"
+ ],
+ "regimes": {
+  "TREND": "continuacao com espaco",
+  "RANGE": "bordas confirmadas, nunca meio, alvo no espaco disponivel",
+  "TRANSITION": "esperar definicao"
+ },
+ "ordemDePesquisa": [
+  "baseline congelado",
+  "forense dos NO_TRADE (numerica)",
+  "H2",
+  "H1",
+  "H1H2",
+  "regimes",
+  "alvos (MFE/MAE, sem lookahead)",
+  "gestao (isolada da entrada)",
+  "leaderboard + walk-forward",
+  "VALIDATION",
+  "Monte Carlo na final",
+  "TEST_FINAL 1x"
+ ],
+ "entregaveis": "tabela mensal, tabela diaria, comparacao de versoes, 10 perguntas finais respondidas — formato do comando de 22/08",
+ "travasFinais": {
+  "leaderboard": {
+   "regra": "ELEGIBILIDADE antes de ranking: amostra >= 30 operacoes, expectancy > 0, PF >= 1.3, maxDD <= 8R, estabilidade (expectancy positiva em >= 2/3 dos meses TRAIN). So entre elegiveis vale a cascata expectancy -> PF -> R -> DD -> estabilidade -> cobertura.",
+   "porque": "impede expectancy excelente em 7 trades de vencer tecnica robusta com 80 operacoes"
+  },
+  "contagemDeHipoteses": {
+   "regra": "CADA valor de parametro testado conta como hipotese (7 alvos = 7 hipoteses; 3 aceitacoes H1 = 3). hypothesisCount acumulado no leaderboard; relatorio final declara o total — e o termometro de garimpo do passado.",
+   "arquivo": "t4-learning/experiments/hypothesis-count.json"
+  },
+  "financeiroPorPerna": {
+   "regra": "R$ calculado POR CONTRATO/PERNA: cada contrato sai num momento e num preco proprios (parcial 3R, alvo 5R, runner). PROIBIDO pontos_totais x 0,60 quando as saidas diferem. O conversor de tabelas le as pernas do LiveOutcomeTracker e soma por perna x 0,20.",
+   "status": "requisito da ferramenta de tabelas — construida sobre o baseline, nao altera o motor durante a medicao"
+  },
+  "lacreDoTestFinal": {
+   "regra": "TEST_FINAL exige lacre de UMA tentativa em experiments/candidata-final-congelada.json com finalCandidateHash, rulesHash, managementHash, datasetHash, timestamp. Depois de aberto, NENHUM ajuste na candidata; reprovou = reprovou, sem segunda visita.",
+   "verificacao": "o driver so destrava maio/julho/8 se o lacre tiver os 5 campos"
+  }
+ }
+}

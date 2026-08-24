@@ -1,0 +1,111 @@
+{
+  "name": "SUPREMO V3.5 — HIGH COVERAGE QUALITY",
+  "status": "CANDIDATO DE DESENVOLVIMENTO",
+  "rules": {
+    "normal_speed": "sinal no candle i; entrada somente do candle i+1 em diante",
+    "management": "3R / 5R / runner estrutural",
+    "core": "SUPREMO V3",
+    "modules": [
+      "TREND_STABLE: 3 confirmações consecutivas, reversalRisk <= 10, janela 20–110",
+      "RANGE_TRANS_FVG: RANGE/TRANSITION, FVG mitigado/testado, reversalRisk <= 15, janela 40–120",
+      "EXPANSION_STABLE: expansão estável, 2 confirmações, POI testado, reversalRisk <= 30, janela 12–70",
+      "HSS_CAPTURE: HSS apenas com captureValid, reversalRisk <= 25, janela 10–45"
+    ],
+    "minimum_month_rule": ">=12 dias quando a base do mês possui pelo menos 12 pregões reconstruídos"
+  },
+  "overall": {
+    "trade_days": 84,
+    "gain_days": 48,
+    "loss_days": 35,
+    "points": 11252.321367622699,
+    "brl_3win": 6751.392820573619,
+    "PF": 3.088182811227035,
+    "DD_R": 3.0,
+    "hit_rate_pct": 57.831325301204814
+  },
+  "monthly": {
+    "Fevereiro": {
+      "available": 11,
+      "trade_days": 10,
+      "gain": 7,
+      "loss": 3,
+      "points": 2629.621850914895,
+      "brl_3win": 1577.773110548937,
+      "PF": 5.8287951516848615,
+      "DD_R": 1.7638034073677638
+    },
+    "Março": {
+      "available": 22,
+      "trade_days": 17,
+      "gain": 11,
+      "loss": 6,
+      "points": 3635.3338340059618,
+      "brl_3win": 2181.200300403577,
+      "PF": 4.974710528481423,
+      "DD_R": 3.0
+    },
+    "Abril": {
+      "available": 17,
+      "trade_days": 13,
+      "gain": 7,
+      "loss": 5,
+      "points": 320.5895721868358,
+      "brl_3win": 192.35374331210147,
+      "PF": 1.9199436492940272,
+      "DD_R": 2.0
+    },
+    "Maio": {
+      "available": 16,
+      "trade_days": 14,
+      "gain": 6,
+      "loss": 8,
+      "points": 1284.2853054732018,
+      "brl_3win": 770.5711832839211,
+      "PF": 2.519038924750372,
+      "DD_R": 2.9984659024861813
+    },
+    "Junho": {
+      "available": 19,
+      "trade_days": 14,
+      "gain": 9,
+      "loss": 5,
+      "points": 1438.9497086235267,
+      "brl_3win": 863.369825174116,
+      "PF": 2.508902268214959,
+      "DD_R": 2.0
+    },
+    "Julho": {
+      "available": 22,
+      "trade_days": 15,
+      "gain": 8,
+      "loss": 7,
+      "points": 2027.4257434932579,
+      "brl_3win": 1216.4554460959548,
+      "PF": 2.678026737844516,
+      "DD_R": 3.0
+    }
+  },
+  "comparison_v34": {
+    "trade_days": {
+      "v34": 89,
+      "v35": 84
+    },
+    "points": {
+      "v34": 8232.7,
+      "v35": 11252.3
+    },
+    "PF": {
+      "v34": 2.71,
+      "v35": 3.09
+    },
+    "DD_R": {
+      "v34": 5.23,
+      "v35": 3.0
+    }
+  },
+  "limitations": [
+    "Os meses fevereiro-julho foram usados no refinamento desta versão; portanto estes números são de desenvolvimento, não OOS independente.",
+    "Fevereiro tem apenas 11 pregões na série quantitativa atual, então não é possível demonstrar 12 dias operados sem reconstruir os dias faltantes.",
+    "Pontos são estimados a partir da reconstrução visual, não de OHLC/tick oficial."
+  ]
+}

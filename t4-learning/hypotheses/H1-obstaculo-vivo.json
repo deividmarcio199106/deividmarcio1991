@@ -1,0 +1,16 @@
+{
+ "id": "H1",
+ "REGRA_ATUAL": "O obstaculo do gate de espaco 3R e o pivo mais proximo do lado do trade, INDEPENDENTE de o preco ja ter rompido esse pivo desde que ele se formou.",
+ "PROBLEMA": "Nivel ja rompido com forca nao e mais obstaculo — e combustivel (stop-run do lado de la). Medido em 02/mar: 14/14 medicoes deram <3R (max 2.6R), varias contra pivos que o proprio pregao ja tinha atravessado.",
+ "NOVA_REGRA": "Pivo DEAD quando o preco ACEITOU alem dele: excesso >= aceitacaoPontos (150) na direcao do rompimento, medido so depois de o pivo ser conhecivel. Toque/furo menor NAO mata (falso rompimento continua obstaculo). Morto nao volta (regra monotonica declarada). Estados ACTIVE/BROKEN_UNCONFIRMED(<aceitacao)/DEAD(>=aceitacao); so DEAD sai da lista de obstaculos. Scanner de candidatos, percepcao, stop, gestao e 3R identicos ao baseline.",
+ "MOTIVO": "Alinha a medicao de espaco com a leitura estrutural do operador (resistencia rompida vira suporte; o teto real e o proximo nivel intacto).",
+ "TRADES_AFETADOS": "Todos os candidatos recusados por espaco cujo obstaculo mais proximo ja estava rompido — lista exata sai do baseline por dia.",
+ "RISCO": "Abrir espaco demais em range: nivel rompido por 1 tick voltaria a segurar preco. Mitigacao: exigir rompimento com folga (>=0.5R) para aposentar o nivel.",
+ "RESULTADO_ESPERADO": "Mais alvos liberados em tendencia SEM afrouxar o piso de 3R; range continua recusando.",
+ "status": "IMPLEMENTADA_COMO_EXPERIMENTO_DESLIGADO — roda na campanha apos H2",
+ "IMPLEMENTACAO": {
+  "onde": "src/server/video/pregao.ts — opcao experimento.obstaculoVivo (NUNCA padrao)",
+  "funcaoPura": "excessoAlemDoNivel (exportada)",
+  "testes": "src/server/video/__tests__/obstaculoVivoH1.test.ts — 5 casos, incl. causalidade e furo pequeno"
+ }
+}

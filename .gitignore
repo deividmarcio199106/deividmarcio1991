@@ -1,0 +1,77 @@
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+node_modules
+dist
+dist-ssr
+.output
+.vinxi
+.tanstack/**
+.nitro
+*.local
+
+# Wrangler / Cloudflare
+.wrangler/
+.dev.vars
+
+# Runtime local do t4:start (pids da bridge e do servidor)
+.t4run/
+
+# Configuração do atualizador: carrega host, usuário e caminho da chave SSH
+updater/updater.config.json
+
+# Editor directories and files
+.vscode/*
+!.vscode/extensions.json
+.idea
+.DS_Store
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# Material TLS da bridge RTD — chave privada NUNCA vai para o repositório
+bridge/tls/*.pem
+bridge/tls/*.pfx
+
+
+# Bundles gerados para entrega — artefato, nao codigo-fonte
+*.bundle
+
+
+# Node portatil baixado para a maquina do operador — nao e codigo-fonte e
+# nao pode ir para a VPS (sao centenas de MB por deploy)
+tools/
+
+# Log de execucao local da bridge
+bridge-exe/run.log
+bridge-exe/run.err
+
+
+# Binario compilado da bridge — gere com bridge-exe\build.cmd
+bridge-exe/T4-Bridge.exe
+
+
+# Segredos: nunca versionar
+.env
+.env.local
+.env.production
+*.key
+id_rsa*
+*_ed25519
+data-upgrade/
+x
+.env
+.env.*
+*.env
+credentials.json
+*.pem
+*.key
+.credentials

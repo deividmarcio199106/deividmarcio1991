@@ -1,0 +1,195 @@
+{
+ "resumo": {
+  "braco": "BASE",
+  "dia": 9,
+  "data": "11/mar",
+  "inicioSeg": 415.9,
+  "fimSeg": 471,
+  "amplitudeDoDia": 4527,
+  "funil": {
+   "framesTotais": 551,
+   "framesComPreco": 138,
+   "candidatosFrames": 21,
+   "episodios": 1,
+   "chamadasDeModelo": 1,
+   "trackFrames": 29,
+   "leiturasFalharamMantidas": 0,
+   "setupsNascidos": 1,
+   "expirados": [],
+   "recusas": {}
+  },
+  "ledger": {
+   "total": 575,
+   "hits": 0,
+   "misses": 22
+  },
+  "aproximacoes": 1,
+  "confirmacoes": 0,
+  "operacoes": 0,
+  "ganhos": 0,
+  "perdas": 0,
+  "pontos": 0,
+  "somaR": 0,
+  "recusadasPorEspaco": 0,
+  "recusasComForense": 0,
+  "balancos": 2,
+  "balancosGrandes750": 0,
+  "balancos3RRef": 0,
+  "erro": null
+ },
+ "pregao": {
+  "video": "C:/Users/user/Desktop/BACKTEST/marco.mp4",
+  "ativo": "WINFUT",
+  "inicioSeg": 415.9,
+  "fimSeg": 471,
+  "intervaloSeg": 0.1,
+  "printsLidos": 1,
+  "printsValidos": 1,
+  "printsComErro": 0,
+  "printsComEscala": 1,
+  "printsSemEscala": 0,
+  "recusadasPorEspaco": 0,
+  "framesSoDeRegua": 521,
+  "instantesAnalisados": 1,
+  "comNiveis": 0,
+  "funil": {
+   "framesTotais": 551,
+   "framesComPreco": 138,
+   "candidatosFrames": 21,
+   "episodios": 1,
+   "chamadasDeModelo": 1,
+   "trackFrames": 29,
+   "leiturasFalharamMantidas": 0,
+   "setupsNascidos": 1,
+   "expirados": [],
+   "recusas": {}
+  },
+  "recusasDeEspaco": [],
+  "ledgerResumo": {
+   "total": 575,
+   "hits": 0,
+   "misses": 22
+  },
+  "comObstaculo": 0,
+  "faixaDoEixoLida": {
+   "min": 193343.64032927007,
+   "max": 196853.64032927007
+  },
+  "porStatus": {
+   "T4_EM_FORMACAO": 1
+  },
+  "porEstagio": {
+   "FORMING": 30
+  },
+  "aproximacoes": 1,
+  "confirmacoes": 0,
+  "leituras": [
+   {
+    "indice": 519,
+    "segundoNoVideo": 467.79999999999995,
+    "dataDoGrafico": "2026-03-12",
+    "horaDoGrafico": "13:33",
+    "status": "T4_EM_FORMACAO",
+    "direcao": "COMPRA",
+    "confianca": 68,
+    "precoAtual": 189355,
+    "estagio": "FORMING",
+    "headline": "T4 PRÓXIMA — PREPARAR (160 pts do gatilho)",
+    "preAlerta": true,
+    "entradaConfirmada": false,
+    "entrada": 189195,
+    "stop": 188610,
+    "alvo": 189780,
+    "distanciaPontos": 160,
+    "evento": "NOVO SETUP T4-2026-03-06-001",
+    "frameHash": "2c7ccf04a8b9cc9bc446d626d52c8476c4645fcc133009176cc9453ca2cc299c",
+    "reparos": [],
+    "erro": null,
+    "latenciaMs": 83292
+   },
+   {
+    "indice": 520,
+    "segundoNoVideo": 467.9,
+    "dataDoGrafico": "2026-03-12",
+    "horaDoGrafico": "13:33",
+    "status": "T4_EM_FORMACAO",
+    "direcao": "COMPRA",
+    "confianca": 68,
+    "precoAtual": 193079,
+    "estagio": "FORMING",
+    "headline": "FORMING — T4-2026-03-06-001",
+    "preAlerta": false,
+    "entradaConfirmada": false,
+    "entrada": 189195,
+    "stop": 188610,
+    "alvo": 189780,
+    "distanciaPontos": 3884,
+    "evento": null,
+    "frameHash": null,
+    "reparos": [
+     "TRACK: estrutura reaproveitada da leitura de 467.8s; preço 193079 da régua calibrada."
+    ],
+    "erro": null,
+    "latenciaMs": 4
+   }
+  ],
+  "operacoes": [],
+  "ganhos": 0,
+  "perdas": 0,
+  "semDesfecho": 0,
+  "pontosLiquidos": 0,
+  "somaR": 0,
+  "erro": null,
+  "duracaoMs": 3501548
+ },
+ "pivosDoDia": [
+  {
+   "indice": 13,
+   "segundoNoVideo": 417.2,
+   "preco": 193109,
+   "tipo": "FUNDO"
+  },
+  {
+   "indice": 14,
+   "segundoNoVideo": 417.3,
+   "preco": 193109,
+   "tipo": "FUNDO"
+  },
+  {
+   "indice": 521,
+   "segundoNoVideo": 468,
+   "preco": 193754,
+   "tipo": "TOPO"
+  },
+  {
+   "indice": 528,
+   "segundoNoVideo": 468.7,
+   "preco": 193424,
+   "tipo": "FUNDO"
+  }
+ ],
+ "balancos": [
+  {
+   "deSeg": 417.3,
+   "ateSeg": 468,
+   "de": 193109,
+   "ate": 193754,
+   "direcao": "ALTA",
+   "pontos": 645,
+   "fracaoDaAmplitude": 0.142,
+   "rPotencialRef": 2.58,
+   "duracaoMinutos": 608
+  },
+  {
+   "deSeg": 468,
+   "ateSeg": 468.7,
+   "de": 193754,
+   "ate": 193424,
+   "direcao": "BAIXA",
+   "pontos": 330,
+   "fracaoDaAmplitude": 0.073,
+   "rPotencialRef": 1.32,
+   "duracaoMinutos": 8
+  }
+ ]
+}

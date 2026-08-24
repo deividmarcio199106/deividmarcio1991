@@ -1,0 +1,13 @@
+{
+  "host": "SEU.SERVIDOR.COM",
+  "user": "deploy",
+  "port": 22,
+  "identityFile": "C:\\Users\\SEU_USUARIO\\.ssh\\id_ed25519",
+  "remotePath": "/var/www/analisador",
+  "pm2App": "analisador",
+  "healthUrl": "https://seu-dominio.com/api/health",
+  "localProjectPath": "C:\\Users\\SEU_USUARIO\\Desktop\\ANALISADOR_T4_RTD",
+  "nodeInstall": "npm ci",
+  "buildCommand": "npm run build",
+  "keepReleases": 5
+}

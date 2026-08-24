@@ -1,0 +1,40 @@
+{
+ "titulo": "CONTRATO DE COMPARACAO — baseline x hipoteses",
+ "regra": "toda comparacao referencia o baseline-marco-frozen.json pelos SEUS hashes",
+ "iguaisPorObrigacao": [
+  "datasetHash (mesma serie, mesmos frames, mesma regua)",
+  "mesmos dias segmentados (diasHashes)",
+  "mesma maquina de gestao (LiveOutcomeTracker, parcial 3R, final 5R, runner)",
+  "mesma politica de custo/slippage (ZERO_DECLARADO)",
+  "mesma definicao de resultado (classificacao posterior sobre a serie)",
+  "mesmo relogio sintetico (12 min/s)"
+ ],
+ "procedimento": {
+  "passo1": "antes de rodar um experimento, recomputar motorHash/configHash e comparar com o congelado",
+  "passo2": "experimento muda EXATAMENTE UMA regra (H1 ou H2); a mudanca vira parametro, nunca edicao silenciosa",
+  "passo3": "se qualquer hash de infraestrutura divergir durante o experimento: marcar INVALID_COMPARISON e refazer OS DOIS lados no mesmo motor",
+  "passo4": "relatorio final separa OFICIAL_BASELINE, CONTRAFACTUAL, H1, H2, H1_H2 — contrafactual nunca soma com oficial"
+ },
+ "ordem": [
+  "BASELINE (congelado)",
+  "H1 isolada",
+  "H2 isolada (sobre o baseline original, nao sobre H1)",
+  "H1+H2"
+ ],
+ "criterio": "mais trades VALIDOS: so promove regra que aumenta expectancy/R liquido fora da amostra sem deteriorar drawdown desproporcionalmente; o requisito 3R nao muda neste ciclo",
+ "percepcaoCongelada": {
+  "regra": "H1/H2/H1_H2 leem o ledger do baseline (leituras.jsonl, READ_ONLY) — mesma imagem+prompt devolve a MESMA resposta sem tocar o modelo. Leitura que o baseline nunca fez vai para overlay proprio (leituras-hX.jsonl) e e contada como novaLeitura no relatorio.",
+  "proibicao": "nunca perguntar de novo ao Vision para reconstruir entrada, stop, preco, direcao, pivos ou estrutura ja congelados",
+  "lema": "MESMA PERCEPCAO -> REGRA DIFERENTE"
+ },
+ "variavelDeclarada": {
+  "H1": "mesmas leituras, mesmo stop, mesma gestao; muda SOMENTE estado/validade do obstaculo (ACTIVE/BROKEN_UNCONFIRMED/BROKEN_ACCEPTED/RETESTED/DEAD; so DEAD libera espaco)",
+  "H2": "mesmas leituras, mesmos obstaculos, mesma gestao; muda SOMENTE calculo/posicao do stop estrutural (borda+buffer do erro de medicao; piso de risco afeta o STOP REAL do backtest, nao so o denominador)",
+  "H1_H2": "somente depois dos testes individuais",
+  "qualquerOutraDiferenca": "INVALID_COMPARISON"
+ },
+ "custos": {
+  "baseline": "ZERO_DECLARADO — preservado para comparacao",
+  "sensibilidade": "analise separada depois do ciclo: custo 0, baixo, normal, adverso — NUNCA misturada ao baseline congelado"
+ }
+}
