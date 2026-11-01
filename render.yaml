@@ -1,0 +1,27 @@
+# Blueprint do Render (https://render.com): "New > Blueprint" apontando para
+# este repositorio sobe o analisador com disco persistente para o SQLite.
+services:
+  - type: web
+    name: analisador-t4
+    runtime: docker
+    plan: starter
+    dockerfilePath: ./Dockerfile
+    healthCheckPath: /api/health
+    autoDeploy: true
+    disk:
+      name: analisador-data
+      mountPath: /app/data
+      sizeGB: 2
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: PORT
+        value: "8080"
+      - key: DATA_DIR
+        value: /app/data
+      - key: OLLAMA_BASE_URL
+        value: ""
+      - key: OLLAMA_TEXT_MODEL
+        value: ""
+      - key: OLLAMA_VISION_MODEL
+        value: ""

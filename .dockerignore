@@ -1,0 +1,31 @@
+# Fora do contexto de build do Docker: nada disto entra na imagem.
+.git
+.github
+.lovable
+.emergent
+node_modules
+.output
+.nitro
+.tanstack
+.vinxi
+dist
+dist-ssr
+.t4run
+tools
+data
+data-upgrade
+*.log
+*.zip
+*.bundle
+*.pem
+*.pfx
+*.key
+.env
+.env.*
+# Componentes Windows: rodam no desktop ao lado do Profit, nunca na nuvem.
+bridge-exe
+updater
+bridge/tls
+# Material de pesquisa: nao e usado pelo servidor em producao.
+t4-learning
+graphify-out

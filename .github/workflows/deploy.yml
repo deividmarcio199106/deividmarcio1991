@@ -1,0 +1,117 @@
+# Publica o analisador na nuvem.
+#
+# 1. Em todo push na main (ou por disparo manual) constroi a imagem Docker
+#    e envia para o GitHub Container Registry:
+#      ghcr.io/<dono>/<repositorio>:latest  e  :<sha>
+#    O proprio Dockerfile roda format:check, lint, typecheck, testes e build:
+#    se algum gate quebrar, nada e publicado.
+#
+# 2. Se os segredos VPS_HOST, VPS_USER e VPS_SSH_KEY existirem no repositorio,
+#    conecta na VPS por SSH, puxa a imagem nova e reinicia o container.
+#    Sem os segredos, o passo 2 e pulado e so a imagem fica publicada.
+#
+# Render e Fly.io nao usam este arquivo: leem o Dockerfile direto
+# (ver render.yaml, fly.toml e docs/NUVEM.md).
+name: Deploy na nuvem
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  packages: write
+
+concurrency:
+  group: deploy-${{ github.ref }}
+  cancel-in-progress: false
+
+env:
+  IMAGE: ghcr.io/${{ github.repository }}
+
+jobs:
+  imagem:
+    name: Construir e publicar imagem
+    runs-on: ubuntu-latest
+    outputs:
+      image: ${{ steps.meta.outputs.image }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Nome da imagem (minusculo, exigido pelo GHCR)
+        id: meta
+        run: echo "image=$(echo '${{ env.IMAGE }}' | tr '[:upper:]' '[:lower:]')" >> "$GITHUB_OUTPUT"
+
+      - uses: docker/setup-buildx-action@v3
+
+      - uses: docker/login-action@v3
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+
+      - uses: docker/build-push-action@v6
+        with:
+          context: .
+          push: true
+          tags: |
+            ${{ steps.meta.outputs.image }}:latest
+            ${{ steps.meta.outputs.image }}:${{ github.sha }}
+          cache-from: type=gha
+          cache-to: type=gha,mode=max
+
+  vps:
+    name: Atualizar VPS (opcional)
+    needs: imagem
+    runs-on: ubuntu-latest
+    # Segredos nao podem ser lidos em `if`; o passo abaixo decide em runtime.
+    steps:
+      - name: Verifica segredos da VPS
+        id: cfg
+        env:
+          VPS_HOST: ${{ secrets.VPS_HOST }}
+          VPS_USER: ${{ secrets.VPS_USER }}
+          VPS_SSH_KEY: ${{ secrets.VPS_SSH_KEY }}
+        run: |
+          if [ -n "$VPS_HOST" ] && [ -n "$VPS_USER" ] && [ -n "$VPS_SSH_KEY" ]; then
+            echo "ok=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "ok=false" >> "$GITHUB_OUTPUT"
+            echo "Segredos VPS_HOST/VPS_USER/VPS_SSH_KEY ausentes: imagem publicada, VPS nao tocada."
+          fi
+
+      - name: Deploy por SSH
+        if: steps.cfg.outputs.ok == 'true'
+        uses: appleboy/ssh-action@v1.2.0
+        env:
+          IMAGE: ${{ needs.imagem.outputs.image }}
+          GHCR_USER: ${{ github.actor }}
+          GHCR_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          host: ${{ secrets.VPS_HOST }}
+          username: ${{ secrets.VPS_USER }}
+          key: ${{ secrets.VPS_SSH_KEY }}
+          port: ${{ secrets.VPS_PORT || 22 }}
+          envs: IMAGE,GHCR_USER,GHCR_TOKEN
+          script: |
+            set -e
+            echo "$GHCR_TOKEN" | docker login ghcr.io -u "$GHCR_USER" --password-stdin
+            docker pull "$IMAGE:latest"
+            docker rm -f analisador-continuo 2>/dev/null || true
+            docker run -d \
+              --name analisador-continuo \
+              --restart unless-stopped \
+              --network host \
+              -e NODE_ENV=production \
+              -e NITRO_HOST=127.0.0.1 \
+              -e PORT="${PORT:-8081}" \
+              -e DATA_DIR=/app/data \
+              -e OLLAMA_BASE_URL="${OLLAMA_BASE_URL:-http://127.0.0.1:11435}" \
+              -e OLLAMA_TEXT_MODEL="${OLLAMA_TEXT_MODEL:-qwen3.5:35b}" \
+              -e OLLAMA_VISION_MODEL="${OLLAMA_VISION_MODEL:-}" \
+              -v analisador_data:/app/data \
+              "$IMAGE:latest"
+            sleep 15
+            curl -fsS "http://127.0.0.1:${PORT:-8081}/api/health"
+            docker image prune -f >/dev/null

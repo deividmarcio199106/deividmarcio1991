@@ -7,7 +7,7 @@
 # A IA é opcional e acessada somente pelo backend.
 # =============================================================================
 
-FROM oven/bun:1.3.7 AS build
+FROM oven/bun:1.4.4 AS build
 WORKDIR /app
 
 # Instala dependências primeiro para aproveitar cache de camada.

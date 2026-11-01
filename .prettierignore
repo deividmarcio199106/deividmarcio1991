@@ -6,3 +6,10 @@ pnpm-lock.yaml
 package-lock.json
 bun.lock
 routeTree.gen.ts
+# Dados de pesquisa, fixtures e documentos: nao sao codigo e nao passam pelo
+# formatador (o gate format:check do Dockerfile cobre apenas o codigo-fonte).
+t4-learning
+graphify-out
+*.md
+.emergent
+src/lib/vision/__tests__/fixtures
