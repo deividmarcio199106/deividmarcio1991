@@ -35,9 +35,9 @@ export function isMeetlyHost(host: string, hosts = meetlyHosts()): boolean {
 }
 
 function isAssetPath(path: string): boolean {
-  // Arquivos do build (/assets/...), internos do Start (/_serverFn, /_build...)
-  // e qualquer arquivo com extensão (robots.txt, /meetly/logo.png...).
-  if (path.startsWith("/assets/") || path.startsWith("/_")) return true;
+  // Arquivos do build (/assets/...) e qualquer arquivo com extensão
+  // (robots.txt, /meetly/logo.png...).
+  if (path.startsWith("/assets/")) return true;
   const last = path.split("/").pop() ?? "";
   return /\.[a-z0-9]{1,8}$/i.test(last);
 }
@@ -57,7 +57,9 @@ export function meetlyHostGate(request: Request, hosts = meetlyHosts()): Respons
   if (path === "/api/health" || path === "/api/meetly" || path.startsWith("/api/meetly/")) {
     return null;
   }
-  if (path === "/api" || path.startsWith("/api/")) {
+  // Funções de servidor do analisador (IA etc.) não ficam expostas no domínio
+  // do Meetly; o Meetly não usa nenhuma (a raiz decide o modo sem chamá-las).
+  if (path === "/api" || path.startsWith("/api/") || path.startsWith("/_serverFn")) {
     return new Response(JSON.stringify({ error: "Não encontrado." }), {
       status: 404,
       headers: { "content-type": "application/json; charset=utf-8" },

@@ -16,7 +16,7 @@ import { AppSidebar } from "@/components/AppSidebar";
 import { SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar";
 import { StatusBar } from "@/components/StatusBar";
 import { Toaster } from "@/components/ui/sonner";
-import { getShellMode } from "@/lib/meetly/shellMode.functions";
+import { getShellMode, MEETLY_SHELL_ATTR } from "@/lib/meetly/shellMode";
 
 function NotFoundComponent() {
   return (
@@ -108,8 +108,10 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
 });
 
 function RootShell({ children }: { children: ReactNode }) {
+  const { meetlyOnly } = Route.useLoaderData();
+  const shellAttr = { [MEETLY_SHELL_ATTR]: meetlyOnly ? "1" : "0" };
   return (
-    <html lang="pt-BR" className="dark">
+    <html lang="pt-BR" className="dark" {...shellAttr}>
       <head>
         <HeadContent />
       </head>

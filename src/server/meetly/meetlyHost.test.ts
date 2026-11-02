@@ -39,6 +39,8 @@ describe("domínio próprio do Meetly", () => {
     const trading = meetlyHostGate(req("/api/trading/snapshot"), HOSTS)!;
     expect(trading.status).toBe(404);
     expect(meetlyHostGate(req("/api/claude/admin"), HOSTS)!.status).toBe(404);
+    // Funções de servidor do analisador (IA) também ficam de fora.
+    expect(meetlyHostGate(req("/_serverFn/abc123"), HOSTS)!.status).toBe(404);
     for (const path of [
       "/api/meetly/me",
       "/api/health",
@@ -46,7 +48,6 @@ describe("domínio próprio do Meetly", () => {
       "/meetly/reuniao/abc",
       "/meetly/logo.png",
       "/assets/index-abc123.js",
-      "/_serverFn/xyz",
       "/robots.txt",
     ]) {
       expect(meetlyHostGate(req(path), HOSTS)).toBeNull();
