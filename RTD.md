@@ -15,12 +15,12 @@
 Profit ──RTD──> Excel ──HTTP──> t4-bridge ──WebSocket──> site ──> candles 1Min ──> T4
 ```
 
-| Papel | Quem |
-|---|---|
-| **Dado** | RTD (preço, hora, volume) |
-| **Visual** | Profit — só conferência humana |
+| Papel       | Quem                                     |
+| ----------- | ---------------------------------------- |
+| **Dado**    | RTD (preço, hora, volume)                |
+| **Visual**  | Profit — só conferência humana           |
 | **Decisão** | T4, determinística, sobre candle fechado |
-| **Apoio** | IA — revisa código, nunca cria mercado |
+| **Apoio**   | IA — revisa código, nunca cria mercado   |
 
 No modo RTD **nada** depende de OCR, escala de pixel, âncora, calibração ou do
 relógio do gráfico. Esses módulos continuam existindo para o modo Profit legado,
@@ -61,10 +61,10 @@ Outros comandos: `npm run t4:doctor` (config check), `npm run t4:test`,
 
 O site escolhe o esquema sozinho, pelo protocolo da própria página:
 
-| Página | Endereço usado |
-|---|---|
+| Página                              | Endereço usado         |
+| ----------------------------------- | ---------------------- |
 | `https://analisador.dvdswap.com.br` | `wss://localhost:8765` |
-| `http://localhost:3000` (dev) | `ws://127.0.0.1:8765` |
+| `http://localhost:3000` (dev)       | `ws://127.0.0.1:8765`  |
 
 Um `ws://` gravado antes do suporte a TLS é promovido para `wss://` na
 inicialização — a preferência antiga não derruba a produção.

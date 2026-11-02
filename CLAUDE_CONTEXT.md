@@ -37,16 +37,16 @@
 
 ### 0.1 Estado verificado (23/08 ~21:40 BRT)
 
-| Item | Valor |
-|---|---|
-| Branch / HEAD local | `main` @ `90fde1e` |
+| Item                    | Valor                                                                                                                                          |
+| ----------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------- |
+| Branch / HEAD local     | `main` @ `90fde1e`                                                                                                                             |
 | origin/main (VPS, bare) | `c3b3ce9` — HEAD local está **3 commits À FRENTE, sem push** (`bb4f5aa`, `90fde1e` + o commit deste checkpoint). Deploy é decisão do operador. |
-| Testes | 1433 passando, 12 skipped (135 arquivos) — suíte completa em ~7,5 min |
-| Typecheck | limpo (`tsc --noEmit`) |
-| Lint | 0 erros; 7 warnings pré-existentes (react-hooks/react-refresh) em arquivos NÃO tocados pela correção |
-| Build | ok (vite/nitro) |
-| Banco | schema **7** (seeds T4.1/T4.2, tabela `ai_validations`) |
-| OpenAI | chave em `backend/.env` VÁLIDA, mas conta **sem créditos** (HTTP 429 no smoke) — Sol/Luna/Terra bloqueados até o operador adicionar créditos |
+| Testes                  | 1433 passando, 12 skipped (135 arquivos) — suíte completa em ~7,5 min                                                                          |
+| Typecheck               | limpo (`tsc --noEmit`)                                                                                                                         |
+| Lint                    | 0 erros; 7 warnings pré-existentes (react-hooks/react-refresh) em arquivos NÃO tocados pela correção                                           |
+| Build                   | ok (vite/nitro)                                                                                                                                |
+| Banco                   | schema **7** (seeds T4.1/T4.2, tabela `ai_validations`)                                                                                        |
+| OpenAI                  | chave em `backend/.env` VÁLIDA, mas conta **sem créditos** (HTTP 429 no smoke) — Sol/Luna/Terra bloqueados até o operador adicionar créditos   |
 
 ### 0.2 Comando vigente: CORREÇÃO em 9 blocos (base AVALIACAO_SENIOR_c3b3ce9.md)
 
@@ -60,18 +60,18 @@ verde; sem force-push. Um bloco = um commit; após CADA bloco os 4 gates
 
 **Placar dos blocos:**
 
-| Bloco | Estado | Prova |
-|---|---|---|
-| 1 — motor T4.2 real + 3 consumidores | **CONCLUÍDO** — commit `90fde1e` | `src/lib/t4/t42FillEngine.ts`; 22 testes do motor + 5 do tracker + 7 de cadeia (34 novos); consumidores: `setupTracker.ts` (fork CONFIRMED→reteste→fill/EXPIRED_NO_FILL/RISK_REJECTED), `quantBacktest.ts` (perfil `T42_HYBRID`, ledger `t42Events`, padrão T4.1 intocado — testado), `pregao.ts` (opção `experimento.execucaoT42`, contadores `t42Fills`/`t42ExpiredNoFill`; alcança o motor VIA `advanceSetup` — um ponto de decisão) |
-| 2 — E2 fechado no runtime (detectOrderedPullback ligado; bypass rastreável) | PENDENTE | — |
-| 3 — unificar pregao.ts (constantes de strategy/riskGate, sem ??0, paridade replay×analyze) | PENDENTE | — |
-| 4 — dedup (UNIQUE em trades, ids determinísticos, "replay repetido não aumenta N") | PENDENTE | — |
-| 5 — custos ligados no fechamento (costs_brl/result_brl/slippage; custo desconhecido = null) | PENDENTE | — |
-| 6 — OpenAI no runtime só server-side (Terra/Luna na promoção; guard de janela; Sol offline) | PENDENTE (e bloqueado p/ smoke real por falta de créditos) | — |
-| 7 — congelamento verificável (hash conferido na leitura; 409 em update de candidata) | PENDENTE | — |
-| 8 — robustez do marketMonitor (listeners em try/catch, finally no ciclo, timer limpo) | PENDENTE | — |
-| 9 — enforcement de dataset (mês→papel, OOS trancado sem hash, datasetSeen lido) | PENDENTE | — |
-| FINAL — E2E print→…→ledger + relatório §31 com flags §30 provadas | PENDENTE | — |
+| Bloco                                                                                       | Estado                                                     | Prova                                                                                                                                                                                                                                                                                                                                                                                                                                   |
+| ------------------------------------------------------------------------------------------- | ---------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 1 — motor T4.2 real + 3 consumidores                                                        | **CONCLUÍDO** — commit `90fde1e`                           | `src/lib/t4/t42FillEngine.ts`; 22 testes do motor + 5 do tracker + 7 de cadeia (34 novos); consumidores: `setupTracker.ts` (fork CONFIRMED→reteste→fill/EXPIRED_NO_FILL/RISK_REJECTED), `quantBacktest.ts` (perfil `T42_HYBRID`, ledger `t42Events`, padrão T4.1 intocado — testado), `pregao.ts` (opção `experimento.execucaoT42`, contadores `t42Fills`/`t42ExpiredNoFill`; alcança o motor VIA `advanceSetup` — um ponto de decisão) |
+| 2 — E2 fechado no runtime (detectOrderedPullback ligado; bypass rastreável)                 | PENDENTE                                                   | —                                                                                                                                                                                                                                                                                                                                                                                                                                       |
+| 3 — unificar pregao.ts (constantes de strategy/riskGate, sem ??0, paridade replay×analyze)  | PENDENTE                                                   | —                                                                                                                                                                                                                                                                                                                                                                                                                                       |
+| 4 — dedup (UNIQUE em trades, ids determinísticos, "replay repetido não aumenta N")          | PENDENTE                                                   | —                                                                                                                                                                                                                                                                                                                                                                                                                                       |
+| 5 — custos ligados no fechamento (costs_brl/result_brl/slippage; custo desconhecido = null) | PENDENTE                                                   | —                                                                                                                                                                                                                                                                                                                                                                                                                                       |
+| 6 — OpenAI no runtime só server-side (Terra/Luna na promoção; guard de janela; Sol offline) | PENDENTE (e bloqueado p/ smoke real por falta de créditos) | —                                                                                                                                                                                                                                                                                                                                                                                                                                       |
+| 7 — congelamento verificável (hash conferido na leitura; 409 em update de candidata)        | PENDENTE                                                   | —                                                                                                                                                                                                                                                                                                                                                                                                                                       |
+| 8 — robustez do marketMonitor (listeners em try/catch, finally no ciclo, timer limpo)       | PENDENTE                                                   | —                                                                                                                                                                                                                                                                                                                                                                                                                                       |
+| 9 — enforcement de dataset (mês→papel, OOS trancado sem hash, datasetSeen lido)             | PENDENTE                                                   | —                                                                                                                                                                                                                                                                                                                                                                                                                                       |
+| FINAL — E2E print→…→ledger + relatório §31 com flags §30 provadas                           | PENDENTE                                                   | —                                                                                                                                                                                                                                                                                                                                                                                                                                       |
 
 **Flags:** NENHUMA flag de veredito declarada nesta sessão.
 `PRONTA_PARA_OPERACAO_ASSISTIDA` segue **false** (homologação de 22/08: 0
@@ -124,18 +124,18 @@ BLOCO 3. Não abrir abril/julho; não tocar `T42_EXECUTION`.
 
 ## 1. ESTADO ATUAL
 
-| Item | Valor |
-|---|---|
-| Repo local | `C:\Users\user\Desktop\projetos\ANALISADOR_T4_RTD` |
-| HEAD = produção | `340645c` (DNA T4) — `.deployed-commit` na VPS confere; working tree limpo (deploy 18/08 15:19) |
-| Repo autoritativo | bare em `root@179.197.238.143:/var/repo/analisador.git`, branch `main` (`origin` e `vps` = mesma URL; ver armadilha em §3) |
-| Testes | 614 passando, 59 arquivos (18/08 16:35 — +29 da captura inteligente e do contrato do print) |
-| Lint | 0 erros, 4 warnings pré-existentes (react-hooks/exhaustive-deps) |
-| Typecheck / build | OK (typecheck re-executado 18/08) |
-| Site | https://analisador.dvdswap.com.br — `/`, `/dna-t4`, `/analisar-print`, `/operacao-ao-vivo`, `/historico-prints`, `/diagnostico` 200 (18/08 pós-deploy) |
-| Banco | schema **5**; migração 4→5 na VPS preservou 42 sessões ao vivo, 2 backtests e a técnica T4.0.0 PRODUCTION |
-| Backend | `/api/health` 200; `/api/ai/health` **200 `status:"ok"`** — GPU no ar com qwen3.5:35b (18/08 15:56) |
-| PM2 | processo `analisador`, porta 8081, na VPS 179.197.238.143 |
+| Item              | Valor                                                                                                                                                  |
+| ----------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| Repo local        | `C:\Users\user\Desktop\projetos\ANALISADOR_T4_RTD`                                                                                                     |
+| HEAD = produção   | `340645c` (DNA T4) — `.deployed-commit` na VPS confere; working tree limpo (deploy 18/08 15:19)                                                        |
+| Repo autoritativo | bare em `root@179.197.238.143:/var/repo/analisador.git`, branch `main` (`origin` e `vps` = mesma URL; ver armadilha em §3)                             |
+| Testes            | 614 passando, 59 arquivos (18/08 16:35 — +29 da captura inteligente e do contrato do print)                                                            |
+| Lint              | 0 erros, 4 warnings pré-existentes (react-hooks/exhaustive-deps)                                                                                       |
+| Typecheck / build | OK (typecheck re-executado 18/08)                                                                                                                      |
+| Site              | https://analisador.dvdswap.com.br — `/`, `/dna-t4`, `/analisar-print`, `/operacao-ao-vivo`, `/historico-prints`, `/diagnostico` 200 (18/08 pós-deploy) |
+| Banco             | schema **5**; migração 4→5 na VPS preservou 42 sessões ao vivo, 2 backtests e a técnica T4.0.0 PRODUCTION                                              |
+| Backend           | `/api/health` 200; `/api/ai/health` **200 `status:"ok"`** — GPU no ar com qwen3.5:35b (18/08 15:56)                                                    |
+| PM2               | processo `analisador`, porta 8081, na VPS 179.197.238.143                                                                                              |
 
 **A fonte da verdade é o bare repo da VPS.** O histórico completo do trabalho
 está nos ~20 commits de `b94a28e` até `a8230b1` — as mensagens de commit são
@@ -198,6 +198,7 @@ longas de propósito e documentam cada defeito com causa e cenário.
   sanitizadas.
 
 ### Módulo DNA T4 (18/08 — mensuração estatística dos setups)
+
 - **Vocabulário ÚNICO** (`src/lib/t4/dna.ts`): enums ASCII (A_PLUS/FORTE/
   CONTRA_TENDENCIA/…) usados na MESMA forma no classificador, no SQLite, no
   schema forçado do Ollama e no painel. `NAO_IDENTIFICADO` existe em toda
@@ -237,6 +238,7 @@ longas de propósito e documentam cada defeito com causa e cenário.
   QUE PERDEU (associação dita como associação) e otimização de saída.
 
 ### Captura Contínua de 60s (18/08 noite — DECISÃO FINAL do operador)
+
 - **A captura por evento foi REMOVIDA** (`relevanceDetector`/`useSmartCapture`
   apagados). O operador testou o modo por evento no replay e decidiu de forma
   explícita: **um print real a cada 60 segundos, obrigatório, com o gráfico
@@ -262,6 +264,7 @@ longas de propósito e documentam cada defeito com causa e cenário.
   silencioso, stream vivo durante a análise.
 
 ### Captura Inteligente (18/08 tarde — SUPERADA pela decisão acima; histórico)
+
 - **Gatilho por EVENTO, nunca por relógio** (`src/lib/capture/relevanceDetector.ts`,
   puro, 12 testes): primeira captura imediata; depois só em NOVO_CANDLE,
   MOVIMENTO_PRECO (≥1,2% da altura), EXTREMO_ROMPIDO ou CANDLE_ATUAL (≥0,6%).
@@ -294,6 +297,7 @@ longas de propósito e documentam cada defeito com causa e cenário.
   stop do lado errado é descartado com motivo.
 
 ### Módulo Analisar Print (novo, dois últimos commits)
+
 - **Contrato anti-alucinação** (`src/lib/vision/printAnalysis.ts`): IA descreve,
   front desenha; todo número tem `visible` ("NÃO LEGÍVEL NO PRINT" em vez de
   palpite); coordenadas normalizadas 0–1; validador DESCARTA e reporta, nunca
@@ -405,6 +409,7 @@ longas de propósito e documentam cada defeito com causa e cenário.
 ## 5. PENDÊNCIAS
 
 ### Do operador (bloqueiam verificação, não desenvolvimento)
+
 - ~~Túnel da GPU fora~~ **RESOLVIDO 18/08 15:56**: túnel religado
   (`vast-gpu-tunnel` ativo e habilitado no boot), `/api/ai/health` = 200 com
   `status:"ok"`, texto e visão disponíveis, breaker fechado. Inferência de
@@ -417,9 +422,8 @@ longas de propósito e documentam cada defeito com causa e cenário.
 - **Custos reais da corretora** em `src/lib/t4/assets.ts` (valores atuais são
   ponto de partida B3: 0,50+0,27 por contrato/perna, 1 tick spread/slippage).
 
-
-
 ### Onda final da spec de 39 pontos (20/08 madrugada)
+
 - **Setup persistente** (setupTracker.ts, 13 testes): máquina única
   SEM_SETUP→…→CONFIRMADO/INVALIDADO/EXPIRADO; setupId T4-AAAA-MM-DD-XXX; o
   MESMO setup atravessa prints; TOQUE NÃO É ENTRADA (toque + confirmação do
@@ -457,9 +461,11 @@ longas de propósito e documentam cada defeito com causa e cenário.
   cobre previsões de print).
 
 ### VIÉS ≠ ENTRADA CONFIRMADA (19/08 — correção de causa raiz)
+
 Defeito relatado com print real: a tela exibia `T4 EM FORMAÇÃO — COMPRA` com
 ENTRADA, STOP, ALVO e R:R todos NÃO IDENTIFICADOS. `direction` é o VIÉS da
 estrutura; o operador lia como ordem.
+
 - **Regra única** em `printAnalysis.ts`: `evaluateEntryProof` (níveis entram por
   parâmetro) + `deriveEntryDecision` (olha só o print) + `applyConfirmationGate`
   (rebaixa e DIZ). Exige TUDO junto: lado; entrada/stop/alvo NUMÉRICOS; níveis
@@ -478,13 +484,15 @@ estrutura; o operador lia como ordem.
   no candle exato — e REMOVIDO pela trava quando a entrada não passa (seta de
   entrada sobre setup não confirmado é a mentira mais cara da tela).
 - **UI**: rótulo `VIÉS: COMPRA` em tom neutro antes da confirmação e `AÇÃO:
-  COMPRA` em verde/vermelho depois; `AGUARDANDO CONFIRMAÇÃO`; card FALTA PARA
+COMPRA` em verde/vermelho depois; `AGUARDANDO CONFIRMAÇÃO`; card FALTA PARA
   CONFIRMAR; triângulo/seta só com `entradaLiberada()`; print CONGELADO na
   confirmação até nascer setup novo / invalidar / expirar (botão VER ÚLTIMO).
 - Testes: 15 casos no contrato + 5 na máquina, incluindo o print do defeito.
 
 ### §13 — Auto-crop + zoom em dois passes (19/08)
+
 `printCrop.ts`, reusando `detectRoi` do pipeline ao vivo (um vocabulário só).
+
 - **Restrição que não se negocia**: o recorte apara a ESQUERDA e as bordas
   verticais e vai SEMPRE até a borda direita — é onde mora o eixo de preço, a
   régua de todo o sistema. Cortá-lo mataria a calibração.
@@ -501,6 +509,7 @@ estrutura; o operador lia como ordem.
   com marcações do recorte desalinharia tudo. 17 testes nas partes puras.
 
 ### Onda 3 (19/08) — auditor soberano e captura ancorada no candle
+
 **1. O card não pode contradizer o auditor.** Fluxo único e sem inversão:
 ANÁLISE → AUDITOR → VALIDAÇÃO → ESTADO FINAL → UI. O auditor ganhou um campo
 ESTRUTURADO (`directionContradicted`), não texto para interpretar. Quando ele
@@ -521,6 +530,7 @@ TODOS os seguintes, e o print passava a cair no meio do candle. Pior, a tela só
 trocava a imagem quando a ANÁLISE terminava — com a IA demorando mais que um
 minuto, o operador via o print de dois candles atrás.
 Correções na raiz:
+
 - alvo recalculado do relógio a cada disparo: virada do minuto + `RENDER_DELAY_MS`
   (900ms para o Profit desenhar a barra). Ciclo atrasado não contamina o próximo.
 - `candleTime` (piso do minuto) vira CHAVE: um print principal por candle;
@@ -535,14 +545,15 @@ Correções na raiz:
 - cache: `key={captureId}` no `<img>` força nó novo a cada print.
 - UI (§14): `PRINT #NNN · CANDLE hh:mm · CAPTURA hh:mm:ss (+Xs)` e selo
   SINCRONIZADO/ATRASADO/PROCESSANDO; a linha do tempo usa a hora do CANDLE.
-Testes: 17 no monitor (10 candles consecutivos sem repetir nem perder minuto,
-duplicata recusada, reset de série, imagem antes da análise) + 11 de
-sincronismo. Relógio do teste fixado numa virada para não ficar intermitente.
+  Testes: 17 no monitor (10 candles consecutivos sem repetir nem perder minuto,
+  duplicata recusada, reset de série, imagem antes da análise) + 11 de
+  sincronismo. Relógio do teste fixado numa virada para não ficar intermitente.
 
 ### Onda 2 (19/08) — P3, P4, P5, health e shadow
+
 - **§21 RESULTADO AUTOMÁTICO DOS SETUPS**: tabela `setups` + `setupOutcome.ts`
   puro (`evaluateSetup`). Ciclo `FORMACAO → CONFIRMADO → WIN|LOSS|EXPIRADO|
-  INVALIDADO`. Amostras de 60s NÃO são candles: quando alvo e stop caem entre
+INVALIDADO`. Amostras de 60s NÃO são candles: quando alvo e stop caem entre
   duas observações, resolve **LOSS** com `ambiguous: true` — nunca se fabrica
   sequência intrabar. Observação anterior ao `confirmedAt` não conta.
   `learned` é a trava de aprender UMA vez; a varredura só toca
@@ -570,8 +581,8 @@ sincronismo. Relógio do teste fixado numa virada para não ficar intermitente.
 - **§34 HEALTH** (`systemHealth.ts` + /api/health/system + rota /saude):
   estados OK/DEGRADED/ERROR, o pior manda, e **subsistema não medido é
   DEGRADED, nunca OK** — um painel verde por falta de medição é pior que um
-  vermelho. `podeEmitirSinal` bloqueia com captura/IA/banco em ERROR *ou
-  ausentes*. A rota junta servidor (IA, banco, disco, memória, setups) com
+  vermelho. `podeEmitirSinal` bloqueia com captura/IA/banco em ERROR _ou
+  ausentes_. A rota junta servidor (IA, banco, disco, memória, setups) com
   navegador (captura 60s, fila, última captura), porque o monitor é singleton
   do cliente e nenhum dos dois vê o sistema inteiro sozinho.
 - **§33 SHADOW** (`shadowMode.ts`): registra o que cada versão TERIA feito, sem
@@ -580,8 +591,10 @@ sincronismo. Relógio do teste fixado numa virada para não ficar intermitente.
   veredito, e apenas RESPONDE — promoção continua sendo decisão humana.
 
 ### Auditoria adversarial da trava (19/08) — 4 furos fechados
+
 Varredura multi-lente + refutação sobre "algum caminho mostra COMPRA/VENDA
 confirmada sem `entradaConfirmada=true`?". O que sobreviveu e foi corrigido:
+
 1. **Seta desenhada sem liberação** (ALTA): a marcação `CONFIRMATION_CANDLE`
    sobrevivia quando o PRINT provava a confirmação mas a MÁQUINA não liberava
    (preço ainda não tocou a linha roxa). O gráfico gritava "✓ CONFIRMOU" com o
@@ -591,7 +604,7 @@ confirmada sem `entradaConfirmada=true`?". O que sobreviveu e foi corrigido:
    CAMADAS, que ainda exibia um botão aceso e morto).
 2. **Crash em análise legada** (ALTA na prática): histórico do localStorage
    volta com `audit`/`confidences`/`targets` AUSENTES, não null. `undefined !==
-   null` passava no guard e derrubava a tela. A trava agora normaliza ausência
+null` passava no guard e derrubava a tela. A trava agora normaliza ausência
    e NEGA a entrada — nunca explode.
 3. **Badge verde sem trava** (MÉDIA): análise antiga reaberta mostrava
    "ENTRADA CONFIRMADA" em verde a partir do campo GRAVADO. Agora o badge segue
@@ -602,6 +615,7 @@ confirmada sem `entradaConfirmada=true`?". O que sobreviveu e foi corrigido:
    bloqueio sem motivo dito. Agora o toque é a pendência declarada.
 
 ### Teste de aceite dos 13 itens (19/08)
+
 `src/lib/print/__tests__/aceiteOperador.test.ts` amarra cada item ao código
 real. Para isso a decisão de congelamento saiu do callback de React e virou
 função pura `decidirCongelamento` em setupTracker — os itens 6 e 7 eram
@@ -611,6 +625,7 @@ restart) são cobertos pelos testes do lado servidor; a prova definitiva deles �
 uma sessão real, e isso está DITO no rodapé do arquivo em vez de simulado.
 
 ### Retenção de imagens (19/08)
+
 `sweepPrintImages` no repositório: imagens de prints além de
 `PRINT_IMAGE_RETENTION_DAYS` (padrão 7; ≤0 ou não numérico DESLIGA) são
 apagadas do disco e `image_path` vira NULL — **a análise, as previsões e o DNA
@@ -620,12 +635,14 @@ apontando para arquivo removido). Dispara em `savePrintRecord`, estrangulada a
 1×/hora. 6 testes com arquivos reais em tmpdir.
 
 ### Pesquisa: ANALISAR CSV em um clique (19/08)
+
 `csvOneClick.ts` encadeia import→run com IO injetado (testável sem DOM);
 import com `saved=0` NÃO chama a pesquisa (rodar sobre zero candle produziria
 um resultado vazio que parece resultado). `ImportResult`/`RunMetrics` moradas
 no módulo, importadas pela rota — fonte única. Os dois botões antigos seguem.
 
 ### Memória T4 persistente (19/08 noite — aprendizado contínuo, fase 1)
+
 - **Todo print analisado vira caso persistente**: tabela prints (análise
   validada + referências) com a IMAGEM em DATA_DIR/prints/{id}.jpg — nunca
   base64 em banco/código. capture_code distingue CICLO_60S/MANUAL/COLADO.
@@ -652,6 +669,7 @@ no módulo, importadas pela rota — fonte única. Os dois botões antigos segue
   análise nunca quebra.
 
 ### ROTEIRO-MESTRE (spec consolidada de 39 pontos do operador, 19/08)
+
 FEITO: captura 60s persistente fora do React (§1,3,37); print congelado até
 confirmar (§2); leitura T4 com regras no prompt (§4 parcial — ordem/vocab ok);
 níveis pela régua + zonas/bandas + entrada sinalizada (§6 parcial, §8 cores);
@@ -673,6 +691,7 @@ T4 Auto Research completo (§25,28,29,30) + ANALISAR CSV em um clique; e a
 separação VIÉS × ENTRADA CONFIRMADA com trava determinística (§2,7,8 por
 extenso), que é a regra que hoje governa toda sinalização de ordem na tela.
 PENDENTE (real, o que sobrou depois da onda 2):
+
 - **PENDENTE_DADOS_REAIS** — nenhum número de performance foi produzido: todo
   backtest até aqui rodou sobre série SINTÉTICA, que gera 0 trades. Só um CSV
   real do WIN 1min (10+ pregões, para a divisão treino/validação/OOS existir)
@@ -689,6 +708,7 @@ PENDENTE (real, o que sobrou depois da onda 2):
   precisam de coletor próprio para virarem medição de verdade.
 
 ### Direção declarada pelo operador (18/08 noite): T4 AUTO RESEARCH
+
 Arquitetura-alvo, nas palavras dele:
 `HISTÓRICO → BACKTEST T4 → WALK-FORWARD → OOS → MONTE CARLO → ROBUSTEZ →
 REPLAY VISUAL → APROVAR/REPROVAR → RANKING → NOVA VERSÃO`
@@ -710,12 +730,14 @@ sobre candles importados, runner de walk-forward por fold, Monte Carlo,
 ranking automático. É o próximo grande bloco de trabalho.
 
 ### Da Captura Inteligente — aceite que SÓ o operador fecha (18/08)
+
 O que já foi verificado de verdade: 614 testes (12 do detector cobrem gráfico
 parado ≠ print, cursor não dispara, movimento pequeno não se perde, sem
 duplicata, falha de captura re-dispara), typecheck, build, e navegação real no
 preview local (painel renderiza, MONITORANDO↔ENCERRADO, heartbeat marcou
 STREAM: CONGELADO com captura bloqueada, sidebar com 5 itens, console limpo).
 O que EXIGE o Profit real na tela do operador — não declarar pronto sem isto:
+
 1. selecionar a janela 1x e ver a primeira captura+análise imediatas;
 2. gráfico parado → nenhum print novo; candle novo/movimento → print sozinho;
 3. mexer cursor/menu sobre o gráfico → NÃO dispara;
@@ -724,6 +746,7 @@ O que EXIGE o Profit real na tela do operador — não declarar pronto sem isto:
 5. conferir MOTIVO/LATÊNCIA na faixa e no histórico das capturas.
 
 ### Do DNA T4 (lacunas CONHECIDAS e declaradas — não são bugs escondidos)
+
 1. **AO VIVO não registra DNA**: só REPLAY (`useContinuousBacktest`) e PRINT
    gravam. `useProfitVision` precisa do mesmo congelamento no armamento.
 2. **Só setups CONFIRMADOS entram**: T4 rejeitada pelos gates não vira
@@ -748,6 +771,7 @@ O que EXIGE o Profit real na tela do operador — não declarar pronto sem isto:
    indistinguível de "sem dado" (a UI mostra "—" nos dois casos).
 
 ### De desenvolvimento (ordenadas por valor)
+
 1. **E2E do Analisar Print com GPU real** — critérios 7–18 do pedido original
    só fecham com modelo vivo; avaliar se o 7B devolve coordenadas úteis.
 2. **OCR do eixo de tempo** não ligado no pipeline visual → PREGÃO/HORÁRIO
@@ -766,6 +790,7 @@ O que EXIGE o Profit real na tela do operador — não declarar pronto sem isto:
    confirmationTime — depende do item 2.
 
 ### Bugs conhecidos (menores, não corrigidos)
+
 - 4 warnings react-hooks/exhaustive-deps pré-existentes.
 - `/api/ai/health` 503 com GPU fora loga erro no console do navegador (ruído
   esperado; mudar o contrato por cosmética foi rejeitado).
@@ -801,6 +826,7 @@ Este arquivo (`CLAUDE_CONTEXT.md`) passou a ser **versionado** no commit
 atualizado no MESMO commit da mudança que ele descreve.
 
 ### Regras invioláveis (do operador, reafirmadas várias vezes)
+
 - NÃO alterar gates/estratégia T4; NÃO fabricar sinais nem preços.
 - Escala/OCR NUNCA bloqueia leitura estrutural; sem escala → guarda de preço
   ligada ("PREÇOS EM CALIBRAÇÃO"), nunca número de pixel.

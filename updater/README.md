@@ -57,12 +57,12 @@ cd /var/www/analisador/current && pm2 start npm --name analisador -- start && pm
 Dois cliques no `.exe`, ou **arraste uma pasta / um `.zip` sobre o executável**
 (ou sobre a janela aberta) para usá-lo como origem.
 
-| Botão | O que faz |
-|---|---|
-| `ATUALIZAR SITE` | executa o deploy completo |
-| `TESTAR CONEXÃO` | valida SSH, Node e PM2 na VPS, sem enviar nada |
+| Botão                    | O que faz                                                   |
+| ------------------------ | ----------------------------------------------------------- |
+| `ATUALIZAR SITE`         | executa o deploy completo                                   |
+| `TESTAR CONEXÃO`         | valida SSH, Node e PM2 na VPS, sem enviar nada              |
 | `REVERTER ÚLTIMA VERSÃO` | volta o `current` para o release anterior e recarrega o PM2 |
-| `VER LOG` | abre `atualizador-t4.log` (ao lado do .exe) |
+| `VER LOG`                | abre `atualizador-t4.log` (ao lado do .exe)                 |
 
 ## O que acontece, na ordem
 

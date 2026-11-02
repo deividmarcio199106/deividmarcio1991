@@ -6,3 +6,10 @@ pnpm-lock.yaml
 package-lock.json
 bun.lock
 routeTree.gen.ts
+
+# Dados gerados (relatórios e experimentos do laboratório T4): não é código.
+t4-learning/
+# Fixtures de teste: o conteúdo bruto é o que está sendo testado.
+src/lib/vision/__tests__/fixtures/
+# Configuração de ferramenta externa (Emergent).
+.emergent/

@@ -49,11 +49,11 @@ Publica no instante em que o RTD recalcula. É o caminho de menor latência.
 1. Excel → `Alt+F11` → Arquivo → Importar Arquivo… → `bridge/rtd/T4_RTD.bas`
 2. Crie a planilha `RTD` com este layout (linha 1 = cabeçalho, dados a partir da 2):
 
-   | | A | B | C | D | E | F | G |
-   |---|---|---|---|---|---|---|---|
-   |1| ATIVO | ULTIMO | COMPRA | VENDA | VOLUME | QTD | HORA |
-   |2| WINFUT | `=RTD(...)` | … | … | … | … | … |
-   |3| WDOFUT | `=RTD(...)` | … | … | … | … | … |
+   |     | A      | B           | C      | D     | E      | F   | G    |
+   | --- | ------ | ----------- | ------ | ----- | ------ | --- | ---- |
+   | 1   | ATIVO  | ULTIMO      | COMPRA | VENDA | VOLUME | QTD | HORA |
+   | 2   | WINFUT | `=RTD(...)` | …      | …     | …      | …   | …    |
+   | 3   | WDOFUT | `=RTD(...)` | …      | …     | …      | …   | …    |
 
    Fórmulas:
 
@@ -67,7 +67,7 @@ Publica no instante em que o RTD recalcula. É o caminho de menor latência.
    ```
 
    > Confirme os nomes dos campos na **sua** versão do Profit: clique com o botão
-   > direito na cotação → *Copiar fórmula RTD* e compare. Nomes de campo mudam
+   > direito na cotação → _Copiar fórmula RTD_ e compare. Nomes de campo mudam
    > entre versões; a bridge recusa o que não entender em vez de adivinhar.
 
 3. No código da planilha `RTD` (não no módulo), cole:
@@ -116,14 +116,14 @@ subiu com `--token`.
 }
 ```
 
-| Campo | Obrigatório | Observação |
-|---|---|---|
-| `symbol` | sim | normalizado para MAIÚSCULAS |
-| `timestamp` | sim | epoch ms, epoch s, ISO, `"HH:MM:SS"` ou `"yyyy-MM-dd HH:mm:ss"`. **ISO sem fuso = hora local da máquina**, que é a hora do pregão |
-| `price` | sim | > 0 |
-| `bid` / `ask` | não | ignorados se ≤ 0 |
-| `volume` | não | volume acumulado do dia |
-| `qty` | não | quantidade do negócio |
+| Campo         | Obrigatório | Observação                                                                                                                        |
+| ------------- | ----------- | --------------------------------------------------------------------------------------------------------------------------------- |
+| `symbol`      | sim         | normalizado para MAIÚSCULAS                                                                                                       |
+| `timestamp`   | sim         | epoch ms, epoch s, ISO, `"HH:MM:SS"` ou `"yyyy-MM-dd HH:mm:ss"`. **ISO sem fuso = hora local da máquina**, que é a hora do pregão |
+| `price`       | sim         | > 0                                                                                                                               |
+| `bid` / `ask` | não         | ignorados se ≤ 0                                                                                                                  |
+| `volume`      | não         | volume acumulado do dia                                                                                                           |
+| `qty`         | não         | quantidade do negócio                                                                                                             |
 
 Rejeições (contadas em `/health`, nunca corrigidas silenciosamente):
 `symbol ausente`, `timestamp ausente ou ilegível`, `timestamp no futuro`
@@ -139,13 +139,13 @@ Conecte em `ws://127.0.0.1:8765`.
 
 **Bridge → cliente**
 
-| `type` | Quando | Carga |
-|---|---|---|
-| `hello` | na conexão | `sessionId`, `version`, `serverTime`, `producer`, último tick por ativo |
-| `tick` | a cada tick aceito | `tick` com `seq` monotônico por ativo |
-| `heartbeat` | a cada 1 s | `serverTime`, `producer`, contadores |
-| `subscribed` | após `subscribe` | ativos efetivos + último tick |
-| `pong` | após `ping` | `clientTime` ecoado + `serverTime` |
+| `type`       | Quando             | Carga                                                                   |
+| ------------ | ------------------ | ----------------------------------------------------------------------- |
+| `hello`      | na conexão         | `sessionId`, `version`, `serverTime`, `producer`, último tick por ativo |
+| `tick`       | a cada tick aceito | `tick` com `seq` monotônico por ativo                                   |
+| `heartbeat`  | a cada 1 s         | `serverTime`, `producer`, contadores                                    |
+| `subscribed` | após `subscribe`   | ativos efetivos + último tick                                           |
+| `pong`       | após `ping`        | `clientTime` ecoado + `serverTime`                                      |
 
 **Cliente → bridge**
 
@@ -190,11 +190,11 @@ antes de qualquer tentativa e o erro não diz o motivo. Por isso a bridge fala
 **os dois esquemas na mesma porta 8765**, decidindo pelo primeiro byte da
 conexão (`0x16` é um ClientHello TLS; uma letra ASCII é HTTP em claro).
 
-| Quem | Endereço | Por quê |
-|---|---|---|
-| Site em `https://analisador.dvdswap.com.br` | `wss://localhost:8765` | única forma que o navegador aceita |
-| Site em `http://localhost:3000` (dev) | `ws://127.0.0.1:8765` | sem TLS, sem certificado |
-| Produtor RTD (Excel, PowerShell) | `http://127.0.0.1:8765/ingest` | cliente nativo não valida certificado |
+| Quem                                        | Endereço                       | Por quê                               |
+| ------------------------------------------- | ------------------------------ | ------------------------------------- |
+| Site em `https://analisador.dvdswap.com.br` | `wss://localhost:8765`         | única forma que o navegador aceita    |
+| Site em `http://localhost:3000` (dev)       | `ws://127.0.0.1:8765`          | sem TLS, sem certificado              |
+| Produtor RTD (Excel, PowerShell)            | `http://127.0.0.1:8765/ingest` | cliente nativo não valida certificado |
 
 O site escolhe sozinho pelo protocolo da própria página. Um endereço `ws://`
 gravado antes do suporte a TLS é promovido para `wss://` automaticamente.

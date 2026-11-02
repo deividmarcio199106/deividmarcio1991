@@ -22,6 +22,7 @@ O projeto possui **infraestrutura sólida** para a maioria dos requisitos, mas *
 **Status:** ⚠️ **PARCIAL (35%)**
 
 **O QUE EXISTE:**
+
 - Interface `BacktestTrade` (`src/lib/engines/backtestEngine.ts:4-58`) com 30+ campos
 - Campos presentes: ID, data/hora, ativo, timeframe, direção, setup, context, entrada/stop/alvos, RR, resultado, MFE/MAE (pontos e R), exitReason, regime, wyckoffPhase, poiKind, hour
 - Tabela `trades` no SQLite (migration 001) + campos de auditoria (migration 002: entry, stop, partial, target, timestamps, mfe, mae)
@@ -29,6 +30,7 @@ O projeto possui **infraestrutura sólida** para a maioria dos requisitos, mas *
 - Persistência completa via `tradingRepository.ts`
 
 **O QUE FALTA:**
+
 - ❌ **Nota A+/A/B/C/DESCARTADA** como campo consultável (hoje só em `frozenAnalysis.t4.quality`, não em coluna SQL)
 - ❌ **Tendência** (FORTE/NORMAL/LATERAL/TRANSIÇÃO/CONTRA) como enum estruturado
 - ❌ **Posição** (A_FAVOR/CONTRA_TENDÊNCIA) explícita
@@ -46,6 +48,7 @@ O projeto possui **infraestrutura sólida** para a maioria dos requisitos, mas *
 - ❌ **Classificação ANTES do resultado** (hoje qualidade é calculada no instante da decisão, mas não há garantia temporal explícita)
 
 **Arquivos relevantes:**
+
 - `src/lib/engines/backtestEngine.ts` (interface BacktestTrade)
 - `migrations/001_initial.sql` + `002_trade_audit_fields.sql`
 - `src/lib/t4/costs.ts` (cálculo de custos, não integrado ao trade)
@@ -58,16 +61,19 @@ O projeto possui **infraestrutura sólida** para a maioria dos requisitos, mas *
 **Status:** ✅ **EXISTE (90%)**
 
 **O QUE EXISTE:**
+
 - ✅ Calculado em **pontos** (`mfePoints`, `maePoints`) e em **R** (`mfeR`, `maeR`)
 - ✅ Armazenado no banco (`trades.mfe`, `trades.mae` via migration 002)
 - ✅ `computePointStats()` em `performanceEngine.ts` calcula médias de MFE/MAE
 - ✅ Usado em `dailyLearning.ts` para detectar "badTarget" (ganho com movimento além do colhido)
 
 **O QUE FALTA:**
+
 - ⚠️ **Uso sistemático** para validar se 3R/5R é realmente o melhor (hoje é hard-coded em `strategy.ts`)
 - ⚠️ **Análise de saída ótima** baseada em MFE/MAE (ver requisito 10)
 
 **Arquivos relevantes:**
+
 - `src/lib/engines/backtestEngine.ts:30-33` (campos mfe/mae)
 - `src/lib/engines/performanceEngine.ts:125-159` (computePointStats)
 - `migrations/002_trade_audit_fields.sql`
@@ -79,12 +85,14 @@ O projeto possui **infraestrutura sólida** para a maioria dos requisitos, mas *
 **Status:** ⚠️ **PARCIAL (30%)**
 
 **O QUE EXISTE:**
+
 - ✅ `groupBy()` genérico em `performanceEngine.ts:70-88` (agrupa por qualquer chave)
 - ✅ `computeStats()` calcula: total, wins, losses, winRate, payoff, profitFactor, expectancy, maxDrawdown
 - ✅ `dailyLearning.ts` usa rolling window de 60 trades
 - ✅ Métricas disponíveis: amostra, win rate, expectancy, profit factor, drawdown
 
 **O QUE FALTA:**
+
 - ❌ **Segmentação automática** por: nota (A+/A/B/C), compra×venda, favor×contra tendência, tipo de tendência, tipo de pullback, candle gatilho, 1ª/2ª/3ª T4, volatilidade, ativo, timeframe, faixa horária, localização/contexto
 - ❌ **Painel consolidado** com todas as dimensões
 - ❌ **MFE/MAE médio/mediano por segmento**
@@ -94,6 +102,7 @@ O projeto possui **infraestrutura sólida** para a maioria dos requisitos, mas *
 - ❌ **Componentes UI** para visualizar segmentos
 
 **Arquivos relevantes:**
+
 - `src/lib/engines/performanceEngine.ts` (groupBy, computeStats)
 - `src/lib/engines/dailyLearning.ts` (uso de stats)
 
@@ -104,16 +113,19 @@ O projeto possui **infraestrutura sólida** para a maioria dos requisitos, mas *
 **Status:** ❌ **NÃO EXISTE (0%)**
 
 **O QUE EXISTE:**
+
 - ✅ Dados estão em `trades.payload_json` (JSON completo do BacktestTrade)
 - ✅ `frozenAnalysis` contém snapshot da decisão
 
 **O QUE FALTA:**
+
 - ❌ **Painel unificado** mostrando: T4 #ID, direção, nota, tendência, posição, pullback, gatilho, volatilidade, RR, resultado, MFE, MAE
 - ❌ **Visualização temporal** (linha do tempo da operação)
 - ❌ **Comparação** com operações semelhantes
 - ❌ **Exportação** de DNA completo
 
 **Arquivos relevantes:**
+
 - Nenhum componente dedicado existe hoje
 
 ---
@@ -123,12 +135,14 @@ O projeto possui **infraestrutura sólida** para a maioria dos requisitos, mas *
 **Status:** ⚠️ **PARCIAL (40%)**
 
 **O QUE EXISTE:**
+
 - ✅ `postTradeReview.ts` com `reviewTrade()` que retorna tags: `wrongDirection`, `badStop`, `badTarget`, `falsePositive`
 - ✅ `detectDegradedSetups()` identifica setups degradados
 - ✅ `setupErrorMatrix()` agrupa erros por setup
 - ✅ `dailyLearning.ts` gera lições baseadas em padrões de loss
 
 **O QUE FALTA:**
+
 - ❌ **Lista completa de fatores**: contra tendência, pullback profundo, entrada próxima a barreira, T4 tardia, volatilidade anormal, confirmação fraca, RR ruim
 - ❌ **Comparação com vencedoras semelhantes** (matching por contexto)
 - ❌ **Análise estatística** (não só tags binárias)
@@ -136,6 +150,7 @@ O projeto possui **infraestrutura sólida** para a maioria dos requisitos, mas *
 - ❌ **Integração com DNA** para correlacionar fatores
 
 **Arquivos relevantes:**
+
 - `src/lib/engines/postTradeReview.ts` (reviewTrade, detectDegradedSetups, setupErrorMatrix)
 - `src/lib/engines/dailyLearning.ts:64-110` (geração de lições)
 
@@ -146,6 +161,7 @@ O projeto possui **infraestrutura sólida** para a maioria dos requisitos, mas *
 **Status:** ✅ **EXISTE (85%)**
 
 **O QUE EXISTE:**
+
 - ✅ Tabela `techniques` (produção) e `technique_candidates` (laboratório)
 - ✅ Fluxo de status: DISCOVERED → BACKTESTING → VALIDATION → OOS → WALK_FORWARD → VALIDATED → PRODUCTION
 - ✅ `promoteTechniqueCandidate()` com validação (só VALIDATED pode ser promovido)
@@ -155,11 +171,13 @@ O projeto possui **infraestrutura sólida** para a maioria dos requisitos, mas *
 - ✅ Promoção só na próxima sessão (`applyValidatedChangeOnlyNextSession: true`)
 
 **O QUE FALTA:**
+
 - ⚠️ **Registro explícito** de: regra adicionada/removida, motivo detalhado, dataset usado
 - ⚠️ **Comparação visual** entre produção e candidatas
 - ⚠️ **Histórico de experimentos** (quantas variações testadas)
 
 **Arquivos relevantes:**
+
 - `migrations/001_initial.sql` (techniques, technique_candidates, validation_results)
 - `src/server/tradingRepository.ts` (upsertTechniqueCandidate, promoteTechniqueCandidate)
 - `src/lib/engines/dailyLearning.ts` (criação de candidatas)
@@ -171,11 +189,13 @@ O projeto possui **infraestrutura sólida** para a maioria dos requisitos, mas *
 **Status:** ⚠️ **PARCIAL (50%)**
 
 **O QUE EXISTE:**
+
 - ✅ Pipeline declarado em `strategy.ts:98-106`: DAILY_REVIEW → SHADOW → BACKTEST → OOS → WALK_FORWARD → VALIDATED → EXPLICIT_PROMOTION
 - ✅ `validation_results` tabela para armazenar métricas de validação
 - ✅ `dailyLearning.ts` exige `requiredPath: ["BACKTESTING", "VALIDATION", "OOS", "WALK_FORWARD", "VALIDATED"]`
 
 **O QUE FALTA:**
+
 - ❌ **Separação física** de datasets (treino/validação/OOS) no banco
 - ❌ **Split temporal** automático (ex: 70% treino, 15% validação, 15% OOS)
 - ❌ **Validação walk-forward** implementada (declaração sem código)
@@ -183,6 +203,7 @@ O projeto possui **infraestrutura sólida** para a maioria dos requisitos, mas *
 - ❌ **Bloqueio** de promoção sem OOS aprovado
 
 **Arquivos relevantes:**
+
 - `src/lib/engines/strategy.ts:98-106` (pipeline declarado)
 - `migrations/001_initial.sql` (validation_results)
 
@@ -193,10 +214,12 @@ O projeto possui **infraestrutura sólida** para a maioria dos requisitos, mas *
 **Status:** ❌ **NÃO EXISTE (10%)**
 
 **O QUE EXISTE:**
+
 - ✅ `requireAdmin` protege endpoints de promoção (`technique-promote`, `technique-candidates`)
 - ✅ Candidata precisa ser VALIDATED (mas não há critério de amostra mínima explícito)
 
 **O QUE FALTA:**
+
 - ❌ **Registro de quantas hipóteses/variações/filtros foram testados**
 - ❌ **Exigência de validação maior** quanto mais hipóteses testadas (correção de Bonferroni)
 - ❌ **Bloqueio** de alteração automática de: horário, candle, stop, alvo, break-even, filtro, tendência, volatilidade por poucos losses
@@ -204,6 +227,7 @@ O projeto possui **infraestrutura sólida** para a maioria dos requisitos, mas *
 - ❌ **Alerta** quando muitas variações são testadas sem validação OOS
 
 **Arquivos relevantes:**
+
 - `src/server/adminGuard.ts` (proteção de endpoints, mas não de overfitting)
 
 ---
@@ -213,11 +237,13 @@ O projeto possui **infraestrutura sólida** para a maioria dos requisitos, mas *
 **Status:** ⚠️ **PARCIAL (25%)**
 
 **O QUE EXISTE:**
+
 - ✅ `dailyLearning.ts` detecta padrões degradados (`detectDegradedSetups`)
 - ✅ Gera lições textuais (ex: "Manter SETUP_X em shadow: média -0.5R em 15 operações")
 - ✅ `setupErrorMatrix()` agrupa erros por setup
 
 **O QUE FALTA:**
+
 - ❌ **Painel "PADRÕES ENCONTRADOS"** com estatísticas:
   - Ex: "T4 A+ / SELL / 1ª correção / tendência forte: N=327, Win=71%, Expectancy=+0.84R, PF=2.26"
   - Ex: "T4 B / lateral / 3ª T4: N=184, Expectancy=-0.11R"
@@ -226,6 +252,7 @@ O projeto possui **infraestrutura sólida** para a maioria dos requisitos, mas *
 - ❌ **Ranking** de setups por expectativa
 
 **Arquivos relevantes:**
+
 - `src/lib/engines/dailyLearning.ts` (detecção de padrões, mas sem painel)
 - `src/lib/engines/postTradeReview.ts` (setupErrorMatrix)
 
@@ -236,10 +263,12 @@ O projeto possui **infraestrutura sólida** para a maioria dos requisitos, mas *
 **Status:** ❌ **NÃO EXISTE (5%)**
 
 **O QUE EXISTE:**
+
 - ✅ MFE/MAE armazenados (ver requisito 2)
 - ✅ `realizedPoints()` calcula pontos realizados
 
 **O QUE FALTA:**
+
 - ❌ **Simulação de saídas alternativas** usando MESMAS entradas:
   - 1R, 1.5R, 2R, 2.5R, 3R, 4R, 5R
   - Parcial (60/40, 50/50, etc.)
@@ -251,6 +280,7 @@ O projeto possui **infraestrutura sólida** para a maioria dos requisitos, mas *
 - ❌ **UI** para testar diferentes estratégias de saída
 
 **Arquivos relevantes:**
+
 - `src/lib/engines/strategy.ts` (gestão atual hard-coded)
 - `src/lib/engines/performanceEngine.ts` (base para simulação, mas não implementada)
 
@@ -261,6 +291,7 @@ O projeto possui **infraestrutura sólida** para a maioria dos requisitos, mas *
 **Status:** ⚠️ **PARCIAL (40%)**
 
 **O QUE EXISTE:**
+
 - ✅ Pipeline de visão: `getDisplayMedia` → `useProfitVision` → `ChartTracker` → `analyze()` → `decide()`
 - ✅ `printAnalysis.ts` com contrato anti-alucinação
 - ✅ `chartVision.ts` (schema forçado no Ollama)
@@ -270,6 +301,7 @@ O projeto possui **infraestrutura sólida** para a maioria dos requisitos, mas *
 - ✅ Histórico: `printHistory.ts` (localStorage, máx 8 prints)
 
 **O QUE FALTA:**
+
 - ❌ **Persistência automática** de TODOS os campos do DNA no banco
 - ❌ **Vinculação** print → operação (hoje prints ficam em localStorage, trades no SQLite)
 - ❌ **Overlay** com dados mensuráveis (só visual)
@@ -277,6 +309,7 @@ O projeto possui **infraestrutura sólida** para a maioria dos requisitos, mas *
 - ❌ **Fluxo completo testado** sem mocks
 
 **Arquivos relevantes:**
+
 - `src/lib/vision/printAnalysis.ts`
 - `src/services/ai/chartVision.ts`
 - `src/routes/analisar-print.tsx`
@@ -289,6 +322,7 @@ O projeto possui **infraestrutura sólida** para a maioria dos requisitos, mas *
 **Status:** ⚠️ **PARCIAL (60%)**
 
 **O QUE EXISTE:**
+
 - ✅ 3 migrations aplicadas (001, 002, 003)
 - ✅ Tabelas: `trades`, `techniques`, `technique_candidates`, `validation_results`, `backtest_runs`, `trading_sessions`, `segments`, `market_events`
 - ✅ Índices para performance
@@ -296,6 +330,7 @@ O projeto possui **infraestrutura sólida** para a maioria dos requisitos, mas *
 - ✅ `schema_migrations` para controle de versão
 
 **O QUE FALTA:**
+
 - ❌ **Tabela dedicada para DNA** (hoje tudo em `trades.payload_json`)
 - ❌ **Tabela de MFE/MAE** separada (hoje colunas em `trades`)
 - ❌ **Tabela de resultados** (hoje campos em `trades`)
@@ -307,6 +342,7 @@ O projeto possui **infraestrutura sólida** para a maioria dos requisitos, mas *
 - ❌ **Campos consultáveis** para nota, tendência, pullback, gatilho, volatilidade (hoje só em JSON)
 
 **Arquivos relevantes:**
+
 - `migrations/001_initial.sql`, `002_trade_audit_fields.sql`, `003_daily_learning.sql`
 - `src/server/tradingRepository.ts`
 
@@ -317,6 +353,7 @@ O projeto possui **infraestrutura sólida** para a maioria dos requisitos, mas *
 **Status:** ⚠️ **PARCIAL (55%)**
 
 **O QUE EXISTE:**
+
 - ✅ IA não altera técnica de produção sozinha (`productionMutationDuringSession: false`)
 - ✅ Candidata precisa ser VALIDATED antes de promoção
 - ✅ `requireAdmin` protege endpoints críticos
@@ -324,6 +361,7 @@ O projeto possui **infraestrutura sólida** para a maioria dos requisitos, mas *
 - ✅ `frozenAnalysis` preserva snapshot da decisão (anti-look-ahead)
 
 **O QUE FALTA:**
+
 - ❌ **Validação de amostra mínima** (não impede promoção com N<30)
 - ❌ **Bloqueio** de IA declarar técnica vencedora por poucos casos
 - ❌ **Proteção** contra inventar estatísticas (hoje depende de quem implementa)
@@ -332,6 +370,7 @@ O projeto possui **infraestrutura sólida** para a maioria dos requisitos, mas *
 - ❌ **Auditoria** de quem/quando alterou regras
 
 **Arquivos relevantes:**
+
 - `src/server/adminGuard.ts`
 - `src/lib/engines/strategy.ts:93-107` (dailyLearning config)
 - `src/lib/engines/dailyLearning.ts`
@@ -343,6 +382,7 @@ O projeto possui **infraestrutura sólida** para a maioria dos requisitos, mas *
 **Status:** ⚠️ **PARCIAL (70%)**
 
 **O QUE EXISTE:**
+
 - ✅ 521 testes passando (re-executados 18/08)
 - ✅ Testes de: `replayIgualLive`, `signalSnapshot`, `simulation`, `priceGuard`, `dataGates`, `leadTime`, `preEntry`, `progress`, `visionProgress`, `assetsCosts`
 - ✅ `noLegacyPipeline.test.ts` garante que RTD/bridge não voltam
@@ -350,6 +390,7 @@ O projeto possui **infraestrutura sólida** para a maioria dos requisitos, mas *
 - ✅ Lint: 0 erros, 4 warnings pré-existentes
 
 **O QUE FALTA:**
+
 - ❌ **E2E completo** PRINT → GPT → T4 → DNA → GERENCIAMENTO → OVERLAY (depende de GPU real, túnel fora)
 - ❌ **Teste de DNA completo** (todos os campos persistidos)
 - ❌ **Teste de performance segmentada**
@@ -359,6 +400,7 @@ O projeto possui **infraestrutura sólida** para a maioria dos requisitos, mas *
 - ⚠️ GPU fora (`/api/ai/health` 503) impede teste de visão real
 
 **Arquivos relevantes:**
+
 - `src/lib/**/__tests__/*.test.ts` (521 testes)
 - `CLAUDE_CONTEXT.md` (estado atual documentado)
 
@@ -367,15 +409,18 @@ O projeto possui **infraestrutura sólida** para a maioria dos requisitos, mas *
 ## Prioridades de Implementação (Ordenadas por Valor)
 
 ### **FASE 1: DNA T4 Completo** (Requisito 1)
+
 **Valor:** Alto — base para todos os outros requisitos  
 **Esforço:** Médio  
 **Arquivos a modificar:**
+
 - `migrations/004_dna_completo.sql` (nova migration)
 - `src/lib/engines/backtestEngine.ts` (expandir BacktestTrade)
 - `src/lib/engines/dnaExtractor.ts` (novo arquivo)
 - `src/server/tradingRepository.ts` (novas funções)
 
 **Campos a adicionar:**
+
 ```sql
 ALTER TABLE trades ADD COLUMN quality TEXT; -- A+/A/B/C/DESCARTADA
 ALTER TABLE trades ADD COLUMN trend_strength TEXT; -- FORTE/NORMAL/LATERAL/TRANSIÇÃO/CONTRA
@@ -394,6 +439,7 @@ ALTER TABLE trades ADD COLUMN analysis_text TEXT;
 ```
 
 **Critério de aceitação:**
+
 - [ ] Todo trade persistido tem DNA completo
 - [ ] Classificação (nota) ocorre ANTES do resultado
 - [ ] Testes unitários validam extração de DNA
@@ -402,15 +448,18 @@ ALTER TABLE trades ADD COLUMN analysis_text TEXT;
 ---
 
 ### **FASE 2: Performance Segmentada** (Requisito 3)
+
 **Valor:** Alto — descobre quais contextos têm vantagem  
 **Esforço:** Alto  
 **Arquivos a criar/modificar:**
+
 - `src/lib/engines/segmentedPerformance.ts` (novo)
 - `src/server/performanceEndpoints.ts` (novo)
 - `src/routes/performance-segmentada.tsx` (novo)
 - `src/components/performance/SegmentTable.tsx` (novo)
 
 **Funções a implementar:**
+
 ```typescript
 // src/lib/engines/segmentedPerformance.ts
 export interface SegmentStats {
@@ -426,15 +475,14 @@ export interface SegmentStats {
   mfeMedian: number | null;
   maeMedian: number | null;
   netResult: number;
-  confidence: 'ALTA' | 'MÉDIA' | 'BAIXA'; // baseado em N
+  confidence: "ALTA" | "MÉDIA" | "BAIXA"; // baseado em N
 }
 
-export function computeSegmentedPerformance(
-  trades: BacktestTrade[]
-): Map<string, SegmentStats[]>;
+export function computeSegmentedPerformance(trades: BacktestTrade[]): Map<string, SegmentStats[]>;
 ```
 
 **Critério de aceitação:**
+
 - [ ] 12 dimensões segmentadas automaticamente
 - [ ] Amostra mínima (N≥30) para considerar estatística válida
 - [ ] UI mostra tabela por dimensão
@@ -444,15 +492,18 @@ export function computeSegmentedPerformance(
 ---
 
 ### **FASE 3: Laboratório + Validação OOS** (Requisitos 6, 7)
+
 **Valor:** Alto — previne overfitting  
 **Esforço:** Médio  
 **Arquivos a modificar:**
+
 - `migrations/005_datasets.sql` (nova migration)
 - `src/lib/engines/datasetSplitter.ts` (novo)
 - `src/lib/engines/walkForwardValidator.ts` (novo)
 - `src/lib/engines/dailyLearning.ts` (integrar OOS)
 
 **Nova migration:**
+
 ```sql
 CREATE TABLE IF NOT EXISTS datasets (
   id TEXT PRIMARY KEY,
@@ -477,6 +528,7 @@ CREATE TABLE IF NOT EXISTS oos_validations (
 ```
 
 **Critério de aceitação:**
+
 - [ ] Split automático 70/15/15 (treino/validação/OOS)
 - [ ] Walk-forward implementado (rolling window)
 - [ ] Candidata só é VALIDATED se passar em OOS
@@ -486,15 +538,18 @@ CREATE TABLE IF NOT EXISTS oos_validations (
 ---
 
 ### **FASE 4: Proteção Contra Overfitting + Descoberta Automática** (Requisitos 8, 9)
+
 **Valor:** Alto — integridade estatística  
 **Esforço:** Médio  
 **Arquivos a criar:**
+
 - `src/lib/engines/overfittingGuard.ts` (novo)
 - `src/lib/engines/patternDiscovery.ts` (novo)
 - `src/routes/descoberta-automatica.tsx` (novo)
 - `src/components/lab/PatternPanel.tsx` (novo)
 
 **Funções:**
+
 ```typescript
 // src/lib/engines/overfittingGuard.ts
 export interface HypothesisTracker {
@@ -515,13 +570,14 @@ export interface DiscoveredPattern {
   expectancy: number;
   profitFactor: number;
   confidence: number;
-  suggestion: 'PROMOVER' | 'MANTER_SHADOW' | 'DEGRADAR';
+  suggestion: "PROMOVER" | "MANTER_SHADOW" | "DEGRADAR";
 }
 
 export function discoverPatterns(trades: BacktestTrade[]): DiscoveredPattern[];
 ```
 
 **Critério de aceitação:**
+
 - [ ] Contagem de hipóteses testadas
 - [ ] Exigência de validação aumenta com mais testes (Bonferroni)
 - [ ] Painel "PADRÕES ENCONTRADOS" com top 10 vencedores/perdedores
@@ -531,14 +587,17 @@ export function discoverPatterns(trades: BacktestTrade[]): DiscoveredPattern[];
 ---
 
 ### **FASE 5: Otimização de Saída** (Requisito 10)
+
 **Valor:** Médio — melhoria incremental  
 **Esforço:** Médio  
 **Arquivos a criar:**
+
 - `src/lib/engines/exitOptimizer.ts` (novo)
 - `src/routes/otimizacao-saida.tsx` (novo)
 - `src/components/lab/ExitComparison.tsx` (novo)
 
 **Funções:**
+
 ```typescript
 // src/lib/engines/exitOptimizer.ts
 export interface ExitStrategy {
@@ -548,11 +607,12 @@ export interface ExitStrategy {
 
 export function compareExitStrategies(
   trades: BacktestTrade[],
-  strategies: ExitStrategy[]
+  strategies: ExitStrategy[],
 ): Map<string, PerformanceStats>;
 ```
 
 **Critério de aceitação:**
+
 - [ ] 11 estratégias comparadas (1R, 1.5R, 2R, 2.5R, 3R, 4R, 5R, parcial, runner, trailing, break-even)
 - [ ] Mesmas entradas, diferentes saídas (comparação justa)
 - [ ] MFE/MAE usado para validar saída ótima
@@ -562,34 +622,38 @@ export function compareExitStrategies(
 ---
 
 ### **FASE 6: Análise de Perdas + Integração Print** (Requisitos 5, 11)
+
 **Valor:** Médio — aprendizado contínuo  
 **Esforço:** Alto  
 **Arquivos a modificar:**
+
 - `src/lib/engines/postTradeReview.ts` (expandir fatores)
 - `src/lib/engines/lossAnalyzer.ts` (novo)
 - `src/lib/print/printHistory.ts` (integrar com SQLite)
 - `src/routes/analise-perdas.tsx` (novo)
 
 **Novos fatores:**
+
 ```typescript
 // src/lib/engines/lossAnalyzer.ts
 export type LossFactor =
-  | 'contra_tendencia'
-  | 'pullback_profundo'
-  | 'entrada_proxima_barreira'
-  | 't4_tardia'
-  | 'volatilidade_anormal'
-  | 'confirmacao_fraca'
-  | 'rr_ruim';
+  | "contra_tendencia"
+  | "pullback_profundo"
+  | "entrada_proxima_barreira"
+  | "t4_tardia"
+  | "volatilidade_anormal"
+  | "confirmacao_fraca"
+  | "rr_ruim";
 
 export function analyzeLoss(trade: BacktestTrade): LossFactor[];
 export function compareWithWinners(
   loss: BacktestTrade,
-  winners: BacktestTrade[]
+  winners: BacktestTrade[],
 ): { similarWins: BacktestTrade[]; differences: string[] };
 ```
 
 **Critério de aceitação:**
+
 - [ ] 7 fatores de loss analisados
 - [ ] Comparação com vencedoras semelhantes
 - [ ] Print vinculado ao trade no SQLite
@@ -611,6 +675,7 @@ Otimização de Saída ← Proteção Overfitting ← Regra Crítica
 ```
 
 **Próximos passos recomendados:**
+
 1. Implementar **FASE 1 (DNA Completo)** — habilita todos os outros
 2. Implementar **FASE 2 (Performance Segmentada)** — descobre vantagens reais
 3. Implementar **FASE 3 (Validação OOS)** — previne overfitting

@@ -9,11 +9,11 @@ O Profit registra um servidor RTD COM e implementa a interface RTD **padrão do
 Excel** (`IRtdServer`). O Excel nunca foi necessário — era um intermediário. Este
 programa fala com o mesmo servidor diretamente:
 
-| | |
-|---|---|
-| ProgID | `RTDTrading.RtdServer` |
-| CLSID | `{272D2E65-05FB-4500-BD7B-5905D5B0A1B8}` |
-| Host | `LocalServer32` → `profitchart.exe` |
+|        |                                          |
+| ------ | ---------------------------------------- |
+| ProgID | `RTDTrading.RtdServer`                   |
+| CLSID  | `{272D2E65-05FB-4500-BD7B-5905D5B0A1B8}` |
+| Host   | `LocalServer32` → `profitchart.exe`      |
 
 > A documentação anterior deste projeto usava o ProgID `profitchart.rtd`, que
 > **não existe**. Uma planilha montada com ele nunca receberia dado.
@@ -64,11 +64,11 @@ pfxPassword = t4bridge
 
 ## Endereços
 
-| | |
-|---|---|
-| WebSocket (site em HTTPS) | `wss://localhost:8765` |
-| WebSocket (site em HTTP) | `ws://127.0.0.1:8765` |
-| Saúde | `http://127.0.0.1:8765/health` |
+|                           |                                |
+| ------------------------- | ------------------------------ |
+| WebSocket (site em HTTPS) | `wss://localhost:8765`         |
+| WebSocket (site em HTTP)  | `ws://127.0.0.1:8765`          |
+| Saúde                     | `http://127.0.0.1:8765/health` |
 
 Os dois esquemas atendem na **mesma porta**: o primeiro byte decide (`0x16` é um
 ClientHello TLS). Escuta em `127.0.0.1` e `::1`, **nunca** `0.0.0.0` — o feed não
