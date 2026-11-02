@@ -1,6 +1,7 @@
 import { useQuery } from "@tanstack/react-query";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowLeft, ExternalLink, Info } from "lucide-react";
+import { useState } from "react";
 
 import { useRequireMeetlyUser } from "@/components/meetly/useMeetlySession";
 import { Button } from "@/components/ui/button";
@@ -16,7 +17,10 @@ export const Route = createFileRoute("/meetly/sala/$id")({
 /**
  * Parâmetros da sala no formato do Jitsi Meet (valores em JSON no fragmento
  * da URL). Repete as opções do JitsiMeetConferenceOptions do app: assunto =
- * título da reunião, nome/e-mail do usuário, áudio e vídeo começam mudos.
+ * título da reunião, nome do usuário, áudio e vídeo começam mudos.
+ *
+ * O e-mail NÃO vai: o Jitsi o repassa a todos na sala (que no meet.jit.si é
+ * aberta a quem tiver o link), e o e-mail é o login do Meetly.
  */
 function jitsiUrl(meeting: MeetlyMeetingDetail, user: MeetlyUser): string {
   const params: Record<string, unknown> = {
@@ -25,7 +29,6 @@ function jitsiUrl(meeting: MeetlyMeetingDetail, user: MeetlyUser): string {
     "config.startWithVideoMuted": true,
     "config.prejoinPageEnabled": true,
     "userInfo.displayName": user.displayName,
-    "userInfo.email": user.email,
   };
   const hash = Object.entries(params)
     .map(([key, value]) => `${key}=${encodeURIComponent(JSON.stringify(value))}`)
@@ -44,6 +47,8 @@ function MeetingRoomPage() {
     enabled: Boolean(user),
     retry: (count, error) =>
       !(error instanceof MeetlyApiError && error.status === 404) && count < 2,
+    // Recarregar a reunião no meio da chamada não pode mexer no iframe.
+    refetchOnWindowFocus: false,
   });
 
   if (meeting.isError) {
@@ -64,8 +69,6 @@ function MeetingRoomPage() {
     return <Skeleton className="h-[calc(100dvh-14rem)] min-h-[420px] w-full rounded-xl" />;
   }
 
-  const url = jitsiUrl(meeting.data, user);
-
   return (
     <div className="flex flex-col gap-3">
       <div className="flex flex-wrap items-center gap-2">
@@ -78,22 +81,14 @@ function MeetingRoomPage() {
           {meeting.data.title}
         </h1>
         <Button asChild variant="outline" size="sm">
-          <a href={url} target="_blank" rel="noopener noreferrer">
+          <a href={jitsiUrl(meeting.data, user)} target="_blank" rel="noopener noreferrer">
             <ExternalLink /> Abrir em nova aba
           </a>
         </Button>
       </div>
 
-      <div className="overflow-hidden rounded-xl border border-border bg-black">
-        <iframe
-          key={url}
-          src={url}
-          title={`Videochamada: ${meeting.data.title}`}
-          allow="camera; microphone; fullscreen; display-capture; autoplay; clipboard-write"
-          allowFullScreen
-          className="block h-[calc(100dvh-14rem)] min-h-[420px] w-full border-0"
-        />
-      </div>
+      {/* A chave é a SALA: editar o título ou o nome não derruba ninguém da chamada. */}
+      <JitsiFrame key={meeting.data.room} meeting={meeting.data} user={user} />
 
       {meeting.data.jitsiDomain === "meet.jit.si" ? (
         <p className="flex items-start gap-2 text-xs text-muted-foreground">
@@ -103,6 +98,30 @@ function MeetingRoomPage() {
           em MEETLY_JITSI_DOMAIN.
         </p>
       ) : null}
+    </div>
+  );
+}
+
+/**
+ * O endereço do iframe é fixado na montagem. Se dependesse do título ou do
+ * nome, qualquer edição recriaria o iframe e tiraria todos da chamada.
+ *
+ * O sandbox mantém o que o Jitsi precisa (scripts, armazenamento da própria
+ * origem, popups e formulários) e tira a navegação da aba principal: a sala
+ * não consegue trocar a página do Meetly por outra.
+ */
+function JitsiFrame({ meeting, user }: { meeting: MeetlyMeetingDetail; user: MeetlyUser }) {
+  const [src] = useState(() => jitsiUrl(meeting, user));
+  return (
+    <div className="overflow-hidden rounded-xl border border-border bg-black">
+      <iframe
+        src={src}
+        title={`Videochamada: ${meeting.title}`}
+        allow="camera; microphone; fullscreen; display-capture; autoplay; clipboard-write"
+        allowFullScreen
+        sandbox="allow-scripts allow-same-origin allow-forms allow-popups allow-popups-to-escape-sandbox allow-modals allow-downloads"
+        className="block h-[calc(100dvh-14rem)] min-h-[420px] w-full border-0"
+      />
     </div>
   );
 }

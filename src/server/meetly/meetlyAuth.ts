@@ -13,7 +13,9 @@ const SCRYPT_R = 8;
 const SCRYPT_P = 1;
 const KEY_LEN = 64;
 
+/** Nome em HTTP (desenvolvimento). Em HTTPS usa-se `__Host-meetly_session`. */
 export const SESSION_COOKIE = "meetly_session";
+const SECURE_SESSION_COOKIE = "__Host-meetly_session";
 export const SESSION_TTL_MS = 30 * 24 * 60 * 60 * 1000;
 
 function scryptAsync(password: string, salt: Buffer, n: number, r: number, p: number) {
@@ -95,15 +97,42 @@ function isHttps(request: Request): boolean {
   return new URL(request.url).protocol === "https:";
 }
 
+/**
+ * O cookie sai com `Secure` sempre que o processo roda em produção — não só
+ * quando o proxy avisa por X-Forwarded-Proto, que o Nginx pode nem enviar.
+ * Atrás do HTTPS da VPS o Node só enxerga http://127.0.0.1, então depender do
+ * cabeçalho deixava a sessão vazar em qualquer requisição http:// do domínio.
+ *
+ * Com Secure o nome vira `__Host-meetly_session`: o navegador só aceita esse
+ * prefixo com Secure, Path=/ e sem Domain, então nem uma resposta http
+ * injetada nem um site irmão na mesma VPS conseguem plantar ou trocar a
+ * sessão. `MEETLY_INSECURE_COOKIE=1` existe só para testar o build de
+ * produção por http numa rede local.
+ */
+export function shouldUseSecureCookie(request: Request): boolean {
+  if (process.env["MEETLY_INSECURE_COOKIE"] === "1") return false;
+  return process.env["NODE_ENV"] === "production" || isHttps(request);
+}
+
+function cookieName(request: Request): string {
+  return shouldUseSecureCookie(request) ? SECURE_SESSION_COOKIE : SESSION_COOKIE;
+}
+
+/** Token da sessão. Em modo seguro só o cookie `__Host-` vale (sem fixação via http). */
+export function readSessionToken(request: Request): string | null {
+  return readCookie(request, cookieName(request));
+}
+
 export function sessionCookie(request: Request, token: string, maxAgeMs: number): string {
+  const secure = shouldUseSecureCookie(request);
   const parts = [
-    `${SESSION_COOKIE}=${encodeURIComponent(token)}`,
+    `${secure ? SECURE_SESSION_COOKIE : SESSION_COOKIE}=${encodeURIComponent(token)}`,
     "Path=/",
     "HttpOnly",
     "SameSite=Lax",
     `Max-Age=${Math.max(0, Math.floor(maxAgeMs / 1000))}`,
   ];
-  if (isHttps(request)) parts.push("Secure");
+  if (secure) parts.push("Secure");
   return parts.join("; ");
 }
 

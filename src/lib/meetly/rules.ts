@@ -14,7 +14,9 @@ export const MEETLY_LIMITS = {
   contentMax: 2000,
   phoneMax: 20,
   /** Data URL da foto de perfil já redimensionada no navegador. */
-  imageMaxChars: 200_000,
+  imageMaxChars: 100_000,
+  /** Participantes por reunião (anfitrião incluído). */
+  participantsMax: 100,
 } as const;
 
 /** Paleta de cores das reuniões — a mesma do ColorPicker do app original. */

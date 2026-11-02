@@ -321,10 +321,15 @@ export function isParticipant(meetingId: string, userId: string): boolean {
   );
 }
 
+/**
+ * Participantes da reunião. A foto NÃO vai embutida (cada uma pode ter ~100 KB
+ * em base64): vai só o endereço de /api/meetly/users/:id/avatar, com a versão
+ * para o cache do navegador. Assim o tamanho da resposta não cresce com as fotos.
+ */
 export function listParticipants(meetingId: string, hostId: string): MeetlyParticipant[] {
   const rows = db()
     .prepare(
-      `SELECT u.id, u.email, u.display_name, u.image_url
+      `SELECT u.id, u.email, u.display_name, u.updated_at, (u.image_url <> '') AS has_image
        FROM meetly_participants p JOIN meetly_users u ON u.id = p.user_id
        WHERE p.meeting_id = ?
        ORDER BY CASE WHEN u.id = ? THEN 0 ELSE 1 END, p.added_at ASC`,
@@ -333,15 +338,38 @@ export function listParticipants(meetingId: string, hostId: string): MeetlyParti
     id: string;
     email: string;
     display_name: string;
-    image_url: string;
+    updated_at: number;
+    has_image: number;
   }>;
   return rows.map((row) => ({
     id: row.id,
     email: row.email,
     displayName: row.display_name,
-    imageUrl: row.image_url,
+    imageUrl: row.has_image
+      ? `/api/meetly/users/${encodeURIComponent(row.id)}/avatar?v=${row.updated_at}`
+      : "",
     isHost: row.id === hostId,
   }));
+}
+
+/** Foto (data URL) do usuário, ou "" se não houver. */
+export function getUserImage(userId: string): string {
+  const row = db().prepare("SELECT image_url FROM meetly_users WHERE id = ?").get(userId) as
+    { image_url: string } | undefined;
+  return row?.image_url ?? "";
+}
+
+/** Os dois usuários estão em alguma reunião em comum? */
+export function sharesMeeting(userA: string, userB: string): boolean {
+  return Boolean(
+    db()
+      .prepare(
+        `SELECT 1 FROM meetly_participants a
+         JOIN meetly_participants b ON b.meeting_id = a.meeting_id
+         WHERE a.user_id = ? AND b.user_id = ? LIMIT 1`,
+      )
+      .get(userA, userB),
+  );
 }
 
 export function updateMeeting(meetingId: string, input: MeetlyMeetingInput): void {
@@ -369,9 +397,32 @@ export function addParticipant(meetingId: string, userId: string): void {
   touchMeeting(meetingId);
 }
 
+export function countParticipants(meetingId: string): number {
+  const row = db()
+    .prepare("SELECT COUNT(*) AS total FROM meetly_participants WHERE meeting_id = ?")
+    .get(meetingId) as { total: number } | undefined;
+  return Number(row?.total ?? 0);
+}
+
+/**
+ * Remove o participante e TROCA a sala de vídeo. No Jitsi público o nome da
+ * sala é a única credencial: sem a troca, quem saiu (ou foi removido)
+ * continuaria entrando na chamada pelo link antigo. Os demais recebem o link
+ * novo no próximo carregamento da reunião.
+ */
 export function removeParticipant(meetingId: string, userId: string): void {
-  db()
-    .prepare("DELETE FROM meetly_participants WHERE meeting_id = ? AND user_id = ?")
-    .run(meetingId, userId);
-  touchMeeting(meetingId);
+  const database = db();
+  database.exec("BEGIN");
+  try {
+    database
+      .prepare("DELETE FROM meetly_participants WHERE meeting_id = ? AND user_id = ?")
+      .run(meetingId, userId);
+    database
+      .prepare("UPDATE meetly_meetings SET room = ?, updated_at = ? WHERE id = ?")
+      .run(generateRoomName(), Date.now(), meetingId);
+    database.exec("COMMIT");
+  } catch (error) {
+    database.exec("ROLLBACK");
+    throw error;
+  }
 }

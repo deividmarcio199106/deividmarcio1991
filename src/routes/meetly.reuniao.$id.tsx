@@ -295,29 +295,37 @@ function Participants({
         <Badge variant="secondary">{meeting.attendeeCount}</Badge>
       </div>
 
-      <form onSubmit={submit} className="mt-4 flex flex-col gap-2 sm:flex-row" noValidate>
-        <div className="flex-1">
-          <Input
-            type="email"
-            value={email}
-            onChange={(e) => {
-              setEmail(e.target.value);
-              setError(undefined);
-            }}
-            placeholder="email@exemplo.com"
-            aria-label="E-mail do participante"
-            aria-invalid={Boolean(error)}
-          />
-        </div>
-        <Button type="submit" variant="outline" disabled={add.isPending}>
-          <UserPlus /> {add.isPending ? "Adicionando…" : "Adicionar"}
-        </Button>
-      </form>
-      {error ? (
-        <p className="mt-1.5 text-xs text-destructive">{error}</p>
+      {meeting.isHost ? (
+        <>
+          <form onSubmit={submit} className="mt-4 flex flex-col gap-2 sm:flex-row" noValidate>
+            <div className="flex-1">
+              <Input
+                type="email"
+                value={email}
+                onChange={(e) => {
+                  setEmail(e.target.value);
+                  setError(undefined);
+                }}
+                placeholder="email@exemplo.com"
+                aria-label="E-mail do participante"
+                aria-invalid={Boolean(error)}
+              />
+            </div>
+            <Button type="submit" variant="outline" disabled={add.isPending}>
+              <UserPlus /> {add.isPending ? "Adicionando…" : "Adicionar"}
+            </Button>
+          </form>
+          {error ? (
+            <p className="mt-1.5 text-xs text-destructive">{error}</p>
+          ) : (
+            <p className="mt-1.5 text-xs text-muted-foreground">
+              A pessoa precisa ter uma conta no Meetly.
+            </p>
+          )}
+        </>
       ) : (
-        <p className="mt-1.5 text-xs text-muted-foreground">
-          A pessoa precisa ter uma conta no Meetly.
+        <p className="mt-3 text-xs text-muted-foreground">
+          Só o anfitrião ({meeting.hostName}) convida ou remove participantes.
         </p>
       )}
 

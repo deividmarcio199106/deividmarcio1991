@@ -15,14 +15,15 @@ import {
   hashPassword,
   hashSessionToken,
   newSessionToken,
-  readCookie,
-  SESSION_COOKIE,
+  readSessionToken,
   SESSION_TTL_MS,
   sessionCookie,
   verifyPassword,
 } from "./meetlyAuth";
+import { clientIp, meetlyLimits, resetMeetlyLimits } from "./meetlyRateLimit";
 import {
   addParticipant,
+  countParticipants,
   createMeeting,
   createSession,
   createUser,
@@ -32,11 +33,13 @@ import {
   findUserByEmail,
   getMeetingSummary,
   getPasswordHash,
+  getUserImage,
   getUserBySession,
   isParticipant,
   listMeetingsForUser,
   listParticipants,
   removeParticipant,
+  sharesMeeting,
   updateMeeting,
   updateUserPassword,
   updateUserProfile,
@@ -54,9 +57,10 @@ import {
  * GET    /api/meetly/meetings[?date=]          minhas reuniões (filtro por dia)
  * POST   /api/meetly/meetings                  agenda reunião
  * GET    /api/meetly/meetings/:id              detalhe + participantes
+ * GET    /api/meetly/users/:id/avatar          foto de quem divide reunião comigo
  * PUT    /api/meetly/meetings/:id              edita (anfitrião)
  * DELETE /api/meetly/meetings/:id              exclui (anfitrião)
- * POST   /api/meetly/meetings/:id/participants adiciona por e-mail
+ * POST   /api/meetly/meetings/:id/participants anfitrião convida por e-mail
  * DELETE /api/meetly/meetings/:id/participants/:userId
  *        anfitrião remove alguém; participante remove a si mesmo (sair)
  *
@@ -107,29 +111,11 @@ function str(body: Record<string, unknown>, key: string): string {
 
 /* ---------------------------- rate limit ---------------------------- */
 
-const RATE_WINDOW_MS = 60_000;
-const RATE_MAX = 10;
-const buckets = new Map<string, number[]>();
+const TOO_MANY = "Muitas tentativas. Aguarde alguns minutos e tente de novo.";
 
-function clientIp(request: Request): string {
-  return request.headers.get("x-forwarded-for")?.split(",")[0]?.trim() || "local";
-}
-
-function rateLimited(key: string): boolean {
-  const now = Date.now();
-  const bucket = (buckets.get(key) ?? []).filter((at) => now - at < RATE_WINDOW_MS);
-  bucket.push(now);
-  buckets.set(key, bucket);
-  if (buckets.size > 10_000) {
-    for (const [k, v] of buckets)
-      if (v.every((at) => now - at >= RATE_WINDOW_MS)) buckets.delete(k);
-  }
-  return bucket.length > RATE_MAX;
-}
-
-/** Só para testes: zera o contador de tentativas. */
+/** Só para testes: zera os contadores de tentativa. */
 export function resetMeetlyRateLimitForTests(): void {
-  buckets.clear();
+  resetMeetlyLimits();
 }
 
 /* ------------------------------ helpers ----------------------------- */
@@ -141,7 +127,7 @@ export function jitsiDomain(): string {
 }
 
 function currentSession(request: Request): { user: MeetlyUser; tokenHash: string } | null {
-  const token = readCookie(request, SESSION_COOKIE);
+  const token = readSessionToken(request);
   if (!token) return null;
   const tokenHash = hashSessionToken(token);
   const user = getUserBySession(tokenHash);
@@ -166,6 +152,19 @@ function validateMeetingInput(body: Record<string, unknown>): MeetlyMeetingInput
   if (!isValidDate(date)) return "Informe uma data válida.";
   if (!isValidTime(time)) return "Informe um horário válido.";
   return { title, content, date, time };
+}
+
+/** Segmento de URL decodificado, ou null se o percent-encoding for inválido. */
+function pathSegment(raw: string): string | null {
+  try {
+    return decodeURIComponent(raw);
+  } catch {
+    return null;
+  }
+}
+
+function isUniqueViolation(error: unknown): boolean {
+  return error instanceof Error && /UNIQUE constraint failed/i.test(error.message);
 }
 
 function meetingDetail(meetingId: string, viewerId: string): MeetlyMeetingDetail | null {
@@ -197,9 +196,8 @@ export async function handleMeetlyRequest(request: Request): Promise<Response | 
   try {
     /* ----------------------------- auth ----------------------------- */
     if (method === "POST" && path === "/api/meetly/auth/register") {
-      if (rateLimited(`register:${clientIp(request)}`)) {
-        return fail(429, "Muitas tentativas. Aguarde um minuto.");
-      }
+      const ip = clientIp(request);
+      if (meetlyLimits.authVolumeByIp.consume(ip)) return fail(429, TOO_MANY);
       const body = await readBody(request);
       const name = str(body, "name").trim();
       const email = normalizeEmail(str(body, "email"));
@@ -212,35 +210,60 @@ export async function handleMeetlyRequest(request: Request): Promise<Response | 
         return fail(400, `A senha precisa ter pelo menos ${MEETLY_LIMITS.passwordMin} caracteres!`);
       }
       if (password.length > MEETLY_LIMITS.passwordMax) return fail(400, "Senha longa demais.");
+      // Conta TODA tentativa válida, inclusive o 409: o cadastro também serve
+      // para descobrir se um e-mail tem conta, e isso precisa de teto por IP.
+      if (meetlyLimits.registerByIp.consume(ip)) return fail(429, TOO_MANY);
       if (findUserByEmail(email)) return fail(409, "Já existe uma conta com este e-mail.");
-      const user = createUser({
-        email,
-        displayName: name,
-        passwordHash: await hashPassword(password),
-      });
+      const passwordHash = await hashPassword(password);
+      let user: MeetlyUser;
+      try {
+        user = createUser({ email, displayName: name, passwordHash });
+      } catch (error) {
+        // Dois cadastros simultâneos com o mesmo e-mail: o segundo perde no UNIQUE.
+        if (isUniqueViolation(error)) return fail(409, "Já existe uma conta com este e-mail.");
+        throw error;
+      }
       return startSession(request, user, 201);
     }
 
     if (method === "POST" && path === "/api/meetly/auth/login") {
+      const ip = clientIp(request);
+      if (meetlyLimits.authVolumeByIp.consume(ip)) return fail(429, TOO_MANY);
       const body = await readBody(request);
       const email = normalizeEmail(str(body, "email"));
       const password = str(body, "password");
-      if (rateLimited(`login:${clientIp(request)}`) || rateLimited(`login-email:${email}`)) {
-        return fail(429, "Muitas tentativas. Aguarde um minuto.");
-      }
+      // Valida ANTES de qualquer contador: requisição malformada não custa nada
+      // a ninguém e não vira chave guardada em memória.
       if (!email || !password) return fail(400, "Informe e-mail e senha!");
+      if (!isValidEmail(email)) return fail(400, "Informe um e-mail válido!");
+      if (password.length > MEETLY_LIMITS.passwordMax) {
+        return fail(401, "E-mail ou senha incorretos, ou conta inexistente!");
+      }
+      const pairKey = `${ip}|${email}`;
+      if (
+        meetlyLimits.loginFailByIpEmail.isLimited(pairKey) ||
+        meetlyLimits.loginFailByIp.isLimited(ip) ||
+        meetlyLimits.loginFailByEmail.isLimited(email)
+      ) {
+        return fail(429, TOO_MANY);
+      }
       const found = findUserByEmail(email);
-      const ok = await verifyPassword(
-        password.slice(0, MEETLY_LIMITS.passwordMax),
-        found?.passwordHash ?? (await dummyPasswordHash()),
-      );
-      if (!found || !ok) return fail(401, "E-mail ou senha incorretos, ou conta inexistente!");
+      const ok = await verifyPassword(password, found?.passwordHash ?? (await dummyPasswordHash()));
+      if (!found || !ok) {
+        // Só a FALHA conta. Quem apenas conhece o e-mail de alguém não consegue
+        // bloquear o login dessa pessoa a partir de outro IP.
+        meetlyLimits.loginFailByIpEmail.hit(pairKey);
+        meetlyLimits.loginFailByIp.hit(ip);
+        meetlyLimits.loginFailByEmail.hit(email);
+        return fail(401, "E-mail ou senha incorretos, ou conta inexistente!");
+      }
+      meetlyLimits.loginFailByIpEmail.reset(pairKey);
       const { passwordHash: _ignored, ...user } = found;
       return startSession(request, user);
     }
 
     if (method === "POST" && path === "/api/meetly/auth/logout") {
-      const token = readCookie(request, SESSION_COOKIE);
+      const token = readSessionToken(request);
       if (token) deleteSession(hashSessionToken(token));
       return json({ ok: true }, 200, { "set-cookie": clearSessionCookie(request) });
     }
@@ -267,14 +290,19 @@ export async function handleMeetlyRequest(request: Request): Promise<Response | 
     }
 
     if (method === "PUT" && path === "/api/meetly/me/password") {
-      if (rateLimited(`password:${me.id}`)) {
-        return fail(429, "Muitas tentativas. Aguarde um minuto.");
-      }
+      if (meetlyLimits.authVolumeByIp.consume(clientIp(request))) return fail(429, TOO_MANY);
+      if (meetlyLimits.passwordFailByUser.isLimited(me.id)) return fail(429, TOO_MANY);
       const body = await readBody(request);
       const currentPassword = str(body, "currentPassword");
       const newPassword = str(body, "newPassword");
       const stored = getPasswordHash(me.id);
-      if (!stored || !(await verifyPassword(currentPassword, stored))) {
+      if (
+        !stored ||
+        !currentPassword ||
+        currentPassword.length > MEETLY_LIMITS.passwordMax ||
+        !(await verifyPassword(currentPassword, stored))
+      ) {
+        meetlyLimits.passwordFailByUser.hit(me.id);
         return fail(400, "Senha atual incorreta.");
       }
       if (newPassword.length < MEETLY_LIMITS.passwordMin) {
@@ -287,6 +315,28 @@ export async function handleMeetlyRequest(request: Request): Promise<Response | 
       updateUserPassword(me.id, await hashPassword(newPassword));
       deleteOtherSessions(me.id, session.tokenHash);
       return json({ ok: true });
+    }
+
+    const avatarMatch = /^\/api\/meetly\/users\/([^/]+)\/avatar$/.exec(path);
+    if (avatarMatch && method === "GET") {
+      const userId = pathSegment(avatarMatch[1]!);
+      // Só a própria foto ou a de quem divide uma reunião comigo; o resto é 404.
+      if (!userId || (userId !== me.id && !sharesMeeting(me.id, userId))) {
+        return fail(404, "Foto não encontrada.");
+      }
+      const match = /^data:(image\/(?:png|jpeg|webp));base64,([A-Za-z0-9+/]+=*)$/.exec(
+        getUserImage(userId),
+      );
+      if (!match) return fail(404, "Foto não encontrada.");
+      return new Response(Buffer.from(match[2]!, "base64"), {
+        status: 200,
+        headers: {
+          "content-type": match[1]!,
+          "x-content-type-options": "nosniff",
+          "cache-control": "private, max-age=86400",
+          "content-security-policy": "default-src 'none'; sandbox",
+        },
+      });
     }
 
     /* --------------------------- reuniões --------------------------- */
@@ -308,9 +358,12 @@ export async function handleMeetlyRequest(request: Request): Promise<Response | 
       path,
     );
     if (meetingMatch) {
-      const meetingId = decodeURIComponent(meetingMatch[1]!);
+      const meetingId = pathSegment(meetingMatch[1]!);
       const participantsPath = path.includes("/participants");
-      const targetUserId = meetingMatch[2] ? decodeURIComponent(meetingMatch[2]) : null;
+      const targetUserId = meetingMatch[2] ? pathSegment(meetingMatch[2]) : null;
+      if (meetingId === null || (meetingMatch[2] && targetUserId === null)) {
+        return fail(404, "Reunião não encontrada.");
+      }
 
       // Quem não participa recebe 404 — nem a existência da reunião vaza.
       if (!isParticipant(meetingId, me.id)) return fail(404, "Reunião não encontrada.");
@@ -332,8 +385,17 @@ export async function handleMeetlyRequest(request: Request): Promise<Response | 
           return json({ ok: true });
         }
       } else if (!targetUserId && method === "POST") {
+        // Só o anfitrião controla quem participa. Se qualquer participante
+        // pudesse convidar, alguém removido voltaria por uma segunda conta.
+        if (!summary.isHost) return fail(403, "Só o anfitrião pode convidar participantes.");
         const email = normalizeEmail(str(await readBody(request), "email"));
         if (!email || !isValidEmail(email)) return fail(400, "Informe um e-mail válido!");
+        // Teto de convites: sem ele, convidar e remover vira uma consulta em
+        // massa de "este e-mail tem conta?".
+        if (meetlyLimits.inviteByUser.consume(me.id)) return fail(429, TOO_MANY);
+        if (countParticipants(meetingId) >= MEETLY_LIMITS.participantsMax) {
+          return fail(400, `Limite de ${MEETLY_LIMITS.participantsMax} participantes atingido.`);
+        }
         const invited = findUserByEmail(email);
         if (!invited) return fail(404, "Este usuário não tem conta no Meetly!");
         if (isParticipant(meetingId, invited.id)) return fail(409, "Usuário já participa!");

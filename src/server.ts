@@ -51,6 +51,23 @@ function isH3SwallowedErrorBody(body: string): boolean {
   }
 }
 
+/**
+ * As páginas do Meetly não podem ser embutidas por outro site (clickjacking em
+ * "Excluir reunião"). Só elas: o resto do analisador segue como estava.
+ */
+function withFrameProtection(request: Request, response: Response): Response {
+  const path = new URL(request.url).pathname;
+  if (path !== "/meetly" && !path.startsWith("/meetly/")) return response;
+  const headers = new Headers(response.headers);
+  headers.set("x-frame-options", "SAMEORIGIN");
+  headers.set("content-security-policy", "frame-ancestors 'self'");
+  return new Response(response.body, {
+    status: response.status,
+    statusText: response.statusText,
+    headers,
+  });
+}
+
 export default {
   async fetch(request: Request, env: unknown, ctx: unknown) {
     try {
@@ -81,7 +98,7 @@ export default {
 
       const handler = await getServerEntry();
       const response = await handler.fetch(request, env, ctx);
-      return await normalizeCatastrophicSsrResponse(response);
+      return withFrameProtection(request, await normalizeCatastrophicSsrResponse(response));
     } catch (error) {
       console.error(error);
       // Erros de backend também entram na Central de Erros, sem segredos.

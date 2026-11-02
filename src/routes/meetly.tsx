@@ -5,7 +5,12 @@ import { toast } from "sonner";
 
 import { MeetlyAvatar } from "@/components/meetly/MeetlyAvatar";
 import { MeetlyBrand } from "@/components/meetly/MeetlyBrand";
-import { useMeetlyMe, useOnline } from "@/components/meetly/useMeetlySession";
+import {
+  clearMeetlyCache,
+  useMeetlyMe,
+  useMeetlySessionGuard,
+  useOnline,
+} from "@/components/meetly/useMeetlySession";
 import { Button } from "@/components/ui/button";
 import {
   DropdownMenu,
@@ -42,6 +47,7 @@ const navItems = [
  * e o menu do usuário. As páginas filhas decidem se exigem login.
  */
 function MeetlyLayout() {
+  useMeetlySessionGuard();
   const me = useMeetlyMe();
   const online = useOnline();
   const user = me.data;
@@ -51,7 +57,7 @@ function MeetlyLayout() {
   const logout = useMutation({
     mutationFn: meetlyApi.logout,
     onSuccess: () => {
-      queryClient.removeQueries({ queryKey: ["meetly"] });
+      clearMeetlyCache(queryClient);
       toast.success("Você saiu do Meetly.");
       void navigate({ to: "/meetly/entrar" });
     },

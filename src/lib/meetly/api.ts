@@ -18,6 +18,9 @@ export class MeetlyApiError extends Error {
   }
 }
 
+/** Disparado quando a sessão morre no meio do uso (outra aba saiu, senha trocada...). */
+export const MEETLY_UNAUTHORIZED_EVENT = "meetly:unauthorized";
+
 async function request<T>(method: string, path: string, body?: unknown): Promise<T> {
   let response: Response;
   try {
@@ -36,6 +39,9 @@ async function request<T>(method: string, path: string, body?: unknown): Promise
   }
   const payload = (await response.json().catch(() => ({}))) as { error?: string };
   if (!response.ok) {
+    if (response.status === 401 && !path.startsWith("/auth/") && typeof window !== "undefined") {
+      window.dispatchEvent(new Event(MEETLY_UNAUTHORIZED_EVENT));
+    }
     throw new MeetlyApiError(payload.error ?? "Algo deu errado. Tente novamente.", response.status);
   }
   return payload as T;

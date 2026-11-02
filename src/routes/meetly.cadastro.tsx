@@ -5,7 +5,7 @@ import { toast } from "sonner";
 
 import { AuthCard, FieldError } from "@/components/meetly/AuthCard";
 import { meetlyGradient } from "@/components/meetly/MeetlyBrand";
-import { useMeetlyMe } from "@/components/meetly/useMeetlySession";
+import { clearMeetlyCache, useMeetlyMe } from "@/components/meetly/useMeetlySession";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -36,6 +36,9 @@ function RegisterPage() {
   const register = useMutation({
     mutationFn: meetlyApi.register,
     onSuccess: (user) => {
+      // Nada da conta anterior (outra pessoa no mesmo navegador) pode sobrar.
+      // A consulta "me" fica (o cabeçalho a observa) e recebe o usuário novo.
+      clearMeetlyCache(queryClient);
       queryClient.setQueryData(meetlyKeys.me, user);
       toast.success("Cadastro concluído com sucesso!");
       void navigate({ to: "/meetly" });
