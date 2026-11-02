@@ -150,7 +150,17 @@ restart_app() {
   return 1
 }
 
-if ! restart_app; then
+gate_active() {
+  case "$(curl -s -o /dev/null -w '%{http_code}' --max-time 10 \
+    -H "Host: $DOMAIN" "http://127.0.0.1:$PORT/api/trading/snapshot" || true)" in
+    404*) return 0 ;;
+    *) return 1 ;;
+  esac
+}
+
+if [ -z "$backup" ] && gate_active; then
+  echo "O app já está com $DOMAIN em MEETLY_HOSTS — sem reiniciar."
+elif ! restart_app; then
   if [ -n "$backup" ]; then
     cp -p "$backup" "$env_file"
     restart_app || true
@@ -158,12 +168,9 @@ if ! restart_app; then
   fi
   die "O app não voltou depois do reinício. Veja: pm2 logs $PM2_APP"
 fi
-gate=$(curl -s -o /dev/null -w '%{http_code} %{redirect_url}' --max-time 10 \
-  -H "Host: $DOMAIN" "http://127.0.0.1:$PORT/api/trading/snapshot" || true)
-case "$gate" in
-  404*) echo "OK: o app já trata $DOMAIN como só Meetly." ;;
-  *) die "O app não ativou o modo Meetly para $DOMAIN (resposta: $gate). O domínio NÃO foi ligado no Nginx." ;;
-esac
+gate_active ||
+  die "O app não ativou o modo Meetly para $DOMAIN (MEETLY_HOSTS não carregou no PM2). O domínio NÃO foi ligado no Nginx."
+echo "OK: o app trata $DOMAIN como só Meetly."
 
 # ---------------------------------------------------------------------------
 say "5/7 Nginx: server block próprio para $DOMAIN"
