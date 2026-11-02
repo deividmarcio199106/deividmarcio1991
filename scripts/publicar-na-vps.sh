@@ -14,9 +14,12 @@
 #   depois, o script NÃO sobrescreve: arquivo de código aborta tudo; arquivo
 #   de documentação é pulado com aviso. Nada é forçado (sem force-push).
 #
-# COMO USAR (Git Bash, na pasta do clone da VPS):
+# COMO USAR (Git Bash, na pasta do clone da VPS). O script fica FORA do clone,
+# porque ele exige o clone sem arquivos soltos:
 #   cd /c/Users/user/Desktop/projetos/ANALISADOR_T4_RTD
-#   bash publicar-na-vps.sh
+#   git fetch https://github.com/deividmarcio199106/deividmarcio1991.git claude/hopeful-mendel-sdzu75
+#   git show FETCH_HEAD:scripts/publicar-na-vps.sh > ~/publicar-na-vps.sh
+#   bash ~/publicar-na-vps.sh
 #
 # Variáveis opcionais:
 #   GH_URL      repositório de origem   (padrão: GitHub deividmarcio1991)
