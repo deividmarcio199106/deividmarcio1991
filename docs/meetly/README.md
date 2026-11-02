@@ -21,19 +21,43 @@ grupo **Apps** da barra lateral.
 - API em `src/server/meetly/meetlyEndpoints.ts`, servida em `/api/meetly/*` antes do SSR.
 - Banco SQLite próprio: `DATA_DIR/meetly.sqlite` (ou `MEETLY_DATABASE_PATH`), separado do
   banco do analisador.
-- Senhas com scrypt; sessão em cookie `HttpOnly; SameSite=Lax` (e `Secure` em HTTPS); no
-  banco fica só o SHA-256 do token.
+- Senhas com scrypt; no banco fica só o SHA-256 do token de sessão.
+- Sessão em cookie `HttpOnly; SameSite=Lax`. Com `NODE_ENV=production` (ou HTTPS) o cookie
+  é `__Host-meetly_session` com `Secure`; o nome sem prefixo só vale em desenvolvimento.
+  `MEETLY_INSECURE_COOKIE=1` desliga isso para testar o build por http numa rede local.
 - Toda escrita exige o cabeçalho `x-requested-with: meetly` (proteção contra CSRF).
-- Limite de 10 tentativas por minuto em login/cadastro.
+- Limites de tentativa (`src/server/meetly/meetlyRateLimit.ts`): só **falhas** de login
+  contam, por par IP+e-mail (10 em 15 min), por IP (30) e por conta (100 por hora);
+  cadastro 10 por hora por IP; convites 30 a cada 10 min por usuário. Quem só conhece o
+  e-mail de alguém não consegue travar o login dessa pessoa.
+- Páginas `/meetly*` saem com `X-Frame-Options: SAMEORIGIN` e `frame-ancestors 'self'`.
+
+### Requisitos no Nginx / PM2
+
+O IP do cliente só é confiável se o Nginx o informar. No `location` do analisador:
+
+```nginx
+proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+proxy_set_header X-Real-IP $remote_addr;
+proxy_set_header X-Forwarded-Proto $scheme;
+```
+
+O código usa o **último** item do `X-Forwarded-For` (o que o Nginx acrescenta) e só aceita
+esses cabeçalhos quando a conexão vem do loopback. Rode o Node com `NODE_ENV=production` e,
+de preferência, `NITRO_HOST=127.0.0.1`, para a porta 8081 não ficar exposta sem o Nginx.
 
 ### Permissões
 
 - Só participantes enxergam a reunião (os outros recebem 404).
-- Qualquer participante pode convidar outra pessoa pelo e-mail (ela precisa ter conta).
-- Só o anfitrião edita, exclui ou remove participantes. Os demais podem **sair** da reunião.
+- Só o anfitrião convida (por e-mail; a pessoa precisa ter conta), edita, exclui ou remove
+  participantes. Os demais podem **sair** da reunião. Até 100 participantes por reunião.
+- Remover alguém (ou sair) **troca a sala de vídeo**: no Jitsi público o nome da sala é a
+  única credencial, então o link antigo deixa de valer.
+- Fotos de perfil saem por `GET /api/meetly/users/:id/avatar`, só para o próprio usuário ou
+  para quem divide uma reunião com ele.
 
-No app original qualquer participante podia excluir a reunião para todos; aqui isso ficou
-restrito ao anfitrião.
+No app original qualquer participante podia convidar e até excluir a reunião para todos;
+aqui isso ficou restrito ao anfitrião.
 
 ## Videochamada
 
@@ -48,10 +72,15 @@ O meet.jit.si público encerra chamadas **embutidas** em outros sites após algu
 pode pedir login para abrir a sala. A tela da sala tem o botão "Abrir em nova aba" para
 contornar isso; para uso contínuo, configure um servidor Jitsi próprio.
 
+O iframe da sala roda com `sandbox` (sem poder navegar a aba do Meetly), recebe só o nome do
+usuário (o e-mail não é enviado ao Jitsi) e não é recriado quando o título muda.
+
 ## O que ficou de fora
 
 - **Verificação de e-mail e "Esqueci minha senha"**: dependem de um serviço de envio de
-  e-mail, que o projeto não tem. Há troca de senha no perfil.
+  e-mail, que o projeto não tem. Há troca de senha no perfil. Consequência conhecida: quem
+  cadastrar primeiro um e-mail fica com ele, e o cadastro responde 409 para e-mail já usado
+  (com limite por IP).
 - **Login com Google**: exige um Client ID OAuth do Google.
 - **Canal de suporte e lista de desenvolvedores**: dependiam de APIs no Heroku que não
   existem mais.

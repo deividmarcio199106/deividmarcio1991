@@ -39,10 +39,19 @@ function db(): DatabaseSync {
   if (singleton) return singleton;
   const path = dbPath();
   mkdirSync(dirname(path), { recursive: true });
-  singleton = new DatabaseSync(path);
-  singleton.exec("PRAGMA journal_mode=WAL; PRAGMA foreign_keys=ON; PRAGMA busy_timeout=5000;");
-  migrate(singleton);
-  return singleton;
+  // Só publica a conexão depois que tudo deu certo: uma falha passageira (disco
+  // cheio, banco ocupado) não pode deixar um handle pela metade em cache até o
+  // próximo restart. busy_timeout vem primeiro para valer na troca de journal.
+  const database = new DatabaseSync(path);
+  try {
+    database.exec("PRAGMA busy_timeout=5000; PRAGMA foreign_keys=ON; PRAGMA journal_mode=WAL;");
+    migrate(database);
+  } catch (error) {
+    database.close();
+    throw error;
+  }
+  singleton = database;
+  return database;
 }
 
 function migrate(database: DatabaseSync): void {
@@ -296,21 +305,49 @@ export function getMeetingSummary(
   return row ? toSummary(row, viewerId) : null;
 }
 
-/** Reuniões em que o usuário participa (o whereArrayContains("userId") do original). */
+/** Máximo de reuniões devolvidas na lista (as mais recentes por data). */
+export const MEETING_LIST_LIMIT = 500;
+/** Trecho da descrição na lista: o card mostra uma linha; o detalhe traz tudo. */
+const LIST_CONTENT_CHARS = 200;
+
+/**
+ * Reuniões em que o usuário participa (o whereArrayContains("userId") do
+ * original). Limitada e sem a descrição inteira, com a contagem feita por
+ * JOIN agregado: a lista não pode virar uma consulta que trava o processo.
+ */
 export function listMeetingsForUser(
   userId: string,
   filter: { date?: string } = {},
 ): MeetlyMeetingSummary[] {
-  const params: string[] = [userId];
+  const params: Array<string | number> = [userId];
   let where = "WHERE m.id IN (SELECT meeting_id FROM meetly_participants WHERE user_id = ?)";
   if (filter.date) {
     where += " AND m.date = ?";
     params.push(filter.date);
   }
+  params.push(MEETING_LIST_LIMIT);
   const rows = db()
-    .prepare(`${MEETING_SELECT} ${where} ORDER BY m.date ASC, m.time ASC, m.created_at ASC`)
+    .prepare(
+      `SELECT m.id, m.host_id, m.title, substr(m.content, 1, ${LIST_CONTENT_CHARS}) AS content,
+              m.date, m.time, m.room, m.color, m.created_at, m.updated_at,
+              h.display_name AS host_name, COALESCE(c.total, 0) AS attendee_count
+       FROM meetly_meetings m
+       JOIN meetly_users h ON h.id = m.host_id
+       LEFT JOIN (SELECT meeting_id, COUNT(*) AS total FROM meetly_participants GROUP BY meeting_id) c
+         ON c.meeting_id = m.id
+       ${where}
+       ORDER BY m.date DESC, m.time DESC, m.created_at DESC
+       LIMIT ?`,
+    )
     .all(...params) as unknown as MeetingRow[];
-  return rows.map((row) => toSummary(row, userId));
+  return rows.reverse().map((row) => toSummary(row, userId));
+}
+
+export function countHostedMeetings(hostId: string): number {
+  const row = db()
+    .prepare("SELECT COUNT(*) AS total FROM meetly_meetings WHERE host_id = ?")
+    .get(hostId) as { total: number } | undefined;
+  return Number(row?.total ?? 0);
 }
 
 export function isParticipant(meetingId: string, userId: string): boolean {

@@ -27,9 +27,41 @@ function scryptAsync(password: string, salt: Buffer, n: number, r: number, p: nu
   });
 }
 
+/**
+ * Teto GLOBAL de scrypt simultâneos. Cada hash usa 16 MiB e ~50 ms de CPU no
+ * pool de threads que o processo inteiro (analisador incluído) compartilha.
+ * Os limites por IP dependem do proxy informar o IP certo; este não depende de
+ * nada: com 2 em execução e 20 na fila, o resto recebe 503 na hora.
+ */
+const MAX_CONCURRENT_SCRYPT = 2;
+const MAX_SCRYPT_QUEUE = 20;
+let scryptActive = 0;
+const scryptWaiting: Array<() => void> = [];
+
+export class ScryptBusyError extends Error {}
+
+async function withScryptSlot<T>(task: () => Promise<T>): Promise<T> {
+  if (scryptActive < MAX_CONCURRENT_SCRYPT) {
+    scryptActive++;
+  } else {
+    if (scryptWaiting.length >= MAX_SCRYPT_QUEUE) {
+      throw new ScryptBusyError("Servidor ocupado. Tente de novo em instantes.");
+    }
+    // A vaga é entregue diretamente por quem terminar (scryptActive não muda).
+    await new Promise<void>((resolve) => scryptWaiting.push(resolve));
+  }
+  try {
+    return await task();
+  } finally {
+    const next = scryptWaiting.shift();
+    if (next) next();
+    else scryptActive--;
+  }
+}
+
 export async function hashPassword(password: string): Promise<string> {
   const salt = randomBytes(16);
-  const key = await scryptAsync(password, salt, SCRYPT_N, SCRYPT_R, SCRYPT_P);
+  const key = await withScryptSlot(() => scryptAsync(password, salt, SCRYPT_N, SCRYPT_R, SCRYPT_P));
   return [
     "scrypt",
     SCRYPT_N,
@@ -45,12 +77,8 @@ export async function verifyPassword(password: string, stored: string): Promise<
   if (parts.length !== 6 || parts[0] !== "scrypt") return false;
   const [, n, r, p, saltB64, keyB64] = parts;
   const expected = Buffer.from(keyB64!, "base64");
-  const actual = await scryptAsync(
-    password,
-    Buffer.from(saltB64!, "base64"),
-    Number(n),
-    Number(r),
-    Number(p),
+  const actual = await withScryptSlot(() =>
+    scryptAsync(password, Buffer.from(saltB64!, "base64"), Number(n), Number(r), Number(p)),
   );
   return expected.length === actual.length && timingSafeEqual(expected, actual);
 }

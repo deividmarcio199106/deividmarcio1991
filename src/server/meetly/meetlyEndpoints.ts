@@ -16,6 +16,7 @@ import {
   hashSessionToken,
   newSessionToken,
   readSessionToken,
+  ScryptBusyError,
   SESSION_TTL_MS,
   sessionCookie,
   verifyPassword,
@@ -23,6 +24,7 @@ import {
 import { clientIp, meetlyLimits, resetMeetlyLimits } from "./meetlyRateLimit";
 import {
   addParticipant,
+  countHostedMeetings,
   countParticipants,
   createMeeting,
   createSession,
@@ -69,7 +71,7 @@ import {
  * nunca autoriza —, então o cookie de sessão não pode ser usado por CSRF.
  */
 
-const MAX_BODY_CHARS = 300_000;
+const MAX_BODY_BYTES = 300_000;
 const DEFAULT_JITSI_DOMAIN = "meet.jit.si";
 
 function json(payload: unknown, status = 200, headers: Record<string, string> = {}): Response {
@@ -87,11 +89,44 @@ function fail(status: number, error: string): Response {
   return json({ error }, status);
 }
 
-class BadRequest extends Error {}
+class BadRequest extends Error {
+  constructor(
+    message: string,
+    readonly status = 400,
+  ) {
+    super(message);
+  }
+}
 
+/**
+ * Lê o corpo JSON com teto de bytes. O tamanho declarado é checado antes de
+ * ler, e a leitura é contada pedaço a pedaço (cobre corpo chunked sem
+ * Content-Length): nada além do teto chega a ficar em memória.
+ */
 async function readBody(request: Request): Promise<Record<string, unknown>> {
-  const text = await request.text();
-  if (text.length > MAX_BODY_CHARS) throw new BadRequest("Requisição grande demais.");
+  const declared = Number(request.headers.get("content-length") ?? "0");
+  if (Number.isFinite(declared) && declared > MAX_BODY_BYTES) {
+    throw new BadRequest("Requisição grande demais.", 413);
+  }
+  if (!request.body) return {};
+  const type = request.headers.get("content-type") ?? "";
+  if (!/^application\/json\b/i.test(type)) {
+    throw new BadRequest("Envie o corpo como JSON.", 415);
+  }
+  const reader = request.body.getReader();
+  const chunks: Uint8Array[] = [];
+  let total = 0;
+  for (;;) {
+    const { done, value } = await reader.read();
+    if (done) break;
+    total += value.byteLength;
+    if (total > MAX_BODY_BYTES) {
+      await reader.cancel().catch(() => undefined);
+      throw new BadRequest("Requisição grande demais.", 413);
+    }
+    chunks.push(value);
+  }
+  const text = new TextDecoder().decode(Buffer.concat(chunks));
   if (!text) return {};
   try {
     const parsed: unknown = JSON.parse(text);
@@ -349,6 +384,13 @@ export async function handleMeetlyRequest(request: Request): Promise<Response | 
       if (method === "POST") {
         const input = validateMeetingInput(await readBody(request));
         if (typeof input === "string") return fail(400, input);
+        if (countHostedMeetings(me.id) >= MEETLY_LIMITS.hostedMeetingsMax) {
+          return fail(
+            400,
+            `Limite de ${MEETLY_LIMITS.hostedMeetingsMax} reuniões atingido. Exclua as antigas.`,
+          );
+        }
+        if (meetlyLimits.createMeetingByUser.consume(me.id)) return fail(429, TOO_MANY);
         const created = createMeeting(me.id, input);
         return json({ meeting: meetingDetail(created.id, me.id) }, 201);
       }
@@ -425,7 +467,10 @@ export async function handleMeetlyRequest(request: Request): Promise<Response | 
 
     return fail(404, "Rota do Meetly não encontrada.");
   } catch (error) {
-    if (error instanceof BadRequest) return fail(400, error.message);
+    if (error instanceof BadRequest) return fail(error.status, error.message);
+    if (error instanceof ScryptBusyError) {
+      return json({ error: error.message }, 503, { "retry-after": "5" });
+    }
     throw error;
   }
 }

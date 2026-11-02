@@ -511,6 +511,74 @@ describe.sequential("Meetly — reuniões e participantes", () => {
     expect((await fetchAvatar(carla.cookie))!.status).toBe(404);
   });
 
+  it("corpo grande demais é recusado antes de ser lido; corpo não-JSON também", async () => {
+    const big = await handleMeetlyRequest(
+      new Request("http://localhost/api/meetly/auth/login", {
+        method: "POST",
+        headers: {
+          "content-type": "application/json",
+          "x-requested-with": "meetly",
+          "content-length": "5000000",
+        },
+        body: "{}",
+      }),
+    );
+    expect(big!.status).toBe(413);
+    const chunked = await call("POST", "/api/meetly/auth/login", {
+      body: { email: "a@b.co", password: "x".repeat(400_000) },
+    });
+    expect(chunked.status).toBe(413);
+    const text = await handleMeetlyRequest(
+      new Request("http://localhost/api/meetly/auth/login", {
+        method: "POST",
+        headers: { "content-type": "text/plain", "x-requested-with": "meetly" },
+        body: JSON.stringify({ email: "a@b.co", password: "segredo123" }),
+      }),
+    );
+    expect(text!.status).toBe(415);
+  });
+
+  it("limita a criação de reuniões e resume a descrição na lista", async () => {
+    const { cookie } = await register("Ana", "ana@example.com");
+    const long = "x".repeat(1_500);
+    let last = 0;
+    for (let i = 0; i < 21; i++) {
+      last = (
+        await call("POST", "/api/meetly/meetings", {
+          cookie,
+          body: { ...meetingInput, title: `R${i}`, content: long },
+        })
+      ).status;
+    }
+    expect(last).toBe(429);
+    const list = await call<{ meetings: MeetlyMeetingSummary[] }>("GET", "/api/meetly/meetings", {
+      cookie,
+    });
+    expect(list.body.meetings).toHaveLength(20);
+    expect(list.body.meetings[0]!.content.length).toBe(200);
+    const detail = await call<{ meeting: MeetlyMeetingDetail }>(
+      "GET",
+      `/api/meetly/meetings/${list.body.meetings[0]!.id}`,
+      { cookie },
+    );
+    expect(detail.body.meeting.content.length).toBe(1_500);
+  });
+
+  it("scrypt tem teto global: excesso recebe 503, nunca 500", async () => {
+    await register("Ana", "ana@example.com");
+    const results = await Promise.all(
+      Array.from({ length: 28 }, (_, i) =>
+        call("POST", "/api/meetly/auth/login", {
+          body: { email: `ninguem${i}@example.com`, password: "errada123" },
+          ip: `10.0.0.${i + 1}`,
+        }),
+      ),
+    );
+    const statuses = results.map((r) => r.status);
+    expect(statuses.filter((s) => s === 503).length).toBeGreaterThan(0);
+    expect(statuses.every((s) => s === 401 || s === 503)).toBe(true);
+  });
+
   it("percent-encoding inválido no caminho vira 404, não erro 500", async () => {
     const { cookie } = await register("Ana", "ana@example.com");
     const bad = await call("GET", "/api/meetly/meetings/%E0%A4%A", { cookie });

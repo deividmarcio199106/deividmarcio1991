@@ -92,6 +92,8 @@ export const meetlyLimits = {
   passwordFailByUser: new SlidingWindowLimiter(10, 15 * MINUTE),
   /** Convites por usuário: impede usar o convite como consulta em massa de e-mails. */
   inviteByUser: new SlidingWindowLimiter(30, 10 * MINUTE),
+  /** Reuniões criadas por usuário. */
+  createMeetingByUser: new SlidingWindowLimiter(20, 10 * MINUTE),
 };
 
 export function resetMeetlyLimits(): void {
@@ -113,6 +115,13 @@ const IP_LIKE = /^[0-9a-fA-F:.]{2,45}$/;
 export function clientIp(request: Request): string {
   const peerRaw = (request as unknown as { ip?: unknown }).ip;
   const peer = typeof peerRaw === "string" ? peerRaw : "";
+  // Fixa o cabeçalho confiável quando se sabe como o Nginx está configurado
+  // (ex.: MEETLY_CLIENT_IP_HEADER=x-real-ip com `proxy_set_header X-Real-IP $remote_addr`).
+  const pinned = process.env["MEETLY_CLIENT_IP_HEADER"]?.trim().toLowerCase();
+  if (pinned && (!peer || LOOPBACK.test(peer))) {
+    const value = request.headers.get(pinned)?.split(",").pop()?.trim();
+    return value && IP_LIKE.test(value) ? value : peer || "desconhecido";
+  }
   if (!peer || LOOPBACK.test(peer)) {
     const forwarded = request.headers
       .get("x-forwarded-for")

@@ -17,6 +17,8 @@ export const MEETLY_LIMITS = {
   imageMaxChars: 100_000,
   /** Participantes por reunião (anfitrião incluído). */
   participantsMax: 100,
+  /** Reuniões por anfitrião. */
+  hostedMeetingsMax: 500,
 } as const;
 
 /** Paleta de cores das reuniões — a mesma do ColorPicker do app original. */

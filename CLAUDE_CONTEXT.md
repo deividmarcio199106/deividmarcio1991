@@ -12,6 +12,20 @@
 
 ---
 
+## 0-ter. ATUALIZAÇÃO 2026-11-02 — MEETLY + REPO DO GITHUB
+
+> - O repositório do GitHub (`deividmarcio199106/deividmarcio1991`, ligado ao Lovable) NÃO
+>   compartilha histórico com o bare repo da VPS: é um snapshot importado do
+>   `ANALISADOR_T4_RTD_bb247b8.zip` (sem os lockfiles, que foram restaurados do zip no
+>   commit `d4dae95`). Para publicar, as mudanças precisam ser aplicadas sobre o `main` da VPS
+>   (cherry-pick/patch) e enviadas com `git push vps main` — nunca force-push.
+> - Novo módulo **Meetly** (`/meetly`, grupo "Apps" da barra lateral): agenda de reuniões
+>   com videochamada Jitsi, banco próprio `DATA_DIR/meetly.sqlite`. Documentação e requisitos
+>   de Nginx/PM2 em `docs/meetly/README.md`. Não toca na T4.
+> - Correções gerais: `vite dev` voltou a hidratar (`src/start.ts` importa de
+>   `@tanstack/react-start`), lint sem avisos, `format:check` passa (dados de `t4-learning/`
+>   fora do Prettier). Suíte: 1517 passed / 14 skipped.
+
 ## 0-bis. ATUALIZAÇÃO 2026-08-24 — OS 9 BLOCOS ESTÃO CONCLUÍDOS
 
 > O placar do §0.2 abaixo ficou HISTÓRICO. Estado final da correção:
