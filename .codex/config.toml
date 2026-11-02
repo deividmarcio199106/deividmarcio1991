@@ -1,0 +1,5 @@
+# Configuração do Codex para este projeto (lida quando o projeto é "trusted").
+# Equivale a: codex mcp add playwright npx "@playwright/mcp@latest"
+[mcp_servers.playwright]
+command = "npx"
+args = ["@playwright/mcp@latest"]
