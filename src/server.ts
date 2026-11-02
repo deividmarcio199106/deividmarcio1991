@@ -7,6 +7,7 @@ import { handleClaudeAdminRequest } from "./server/claudeAdminEndpoints";
 import { handleDiagnosticsRequest } from "./server/diagnosticsEndpoints";
 import { handleErrorCenterRequest } from "./server/errorEndpoints";
 import { handleMeetlyRequest } from "./server/meetly/meetlyEndpoints";
+import { meetlyHostGate } from "./server/meetly/meetlyHost";
 import { handleRecordingRequest } from "./server/recordingEndpoints";
 import { handleTradingRequest } from "./server/tradingEndpoints";
 
@@ -71,6 +72,10 @@ function withFrameProtection(request: Request, response: Response): Response {
 export default {
   async fetch(request: Request, env: unknown, ctx: unknown) {
     try {
+      // Domínio próprio do Meetly (MEETLY_HOSTS): só o Meetly passa.
+      const gated = meetlyHostGate(request);
+      if (gated) return gated;
+
       // Health check ANTES do SSR: precisa responder mesmo com o aplicativo
       // quebrado — é o que impede o container de subir silenciosamente ruim.
       const health = await handleHealthRequest(request);

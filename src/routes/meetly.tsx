@@ -33,6 +33,7 @@ export const Route = createFileRoute("/meetly")({
           "Agende reuniões, convide participantes e entre na videochamada com um clique. Versão web do Meetly.",
       },
     ],
+    links: [{ rel: "icon", href: "/meetly/logo.png", type: "image/png" }],
   }),
 });
 

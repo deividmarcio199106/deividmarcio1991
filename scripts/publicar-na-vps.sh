@@ -27,8 +27,10 @@
 #   BASE        commit do snapshot      (padrão: 0931aae)
 #   VPS_REMOTE  remote da VPS           (padrão: vps)
 #   SSH_KEY     chave SSH da VPS        (padrão: ~/.ssh/t4_vps)
-#   VPS_HOST    destino SSH             (padrão: root@179.197.238.143)
-#   SITE_URL    site público            (padrão: https://analisador.dvdswap.com.br)
+#   VPS_HOST    destino SSH             (padrão: o usuário@host do remote VPS_REMOTE)
+#   DOMAIN      domínio do Meetly       (padrão: reuniao.dvdswap.com.br)
+#   CERT_EMAIL  e-mail para o certificado HTTPS (opcional)
+#   SKIP_DOMAIN=1  não configura o domínio (só publica o código)
 #   YES=1       não pergunta antes do push
 #   NO_PUSH=1   prepara o commit local e para (não publica)
 # =============================================================================
@@ -39,8 +41,9 @@ GH_BRANCH="${GH_BRANCH:-claude/hopeful-mendel-sdzu75}"
 BASE="${BASE:-0931aae}"
 VPS_REMOTE="${VPS_REMOTE:-vps}"
 SSH_KEY="${SSH_KEY:-$HOME/.ssh/t4_vps}"
-VPS_HOST="${VPS_HOST:-root@179.197.238.143}"
-SITE_URL="${SITE_URL:-https://analisador.dvdswap.com.br}"
+VPS_HOST="${VPS_HOST:-}"
+DOMAIN="${DOMAIN:-reuniao.dvdswap.com.br}"
+CERT_EMAIL="${CERT_EMAIL:-}"
 
 # Lockfiles: os do GitHub foram restaurados do próprio snapshot da VPS. Nunca
 # são trocados por aqui — quem manda neles é o repositório da VPS.
@@ -67,20 +70,32 @@ is_essential() {
 git remote get-url "$VPS_REMOTE" >/dev/null 2>&1 || die "Remote '$VPS_REMOTE' não existe aqui."
 [ -z "$(git status --porcelain)" ] || die "Há mudanças não commitadas neste clone. Resolva antes."
 
-say "1/6 Atualizando o main a partir da VPS"
+# Destino SSH = o mesmo do remote (ex.: root@179.197.238.143:/var/repo/analisador.git).
+if [ -z "$VPS_HOST" ]; then
+  remote_url=$(git remote get-url "$VPS_REMOTE")
+  case "$remote_url" in
+    ssh://*) VPS_HOST=$(printf '%s' "${remote_url#ssh://}" | cut -d/ -f1 | sed 's/:[0-9]*$//') ;;
+    *@*:*) VPS_HOST="${remote_url%%:*}" ;;
+    *) die "Não sei extrair o host SSH de '$remote_url'. Defina VPS_HOST=usuario@ip." ;;
+  esac
+fi
+SSH=(ssh -i "$SSH_KEY" -o BatchMode=yes "$VPS_HOST")
+echo "VPS: $VPS_HOST"
+
+say "1/7 Atualizando o main a partir da VPS"
 git fetch "$VPS_REMOTE"
 git checkout -q main
 git merge --ff-only "$VPS_REMOTE/main" ||
   die "O main local divergiu de $VPS_REMOTE/main. Resolva manualmente antes de publicar."
 echo "main = $(git rev-parse --short HEAD)"
 
-say "2/6 Buscando as mudanças do GitHub ($GH_BRANCH)"
+say "2/7 Buscando as mudanças do GitHub ($GH_BRANCH)"
 git fetch "$GH_URL" "$GH_BRANCH"
 SRC=$(git rev-parse FETCH_HEAD)
 echo "origem = ${SRC:0:7}"
 git cat-file -e "$BASE^{commit}" 2>/dev/null || die "Commit BASE $BASE não veio no fetch."
 
-say "3/6 Conferindo arquivo por arquivo"
+say "3/7 Conferindo arquivo por arquivo"
 APPLY=()
 SKIPPED=()
 CONFLICTS=()
@@ -120,63 +135,75 @@ for item in "${CONFLICTS[@]+"${CONFLICTS[@]}"}"; do
   SKIPPED+=("$item")
 done
 
-[ ${#APPLY[@]} -gt 0 ] || {
-  echo "Nada novo a aplicar — a VPS já tem tudo."
-  exit 0
-}
-
-echo "Serão aplicados ${#APPLY[@]} arquivo(s)."
+if [ ${#APPLY[@]} -eq 0 ]; then
+  echo "Nada novo a aplicar — a VPS já tem o código."
+  NOTHING_NEW=1
+else
+  NOTHING_NEW=0
+  echo "Serão aplicados ${#APPLY[@]} arquivo(s)."
+fi
 for item in "${SKIPPED[@]+"${SKIPPED[@]}"}"; do warn "pulado (documentação): $item"; done
 
-say "4/6 Aplicando e criando o commit local"
-for path in "${APPLY[@]}"; do
-  mkdir -p "$(dirname "$path")"
-  git show "$SRC:$path" >"$path"
-done
-git add -- "${APPLY[@]}"
-git diff --cached --stat | tail -n 5
-git commit -q -m "feat(meetly): módulo Meetly + correções de build, lint e modo dev
+publish_code() {
+  say "4/7 Aplicando e criando o commit local"
+  for path in "${APPLY[@]}"; do
+    mkdir -p "$(dirname "$path")"
+    git show "$SRC:$path" >"$path"
+  done
+  git add -- "${APPLY[@]}"
+  git diff --cached --stat | tail -n 5
+  git commit -q -m "feat(meetly): módulo Meetly + correções de build, lint e modo dev
 
 Aplicado a partir do GitHub ($GH_BRANCH @ ${SRC:0:7}) por scripts/publicar-na-vps.sh,
 somente em arquivos que não mudaram na VPS desde o snapshot bb247b8."
-NEW=$(git rev-parse --short HEAD)
-echo "commit local = $NEW"
+  NEW=$(git rev-parse --short HEAD)
+  echo "commit local = $NEW"
 
-if [ "${NO_PUSH:-0}" = "1" ]; then
-  say "NO_PUSH=1: parei antes de publicar. Para desfazer: git reset --hard $VPS_REMOTE/main"
+  if [ "${NO_PUSH:-0}" = "1" ]; then
+    say "NO_PUSH=1: parei antes de publicar. Para desfazer: git reset --hard $VPS_REMOTE/main"
+    exit 0
+  fi
+  if [ "${YES:-0}" != "1" ]; then
+    printf '\nPublicar %s na VPS agora (git push %s main)? [s/N] ' "$NEW" "$VPS_REMOTE"
+    read -r answer
+    [ "$answer" = "s" ] || [ "$answer" = "S" ] || {
+      echo "Cancelado. O commit ficou só local. Para desfazer: git reset --hard $VPS_REMOTE/main"
+      exit 0
+    }
+  fi
+
+  say "5/7 Publicando (o hook da VPS roda npm ci, typecheck, testes e build)"
+  git push "$VPS_REMOTE" main
+
+  say "6/7 Conferindo a produção"
+  local full deployed=""
+  full=$(git rev-parse HEAD)
+  for _ in $(seq 1 60); do
+    deployed=$("${SSH[@]}" 'cat /var/www/analisador/.deployed-commit 2>/dev/null' || true)
+    case "$deployed" in "$full"* | "$NEW"*) break ;; esac
+    sleep 10
+  done
+  echo ".deployed-commit = ${deployed:-?}"
+  case "$deployed" in
+    "$full"* | "$NEW"*) echo "OK: a VPS está no commit novo." ;;
+    *) die "A VPS não confirmou o commit novo. Veja: ${SSH[*]} 'tail -n 80 /var/log/t4-autodeploy.log'" ;;
+  esac
+  echo "health interno: $("${SSH[@]}" 'curl -s -o /dev/null -w "%{http_code}" http://127.0.0.1:8081/api/health' || echo '?')"
+}
+
+if [ "$NOTHING_NEW" = "0" ]; then
+  publish_code
+fi
+
+if [ "${SKIP_DOMAIN:-0}" = "1" ]; then
+  echo "SKIP_DOMAIN=1: domínio não configurado."
   exit 0
 fi
 
-if [ "${YES:-0}" != "1" ]; then
-  printf '\nPublicar %s na VPS agora (git push %s main)? [s/N] ' "$NEW" "$VPS_REMOTE"
-  read -r answer
-  [ "$answer" = "s" ] || [ "$answer" = "S" ] || {
-    echo "Cancelado. O commit ficou só local. Para desfazer: git reset --hard $VPS_REMOTE/main"
-    exit 0
-  }
-fi
+say "7/7 Domínio $DOMAIN (Nginx + HTTPS + MEETLY_HOSTS)"
+git show "$SRC:scripts/vps-configurar-reuniao.sh" |
+  "${SSH[@]}" "DOMAIN='$DOMAIN' CERT_EMAIL='$CERT_EMAIL' bash -s"
 
-say "5/6 Publicando (o hook da VPS roda npm ci, typecheck, testes e build)"
-git push "$VPS_REMOTE" main
-
-say "6/6 Validando a produção"
-SSH=(ssh -i "$SSH_KEY" -o BatchMode=yes "$VPS_HOST")
-deployed=""
-for _ in $(seq 1 60); do
-  deployed=$("${SSH[@]}" 'cat /var/www/analisador/.deployed-commit 2>/dev/null' || true)
-  case "$deployed" in "$(git rev-parse HEAD)"* | "$NEW"*) break ;; esac
-  sleep 10
-done
-echo ".deployed-commit = ${deployed:-?}"
-case "$deployed" in
-  "$(git rev-parse HEAD)"* | "$NEW"*) echo "OK: a VPS está no commit novo." ;;
-  *) warn "A VPS não confirmou o commit novo. Veja: ${SSH[*]} 'tail -n 80 /var/log/t4-autodeploy.log'" ;;
-esac
-echo "health interno: $("${SSH[@]}" 'curl -s -o /dev/null -w "%{http_code}" http://127.0.0.1:8081/api/health' || echo '?')"
-echo "site /api/health: $(curl -s -o /dev/null -w '%{http_code}' "$SITE_URL/api/health" || echo '?')"
-echo "site /meetly/entrar: $(curl -s -o /dev/null -w '%{http_code}' "$SITE_URL/meetly/entrar" || echo '?')"
-
-say "Cabeçalhos que o Nginx envia ao analisador (para o IP/HTTPS do Meetly)"
-"${SSH[@]}" "nginx -T 2>/dev/null | grep -n -E 'proxy_pass http://127.0.0.1:8081|proxy_set_header' | head -n 20" || true
-echo "Esperado: X-Forwarded-For \$proxy_add_x_forwarded_for, X-Real-IP \$remote_addr e"
-echo "X-Forwarded-Proto \$scheme no bloco do analisador (ver docs/meetly/README.md)."
+say "Conferência pela internet"
+echo "https://$DOMAIN/meetly/entrar → $(curl -s -o /dev/null -w '%{http_code}' --max-time 20 "https://$DOMAIN/meetly/entrar" || echo '?')"
+echo "Pronto: abra https://$DOMAIN"

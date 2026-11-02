@@ -16,6 +16,7 @@ import { AppSidebar } from "@/components/AppSidebar";
 import { SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar";
 import { StatusBar } from "@/components/StatusBar";
 import { Toaster } from "@/components/ui/sonner";
+import { getShellMode } from "@/lib/meetly/shellMode.functions";
 
 function NotFoundComponent() {
   return (
@@ -95,6 +96,11 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { rel: "icon", href: "/favicon.ico", type: "image/x-icon" },
     ],
   }),
+  // Decide UMA vez (no SSR) se este domínio é o do Meetly; não recarrega
+  // a cada navegação.
+  loader: () => getShellMode(),
+  staleTime: Infinity,
+  shouldReload: false,
   shellComponent: RootShell,
   component: RootComponent,
   notFoundComponent: NotFoundComponent,
@@ -117,6 +123,20 @@ function RootShell({ children }: { children: ReactNode }) {
 
 function RootComponent() {
   const { queryClient } = Route.useRouteContext();
+  const { meetlyOnly } = Route.useLoaderData();
+
+  if (meetlyOnly) {
+    // Domínio próprio do Meetly: sem a casca do NEXUS e sem AnalyzerProvider
+    // (nenhuma sessão T4 nasce para quem só veio marcar uma reunião).
+    return (
+      <QueryClientProvider client={queryClient}>
+        <main className="min-h-screen w-full bg-background p-3 md:p-4">
+          <Outlet />
+        </main>
+        <Toaster />
+      </QueryClientProvider>
+    );
+  }
 
   return (
     <QueryClientProvider client={queryClient}>

@@ -16,6 +16,22 @@ grupo **Apps** da barra lateral.
 | `/meetly/perfil`      | `UserProfile`                      | Foto, nome, telefone e troca de senha                     |
 | `/meetly/sobre`       | `LibraryActivity` / `DevsActivity` | Sobre o app e créditos                                    |
 
+## Domínio próprio (reuniao.dvdswap.com.br)
+
+O mesmo processo serve o analisador e o Meetly. Com `MEETLY_HOSTS=reuniao.dvdswap.com.br` no
+`.env`, quem entra por esse domínio vê **só o Meetly**:
+
+- `/` e qualquer página do analisador redirecionam para `/meetly`;
+- APIs que não são do Meetly respondem 404 (passam só `/api/meetly/*` e `/api/health`);
+- a casca do NEXUS (barra lateral, status, `AnalyzerProvider`) não é montada — nenhuma sessão
+  T4 nasce nesse domínio.
+
+O Nginx precisa repassar o domínio (`proxy_set_header Host $host;`). Tudo isso é configurado
+por `scripts/vps-configurar-reuniao.sh` (roda na VPS) — chamado pelo passo 7 de
+`scripts/publicar-na-vps.sh`: confere o DNS, cria um server block só para o domínio (sem tocar
+nos outros sites), emite o HTTPS com o certbot, acrescenta `MEETLY_HOSTS` ao `.env` (com
+backup) e reinicia o PM2 carregando o `.env`.
+
 ## Backend
 
 - API em `src/server/meetly/meetlyEndpoints.ts`, servida em `/api/meetly/*` antes do SSR.
@@ -64,9 +80,10 @@ aqui isso ficou restrito ao anfitrião.
 As salas usam Jitsi Meet. O nome da sala segue o app original: uma expressão em inglês +
 `-r-` + 6 caracteres aleatórios (ex.: `break-a-leg-r-a8Kq2Z`).
 
-| Variável              | Padrão        | Uso                                              |
-| --------------------- | ------------- | ------------------------------------------------ |
-| `MEETLY_JITSI_DOMAIN` | `meet.jit.si` | Servidor Jitsi (ex.: um self-hosted ou `8x8.vc`) |
+| Variável              | Padrão        | Uso                                               |
+| --------------------- | ------------- | ------------------------------------------------- |
+| `MEETLY_JITSI_DOMAIN` | `meet.jit.si` | Servidor Jitsi (ex.: um self-hosted ou `8x8.vc`)  |
+| `MEETLY_HOSTS`        | (vazio)       | Domínios que mostram só o Meetly (separe por `,`) |
 
 O meet.jit.si público encerra chamadas **embutidas** em outros sites após alguns minutos e
 pode pedir login para abrir a sala. A tela da sala tem o botão "Abrir em nova aba" para
