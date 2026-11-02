@@ -1,0 +1,5 @@
+# Laboratório quantitativo WIN/WDO — Python 3.11+
+numpy>=1.26
+pandas>=2.2
+xgboost>=2.0   # as rodas pip para Linux/Windows x86_64 já trazem suporte a CUDA
+pytest>=8.0

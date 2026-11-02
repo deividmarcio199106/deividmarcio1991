@@ -1,0 +1,187 @@
+<!doctype html><html lang='pt-BR'><head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'>
+<title>Laboratório WIN/WDO</title><style>
+:root{--bg:#ffffff;--fg:#1d2433;--muted:#5b6475;--line:#d9dee7;--head:#f2f4f8;--warn:#9a3412;--warnbg:#fff4e5;
+--ok:#166534;--okbg:#e9f7ee;--bad:#991b1b;--badbg:#fdecec}
+@media (prefers-color-scheme: dark){:root{--bg:#11151c;--fg:#e6e9ef;--muted:#9aa3b2;--line:#2a313d;--head:#1a2029;
+--warn:#fdba74;--warnbg:#2b1d10;--ok:#86efac;--okbg:#10251a;--bad:#fca5a5;--badbg:#2a1414}}
+body{background:var(--bg);color:var(--fg);font:15px/1.5 system-ui,-apple-system,"Segoe UI",sans-serif;margin:0;padding:24px 16px}
+main{max-width:1100px;margin:0 auto}h1{font-size:1.6rem;margin:.2rem 0}h2{font-size:1.2rem;margin-top:2rem;
+border-bottom:1px solid var(--line);padding-bottom:.3rem}.muted{color:var(--muted)}
+.banner{border-radius:8px;padding:12px 14px;margin:12px 0}.warn{background:var(--warnbg);color:var(--warn)}
+.ok{background:var(--okbg);color:var(--ok)}.bad{background:var(--badbg);color:var(--bad)}
+.scroll{overflow-x:auto}table{border-collapse:collapse;font-size:13px;margin:8px 0;min-width:100%}
+th,td{border:1px solid var(--line);padding:4px 8px;text-align:left;white-space:nowrap}th{background:var(--head)}
+</style></head><body><main>
+<h1>Laboratório quantitativo WIN/WDO</h1>
+<p class='muted'>Gerado em 2026-11-02 19:58 · pesquisa apenas, sem execução de ordens.</p>
+<div class='banner warn'><b>Nenhum dataset processado.</b> Não há resultados de pesquisa: coloque um CSV OHLC intradiário de WIN ou WDO em <code>quant-lab/data/</code> e rode <code>python -m qlab run --data ...</code>.</div>
+<div class='banner warn'><b>Nenhum candidato aprovado no teste final.</b> Nenhuma estratégia deve ser tratada como vencedora.</div>
+<h2>Metas de seleção</h2><ul><li>Capital R$ 2000.00, até 5 contratos.</li><li>≥ 70% de pregões positivos (entre os operados) em cada mês do teste, com pelo menos 5 pregões operados por mês.</li><li>100% dos meses do teste positivos; líquido após custos e slippage &gt; 0.</li><li>Deflated Sharpe ≥ 0.95, bootstrap com Bonferroni pelo orçamento de teste, drawdown ≤ 30% do capital, margem compatível.</li></ul><p class='muted'>Metas não garantem resultado. Custos e margens da configuração são suposições a confirmar.</p>
+<h2>Catálogo de dados</h2><div class="scroll"><table class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>caminho</th>
+      <th>tipo</th>
+      <th>ohlc</th>
+      <th>simbolo</th>
+      <th>timeframe_min</th>
+      <th>primeira_data</th>
+      <th>ultima_data</th>
+      <th>linhas</th>
+      <th>pregoes</th>
+      <th>tamanho_bytes</th>
+      <th>sha256</th>
+      <th>esquema</th>
+      <th>observacao</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>.</td>
+      <td>repositorio_git</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>repositório git</td>
+    </tr>
+    <tr>
+      <td>ANALISADOR_T4_RTD_bb247b8.zip</td>
+      <td>zip_repositorio</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>2604499.0</td>
+      <td>c4e73d480beeae3ff3f9ecaffe0254afdcd4f28ea1b171d0a9a1f9541d1e4012</td>
+      <td>NaN</td>
+      <td>1296 arquivos; 0 CSV; 464 de código (103 ligados a estratégia/backtest)</td>
+    </tr>
+    <tr>
+      <td>bridge</td>
+      <td>codigo_estrategia</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>1 arquivos de código com nome ligado a estratégia/backtest</td>
+    </tr>
+    <tr>
+      <td>bridge-exe</td>
+      <td>codigo_estrategia</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>1 arquivos de código com nome ligado a estratégia/backtest</td>
+    </tr>
+    <tr>
+      <td>quant-lab</td>
+      <td>codigo_estrategia</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>28 arquivos de código com nome ligado a estratégia/backtest</td>
+    </tr>
+    <tr>
+      <td>scripts</td>
+      <td>codigo_estrategia</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>1 arquivos de código com nome ligado a estratégia/backtest</td>
+    </tr>
+    <tr>
+      <td>src</td>
+      <td>codigo_estrategia</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>90 arquivos de código com nome ligado a estratégia/backtest</td>
+    </tr>
+    <tr>
+      <td>t4-learning</td>
+      <td>codigo_estrategia</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>9 arquivos de código com nome ligado a estratégia/backtest</td>
+    </tr>
+    <tr>
+      <td>updater</td>
+      <td>codigo_estrategia</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>1 arquivos de código com nome ligado a estratégia/backtest</td>
+    </tr>
+  </tbody>
+</table></div>
+<h2>Qualidade dos dados</h2><p class="muted">nada a mostrar</p>
+<h2>Divisão temporal 60/20/20</h2><p class="muted">nada a mostrar</p>
+<h2>Rodadas</h2><p class="muted">nada a mostrar</p>
+<h2>Walk-forward por família (pré-teste)</h2><p class="muted">nada a mostrar</p>
+<h2>Melhores configurações no treino (top 25)</h2><p class='muted'>Ranking dentro da amostra de treino; não é evidência de desempenho futuro.</p><p class="muted">nada a mostrar</p>
+<h2>Validação</h2><p class="muted">nada a mostrar</p>
+<h2>Teste final (parâmetros congelados, avaliado uma vez)</h2><p class="muted">nada a mostrar</p>
+<h2>Resultado mensal no teste</h2><p class="muted">nada a mostrar</p>
+<h2>Alertas</h2><p class="muted">nenhum alerta: nenhum candidato superou a validação real</p>
+<h2>Limitações</h2><ul><li>Execução simulada em barras: ordem real dentro da barra desconhecida (stop primeiro quando ambíguo).</li><li>Sem livro de ofertas: microestrutura só roda se o CSV trouxer volume de agressão comprador/vendedor.</li><li>Calendário B3 derivado por regra; divergências com os dados aparecem em Qualidade.</li><li>Teste final curto (20% do histórico): poucos meses, pouca confiança estatística.</li></ul>
+</main></body></html>

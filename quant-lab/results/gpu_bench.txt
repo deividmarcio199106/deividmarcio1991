@@ -1,0 +1,6 @@
+{
+  "linhas": 100000,
+  "colunas": 16,
+  "segundos_cpu": 0.851,
+  "recomendacao": "cpu (CUDA indisponível)"
+}

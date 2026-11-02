@@ -1,0 +1,5 @@
+# Estado de execução local (SQLite, checkpoints, modelos congelados, alertas)
+state/
+.venv/
+__pycache__/
+.pytest_cache/

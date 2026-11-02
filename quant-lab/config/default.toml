@@ -1,0 +1,83 @@
+# Configuração padrão do laboratório quantitativo WIN/WDO.
+# Valores marcados como SUPOSIÇÃO precisam ser confirmados com a sua corretora/B3
+# antes de qualquer conclusão. O laboratório é só de pesquisa: não envia ordens.
+
+[capital]
+capital_brl = 2000.0
+max_contracts = 5
+# Fração do capital arriscada por operação (distância do stop * valor do ponto + custos).
+risk_per_trade_frac = 0.03
+# Drawdown máximo tolerado no teste final, como fração do capital.
+max_drawdown_frac = 0.30
+
+[contracts.WIN]
+# Mini Índice: 1 ponto = R$ 0,20; tick = 5 pontos = R$ 1,00.
+tick_size = 5.0
+point_value = 0.20
+fee_per_side_brl = 0.50          # SUPOSIÇÃO: emolumentos/registro B3 + corretagem, por contrato e por lado
+slippage_ticks_per_side = 1.0    # SUPOSIÇÃO conservadora: 1 tick por lado
+margin_daytrade_brl = 150.0      # SUPOSIÇÃO: margem de day trade cobrada pela corretora
+session_start = "09:00"
+session_end = "18:25"
+
+[contracts.WDO]
+# Mini Dólar: 1 ponto = R$ 10,00; tick = 0,5 ponto = R$ 5,00.
+tick_size = 0.5
+point_value = 10.0
+fee_per_side_brl = 1.50          # SUPOSIÇÃO
+slippage_ticks_per_side = 1.0    # SUPOSIÇÃO
+margin_daytrade_brl = 300.0      # SUPOSIÇÃO
+session_start = "09:00"
+session_end = "18:30"
+
+[calendar]
+# Rolagem: quantos pregões antes do vencimento a série contínua troca de contrato.
+roll_days_before = 1
+# "calendar" ajusta os indicadores no dia de rolagem previsto; "none" não ajusta.
+roll_mode = "calendar"
+
+[execution]
+# Horários (BRT) válidos para todos os contratos.
+last_entry_time = "17:00"
+flat_time = "17:50"
+max_trades_per_day = 3
+
+[split]
+train = 0.6
+val = 0.2
+test = 0.2
+
+[selection]
+min_trades_train = 30
+min_trades_val = 10
+min_trades_test = 10
+top_per_family = 3
+min_pf_val = 1.10
+alpha = 0.10
+min_neighbor_positive_frac = 0.6
+bootstrap_samples = 2000
+bootstrap_mean_block = 5
+# Quantos candidatos congelados podem ser avaliados no teste final de cada dataset,
+# somando todas as rodadas. Evita "otimizar no teste" testando candidatos até um passar.
+test_budget_per_dataset = 10
+wf_folds = 4
+
+[targets]
+min_pct_positive_days_month = 0.70
+min_pct_positive_months = 1.0
+min_traded_days_month = 5
+min_dsr = 0.95
+
+[ml]
+horizon_bars = 6
+thresholds = [0.55, 0.60, 0.65]
+stop_atr = 1.0
+target_r = 1.5
+
+[run]
+max_experiments = 500
+max_minutes = 30.0
+batch_size = 16
+workers = 0        # 0 = automático (núcleos - 1)
+device = "auto"    # auto | cpu | cuda (afeta o XGBoost)
+seed = 20261102

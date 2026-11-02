@@ -1,0 +1,10 @@
+caminho,tipo,ohlc,simbolo,timeframe_min,primeira_data,ultima_data,linhas,pregoes,tamanho_bytes,sha256,esquema,observacao
+.,repositorio_git,,,,,,,,,,,repositório git
+ANALISADOR_T4_RTD_bb247b8.zip,zip_repositorio,,,,,,,,2604499.0,c4e73d480beeae3ff3f9ecaffe0254afdcd4f28ea1b171d0a9a1f9541d1e4012,,1296 arquivos; 0 CSV; 464 de código (103 ligados a estratégia/backtest)
+bridge,codigo_estrategia,,,,,,,,,,,1 arquivos de código com nome ligado a estratégia/backtest
+bridge-exe,codigo_estrategia,,,,,,,,,,,1 arquivos de código com nome ligado a estratégia/backtest
+quant-lab,codigo_estrategia,,,,,,,,,,,28 arquivos de código com nome ligado a estratégia/backtest
+scripts,codigo_estrategia,,,,,,,,,,,1 arquivos de código com nome ligado a estratégia/backtest
+src,codigo_estrategia,,,,,,,,,,,90 arquivos de código com nome ligado a estratégia/backtest
+t4-learning,codigo_estrategia,,,,,,,,,,,9 arquivos de código com nome ligado a estratégia/backtest
+updater,codigo_estrategia,,,,,,,,,,,1 arquivos de código com nome ligado a estratégia/backtest

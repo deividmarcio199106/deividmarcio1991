@@ -1,0 +1,2 @@
+id,dataset_id,started_at,finished_at,status,budget_json,n_done,note
+1,578b9df560c53b33,2026-11-02 16:58:15,2026-11-02 16:58:17,concluida,"{""max_experiments"": 500, ""max_minutes"": 30.0, ""workers"": 3, ""familias"": ""todas""}",175,

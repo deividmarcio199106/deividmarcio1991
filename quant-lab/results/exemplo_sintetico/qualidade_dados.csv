@@ -1,0 +1,9 @@
+dataset,verificacao,status,detalhe
+578b9df560c53b33,ohlc,ok,máxima/mínima coerentes com abertura/fechamento
+578b9df560c53b33,horario,ok,todas as barras dentro do horário configurado
+578b9df560c53b33,grade_de_precos,ok,0.00% dos preços fora da grade de 5.0 pontos
+578b9df560c53b33,timeframe,ok,5 min
+578b9df560c53b33,pregoes_incompletos,ok,mediana 113 barras/pregão; nenhum pregão anormalmente curto
+578b9df560c53b33,calendario_feriados,ok,nenhum pregão em feriado/fim de semana
+578b9df560c53b33,calendario_faltantes,ok,nenhum dia útil ausente
+578b9df560c53b33,vencimentos_rolagem,alerta,"vencimentos no período: WING25 2025-02-12, WINJ25 2025-04-16, WINM25 2025-06-18, WINQ25 2025-08-13, WINV25 2025-10-15; rolagens previstas: 2025-02-11: salto 5.0 pts; 2025-04-15: salto 490.0 pts; 2025-06-17: salto 60.0 pts; 2025-08-12: salto 25.0 pts; 2025-10-14: salto 85.0 pts; salto mediano entre pregões 145.0 pts; saltos grandes fora da rolagem prevista em 2025-07-17"

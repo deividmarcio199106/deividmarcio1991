@@ -1,0 +1,9 @@
+dataset,codigo,familia,dobras,oos_liquido_brl,oos_sharpe_diario,dobras_positivas
+578b9df560c53b33,3aecca42da14-35f0ee00202d,abertura_rompimento,4,-138.0,-0.048,2
+578b9df560c53b33,3aecca42da14-35f0ee00202d,ml,4,0.0,0.0,0
+578b9df560c53b33,3aecca42da14-35f0ee00202d,momentum,4,-777.0,-0.0998,2
+578b9df560c53b33,3aecca42da14-35f0ee00202d,regimes,4,-1661.0,-0.1719,0
+578b9df560c53b33,3aecca42da14-35f0ee00202d,reversao_media,4,-1136.0,-0.1361,1
+578b9df560c53b33,3aecca42da14-35f0ee00202d,tendencia,4,104.0,0.0165,2
+578b9df560c53b33,3aecca42da14-35f0ee00202d,volatilidade,4,-527.0,-0.0882,1
+578b9df560c53b33,3aecca42da14-35f0ee00202d,vwap,4,559.0,0.0639,2

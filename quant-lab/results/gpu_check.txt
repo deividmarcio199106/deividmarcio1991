@@ -1,0 +1,9 @@
+{
+  "nvidia_smi": null,
+  "gpus": [],
+  "xgboost_cuda_build": true,
+  "xgboost_cuda_ok": false,
+  "cupy": "ausente (opcional)",
+  "xgboost_versao": "3.4.1"
+}
+device escolhido em modo auto: cpu
