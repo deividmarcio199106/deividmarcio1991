@@ -1,5 +1,14 @@
 import { Link, useRouterState } from "@tanstack/react-router";
-import { Activity, BookOpen, Brain, Dna, FlaskConical, HeartPulse, ImageUp } from "lucide-react";
+import {
+  Activity,
+  BookOpen,
+  Brain,
+  Dna,
+  FlaskConical,
+  HeartPulse,
+  ImageUp,
+  Video,
+} from "lucide-react";
 
 import {
   Sidebar,
@@ -34,6 +43,11 @@ const items = [
   { title: "Saúde", url: "/saude", icon: HeartPulse },
 ] as const;
 
+/** Apps independentes do analisador, no mesmo painel. */
+const apps = [{ title: "Meetly", url: "/meetly", icon: Video }] as const;
+
+type NavItem = (typeof items)[number] | (typeof apps)[number];
+
 export function AppSidebar() {
   const { state } = useSidebar();
   const collapsed = state === "collapsed";
@@ -60,37 +74,54 @@ export function AppSidebar() {
         </div>
       </SidebarHeader>
       <SidebarContent>
-        <SidebarGroup>
-          <SidebarGroupLabel>Operação</SidebarGroupLabel>
-          <SidebarGroupContent>
-            <SidebarMenu>
-              {items.map((item) => {
-                // A raiz saiu do menu, então nenhum item é mais o prefixo de
-                // todos: `startsWith` basta e não marca tudo como ativo.
-                const active = pathname.startsWith(item.url);
-                return (
-                  <SidebarMenuItem key={item.url}>
-                    <SidebarMenuButton asChild isActive={active} tooltip={item.title}>
-                      <Link
-                        to={item.url}
-                        className={
-                          "relative flex items-center gap-2 transition-colors " +
-                          (active
-                            ? "text-primary before:absolute before:-left-2 before:top-1/2 before:h-4 before:w-0.5 before:-translate-y-1/2 before:rounded-full before:bg-primary before:shadow-[0_0_8px_var(--color-primary)]"
-                            : "hover:text-foreground")
-                        }
-                      >
-                        <item.icon className="h-4 w-4" />
-                        {!collapsed && <span>{item.title}</span>}
-                      </Link>
-                    </SidebarMenuButton>
-                  </SidebarMenuItem>
-                );
-              })}
-            </SidebarMenu>
-          </SidebarGroupContent>
-        </SidebarGroup>
+        <NavGroup label="Operação" items={items} pathname={pathname} collapsed={collapsed} />
+        <NavGroup label="Apps" items={apps} pathname={pathname} collapsed={collapsed} />
       </SidebarContent>
     </Sidebar>
+  );
+}
+
+function NavGroup({
+  label,
+  items: groupItems,
+  pathname,
+  collapsed,
+}: {
+  label: string;
+  items: readonly NavItem[];
+  pathname: string;
+  collapsed: boolean;
+}) {
+  return (
+    <SidebarGroup>
+      <SidebarGroupLabel>{label}</SidebarGroupLabel>
+      <SidebarGroupContent>
+        <SidebarMenu>
+          {groupItems.map((item) => {
+            // A raiz saiu do menu, então nenhum item é mais o prefixo de
+            // todos: `startsWith` basta e não marca tudo como ativo.
+            const active = pathname.startsWith(item.url);
+            return (
+              <SidebarMenuItem key={item.url}>
+                <SidebarMenuButton asChild isActive={active} tooltip={item.title}>
+                  <Link
+                    to={item.url}
+                    className={
+                      "relative flex items-center gap-2 transition-colors " +
+                      (active
+                        ? "text-primary before:absolute before:-left-2 before:top-1/2 before:h-4 before:w-0.5 before:-translate-y-1/2 before:rounded-full before:bg-primary before:shadow-[0_0_8px_var(--color-primary)]"
+                        : "hover:text-foreground")
+                    }
+                  >
+                    <item.icon className="h-4 w-4" />
+                    {!collapsed && <span>{item.title}</span>}
+                  </Link>
+                </SidebarMenuButton>
+              </SidebarMenuItem>
+            );
+          })}
+        </SidebarMenu>
+      </SidebarGroupContent>
+    </SidebarGroup>
   );
 }

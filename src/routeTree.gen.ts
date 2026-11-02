@@ -22,9 +22,17 @@ import { Route as DnaT4RouteImport } from './routes/dna-t4'
 import { Route as ErrosRouteImport } from './routes/erros'
 import { Route as GerenciamentoRouteImport } from './routes/gerenciamento'
 import { Route as HistoricoPrintsRouteImport } from './routes/historico-prints'
+import { Route as MeetlyRouteImport } from './routes/meetly'
 import { Route as OperacaoAoVivoRouteImport } from './routes/operacao-ao-vivo'
 import { Route as PesquisaRouteImport } from './routes/pesquisa'
 import { Route as SaudeRouteImport } from './routes/saude'
+import { Route as MeetlyIndexRouteImport } from './routes/meetly.index'
+import { Route as MeetlyCadastroRouteImport } from './routes/meetly.cadastro'
+import { Route as MeetlyEntrarRouteImport } from './routes/meetly.entrar'
+import { Route as MeetlyPerfilRouteImport } from './routes/meetly.perfil'
+import { Route as MeetlySobreRouteImport } from './routes/meetly.sobre'
+import { Route as MeetlyReuniaoIdRouteImport } from './routes/meetly.reuniao.$id'
+import { Route as MeetlySalaIdRouteImport } from './routes/meetly.sala.$id'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
@@ -91,6 +99,11 @@ const HistoricoPrintsRoute = HistoricoPrintsRouteImport.update({
   path: '/historico-prints',
   getParentRoute: () => rootRouteImport,
 } as any)
+const MeetlyRoute = MeetlyRouteImport.update({
+  id: '/meetly',
+  path: '/meetly',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const OperacaoAoVivoRoute = OperacaoAoVivoRouteImport.update({
   id: '/operacao-ao-vivo',
   path: '/operacao-ao-vivo',
@@ -105,6 +118,41 @@ const SaudeRoute = SaudeRouteImport.update({
   id: '/saude',
   path: '/saude',
   getParentRoute: () => rootRouteImport,
+} as any)
+const MeetlyIndexRoute = MeetlyIndexRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => MeetlyRoute,
+} as any)
+const MeetlyCadastroRoute = MeetlyCadastroRouteImport.update({
+  id: '/cadastro',
+  path: '/cadastro',
+  getParentRoute: () => MeetlyRoute,
+} as any)
+const MeetlyEntrarRoute = MeetlyEntrarRouteImport.update({
+  id: '/entrar',
+  path: '/entrar',
+  getParentRoute: () => MeetlyRoute,
+} as any)
+const MeetlyPerfilRoute = MeetlyPerfilRouteImport.update({
+  id: '/perfil',
+  path: '/perfil',
+  getParentRoute: () => MeetlyRoute,
+} as any)
+const MeetlySobreRoute = MeetlySobreRouteImport.update({
+  id: '/sobre',
+  path: '/sobre',
+  getParentRoute: () => MeetlyRoute,
+} as any)
+const MeetlyReuniaoIdRoute = MeetlyReuniaoIdRouteImport.update({
+  id: '/reuniao/$id',
+  path: '/reuniao/$id',
+  getParentRoute: () => MeetlyRoute,
+} as any)
+const MeetlySalaIdRoute = MeetlySalaIdRouteImport.update({
+  id: '/sala/$id',
+  path: '/sala/$id',
+  getParentRoute: () => MeetlyRoute,
 } as any)
 
 export interface FileRoutesByFullPath {
@@ -121,9 +169,17 @@ export interface FileRoutesByFullPath {
   '/erros': typeof ErrosRoute
   '/gerenciamento': typeof GerenciamentoRoute
   '/historico-prints': typeof HistoricoPrintsRoute
+  '/meetly': typeof MeetlyRouteWithChildren
   '/operacao-ao-vivo': typeof OperacaoAoVivoRoute
   '/pesquisa': typeof PesquisaRoute
   '/saude': typeof SaudeRoute
+  '/meetly/cadastro': typeof MeetlyCadastroRoute
+  '/meetly/entrar': typeof MeetlyEntrarRoute
+  '/meetly/perfil': typeof MeetlyPerfilRoute
+  '/meetly/sobre': typeof MeetlySobreRoute
+  '/meetly/': typeof MeetlyIndexRoute
+  '/meetly/reuniao/$id': typeof MeetlyReuniaoIdRoute
+  '/meetly/sala/$id': typeof MeetlySalaIdRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -142,6 +198,13 @@ export interface FileRoutesByTo {
   '/operacao-ao-vivo': typeof OperacaoAoVivoRoute
   '/pesquisa': typeof PesquisaRoute
   '/saude': typeof SaudeRoute
+  '/meetly/cadastro': typeof MeetlyCadastroRoute
+  '/meetly/entrar': typeof MeetlyEntrarRoute
+  '/meetly/perfil': typeof MeetlyPerfilRoute
+  '/meetly/sobre': typeof MeetlySobreRoute
+  '/meetly': typeof MeetlyIndexRoute
+  '/meetly/reuniao/$id': typeof MeetlyReuniaoIdRoute
+  '/meetly/sala/$id': typeof MeetlySalaIdRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -158,9 +221,17 @@ export interface FileRoutesById {
   '/erros': typeof ErrosRoute
   '/gerenciamento': typeof GerenciamentoRoute
   '/historico-prints': typeof HistoricoPrintsRoute
+  '/meetly': typeof MeetlyRouteWithChildren
   '/operacao-ao-vivo': typeof OperacaoAoVivoRoute
   '/pesquisa': typeof PesquisaRoute
   '/saude': typeof SaudeRoute
+  '/meetly/cadastro': typeof MeetlyCadastroRoute
+  '/meetly/entrar': typeof MeetlyEntrarRoute
+  '/meetly/perfil': typeof MeetlyPerfilRoute
+  '/meetly/sobre': typeof MeetlySobreRoute
+  '/meetly/': typeof MeetlyIndexRoute
+  '/meetly/reuniao/$id': typeof MeetlyReuniaoIdRoute
+  '/meetly/sala/$id': typeof MeetlySalaIdRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -178,9 +249,17 @@ export interface FileRouteTypes {
     | '/erros'
     | '/gerenciamento'
     | '/historico-prints'
+    | '/meetly'
     | '/operacao-ao-vivo'
     | '/pesquisa'
     | '/saude'
+    | '/meetly/cadastro'
+    | '/meetly/entrar'
+    | '/meetly/perfil'
+    | '/meetly/sobre'
+    | '/meetly/'
+    | '/meetly/reuniao/$id'
+    | '/meetly/sala/$id'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -199,6 +278,13 @@ export interface FileRouteTypes {
     | '/operacao-ao-vivo'
     | '/pesquisa'
     | '/saude'
+    | '/meetly/cadastro'
+    | '/meetly/entrar'
+    | '/meetly/perfil'
+    | '/meetly/sobre'
+    | '/meetly'
+    | '/meetly/reuniao/$id'
+    | '/meetly/sala/$id'
   id:
     | '__root__'
     | '/'
@@ -214,9 +300,17 @@ export interface FileRouteTypes {
     | '/erros'
     | '/gerenciamento'
     | '/historico-prints'
+    | '/meetly'
     | '/operacao-ao-vivo'
     | '/pesquisa'
     | '/saude'
+    | '/meetly/cadastro'
+    | '/meetly/entrar'
+    | '/meetly/perfil'
+    | '/meetly/sobre'
+    | '/meetly/'
+    | '/meetly/reuniao/$id'
+    | '/meetly/sala/$id'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -233,6 +327,7 @@ export interface RootRouteChildren {
   ErrosRoute: typeof ErrosRoute
   GerenciamentoRoute: typeof GerenciamentoRoute
   HistoricoPrintsRoute: typeof HistoricoPrintsRoute
+  MeetlyRoute: typeof MeetlyRouteWithChildren
   OperacaoAoVivoRoute: typeof OperacaoAoVivoRoute
   PesquisaRoute: typeof PesquisaRoute
   SaudeRoute: typeof SaudeRoute
@@ -331,6 +426,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof HistoricoPrintsRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/meetly': {
+      id: '/meetly'
+      path: '/meetly'
+      fullPath: '/meetly'
+      preLoaderRoute: typeof MeetlyRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/operacao-ao-vivo': {
       id: '/operacao-ao-vivo'
       path: '/operacao-ao-vivo'
@@ -352,8 +454,80 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof SaudeRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/meetly/': {
+      id: '/meetly/'
+      path: '/'
+      fullPath: '/meetly/'
+      preLoaderRoute: typeof MeetlyIndexRouteImport
+      parentRoute: typeof MeetlyRoute
+    }
+    '/meetly/cadastro': {
+      id: '/meetly/cadastro'
+      path: '/cadastro'
+      fullPath: '/meetly/cadastro'
+      preLoaderRoute: typeof MeetlyCadastroRouteImport
+      parentRoute: typeof MeetlyRoute
+    }
+    '/meetly/entrar': {
+      id: '/meetly/entrar'
+      path: '/entrar'
+      fullPath: '/meetly/entrar'
+      preLoaderRoute: typeof MeetlyEntrarRouteImport
+      parentRoute: typeof MeetlyRoute
+    }
+    '/meetly/perfil': {
+      id: '/meetly/perfil'
+      path: '/perfil'
+      fullPath: '/meetly/perfil'
+      preLoaderRoute: typeof MeetlyPerfilRouteImport
+      parentRoute: typeof MeetlyRoute
+    }
+    '/meetly/sobre': {
+      id: '/meetly/sobre'
+      path: '/sobre'
+      fullPath: '/meetly/sobre'
+      preLoaderRoute: typeof MeetlySobreRouteImport
+      parentRoute: typeof MeetlyRoute
+    }
+    '/meetly/reuniao/$id': {
+      id: '/meetly/reuniao/$id'
+      path: '/reuniao/$id'
+      fullPath: '/meetly/reuniao/$id'
+      preLoaderRoute: typeof MeetlyReuniaoIdRouteImport
+      parentRoute: typeof MeetlyRoute
+    }
+    '/meetly/sala/$id': {
+      id: '/meetly/sala/$id'
+      path: '/sala/$id'
+      fullPath: '/meetly/sala/$id'
+      preLoaderRoute: typeof MeetlySalaIdRouteImport
+      parentRoute: typeof MeetlyRoute
+    }
   }
 }
+
+interface MeetlyRouteChildren {
+  MeetlyCadastroRoute: typeof MeetlyCadastroRoute
+  MeetlyEntrarRoute: typeof MeetlyEntrarRoute
+  MeetlyPerfilRoute: typeof MeetlyPerfilRoute
+  MeetlySobreRoute: typeof MeetlySobreRoute
+  MeetlyIndexRoute: typeof MeetlyIndexRoute
+  MeetlyReuniaoIdRoute: typeof MeetlyReuniaoIdRoute
+  MeetlySalaIdRoute: typeof MeetlySalaIdRoute
+}
+
+const MeetlyRouteChildren: MeetlyRouteChildren = {
+  MeetlyCadastroRoute: MeetlyCadastroRoute,
+  MeetlyEntrarRoute: MeetlyEntrarRoute,
+  MeetlyPerfilRoute: MeetlyPerfilRoute,
+  MeetlySobreRoute: MeetlySobreRoute,
+  MeetlyIndexRoute: MeetlyIndexRoute,
+  MeetlyReuniaoIdRoute: MeetlyReuniaoIdRoute,
+  MeetlySalaIdRoute: MeetlySalaIdRoute,
+}
+
+const MeetlyRouteWithChildren =
+  MeetlyRoute._addFileChildren(MeetlyRouteChildren)
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
@@ -369,6 +543,7 @@ const rootRouteChildren: RootRouteChildren = {
   ErrosRoute: ErrosRoute,
   GerenciamentoRoute: GerenciamentoRoute,
   HistoricoPrintsRoute: HistoricoPrintsRoute,
+  MeetlyRoute: MeetlyRouteWithChildren,
   OperacaoAoVivoRoute: OperacaoAoVivoRoute,
   PesquisaRoute: PesquisaRoute,
   SaudeRoute: SaudeRoute,

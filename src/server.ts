@@ -6,6 +6,7 @@ import { handleHealthRequest } from "./lib/healthEndpoints";
 import { handleClaudeAdminRequest } from "./server/claudeAdminEndpoints";
 import { handleDiagnosticsRequest } from "./server/diagnosticsEndpoints";
 import { handleErrorCenterRequest } from "./server/errorEndpoints";
+import { handleMeetlyRequest } from "./server/meetly/meetlyEndpoints";
 import { handleRecordingRequest } from "./server/recordingEndpoints";
 import { handleTradingRequest } from "./server/tradingEndpoints";
 
@@ -74,6 +75,9 @@ export default {
 
       const admin = await handleClaudeAdminRequest(request);
       if (admin) return admin;
+
+      const meetly = await handleMeetlyRequest(request);
+      if (meetly) return meetly;
 
       const handler = await getServerEntry();
       const response = await handler.fetch(request, env, ctx);
