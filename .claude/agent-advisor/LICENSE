@@ -1,0 +1,35 @@
+MIT License
+
+Copyright (c) 2026 Toshon Jennings
+
+This project is a Claude Code adaptation of the selective-routing workflow introduced
+by Sol Advisor (https://github.com/DannyMac180/sol-advisor), Copyright (c) 2026
+Daniel McAteer, also MIT licensed. The route grammar, the four delivery modes, the
+single-auxiliary maximum, and the five-part worker specification originate there.
+
+It is an adaptation rather than an independent implementation: the canonical workflow
+was written by working through the original section by section, and a substantial
+portion of its prose is derived from that text, including some identical sentences.
+No file was copied. The agent definitions, the Claude lane pins, the chair/floor
+mechanism, and the enforcement properties described in the README are new work.
+
+ORIGIN.md states the extent of the overlap in detail, measured at the sentence level.
+Where these two files appear to disagree, ORIGIN.md is correct.
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.

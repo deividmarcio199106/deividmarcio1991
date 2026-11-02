@@ -75,3 +75,8 @@ credentials.json
 *.pem
 *.key
 .credentials
+
+# Plugin agent-advisor versionado em .claude/agent-advisor. As regras soltas
+# "plugins" e "skills" acima (vindas do ~/.claude) esconderiam as pastas dele.
+!/.claude/agent-advisor/plugins/
+!/.claude/agent-advisor/plugins/agent-advisor/skills/

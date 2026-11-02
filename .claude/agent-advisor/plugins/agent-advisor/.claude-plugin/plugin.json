@@ -1,0 +1,17 @@
+{
+  "name": "agent-advisor",
+  "version": "0.3.2",
+  "description": "Risk-gated selective routing for Claude Code. One canonical orchestration workflow; a thin skill per orchestrator chair sets only which model presides and how low its route may go.",
+  "author": {
+    "name": "Toshon Jennings"
+  },
+  "license": "MIT",
+  "keywords": [
+    "claude-code",
+    "orchestration",
+    "multi-agent",
+    "subagents",
+    "routing",
+    "code-review"
+  ]
+}

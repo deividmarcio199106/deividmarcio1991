@@ -1,0 +1,17 @@
+{
+  "$schema": "https://json.schemastore.org/claude-code-marketplace.json",
+  "name": "agent-advisor",
+  "version": "0.3.1",
+  "description": "Risk-gated selective routing for Claude Code, with one canonical workflow and a thin entry point per orchestrator chair.",
+  "owner": {
+    "name": "Toshon Jennings"
+  },
+  "plugins": [
+    {
+      "name": "agent-advisor",
+      "description": "Declare a machine-auditable SELECTIVE ROUTE before the first task tool call, then deliver solo or through at most one pinned auxiliary subagent. Two chairs: Opus 5 everyday, Fable 5.1 heavyweight.",
+      "source": "./plugins/agent-advisor",
+      "category": "development"
+    }
+  ]
+}
