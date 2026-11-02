@@ -1,9 +1,10 @@
-import { createContext, useContext, useEffect, useMemo, useState, type ReactNode } from "react";
+import { useEffect, useMemo, useState, type ReactNode } from "react";
 
+import { AnalyzerContext } from "@/components/analyzerContext";
 import { useContinuousBacktest } from "@/hooks/useContinuousBacktest";
-import { useProfitVision, type ProfitVision } from "@/hooks/useProfitVision";
+import { useProfitVision } from "@/hooks/useProfitVision";
 import { installGlobalErrorCapture } from "@/lib/errors/errorReporter";
-import { buildVisionDiagnostics, type VisionDiagnostics } from "@/lib/vision/visionDiagnostics";
+import { buildVisionDiagnostics } from "@/lib/vision/visionDiagnostics";
 import { readSourceMode, writeSourceMode, type SourceMode } from "@/lib/vision/sourceMode";
 
 /**
@@ -29,22 +30,10 @@ import { readSourceMode, writeSourceMode, type SourceMode } from "@/lib/vision/s
  *
  * `visionDiagnostics` é calculado UMA vez, aqui. Operação ao Vivo e /diagnostico
  * leem o MESMO objeto: dois painéis não podem discordar sobre o mesmo instante.
+ *
+ * O contexto e o hook `useAnalyzer` moram em `analyzerContext.ts`: este
+ * arquivo exporta só o componente, como o Fast Refresh exige.
  */
-
-export interface AnalyzerContextValue {
-  liveAsset: string;
-  setLiveAsset: (asset: string) => void;
-  backtestAsset: string;
-  setBacktestAsset: (asset: string) => void;
-  backtest: ReturnType<typeof useContinuousBacktest>;
-  /** LIVE ou REPLAY — decide se o relógio do sistema pode carimbar mercado. */
-  sourceMode: SourceMode;
-  setSourceMode: (mode: SourceMode) => void;
-  vision: ProfitVision;
-  diagnostics: VisionDiagnostics;
-}
-
-const AnalyzerContext = createContext<AnalyzerContextValue | null>(null);
 
 export function AnalyzerProvider({ children }: { children: ReactNode }) {
   const [liveAsset, setLiveAsset] = useState("WINFUT");
@@ -112,10 +101,4 @@ export function AnalyzerProvider({ children }: { children: ReactNode }) {
       {children}
     </AnalyzerContext.Provider>
   );
-}
-
-export function useAnalyzer(): AnalyzerContextValue {
-  const context = useContext(AnalyzerContext);
-  if (!context) throw new Error("useAnalyzer precisa do AnalyzerProvider no layout raiz.");
-  return context;
 }

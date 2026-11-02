@@ -1732,9 +1732,11 @@ function AnalisarPrintPage() {
         else setEtapa(-1);
       }
     },
-    // `calibrarEscala` entra na lista: ele É usado aqui dentro, e omiti-lo
-    // deixaria o monitor de 60s chamando uma versão velha da server function.
-    [analisar, calibrarEscala],
+    // `calibrarEscala` e `auditar` entram na lista: eles SÃO usados aqui
+    // dentro, e omiti-los deixaria o monitor de 60s chamando uma versão velha
+    // da server function. Não recriam o callback à toa: `useServerFn` memoiza
+    // por [router, serverFn], a mesma chave de `analisar`.
+    [analisar, auditar, calibrarEscala],
   );
 
   const [baixando, setBaixando] = useState(false);

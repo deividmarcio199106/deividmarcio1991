@@ -1,6 +1,6 @@
 import { describe, expect, it } from "vitest";
 
-import { rrDoSetup, textoEntrada } from "@/components/print/SetupCard";
+import { rrDoSetup, textoEntrada } from "@/components/print/setupCardFormat";
 import type { TrackedSetup } from "@/lib/print/setupTracker";
 import {
   applyConfirmationGate,

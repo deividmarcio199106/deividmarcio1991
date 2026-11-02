@@ -99,6 +99,11 @@ function LabPage() {
       versionedCandidates,
       dailyLearningReports,
     };
+    // `revision` força a releitura periódica do cache hidratado do banco
+    // persistente (`store` é mutável e vive fora do React): backtests, técnica
+    // e aprendizado diário mudam sem que `sessions` mude. Não é lido no cálculo
+    // de propósito — por isso o lint é silenciado só nesta linha.
+    // eslint-disable-next-line react-hooks/exhaustive-deps -- gatilho de releitura do store
   }, [sessions, revision]);
 
   return (

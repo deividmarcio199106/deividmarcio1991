@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import { Bot, FlaskConical } from "lucide-react";
 
 import { AnalysisCockpit } from "@/components/analysis/AnalysisCockpit";
-import { useAnalyzer } from "@/components/AnalyzerProvider";
+import { useAnalyzer } from "@/components/analyzerContext";
 import { PipelineDiagnosticsCard } from "@/components/t4/PipelineDiagnosticsCard";
 import { RecordingStatusCard } from "@/components/t4/RecordingStatusCard";
 import { Badge } from "@/components/ui/badge";

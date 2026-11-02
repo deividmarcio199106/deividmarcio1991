@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 
-import { useAnalyzer } from "@/components/AnalyzerProvider";
+import { useAnalyzer } from "@/components/analyzerContext";
 import { STRATEGY_VERSION } from "@/lib/engines/strategy";
 import { cn } from "@/lib/utils";
 

@@ -1259,7 +1259,10 @@ export function useContinuousBacktest(asset: string) {
 
   const evidence = useMemo(
     () => evaluateEvidence(filterEvidenceTrades(store.backtests())),
-    // recalculado quando novas operações entram na base
+    // recalculado quando novas operações entram na base: `store` é um cache
+    // mutável fora do React, e `counters.trades` é o gatilho de releitura —
+    // não é lido no cálculo de propósito, por isso o lint é silenciado aqui.
+    // eslint-disable-next-line react-hooks/exhaustive-deps -- gatilho de releitura do store
     [counters.trades],
   );
 

@@ -3,7 +3,7 @@ import { useCallback, useState, useSyncExternalStore } from "react";
 import { useServerFn } from "@tanstack/react-start";
 import { Bot, Download, Play, Search, Terminal } from "lucide-react";
 
-import { useAnalyzer } from "@/components/AnalyzerProvider";
+import { useAnalyzer } from "@/components/analyzerContext";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";

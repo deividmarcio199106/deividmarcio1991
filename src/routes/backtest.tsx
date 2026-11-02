@@ -5,7 +5,7 @@ import { Pause, Play, Power, RotateCcw, ShieldAlert } from "lucide-react";
 
 import { AnalysisCockpit } from "@/components/analysis/AnalysisCockpit";
 import { latestAiValidation } from "@/lib/aiPrintValidation.functions";
-import { useAnalyzer } from "@/components/AnalyzerProvider";
+import { useAnalyzer } from "@/components/analyzerContext";
 import { AnalystAssistant } from "@/components/learning/AnalystAssistant";
 import { CaptureConsole } from "@/components/live/CaptureConsole";
 import { Badge } from "@/components/ui/badge";
@@ -174,6 +174,9 @@ function BacktestPage() {
       legacyCount,
     };
     // revision força releitura periódica do cache hidratado do banco persistente
+    // (`store` é mutável e vive fora do React). Não é lido no cálculo de
+    // propósito — por isso o lint é silenciado só nesta linha.
+    // eslint-disable-next-line react-hooks/exhaustive-deps -- gatilho de releitura do store
   }, [revision]);
 
   return (
