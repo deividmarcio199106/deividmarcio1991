@@ -49,13 +49,41 @@ describe("domínio próprio do Meetly", () => {
       "/meetly/logo.png",
       "/assets/index-abc123.js",
       "/robots.txt",
+      "/favicon.ico",
     ]) {
       expect(meetlyHostGate(req(path), HOSTS)).toBeNull();
     }
   });
 
-  it("usa o X-Forwarded-Host do proxy quando presente", () => {
-    const viaProxy = req("/", "127.0.0.1:8081", { "x-forwarded-host": "reuniao.dvdswap.com.br" });
-    expect(meetlyHostGate(viaProxy, HOSTS)!.status).toBe(302);
+  it("ignora X-Forwarded-Host do cliente (só o Host, que o Nginx define, conta)", () => {
+    // Cliente no domínio do Meetly tentando se passar pelo analisador:
+    const spoofed = req("/api/trading/snapshot", "reuniao.dvdswap.com.br", {
+      "x-forwarded-host": "analisador.dvdswap.com.br",
+    });
+    expect(meetlyHostGate(spoofed, HOSTS)!.status).toBe(404);
+    // E o contrário não liga o filtro no domínio do analisador.
+    const other = req("/", "analisador.dvdswap.com.br", {
+      "x-forwarded-host": "reuniao.dvdswap.com.br",
+    });
+    expect(meetlyHostGate(other, HOSTS)).toBeNull();
+  });
+
+  it("caminhos codificados não burlam o filtro", () => {
+    for (const path of [
+      "/%5FserverFn/abc",
+      "/%5f%73erverFn/abc/x.js",
+      "/_server%46n/abc",
+      "/%2E%2E/_serverFn/abc",
+      "/meetly/../_serverFn/abc",
+      "/meetly/%2e%2e/api/trading/snapshot",
+      "//_serverFn/abc",
+      "/%61pi/trading/snapshot",
+      "/assets/../_serverFn/abc.js",
+    ]) {
+      expect(meetlyHostGate(req(path), HOSTS)!.status, path).toBe(404);
+    }
+    // Página do analisador com extensão falsa: redireciona, não passa.
+    expect(meetlyHostGate(req("/analisar-print/x.js"), HOSTS)!.status).toBe(302);
+    expect(meetlyHostGate(req("/%61nalisar-print"), HOSTS)!.status).toBe(302);
   });
 });
